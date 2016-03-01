@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKey("left")) && (SpeedX < MaxSpeed))
-            SpeedX = SpeedX - Acceleration * Time.deltaTime;
-        else if ((Input.GetKey("right")) && (SpeedX > -MaxSpeed))
+        if ((Input.GetKey("right")) && (SpeedX < MaxSpeed))
             SpeedX = SpeedX + Acceleration * Time.deltaTime;
+        else if ((Input.GetKey("left")) && (SpeedX > -MaxSpeed))
+            SpeedX = SpeedX - Acceleration * Time.deltaTime;
         else
         {
             if (SpeedX > Deceleration * Time.deltaTime)
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
                 SpeedX = 0;
         }
 
-        if ((Input.GetKey("down")) && (SpeedZ < MaxSpeed))
-            SpeedZ = SpeedZ - Acceleration * Time.deltaTime;
-        else if ((Input.GetKey("up")) && (SpeedZ > -MaxSpeed))
+        if ((Input.GetKey("up")) && (SpeedZ < MaxSpeed))
             SpeedZ = SpeedZ + Acceleration * Time.deltaTime;
+        else if ((Input.GetKey("down")) && (SpeedZ > -MaxSpeed))
+            SpeedZ = SpeedZ - Acceleration * Time.deltaTime;
         else
         {
             if (SpeedZ > Deceleration * Time.deltaTime)
@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
                 SpeedZ = 0;
         }
 
+        Debug.Log("X : " + SpeedX);
+        Debug.Log("Z : " + SpeedZ);
+
         Vector3 _movement = Vector3.zero;
 
         _movement.x = transform.position.x + SpeedX * Time.deltaTime;
@@ -58,8 +61,13 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(_movement);
     }
 
-    public void modifyMaxSpeed(float _modifier)
+    public void multiplySpeed(float _modifier)
     {
         MaxSpeed *= _modifier;
+    }
+
+    public void divideSpeed(float _modifier)
+    {
+        MaxSpeed /= _modifier;
     }
 }
