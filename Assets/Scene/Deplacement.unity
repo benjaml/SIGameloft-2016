@@ -224,7 +224,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 92634872}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0.78, y: -6.32, z: 103.59}
+  m_LocalPosition: {x: -0.78, y: -3.92, z: 102.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1752717398}
@@ -247,14 +247,9 @@ MonoBehaviour:
   turnSpeed: 20
   jumpSpeed: 100
   gravity: 150
-  currentSpiral: {fileID: 0}
-  currentMinY: 0
-  currentMaxY: 0
   gravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
   isGrounded: 0
-  curDir: 0
-  mouseSensibility: 20
 --- !u!54 &92634878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -432,7 +427,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 745017189}
   - 33: {fileID: 745017192}
-  - 65: {fileID: 745017191}
   - 23: {fileID: 745017190}
   m_Layer: 0
   m_Name: Cube
@@ -479,18 +473,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &745017191
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 745017188}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &745017192
 MeshFilter:
   m_ObjectHideFlags: 0
