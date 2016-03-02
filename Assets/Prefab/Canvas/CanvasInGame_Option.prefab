@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11494742, guid: ace3e5d388853424280044ea4d41fcb9, type: 2}
         m_MethodName: Controls
         m_Mode: 1
         m_Arguments:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11494742, guid: ace3e5d388853424280044ea4d41fcb9, type: 2}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
