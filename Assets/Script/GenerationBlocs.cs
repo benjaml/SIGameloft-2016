@@ -44,20 +44,17 @@ public class GenerationBlocs : MonoBehaviour {
             if(myListGlobal.Count - 1>0)
             {
                 GameObject _lastObject = myListGlobal[myListGlobal.Count - 1];
-                GameObject _lastObjectChild = _lastObject.transform.GetChild(2).gameObject;
-                Debug.Log(_lastObject.transform.GetChild(1).name);
-                Vector3 _heightEnd = _lastObjectChild.transform.position; //local?
+                GameObject _lastObjectChild = _lastObject.transform.GetComponent<StartEndManager>().End.gameObject;
+                Vector3 _heightEnd = _lastObjectChild.transform.position;
 
                 //Get the distance between the previous "end" and the actual "start"
 
-                float _heightDifference = Vector3.Distance(blocLDTest.transform.GetChild(1).transform.position, _lastObjectChild.transform.position);
+                float _heightDifference = Vector3.Distance(blocLDTest.transform.GetComponent<StartEndManager>().Start.transform.position, _heightEnd);
 
 
                 //set the position of the actual bloc 
                 bloc.transform.position = new Vector3(transform.position.x, transform.position.y - _heightDifference, transform.position.z) * -1;
             }
-           
-
 
             myListGlobal.Add(bloc);
 
