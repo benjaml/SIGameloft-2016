@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22478996}
+  - 114: {fileID: 11444016}
   m_Layer: 5
   m_Name: ManagerButton
   m_TagString: Untagged
@@ -15,6 +16,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11444016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b677ab72e9bad43a1ee32405fa5ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &22478996
 RectTransform:
   m_ObjectHideFlags: 1
