@@ -10,12 +10,19 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+
+    public Spiral currentSpiral;
+    public float currentMinY = 0.0f;
+    public float currentMaxY = 0.0f;
+
     public Vector3 gravityCenter;
     private Vector3 targetPosition;
     private Vector3 forwardDirection;
     private Quaternion targetRotation;
+    private Vector3 lookDirection;
     public Vector3 gravityDirection;
     private Rigidbody rb;
+    private bool onSpiral = false;
     private Vector3 moveDirection = Vector3.zero;
     public bool isGrounded = false;
     public float curDir = 0.0f;
@@ -36,29 +43,48 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit))
         {
+            if (hit.transform.tag == "spiral")
+            {
+                onSpiral = true;
+            }
+            else
+            {
+                onSpiral = false;
+            }
             if (hit.transform.tag == "floor")
             {
-                targetRotation = Quaternion.FromToRotation(transform.up, hit.normal)*transform.rotation;
-                gravityCenter = hit.point - hit.normal*hit.transform.localScale.z*cylinderRadius;
+                gravityCenter = hit.point - hit.normal*hit.transform.localScale.z* cylinderRadius;
+                targetRotation = Quaternion.FromToRotation(transform.up, (transform.position-gravityCenter).normalized );
             }
+
         }
+        //RaycastHit hit2;
+
         //update the player forward direction with the spiral
         if (Physics.Raycast(transform.position+transform.forward*0.1f, - transform.up, out hit))
         {
             Debug.DrawLine(transform.position + transform.forward,
-                transform.position + transform.forward - transform.up);
+                transform.position + transform.forward - transform.up,Color.blue);
 
             if (hit.transform.tag == "floor")
             {
-                Vector3 secondGravityCenter = hit.point - hit.normal * hit.transform.localScale.z * cylinderRadius;
+                Vector3 secondGravityCenter = hit.point - hit.normal * hit.transform.localScale.z*cylinderRadius;
+                Debug.DrawLine(hit.point, hit.normal, Color.green);
 
+                Debug.DrawLine(gravityCenter, gravityCenter + Vector3.up * 5, Color.red);
+                Debug.DrawLine(gravityCenter, gravityCenter - Vector3.up * 5, Color.red);
+                Debug.DrawLine(gravityCenter, gravityCenter + Vector3.right * 5, Color.red);
+                Debug.DrawLine(gravityCenter, gravityCenter - Vector3.right * 5, Color.red);
                 Debug.DrawLine(secondGravityCenter, secondGravityCenter + Vector3.up*5,Color.red);
                 Debug.DrawLine(secondGravityCenter, secondGravityCenter - Vector3.up*5, Color.red);
                 Debug.DrawLine(secondGravityCenter, secondGravityCenter + Vector3.right*5, Color.red);
                 Debug.DrawLine(secondGravityCenter, secondGravityCenter - Vector3.right*5,Color.red);
-                targetRotation = Quaternion.FromToRotation(transform.forward, secondGravityCenter-gravityCenter) * transform.rotation;
+                lookDirection = (secondGravityCenter - gravityCenter).normalized;
+                Debug.DrawLine(transform.position, lookDirection, Color.red);
+
             }
         }
+        targetRotation *= transform.rotation;
         float tmpGrav = gravity;
         gravityDirection = gravityCenter - transform.position;
         gravityDirection.Normalize();
@@ -98,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     void ApplyMovement()
     {
         rb.MovePosition(Vector3.Lerp(transform.position, targetPosition, 0.5f));
-        rb.MoveRotation(transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.5f));
+        rb.MoveRotation( Quaternion.Slerp(transform.rotation, targetRotation, 0.1f));
     }
     
     void OnCollisionEnter(Collision col)
