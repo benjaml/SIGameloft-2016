@@ -148,7 +148,8 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 710d3d284b557ec4aa158e016987a04e, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 3c3169e51d4b8464b953f26c8fc1a368, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 3c3169e51d4b8464b953f26c8fc1a368, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &92634872
@@ -227,10 +228,9 @@ Transform:
   m_LocalPosition: {x: -0.78, y: -3.92, z: 102.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1752717398}
   - {fileID: 745017189}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &92634877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cylinderRadius: 5
-  speed: 100
+  speed: 50
   turnSpeed: 20
   jumpSpeed: 100
   gravity: 150
@@ -446,7 +446,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 92634876}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!23 &745017190
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ Transform:
   m_LocalScale: {x: 5.720928, y: 5.720929, z: 5.720929}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1752717393
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +567,7 @@ GameObject:
   - 92: {fileID: 1752717396}
   - 124: {fileID: 1752717395}
   - 81: {fileID: 1752717394}
+  - 114: {fileID: 1752717399}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -635,12 +636,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752717393}
-  m_LocalRotation: {x: 0.055470124, y: 0.005959457, z: -0.00069512404, w: 0.99844235}
-  m_LocalPosition: {x: -0.34506527, y: 1.4125253, z: -4.1155596}
+  m_LocalRotation: {x: -0.00069513306, y: 0.99844235, z: -0.055470124, w: -0.0059596193}
+  m_LocalPosition: {x: -0.43493336, y: -2.507475, z: 106.695564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 92634876}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+--- !u!114 &1752717399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752717393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76806479d916a64aa03f8e3eba7912f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 92634876}
+  distance: 10
+  height: 5
+  rotationDamping: 10
+  heightDamping: 10
 --- !u!1 &2016417225 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 3c3169e51d4b8464b953f26c8fc1a368, type: 3}

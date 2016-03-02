@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     
     void ApplyMovement()
     {
-        rb.MovePosition(Vector3.Lerp(transform.position, targetPosition, 0.5f));
+        rb.MovePosition(Vector3.Lerp(transform.position, targetPosition, 0.3f));
         rb.MoveRotation( Quaternion.Slerp(transform.rotation, targetRotation, 0.1f));
     }
     
