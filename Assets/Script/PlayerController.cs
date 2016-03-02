@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour
                 SpeedZ = 0;
         }
 
-        Debug.Log(rb.velocity);
-
         Vector3 _movement = Vector3.zero;
 
         _movement.x = transform.position.x + SpeedX * Time.deltaTime;
@@ -61,12 +59,18 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
     }
 
-    public void multiplySpeed(float _modifier)
+    public void reduceCurrentSpeed(float _modifier)
+    {
+        SpeedX /= _modifier;
+        SpeedZ /= _modifier;
+    }
+
+    public void multiplySpeedMax(float _modifier)
     {
         MaxSpeed *= _modifier;
     }
 
-    public void divideSpeed(float _modifier)
+    public void divideSpeedMax(float _modifier)
     {
         MaxSpeed /= _modifier;
     }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VitesseModifier : MonoBehaviour {
+public class AreaSpeedModifier : MonoBehaviour {
 
     public float modifierSpeedMax = 2;
     public bool decelerate = false;
@@ -10,16 +10,15 @@ public class VitesseModifier : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
-            Debug.Log("Enter : " + decelerate);
             PlayerController _controller = col.gameObject.GetComponent<PlayerController>();
 
             if (decelerate)
             {
-                _controller.divideSpeed(modifierSpeedMax);
+                _controller.divideSpeedMax(modifierSpeedMax);
             }
             else
             {
-                _controller.multiplySpeed(modifierSpeedMax);
+                _controller.multiplySpeedMax(modifierSpeedMax);
             }
         }
     }
@@ -28,16 +27,15 @@ public class VitesseModifier : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("Exit : " + decelerate);
             PlayerController _controller = col.gameObject.GetComponent<PlayerController>();
 
             if (decelerate)
             {
-                _controller.multiplySpeed(modifierSpeedMax);
+                _controller.multiplySpeedMax(modifierSpeedMax);
             }
             else
             {
-                _controller.divideSpeed(modifierSpeedMax);
+                _controller.divideSpeedMax(modifierSpeedMax);
             }
         }
     }
