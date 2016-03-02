@@ -49,8 +49,7 @@ public class PlayerController : MonoBehaviour
                 SpeedZ = 0;
         }
 
-        Debug.Log("X : " + SpeedX);
-        Debug.Log("Z : " + SpeedZ);
+        Debug.Log(rb.velocity);
 
         Vector3 _movement = Vector3.zero;
 
@@ -59,6 +58,7 @@ public class PlayerController : MonoBehaviour
         _movement.y = transform.position.y;
 
         rb.MovePosition(_movement);
+        rb.velocity = Vector3.zero;
     }
 
     public void multiplySpeed(float _modifier)
