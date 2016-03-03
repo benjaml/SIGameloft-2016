@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
 
     public float cylinderRadius = 2.5f;
     public float distanceFromCenter = 5f;
+    private float heightModificator;
     public float speed = 6.0F;
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
@@ -25,25 +25,30 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
-    // réference sur le rigidbody
-    private Rigidbody rb;
     
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
 
     void Update()
     {
-        isGrounded = distanceFromCenter < 5.0f ? true : false;
+        //heightModificator -= CONDITION ? SI OUI: SI NON;
+        heightModificator -= Input.GetKey(KeyCode.E) ? 0.03f : 0.0f;
+        heightModificator += Input.GetKey(KeyCode.Z) ? 0.03f : 0.0f;
+        heightModificator = Mathf.Clamp(heightModificator, -1.5f, 2.0f);
+        heightModificator *= 0.95f;
+        distanceFromCenter = 5.0f + heightModificator;
 
-        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
-            return;
+
+        isGrounded = distanceFromCenter <10.0f ? true : false;
+
+        /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
+            return;*/
 
         // update gravity center
-            RaycastHit hit;
+        RaycastHit hit;
         /* je fait un raycast vers le bas du joueur pour rentrer en collision avec la spirale
          * Une fois que j'ai le point de collision avec la spirale, je récupère la normal au point de collision
          * Pour avoir le centre de la spirale, je prend le point de collision ou je retire la normal * le radius du tube*/
@@ -57,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
                 // petite méthode magique pour faire des rotation propre tu met la direction que tu veux changer et celle que tu veux et il la met bien
                 // le soucis de transform.up = (transform.position-gravityCenter).normalized, c'est qu'il te donne la bonne orientation mais tu as pas la bonne transform.rotation
                 // tu peux te retrouver a regarder dans une toute autre direction
+                // A-->B    positionB-positionA ( !! penser a normaliser )
                 targetRotation = Quaternion.FromToRotation(transform.up, (transform.position - gravityCenter).normalized);
             }
 
@@ -73,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         {
             
             //Debug.DrawLine(transform.position + transform.forward,transform.position + transform.forward - transform.up*10.0f,Color.blue);
-
             if (hit.transform.tag == "floor")
             {
                 secondGravityCenter = hit.point - (hit.normal *cylinderRadius);
@@ -87,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         // on applique les transformation de rotation a la rotation actuelle
-        targetRotation *= transform.rotation;
+        //targetRotation *= transform.rotation;
         //float tmpGrav = gravity;
         gravityDirection = gravityCenter - transform.position;
         //gravityDirection.Normalize();
@@ -116,9 +121,31 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
+        transform.rotation = Quaternion.Slerp(transform.rotation,transform.rotation*Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized), 0.01f);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
+
+
+
         Debug.DrawLine(transform.position, transform.position + (secondGravityCenter - gravityCenter).normalized*10.0f,Color.red);
-        transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized), 0.01f);
+
+
+
+
+
+        /*if (transform.position.y > gravityCenter.y)
+        {
+            Debug.Log("YES");
+        }
+        else
+        {
+            Debug.Log("NO");
+            Quaternion tmpRot = Quaternion.FromToRotation(transform.forward, transform.forward - (secondGravityCenter - gravityCenter).normalized);
+            tmpRot.x *= -1;
+            transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation * tmpRot, 0.01f);
+            
+        }*/
+
     }
 
     void DebugPoint(Vector3 position, Color color)
