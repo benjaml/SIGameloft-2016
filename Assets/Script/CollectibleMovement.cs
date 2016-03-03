@@ -4,7 +4,7 @@ using System.Collections;
 public class CollectibleMovement : MonoBehaviour
 {
     public Transform target;            // The position that that camera will be following.
-    public float smoothing = 1f;        // The speed with which the camera will be following.
+    private float smoothing = 10f;        // The speed with which the camera will be following.
 
     Vector3 offsetPos;                     // The initial offset from the target.
     //Vector3 offsetRot;
