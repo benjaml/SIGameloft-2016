@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cylinderRadius: 5
-  speed: 50
-  turnSpeed: 20
+  speed: 200
+  turnSpeed: 30
   jumpSpeed: 100
   gravity: 150
   gravityCenter: {x: 0, y: 0, z: 0}
@@ -567,6 +567,7 @@ GameObject:
   - 92: {fileID: 1752717396}
   - 124: {fileID: 1752717395}
   - 81: {fileID: 1752717394}
+  - 114: {fileID: 1752717400}
   - 114: {fileID: 1752717399}
   m_Layer: 0
   m_Name: Main Camera
@@ -636,7 +637,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752717393}
-  m_LocalRotation: {x: -0.00069513306, y: 0.99844235, z: -0.055470124, w: -0.0059596193}
+  m_LocalRotation: {x: -0.000000009037696, y: 0.9984602, z: -0.05547298, w: -0.00000016266982}
   m_LocalPosition: {x: -0.43493336, y: -2.507475, z: 106.695564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -658,6 +659,19 @@ MonoBehaviour:
   height: 5
   rotationDamping: 10
   heightDamping: 10
+--- !u!114 &1752717400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752717393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39075b625f043540a37f74627818cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 92634876}
+  rotationDamping: 10
 --- !u!1 &2016417225 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 3c3169e51d4b8464b953f26c8fc1a368, type: 3}

@@ -32,16 +32,18 @@ namespace UnityStandardAssets.Utility
 
 			// Calculate the current rotation angles
 			var wantedRotationAngle = target.eulerAngles.y;
+            var wantedRotationAngle2 = target.eulerAngles;
 			var wantedHeight = target.position.y + height;
 
 			var currentRotationAngle = transform.eulerAngles.y;
+            var currentRotationAngle2 = transform.eulerAngles;
 			var currentHeight = transform.position.y;
 
 			// Damp the rotation around the y-axis
 			currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
 
-			// Damp the height
-			currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+            // Damp the height
+            currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
 			// Convert the angle into a rotation
 			var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
@@ -51,8 +53,10 @@ namespace UnityStandardAssets.Utility
 			transform.position = target.position;
 			transform.position -= currentRotation * Vector3.forward * distance;
 
-			// Set the height of the camera
-			transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x ,currentHeight , transform.position.z),0.1f);
+            //transform.rotation = Quaternion.FromToRotation(currentRotationAngle2, wantedRotationAngle2);
+
+            // Set the height of the camera
+            transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x ,currentHeight , transform.position.z),0.1f);
 
 			// Always look at the target
 			transform.LookAt(target);
