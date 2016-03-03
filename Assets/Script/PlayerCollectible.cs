@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCollectible : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public List<GameObject> listCollectible = new List<GameObject>();
+    public GameObject collectibleTarget;
+    //private GameObject lastObject = this;
+
+    void Start ()
+    {
+        listCollectible.Add(collectibleTarget);
+    }
+
+    void OnTriggerEnter (Collider col)
+    {
+        if (col.tag == "collectible")
+        {
+            col.transform.position = new Vector3();
+            col.GetComponent<CollectibleMovement>().collected = true;
+        }
+    }
 }
