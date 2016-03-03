@@ -3,42 +3,42 @@ using System.Collections;
 
 public class CollectibleMovement : MonoBehaviour
 {
-    public Transform target;            // The position that that camera will be following.
-    private float smoothing = 10f;      // The speed with which the camera will be following.
+    public Transform targetCollectible;
+    public Transform previousTarget;            // The position that that camera will be following.
+    private float smoothing = 20f;      // The speed with which the camera will be following.
     public bool collected;
     public GameObject Player;
 
-    private Vector3 offsetPos;                  // The initial offset from the target.
- 
+    private Vector3 offsetPos;                  // The initial offset from the previousTarget.
+
+
 
     void Start()
     {
+        targetCollectible = Player.GetComponent<PlayerCollectible>().targetCollectible.transform;
         collected = false;
-        // Calculate the initial offset.
-       // offsetPos = transform.position - target.position;
-
     }
 
     public void offsetInitialisation ()
     {
-        target = Player.GetComponent<PlayerCollectible>()._lastObject.transform;
-        offsetPos = transform.position - target.position;
+        previousTarget = Player.GetComponent<PlayerCollectible>().lastObject.transform;
+        offsetPos = (transform.position - previousTarget.position);
     }
 
     void FixedUpdate()
     {
         if (collected == true)
         {
-            // Create a postion the camera is aiming for based on the offset from the target.
-            Vector3 targetCamPos = new Vector3(target.position.x, target.position.y, target.position.z) + offsetPos;
+            // Create a postion the camera is aiming for based on the offset from the previousTarget.
+            Vector3 _targetPos = new Vector3(targetCollectible.position.x, targetCollectible.position.y , previousTarget.position.z) + offsetPos;
 
-            // Smoothly interpolate between the camera's current position and it's target position.
-            transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
+            // Smoothly interpolate between the camera's current position and it's previousTarget position.
+            transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing * Time.deltaTime);
 
 
 
-            //Keep the same rotation than the target
-            transform.eulerAngles = target.eulerAngles;
+            //Keep the same rotation than the previousTarget
+            transform.eulerAngles = previousTarget.eulerAngles;
         }
     }
 }
