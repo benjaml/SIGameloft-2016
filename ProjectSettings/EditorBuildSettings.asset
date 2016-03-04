@@ -4,10 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Clarisse_Menu.unity
-  - enabled: 1
-    path: Assets/Scenes/Clarisse_GameTest.unity
-  - enabled: 1
-    path: Assets/Scenes/Clarisse_Credits.unity
+  m_Scenes: []

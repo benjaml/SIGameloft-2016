@@ -7,10 +7,16 @@ public class PlayerMovement : MonoBehaviour
     public float cylinderRadius = 2.5f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
-    public float speed = 6.0F;
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+    public float baseSpeed = 50.0f;
+
+    private float SpeedX = 0;//Don't touch this
+    private float SpeedY = 0;
+    public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
+    public float Acceleration = 10;//How fast will object reach a maximum speed
+    public float Deceleration = 10;//How fast will object reach a speed of 0
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -35,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        heightModificator -= Input.GetKey(KeyCode.E) ? 0.03f : 0.0f;
-        heightModificator += Input.GetKey(KeyCode.Z) ? 0.03f : 0.0f;
-        heightModificator = Mathf.Clamp(heightModificator, -1.5f, 2.0f);
-        heightModificator *= 0.95f;
-        distanceFromCenter = 5.0f + heightModificator;
+        heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
+        heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
+        heightModificator = Mathf.Clamp(heightModificator, -2.5f, 2.0f);
+        heightModificator *= 0.98f;
+        distanceFromCenter = 4.5f + heightModificator;
 
 
         isGrounded = distanceFromCenter <10.0f ? true : false;
@@ -75,13 +81,13 @@ public class PlayerMovement : MonoBehaviour
         //update the player forward direction with the spiral
         // je refait un autre raycast mais devant le personnage pour récupérer le point de gravité un peu devant le personnage
         // pour réorienter le personnage, je prend le vecteur entre les 2 points de gravité pour l'appliquer au joueur
-        if (Physics.Raycast(transform.position+transform.forward, -transform.up, out hit))
+        if (Physics.Raycast(transform.position+transform.forward*2.0f, -transform.up, out hit))
         {
             
             //Debug.DrawLine(transform.position + transform.forward,transform.position + transform.forward - transform.up*10.0f,Color.blue);
             if (hit.transform.tag == "floor")
             {
-                secondGravityCenter = hit.point - (hit.normal * hit.transform.localScale.z * cylinderRadius);
+                secondGravityCenter = hit.point - (hit.normal *cylinderRadius);
                 
                 // permet de voir les points de gravité
                 Debug.DrawLine(hit.point, hit.normal, Color.green);
@@ -94,15 +100,17 @@ public class PlayerMovement : MonoBehaviour
         // on applique les transformation de rotation a la rotation actuelle
         //targetRotation *= transform.rotation;
         //float tmpGrav = gravity;
-        gravityDirection = (gravityCenter - transform.position).normalized;
+        gravityDirection = gravityCenter - transform.position;
         //gravityDirection.Normalize();
         if (isGrounded)
         {
+
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
-            moveDirection = Input.GetAxisRaw("Vertical")*transform.forward*speed;
+            moveDirection = transform.forward*calculateSpeedY();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += Input.GetAxisRaw("Horizontal")*transform.right*turnSpeed;
+            moveDirection += transform.right*calculateSpeedX();
+
             if (Input.GetButton("Jump"))
                 moveDirection += jumpSpeed*-gravityDirection;
 
@@ -115,37 +123,73 @@ public class PlayerMovement : MonoBehaviour
     
     void ApplyMovement()
     {
+        DebugPoint(targetPosition, Color.blue);
         DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter, Color.black);
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
-        transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
+        transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.5f);
         // on applique les modification de position et rotation en smooth
-        //Vector3 pointToLookAt = transform.position + (secondGravityCenter - gravityCenter).normalized;
-        Vector3 pointToLookAt = secondGravityCenter-gravityDirection*distanceFromCenter;
-        DebugPoint(pointToLookAt, Color.blue);
+        //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
+       
 
+    }
 
+    float calculateSpeedX()
+    {
+        float _xStick = Input.GetAxisRaw("Horizontal");
 
-        Debug.DrawLine(transform.position, transform.position + (secondGravityCenter - gravityCenter).normalized*10.0f,Color.red);
-
-
-
-
-
-        /*if (transform.position.y > gravityCenter.y)
-        {
-            Debug.Log("YES");
-        }
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed) && (SpeedX > -turnSpeed))
+            SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
         else
         {
-            Debug.Log("NO");
-            Quaternion tmpRot = Quaternion.FromToRotation(transform.forward, transform.forward - (secondGravityCenter - gravityCenter).normalized);
-            tmpRot.x *= -1;
-            transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation * tmpRot, 0.01f);
-            
-        }*/
+            if (SpeedX > Deceleration * Time.deltaTime)
+                SpeedX = SpeedX - Deceleration * Time.deltaTime;
+            else if (SpeedX < -Deceleration * Time.deltaTime)
+                SpeedX = SpeedX + Deceleration * Time.deltaTime;
+            else
+                SpeedX = 0;
+        }
 
+        return SpeedX;
+    }
+
+
+    float calculateSpeedY()
+    {
+        float _yStick = Input.GetAxisRaw("Vertical");
+
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed) && (SpeedY > -MaxSpeed))
+            SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
+        else
+        {
+            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime)
+                SpeedY = SpeedY - Deceleration * Time.deltaTime;
+            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime)
+                SpeedY = SpeedY + Deceleration * Time.deltaTime;
+            else
+                SpeedY = baseSpeed;
+        }
+
+        return SpeedY;
+    }
+
+    public void reduceCurrentSpeed(float _modifier)
+    {
+        SpeedX /= _modifier;
+        SpeedY /= _modifier;
+    }
+
+    public void multiplySpeedMax(float _modifier)
+    {
+        MaxSpeed *= _modifier;
+        turnSpeed *= _modifier;
+    }
+
+    public void divideSpeedMax(float _modifier)
+    {
+        MaxSpeed /= _modifier;
+        turnSpeed /= _modifier;
     }
 
     void DebugPoint(Vector3 position, Color color)
