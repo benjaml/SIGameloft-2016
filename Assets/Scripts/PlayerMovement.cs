@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         //update the player forward direction with the spiral
         // je refait un autre raycast mais devant le personnage pour récupérer le point de gravité un peu devant le personnage
         // pour réorienter le personnage, je prend le vecteur entre les 2 points de gravité pour l'appliquer au joueur
-        if (Physics.Raycast(transform.position+transform.forward, -transform.up, out hit))
+        if (Physics.Raycast(transform.position+transform.forward*2.0f, -transform.up, out hit))
         {
             
             //Debug.DrawLine(transform.position + transform.forward,transform.position + transform.forward - transform.up*10.0f,Color.blue);
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
                 DebugPoint(gravityCenter, Color.red);
                 DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
-                lookRotation = Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
         }
         // on applique les transformation de rotation a la rotation actuelle
@@ -129,30 +129,9 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
-        transform.rotation = Quaternion.Slerp(transform.rotation,transform.rotation*Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized), 0.01f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
-
-
-
-        Debug.DrawLine(transform.position, transform.position + (secondGravityCenter - gravityCenter).normalized*10.0f,Color.red);
-
-
-
-
-
-        /*if (transform.position.y > gravityCenter.y)
-        {
-            Debug.Log("YES");
-        }
-        else
-        {
-            Debug.Log("NO");
-            Quaternion tmpRot = Quaternion.FromToRotation(transform.forward, transform.forward - (secondGravityCenter - gravityCenter).normalized);
-            tmpRot.x *= -1;
-            transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation * tmpRot, 0.01f);
-            
-        }*/
+       
 
     }
 

@@ -60,10 +60,15 @@ namespace UnityStandardAssets.Utility
 
             //Apply rotations to smooth the movement of cam
             transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
+
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
 
+            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
+
             // Always look at the target, but is shaky
-            transform.LookAt(target, target.up);
+            //transform.LookAt(target, target.up);
         }
-	}
+    }
 }

@@ -29,7 +29,6 @@ public class PlayerCollectible : MonoBehaviour {
             {
                 listCollectible.Add(col.gameObject);
                 lastObject = listCollectible[listCollectible.Count - 2];
-                Debug.Log(lastObject.name);
             }
 
             randomWidth = Random.Range(-3f, 3);
@@ -45,7 +44,6 @@ public class PlayerCollectible : MonoBehaviour {
             col.GetComponent<CollectibleMovement>().offsetInitialisation();
 
             col.GetComponent<CollectibleMovement>().collected = true;
-            Debug.Log("Je vais jusque ici");
             col.transform.gameObject.tag = "collected";
 
         }

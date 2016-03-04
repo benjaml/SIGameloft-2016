@@ -27,7 +27,7 @@ public class CollectibleMovement : MonoBehaviour
         offsetPos = (transform.position - previousTarget.position);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (collected == true)
         {
@@ -35,7 +35,7 @@ public class CollectibleMovement : MonoBehaviour
             Vector3 _targetPos = new Vector3(targetCollectible.position.x, previousTarget.position.y, previousTarget.position.z) + (offsetPos/3);
 
             // Smoothly interpolate between the camera's current position and it's previousTarget position.
-            transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing*Time.deltaTime);
 
 
 
