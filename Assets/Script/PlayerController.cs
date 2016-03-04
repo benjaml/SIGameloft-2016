@@ -21,10 +21,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKey("right")) && (SpeedX < MaxSpeed))
-            SpeedX = SpeedX + Acceleration * Time.deltaTime;
-        else if ((Input.GetKey("left")) && (SpeedX > -MaxSpeed))
-            SpeedX = SpeedX - Acceleration * Time.deltaTime;
+        float _xStick = Input.GetAxisRaw("Horizontal");
+        float _yStick = Input.GetAxisRaw("Vertical");
+
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < MaxSpeed))
+            SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
         else
         {
             if (SpeedX > Deceleration * Time.deltaTime)
@@ -35,10 +36,8 @@ public class PlayerController : MonoBehaviour
                 SpeedX = 0;
         }
 
-        if ((Input.GetKey("up")) && (SpeedZ < MaxSpeed))
-            SpeedZ = SpeedZ + Acceleration * Time.deltaTime;
-        else if ((Input.GetKey("down")) && (SpeedZ > -MaxSpeed))
-            SpeedZ = SpeedZ - Acceleration * Time.deltaTime;
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedZ < MaxSpeed))
+            SpeedZ = SpeedZ + _yStick * Acceleration * Time.deltaTime;
         else
         {
             if (SpeedZ > Deceleration * Time.deltaTime)
