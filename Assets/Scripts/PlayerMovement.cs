@@ -43,9 +43,9 @@ public class PlayerMovement : MonoBehaviour
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
         heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
-        heightModificator = Mathf.Clamp(heightModificator, -1.5f, 2.0f);
-        heightModificator *= 0.95f;
-        distanceFromCenter = 5.0f + heightModificator;
+        heightModificator = Mathf.Clamp(heightModificator, -2.5f, 2.0f);
+        heightModificator *= 0.98f;
+        distanceFromCenter = 4.5f + heightModificator;
 
 
         isGrounded = distanceFromCenter <10.0f ? true : false;
@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         DebugPoint(targetPosition, Color.blue);
         DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter, Color.black);
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
-        transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
+        transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.5f);
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 

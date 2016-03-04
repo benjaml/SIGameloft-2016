@@ -29,7 +29,11 @@ namespace UnityStandardAssets.Utility
         Vector3 smoothVel;
 
         // Use this for initialization
-        void Start() { }
+	    void Start()
+	    {
+	        //distance = Math
+
+	    }
 
 		// Update is called once per frame
 		void Update()
