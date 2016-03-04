@@ -13,49 +13,41 @@ namespace ParticlePlayground {
 		public float width;
 
 		bool _canRemove = false;
-		float _lastTimeUpdated;
 		
-		public TrailPoint (Vector3 position, float startLifetime, float creationTime)
+		public TrailPoint (Vector3 position, float startLifetime)
 		{
 			this.position = position;
 			this.lifetime = startLifetime;
 			this.startLifetime = startLifetime;
 			this.width = 0;
-
-			_lastTimeUpdated = creationTime;
 		}
 		
-		public TrailPoint (Vector3 position, float startLifetime, float width, float creationTime)
+		public TrailPoint (Vector3 position, float startLifetime, float width)
 		{
 			this.position = position;
 			this.lifetime = startLifetime;
 			this.startLifetime = startLifetime;
 			this.width = width;
-
-			_lastTimeUpdated = creationTime;
 		}
 
-		public TrailPoint (Vector3 position, Vector3 velocity, float startLifetime, float width, float creationTime)
+		public TrailPoint (Vector3 position, Vector3 velocity, float startLifetime, float width)
 		{
 			this.position = position;
 			this.lifetime = startLifetime;
 			this.startLifetime = startLifetime;
 			this.width = width;
 			this.velocity = velocity;
-
-			_lastTimeUpdated = creationTime;
 		}
 		
-		public void Update (float updateTime, float width)
+		public void Update (float deltaTime, float width)
 		{
-			lifetime -= updateTime-_lastTimeUpdated;
+			lifetime -= deltaTime;
 			if (lifetime <= 0)
 			{
 				_canRemove = true;
 				lifetime = 0;
 			}
 			this.width = width;
-			_lastTimeUpdated = updateTime;
 		}
 
 		/// <summary>

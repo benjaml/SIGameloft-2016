@@ -20,7 +20,7 @@ namespace ParticlePlayground {
 		
 		public static int meshQuantity;
 		public static int particlesQuantity;
-		public static float version = 3.03f;
+		public static float version = 3f;
 		public static string specialVersion = " ";
 		
 		
@@ -227,7 +227,7 @@ namespace ParticlePlayground {
 		/// Determines if Time.timeScale should affect the particle systems simulation time. If disabled you can keep simulating particles in normal speed detached from the scene's time scale.
 		/// </summary>
 		[HideInInspector] public bool globalTimeScale = true;
-		
+
 		/// <summary>
 		/// The thread pool method determines which thread pooling should be used.
 		/// ThreadPoolMethod.ThreadPool will use the .NET managed ThreadPool class (standard in Particle Playground in versions prior to 3).
@@ -248,15 +248,11 @@ namespace ParticlePlayground {
 		/// The maximum amount of threads that can be created. The amount of created threads will never exceed available CPUs.
 		/// </summary>
 		[HideInInspector] public int maxThreads = 8;
-		
-		#if UNITY_WSA && !UNITY_EDITOR
-		#else
 		/// <summary>
 		/// The Particle Playground-managed thread pool. The maxThreads value will determine how many threads will be available in the pool.
 		/// </summary>
 		public static PlaygroundQueue<Action> playgroundPool;
-		#endif
-		
+
 		bool isDoneThread = true;
 		bool isDoneThreadLocal = true;
 		bool isDoneThreadSkinned = true;
@@ -267,7 +263,7 @@ namespace ParticlePlayground {
 		static int activeThreads = 0;
 		static bool hasReference = false;
 		static bool hasPlaygroundPool = false;
-		
+
 		
 		/*************************************************************************************************************************************************
 			Playground private variables
@@ -1053,7 +1049,7 @@ namespace ParticlePlayground {
 				return null;
 			}
 		}
-		
+
 		/// <summary>
 		/// Instantiates a preset by category and name reference. The category is the name of the folder.
 		/// Any preset you wish to instantiate using this InstantiatePreset overload needs to be in a 'Resources/Presets/categoryName/' folder.
@@ -1065,7 +1061,7 @@ namespace ParticlePlayground {
 		{
 			return InstantiatePreset(categoryName+"/"+presetName);
 		}
-		
+
 		/// <summary>
 		/// Determines if the Playground Manager has its reference assigned.
 		/// </summary>
@@ -1073,7 +1069,7 @@ namespace ParticlePlayground {
 		public static bool HasReference () {
 			return hasReference;
 		}
-		
+
 		/// <summary>
 		/// Determines if the Playground Manager has a Playground Pool assigned.
 		/// </summary>
@@ -1296,7 +1292,7 @@ namespace ParticlePlayground {
 		/// Initializes the Playground Manager.
 		/// </summary>
 		public IEnumerator InitializePlayground () {
-			
+
 			// Check for duplicates of the Playground Manager
 			if (reference!=null && reference!=this) {
 				yield return null;
@@ -1328,7 +1324,7 @@ namespace ParticlePlayground {
 					i--;
 				}
 			}
-			
+
 			// Set quantity counter
 			particlesQuantity = particleSystems.Count;
 			
@@ -1370,7 +1366,7 @@ namespace ParticlePlayground {
 			// Set interval stamp
 			lastTimeUpdated = globalTime;
 		}
-		
+
 		/// <summary>
 		/// Sets the maximum threads allowed. When using Thread Pool Method: Playground Pool this will set the amount of reused threads.
 		/// </summary>
@@ -1382,13 +1378,10 @@ namespace ParticlePlayground {
 			processorCount = SystemInfo.processorCount;
 			reference.threads = Mathf.Clamp (processorCount>1?processorCount-1:1, 1, reference.maxThreads);
 			reference._prevMaxThreadCount = reference.maxThreads;
-			
+
 			// Resize the Playground Pool if necessary
-			#if UNITY_WSA && !UNITY_EDITOR
-			#else
 			if (reference.threadPoolMethod == ThreadPoolMethod.PlaygroundPool && playgroundPool != null)
 				playgroundPool.SetThreadPool(reference.maxThreads);
-			#endif
 		}
 		
 		static void CheckEvents () {
@@ -1406,7 +1399,7 @@ namespace ParticlePlayground {
 		// Initializes the Playground Manager.
 		// OnEnable is called in both Edit- and Play Mode.
 		void OnEnable () {
-			
+
 			// Cache the Playground reference
 			referenceTransform = transform;
 			referenceGameObject = gameObject;
@@ -1414,7 +1407,7 @@ namespace ParticlePlayground {
 			// Initialize
 			StartCoroutine(InitializePlayground());
 		}
-		
+
 		// Set initial time
 		void Start () {SetTime();}
 		
@@ -1438,20 +1431,17 @@ namespace ParticlePlayground {
 			
 			// Check the global event delegates for availability
 			CheckEvents();
-			
+
 			// Determine that the reference is available
 			hasReference = reference != null;
-			
-			#if UNITY_WSA && !UNITY_EDITOR
-			#else
+
 			// Determine that a Playground Pool is available
 			hasPlaygroundPool = playgroundPool != null;
-			#endif
-			
+
 			// Update thread workers if maxThreads change
 			if (threadPoolMethod == ThreadPoolMethod.PlaygroundPool && maxThreads!=_prevMaxThreadCount)
 				SetMaxThreads (maxThreads);
-			
+
 			// Prepare all global manipulators
 			for (int m = 0; m<manipulators.Count; m++)
 				manipulators[m].Update();
@@ -1606,14 +1596,9 @@ namespace ParticlePlayground {
 		/// This runs before the threaded calculations as we otherwise experience teared presentation of their movement.
 		/// </summary>
 		void Update () {
-			#if UNITY_WSA && !UNITY_EDITOR
-			// Playground Pool is not compatible with Windows Store/Universal, fall back to the .NET Thread Pool
-			threadPoolMethod = ThreadPoolMethod.ThreadPool;
-			#endif
-			
 			int currentParticleSystemCount = particleSystems.Count;
 			for (int i = 0; i<particleSystems.Count; i++) {
-				
+									
 				// Handle any system additions or removals
 				if (currentParticleSystemCount > particleSystems.Count) {
 					if (i>0) {
@@ -1624,7 +1609,7 @@ namespace ParticlePlayground {
 					currentParticleSystemCount = particleSystems.Count;
 				}
 				if (particleSystems.Count==0 || i>=particleSystems.Count) {hasActiveParticleSystems=false; return;}
-				
+
 				// Update Shuriken
 				if (particleSystems[i]!=null &&
 				    !particleSystems[i].onlySourcePositioning &&
@@ -1643,7 +1628,7 @@ namespace ParticlePlayground {
 		
 		#if UNITY_EDITOR
 		void RefreshHieararchy () {
-			UnityEditor.EditorApplication.RepaintHierarchyWindow();
+			 UnityEditor.EditorApplication.RepaintHierarchyWindow();
 		}
 		#endif
 		
@@ -1791,7 +1776,7 @@ namespace ParticlePlayground {
 							if (particleSystems[i].isReadyForThreadedCalculations && particleSystems[i].threadMethod==ThreadMethodLocal.Inherit)
 								PlaygroundParticlesC.NewCalculatedThread(particleSystems[i]);
 						
-						// Particle systems more than processors
+					// Particle systems more than processors
 					} else {
 						int index = 0;
 						float systemsPerBundle = (activeSystems.Count*1f/threads*1f);
@@ -1817,17 +1802,12 @@ namespace ParticlePlayground {
 			threadAggregatorRuns++;
 		}
 		
-		#if UNITY_WSA && !UNITY_EDITOR
+		#if UNITY_METRO && !UNITY_EDITOR
 		/// <summary>
-		/// Runs an action asynchrounously on a second thread. This overload is only accessible for Windows Store/Universal compatibility. Use a lambda expression to pass data to another thread.
+		/// Runs an action asynchrounously on a second thread. Use a lambda expression to pass data to another thread.
 		/// </summary>
 		/// <param name="a">The action.</param>
 		public static void RunAsync (Action a) {
-			activeThreads++;
-			System.Threading.Tasks.Task.Run(() => a());
-		}
-		
-		public static void RunAsync (Action a, ThreadPoolMethod threadPoolMethod) {
 			activeThreads++;
 			System.Threading.Tasks.Task.Run(() => a());
 		}
@@ -1839,9 +1819,6 @@ namespace ParticlePlayground {
 		public static void RunAsync (Action a, ThreadPoolMethod threadPoolMethod) {
 			#if UNITY_WEBGL && !UNITY_EDITOR
 			a();
-			#elif UNITY_WSA && !UNITY_EDITOR
-			lock (locker)
-				ThreadPool.QueueUserWorkItem(RunAction, a);
 			#else
 			if (threadPoolMethod == ThreadPoolMethod.ThreadPool)
 				lock (locker)
@@ -1850,22 +1827,22 @@ namespace ParticlePlayground {
 				RunAsyncPlaygroundPool(a);
 			#endif
 		}
-		
+
 		public static void RunAsync (Action a) {
 			#if UNITY_WEBGL && !UNITY_EDITOR
 			a();
-			#elif UNITY_WSA && !UNITY_EDITOR
-			lock (locker)
-				ThreadPool.QueueUserWorkItem(RunAction, a);
 			#else
 			if (!HasReference() || reference.threadPoolMethod == ThreadPoolMethod.ThreadPool)
-				lock (locker) 
+			{
+				lock (locker) {
 					ThreadPool.QueueUserWorkItem(RunAction, a);
+				}
+			}
 			else
 				RunAsyncPlaygroundPool(a);
 			#endif
 		}
-		
+
 		public static void RunAsyncPlaygroundPool (Action a) {
 			#if UNITY_WEBGL && !UNITY_EDITOR
 			a();
@@ -1879,13 +1856,13 @@ namespace ParticlePlayground {
 			#endif
 		}
 		#endif
-		
+
 		private static void RunAction (object a) {
 			try {
 				((Action)a)();
 			} catch {}
 		}
-		
+
 		// Reset time when turning back to the editor
 		#if UNITY_EDITOR
 		public void OnApplicationPause (bool pauseStatus) {
@@ -1900,9 +1877,7 @@ namespace ParticlePlayground {
 		}
 		#endif
 	}
-	
-	#if UNITY_WSA && !UNITY_EDITOR
-	#else
+
 	/// <summary>
 	/// The Playground Queue class is a self-managed thread pool which consumes actions sent into EnqueueTask(Action).
 	/// </summary>
@@ -1923,7 +1898,6 @@ namespace ParticlePlayground {
 			_dequeueAction = dequeueAction;
 			_workers = new List<Thread>(workerCount);
 			
-			
 			// Create and start a separate thread for each worker
 			for (int i = 0; i<workerCount; i++)
 			{
@@ -1932,27 +1906,27 @@ namespace ParticlePlayground {
 				t.Start();
 			}
 		}
-		
+
 		public bool HasPool ()
 		{
 			return _workers.Count>0;
 		}
-		
+
 		public bool HasTasks ()
 		{
 			return _taskQueue.Count>0;
 		}
-		
+
 		public int ThreadPoolCount ()
 		{
 			return _workers.Count;
 		}
-		
+
 		public int TaskCount ()
 		{
 			return _taskQueue.Count;
 		}
-		
+
 		/// <summary>
 		/// Resizes the thread pool.
 		/// </summary>
@@ -2026,9 +2000,12 @@ namespace ParticlePlayground {
 		{
 			_workers.ForEach(thread => EnqueueTask(null));
 			_workers.ForEach(thread => thread.Join());
+			
 		}
 	}
-	#endif
+	
+	
+	
 	
 	/// <summary>
 	/// Holds information about a Paint source.
@@ -2726,7 +2703,7 @@ namespace ParticlePlayground {
 		public void SetNormal (int index, Vector3 v) {
 			normals[index] = v;
 		}
-		
+
 		/// <summary>
 		/// Returns position from parent's TransformPoint (can only be called from main-thread).
 		/// </summary>
@@ -3904,7 +3881,7 @@ namespace ParticlePlayground {
 				}
 			}
 		}
-		
+
 		/// <summary>
 		/// Sets a new transform to this Manipulator.
 		/// </summary>
@@ -4494,7 +4471,7 @@ namespace ParticlePlayground {
 			particleId = setParticleId;
 		}
 	}
-	
+
 	/// <summary>
 	/// Wrapper class for the Transform component. This is updated outside- and read inside the multithreaded environment.
 	/// </summary>
@@ -4577,7 +4554,7 @@ namespace ParticlePlayground {
 				inverseRotation.z=-inverseRotation.z;
 				localScale = transform.localScale;
 				lossyScale = transform.lossyScale;
-				
+
 				available = true;
 			} else {
 				available = false;
@@ -4725,7 +4702,7 @@ namespace ParticlePlayground {
 		public bool HasConstraints () {
 			return x||y||z;
 		}
-		
+
 		/// <summary>
 		/// Clone this PlaygroundAxisConstraintsC.
 		/// </summary>
@@ -5255,12 +5232,12 @@ namespace ParticlePlayground {
 		/// </summary>
 		Spline,
 	}
-	
+
 	public enum SOURCEBIRTHMETHOD {
 		BirthPositions,
 		ParticlePositions
 	}
-	
+
 	/// <summary>
 	/// The scale method. This is mainly used for Playground Transforms and determines if local- or lossy scale should be used when setting a transform matrix.
 	/// </summary>
@@ -5492,7 +5469,7 @@ namespace ParticlePlayground {
 		/// </summary>
 		Destroy
 	}
-	
+
 	/// <summary>
 	/// The thread pool method determines which thread pooling should be used.
 	/// ThreadPoolMethod.ThreadPool will use the .NET managed ThreadPool class (standard in Particle Playground in versions prior to 3).
@@ -5508,7 +5485,7 @@ namespace ParticlePlayground {
 		/// </summary>
 		PlaygroundPool
 	}
-	
+
 	/// <summary>
 	/// Multithreading method. This determines how particle systems calculate over the CPU. Keep in mind each thread will generate memory garbage which will be collected at some point.
 	/// Selecting ThreadMethod.NoThreads will make particle systems calculate on the main-thread.

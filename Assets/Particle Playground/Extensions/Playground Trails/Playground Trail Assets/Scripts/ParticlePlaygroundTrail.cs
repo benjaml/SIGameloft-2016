@@ -142,11 +142,11 @@ namespace ParticlePlayground {
 		/// <param name="dir">Direction.</param>
 		/// <param name="startWidth">Start width.</param>
 		/// <param name="lifetime">Lifetime.</param>
-		public void SetFirstPoint (Vector3 pos, Vector3 dir, float startWidth, float lifetime, float creationTime) 
+		public void SetFirstPoint (Vector3 pos, Vector3 dir, float startWidth, float lifetime) 
 		{
 			_particleDirection = dir;
-			AddPoint (pos, startWidth, lifetime, creationTime);
-			AddPoint (pos, startWidth, lifetime, creationTime);
+			AddPoint (pos, startWidth, lifetime);
+			AddPoint (pos, startWidth, lifetime);
 			_birthIterator = 2;
 			_deathIterator = 0;
 		}
@@ -158,10 +158,10 @@ namespace ParticlePlayground {
 		/// <param name="dir">Direction.</param>
 		/// <param name="startWidth">Start width.</param>
 		/// <param name="lifetime">Lifetime.</param>
-		public void SetLastPoint (Vector3 pos, Vector3 dir, float startWidth, float lifetime, float creationTime)
+		public void SetLastPoint (Vector3 pos, Vector3 dir, float startWidth, float lifetime)
 		{
 			_particleDirection = dir;
-			AddPoint (pos, startWidth, lifetime, creationTime);
+			AddPoint (pos, startWidth, lifetime);
 			Die ();
 		}
 
@@ -171,11 +171,11 @@ namespace ParticlePlayground {
 		/// <param name="position">Position.</param>
 		/// <param name="width">Width.</param>
 		/// <param name="lifetime">Lifetime.</param>
-		public void AddPoint (Vector3 position, float width, float lifetime, float creationTime)
+		public void AddPoint (Vector3 position, float width, float lifetime)
 		{
 			if (_birthIterator >= _pointCache || _isDead)
 				return;
-			trailPoints.Add (new TrailPoint(position, lifetime, width, creationTime));
+			trailPoints.Add (new TrailPoint(position, lifetime, width));
 			AddPoint(position);
 		}
 
@@ -186,11 +186,11 @@ namespace ParticlePlayground {
 		/// <param name="velocity">Initial Velocity.</param>
 		/// <param name="width">Width.</param>
 		/// <param name="lifetime">Lifetime.</param>
-		public void AddPoint (Vector3 position, Vector3 velocity, float width, float lifetime, float creationTime)
+		public void AddPoint (Vector3 position, Vector3 velocity, float width, float lifetime)
 		{
 			if (_birthIterator >= _pointCache || _isDead)
 				return;
-			trailPoints.Add (new TrailPoint(position, velocity, lifetime, width, creationTime));
+			trailPoints.Add (new TrailPoint(position, velocity, lifetime, width));
 			AddPoint(position);
 		}
 
@@ -297,7 +297,7 @@ namespace ParticlePlayground {
 				return;
 			_previousParticlePosition = _particlePosition;
 			_particlePosition = position;
-			_particleDirection = (position-_previousParticlePosition).normalized;
+			_particleDirection = position-_previousParticlePosition;
 		}
 
 		/// <summary>

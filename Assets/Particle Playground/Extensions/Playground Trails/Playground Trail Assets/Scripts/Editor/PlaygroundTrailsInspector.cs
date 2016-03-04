@@ -30,8 +30,6 @@ public class PlaygroundTrailsInspector : Editor {
 	SerializedProperty s_createFirstPointOnParticleBirth;
 	SerializedProperty s_createLastPointOnParticleDeath;
 	SerializedProperty s_multithreading;
-	SerializedProperty s_receiveShadows;
-	SerializedProperty s_castShadows;
 
 	// GUI
 	public static GUIStyle boxStyle;
@@ -68,12 +66,6 @@ public class PlaygroundTrailsInspector : Editor {
 		s_playgroundSystem = s_trails.FindProperty("playgroundSystem");
 		s_multithreading = s_trails.FindProperty("multithreading");
 
-		s_receiveShadows = s_trails.FindProperty("receiveShadows");
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
-		s_castShadows = s_trails.FindProperty("castShadows");
-#else
-		s_castShadows = s_trails.FindProperty("shadowCastingMode");
-#endif
 		playgroundSettings = PlaygroundSettingsC.GetReference();
 		playgroundLanguage = PlaygroundSettingsC.GetLanguage();
 
@@ -136,8 +128,6 @@ public class PlaygroundTrailsInspector : Editor {
 					EditorGUILayout.PropertyField(s_billboardTransform, new GUIContent(playgroundLanguage.billboardTransform));
 				else if (trails.renderMode == TrailRenderMode.CustomRenderScale)
 					EditorGUILayout.PropertyField(s_customRenderScale, new GUIContent(playgroundLanguage.customRenderScale));
-				EditorGUILayout.PropertyField(s_castShadows, new GUIContent(playgroundLanguage.castShadows));
-				EditorGUILayout.PropertyField(s_receiveShadows, new GUIContent(playgroundLanguage.receiveShadows));
 				EditorGUILayout.Separator();
 			}
 

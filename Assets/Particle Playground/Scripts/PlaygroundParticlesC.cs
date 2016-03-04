@@ -2916,7 +2916,7 @@ namespace ParticlePlayground {
 					return;
 				if (playgroundCache.life.Length == particleCount && playgroundCache.simulate.Length == particleCount) {
 					bool setSource = onlySourcePositioning && !cancelDeltaPositioningOnSync;
-					float mslt = minShurikenLifetime<.00001f? 0.00001f : minShurikenLifetime;
+					float mslt = minShurikenLifetime<.00001f?.00001f:minShurikenLifetime;
 					float initYpos = PlaygroundC.initialTargetPosition.y;
 					for (int p = 0; p<particleCount; p++) {
 
@@ -5964,11 +5964,11 @@ namespace ParticlePlayground {
 				Debug.Log("A snapshot can't store snapshot data within itself.", gameObject);
 				return;
 			}
-			SaveRoutine ("New Snapshot "+(snapshots.Count+1).ToString());
+			StartCoroutine (SaveRoutine ("New Snapshot "+(snapshots.Count+1).ToString()));
 		}
 		
 		/// <summary>
-		/// Store and name the current state of a particle system as a Snapshot.
+		/// Store the current state of a particle system as a Snapshot and name it.
 		/// </summary>
 		/// <param name="saveName">Save name.</param>
 		public void Save (string saveName) {
@@ -5976,62 +5976,17 @@ namespace ParticlePlayground {
 				Debug.Log("A snapshot can't store snapshot data within itself.", gameObject);
 				return;
 			}
-			SaveRoutine (saveName);
-		}
-
-		/// <summary>
-		/// Store the current state of a particle system as a Snapshot asynchronously.
-		/// </summary>
-		public void SaveAsynchronous () {
-			if (isSnapshot) {
-				Debug.Log("A snapshot can't store snapshot data within itself.", gameObject);
-				return;
-			}
-			StartCoroutine (SaveAsynchronousRoutine ("New Snapshot "+(snapshots.Count+1).ToString()));
-		}
-
-		/// <summary>
-		/// Store and name the current state of a particle system as a Snapshot asynchronously.
-		/// </summary>
-		public void SaveAsynchronous (string saveName) {
-			if (isSnapshot) {
-				Debug.Log("A snapshot can't store snapshot data within itself.", gameObject);
-				return;
-			}
-			StartCoroutine (SaveAsynchronousRoutine (saveName));
+			StartCoroutine (SaveRoutine (saveName));
 		}
 		
 		bool isSaving = false;
-		void SaveRoutine (string saveName) {
-			isSaving = true;
-			PlaygroundSave data = new PlaygroundSave();
-			data.settings = PlaygroundC.Particle();
-			data.settings.isSnapshot = true;
-			data.Save(this);
-			data.settings.transform.parent = particleSystemTransform;
-			data.settings.transform.name = saveName;
-			data.settings.timeOfSnapshot = localTime;
-			data.name = saveName;
-			data.time = localTime;
-			data.particleCount = particleCount;
-			data.lifetime = lifetime;
-			data.version = PlaygroundC.version;
-			snapshots.Add (data);
-			PlaygroundC.reference.particleSystems.Remove (data.settings);
-			#if UNITY_EDITOR
-			if (!PlaygroundC.reference.showSnapshotsInHierarchy)
-				data.settings.gameObject.hideFlags = HideFlags.HideInHierarchy;
-			#endif
-			isSaving = false;
-		}
-
-		IEnumerator SaveAsynchronousRoutine (string saveName) {
+		IEnumerator SaveRoutine (string saveName) {
 			isSaving = true;
 			PlaygroundSave data = new PlaygroundSave();
 			data.settings = PlaygroundC.Particle();
 			data.settings.isSnapshot = true;
 			yield return null;
-			data.SaveAsync(this);
+			data.Save(this);
 			while (data.IsSaving())
 				yield return null;
 			data.settings.transform.parent = particleSystemTransform;
@@ -6840,27 +6795,12 @@ namespace ParticlePlayground {
 			if (loadTransform)
 				transform.GetFromTransform (loadTo.particleSystemTransform);
 		}
-
+		
 		/// <summary>
 		/// Saves the data into this PlaygroundSave.
 		/// </summary>
 		/// <param name="playgroundParticles">Playground particles.</param>
 		public void Save (PlaygroundParticlesC playgroundParticles) {
-			isSaving = true;
-			transform = new PlaygroundTransformC();
-			transform.SetFromTransform (playgroundParticles.particleSystemTransform);
-			settings.particleSystemRenderer.sharedMaterial = playgroundParticles.particleSystemRenderer.sharedMaterial;
-			playgroundParticles.CopyTo(settings);
-			settings.snapshotData = playgroundParticles.playgroundCache.Clone();
-			isSaving = false;
-		}
-
-
-		/// <summary>
-		/// Saves the data into this PlaygroundSave asynchronously.
-		/// </summary>
-		/// <param name="playgroundParticles">Playground particles.</param>
-		public void SaveAsync (PlaygroundParticlesC playgroundParticles) {
 			isSaving = true;
 			transform = new PlaygroundTransformC();
 			transform.SetFromTransform (playgroundParticles.particleSystemTransform);
@@ -7422,11 +7362,7 @@ namespace ParticlePlayground {
 			playgroundCache.isFirstLoop = isFirstLoop.Clone() as bool[];
 			playgroundCache.simulate = simulate.Clone() as bool[];
 			playgroundCache.isCalculatedThisFrame = isCalculatedThisFrame.Clone() as bool[];
-
-			if (playgroundCache.lifetimeLoss == null)
-				playgroundCache.lifetimeLoss = new float[0];
-			else
-				playgroundCache.lifetimeLoss = lifetimeLoss.Clone() as float[];
+			playgroundCache.lifetimeLoss = lifetimeLoss.Clone() as float[];
 			return playgroundCache;
 		}
 	}

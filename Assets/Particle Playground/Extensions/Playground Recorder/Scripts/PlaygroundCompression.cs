@@ -1,6 +1,4 @@
-﻿#if UNITY_WSA && !UNITY_EDITOR
-#else
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -37,4 +35,3 @@ namespace ParticlePlayground {
 		}
 	}
 }
-#endif

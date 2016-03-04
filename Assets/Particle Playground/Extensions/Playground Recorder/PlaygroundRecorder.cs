@@ -233,15 +233,6 @@ namespace ParticlePlayground {
 		}
 
 		/// <summary>
-		/// Gets the time (real time since startup) when the last frame was recorded.
-		/// </summary>
-		/// <returns>The last recorded frame time.</returns>
-		public float GetLastRecordedFrameTime ()
-		{
-			return _lastRecordedFrameTime;
-		}
-
-		/// <summary>
 		/// Starts a recording until StopRecording() is called. This overload will by default use the previously set keyframe interval during recording.
 		/// </summary>
 		public void StartRecording ()

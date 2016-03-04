@@ -2231,14 +2231,14 @@ class PlaygroundParticleSystemInspectorC : Editor {
 				EditorGUILayout.BeginVertical (boxStyle);
 				GUILayout.BeginHorizontal();
 				playgroundSettings.renderingShadowsFoldout = GUILayout.Toggle(playgroundSettings.renderingShadowsFoldout, playgroundLanguage.shadows, EditorStyles.foldout);
-				#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
+				#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9
 				GUILayout.Label (playgroundParticlesScriptReference.particleSystemRenderer2.castShadows||playgroundParticlesScriptReference.particleSystemRenderer2.receiveShadows?playgroundLanguage.on:playgroundLanguage.off, EditorStyles.miniLabel, GUILayout.ExpandWidth(false));
 				#else
 				GUILayout.Label (shurikenRenderer.shadowCastingMode!=UnityEngine.Rendering.ShadowCastingMode.Off||playgroundParticlesScriptReference.particleSystemRenderer2.receiveShadows?playgroundLanguage.on:playgroundLanguage.off, EditorStyles.miniLabel, GUILayout.ExpandWidth(false));
 				#endif
 				GUILayout.EndHorizontal();
 				if (playgroundSettings.renderingShadowsFoldout) {
-					#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
+					#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9
 					shurikenRenderer.castShadows = EditorGUILayout.Toggle (playgroundLanguage.castShadows, shurikenRenderer.castShadows);
 					#else
 					shurikenRenderer.shadowCastingMode = (UnityEngine.Rendering.ShadowCastingMode)EditorGUILayout.EnumPopup (playgroundLanguage.castShadows, shurikenRenderer.shadowCastingMode);
@@ -2680,7 +2680,7 @@ class PlaygroundParticleSystemInspectorC : Editor {
 						GUILayout.BeginHorizontal();
 						if(GUILayout.Button(playgroundLanguage.save, EditorStyles.toolbarButton, GUILayout.ExpandWidth(false))){
 							saveName = playgroundLanguage.newSnapshotName+" "+(playgroundParticlesScriptReference.snapshots.Count+1).ToString();
-							playgroundParticlesScriptReference.SaveAsynchronous(saveName);
+							playgroundParticlesScriptReference.Save(saveName);
 							if (playgroundParticlesScriptReference.loadFrom>=playgroundParticlesScriptReference.snapshots.Count && playgroundParticlesScriptReference.snapshots.Count>0)
 								playgroundParticlesScriptReference.loadFrom = playgroundParticlesScriptReference.snapshots.Count-1;
 						}
