@@ -20,42 +20,55 @@ namespace UnityStandardAssets.Utility
 		[SerializeField]
 		private float heightDamping;
 
-		// Use this for initialization
-		void Start() { }
+        [SerializeField]
+        private float lerpDampening = 0.1f;
+
+        public Vector3 offset;
+
+        public float smoothTime;
+        Vector3 smoothVel;
+
+        // Use this for initialization
+        void Start() { }
 
 		// Update is called once per frame
 		void Update()
 		{
 			// Early out if we don't have a target
 			if (!target)
-				return;
+				return; 
 
-			// Calculate the current rotation angles
-			var wantedRotationAngle = target.eulerAngles.y;
-			var wantedHeight = target.position.y + height;
+            // Set the height of the camera
+            transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-			var currentRotationAngle = transform.eulerAngles.y;
-			var currentHeight = transform.position.y;
+            //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
 
-			// Damp the rotation around the y-axis
-			currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+            //cimetic camera
+            //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-			// Damp the height
-			currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+            //LookAt correct but Shaky
+            //Vector3 _vForward = target.position - transform.position;
+            //Vector3 _vUp = (target.position + target.up) - (transform.position + transform.up);
 
-			// Convert the angle into a rotation
-			var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+            //Quaternion _rot = Quaternion.LookRotation(_vForward, _vUp);
 
-			// Set the position of the camera on the x-z plane to:
-			// distance meters behind the target
-			transform.position = target.position;
-			transform.position -= currentRotation * Vector3.forward * distance;
+            //FromToRotation Very Smooth but does not look the player
+            /*Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
+            Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
+        
+            Quaternion _newRot = _up * _forward;
 
-			// Set the height of the camera
-			transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x ,currentHeight , transform.position.z),0.1f);
+            //Apply rotations to smooth the movement of cam
+            transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
 
-			// Always look at the target
-			transform.LookAt(target);
-		}
-	}
+            //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
+
+            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
+
+            // Always look at the target, but is shaky
+            //transform.LookAt(target, target.up);
+        }
+    }
 }
