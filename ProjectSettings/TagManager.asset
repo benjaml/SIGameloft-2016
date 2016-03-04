@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - floor
+  - bell
   layers:
   - Default
   - TransparentFX
