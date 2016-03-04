@@ -29,11 +29,12 @@ namespace UnityStandardAssets.Utility
         Vector3 smoothVel;
 
         // Use this for initialization
-	    void Start()
+	    void Awake()
 	    {
-	        //distance = Math
+            distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
+	        height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
 
-	    }
+        }
 
 		// Update is called once per frame
 		void Update()
