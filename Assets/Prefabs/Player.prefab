@@ -25,8 +25,25 @@ GameObject:
   - 4: {fileID: 458454}
   - 114: {fileID: 11470774}
   - 54: {fileID: 5486800}
+  - 114: {fileID: 11400938}
   m_Layer: 0
   m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417390}
+  - 95: {fileID: 9575088}
+  m_Layer: 0
+  m_Name: TargetCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +94,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 458454}
   m_RootOrder: 0
+--- !u!4 &417390
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.39, y: -0, z: -1.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 458454}
+  m_RootOrder: 2
 --- !u!4 &417520
 Transform:
   m_ObjectHideFlags: 1
@@ -85,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 154520}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 468572}
   m_RootOrder: 0
@@ -96,11 +125,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101774}
   m_LocalRotation: {x: -0.037387133, y: 0.98769623, z: 0.046966847, w: 0.14440374}
-  m_LocalPosition: {x: 58.76571, y: 21.09559, z: -11.753539}
+  m_LocalPosition: {x: 58.76571, y: 22.36, z: -11.753539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410092}
   - {fileID: 468572}
+  - {fileID: 417390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &468572
@@ -175,8 +205,39 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9575088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102814}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebf22faef1f19ea46809e7efbbcafd2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2946be325fc7e74090dc683f2a3c01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listCollectible: []
+  targetCollectible: {fileID: 102814}
+  lastObject: {fileID: 0}
 --- !u!114 &11470774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,10 +251,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cylinderRadius: 3.5
   distanceFromCenter: 7
-  speed: 100
-  turnSpeed: 75
+  turnSpeed: 20
   jumpSpeed: 100
   gravity: 150
+  baseSpeed: 20
+  MaxSpeed: 100
+  Acceleration: 20
+  Deceleration: 30
   gravityCenter: {x: 0, y: 0, z: 0}
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
