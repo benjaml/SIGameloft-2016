@@ -36,7 +36,7 @@ namespace UnityStandardAssets.Utility
 		{
 			// Early out if we don't have a target
 			if (!target)
-				return;
+				return; 
 
             // Set the height of the camera
             transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
