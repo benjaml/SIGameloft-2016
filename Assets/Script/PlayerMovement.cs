@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
     private Quaternion targetRotation;
-    private Vector3 lookDirection = Vector3.zero;
+    private Quaternion lookRotation;
     //position du centre de gravité
     public Vector3 gravityCenter;
     public Vector3 secondGravityCenter;
     // direction de la force de gravité
-    public Vector3 gravityDirection = Vector3.zero;
+    public Vector3 gravityDirection;
     // vector3 utilisé pour le déplacement
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = distanceFromCenter <10.0f ? true : false;
 
-        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
-            return;
+        /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
+            return;*/
 
         // update gravity center
         RaycastHit hit;
@@ -72,13 +72,10 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("I can't see s**t");
         }
 
-        if (gravityDirection == Vector3.zero)
-            updateGravityDirection();
-
         //update the player forward direction with the spiral
         // je refait un autre raycast mais devant le personnage pour récupérer le point de gravité un peu devant le personnage
         // pour réorienter le personnage, je prend le vecteur entre les 2 points de gravité pour l'appliquer au joueur
-        if (Physics.Raycast(transform.position+transform.forward*2f, -transform.up, out hit))
+        if (Physics.Raycast(transform.position+transform.forward, -transform.up, out hit))
         {
             
             //Debug.DrawLine(transform.position + transform.forward,transform.position + transform.forward - transform.up*10.0f,Color.blue);
@@ -91,13 +88,13 @@ public class PlayerMovement : MonoBehaviour
                 DebugPoint(gravityCenter, Color.red);
                 DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
-                if(lookDirection == Vector3.zero)
-                    lookDirection = (secondGravityCenter - gravityCenter).normalized;
+                lookRotation = Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
         }
         // on applique les transformation de rotation a la rotation actuelle
         //targetRotation *= transform.rotation;
         //float tmpGrav = gravity;
+        gravityDirection = gravityCenter - transform.position;
         //gravityDirection.Normalize();
         if (isGrounded)
         {
@@ -106,8 +103,6 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = Input.GetAxisRaw("Vertical")*transform.forward*speed;
             // tourne autour du tube avec la variabe turnSpeed
             moveDirection += Input.GetAxisRaw("Horizontal")*transform.right*turnSpeed;
-            if(Mathf.Abs(Input.GetAxisRaw("Horizontal"))>0.3)
-                updateGravityDirection();
             if (Input.GetButton("Jump"))
                 moveDirection += jumpSpeed*-gravityDirection;
 
@@ -118,27 +113,21 @@ public class PlayerMovement : MonoBehaviour
         ApplyMovement();
     }
     
-    void updateGravityDirection()
-    {
-        gravityDirection = gravityCenter - transform.position;
-    }
     void ApplyMovement()
     {
+        DebugPoint(targetPosition, Color.blue);
+        DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter, Color.black);
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
-        Vector3 pointToLookAt = secondGravityCenter + gravityDirection.normalized * distanceFromCenter;
-        DebugPoint(pointToLookAt, Color.blue);
-        //transform.LookAt(transform.position + (secondGravityCenter - gravityCenter).normalized);
-        Debug.Log((secondGravityCenter - gravityCenter).normalized);
+        transform.rotation = Quaternion.Slerp(transform.rotation,transform.rotation*Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized), 0.01f);
+
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation,transform.rotation*Quaternion.FromToRotation(transform.forward, (pointToLookAt-transform.position).normalized), 0.01f);
-        //transform.rotation *= Quaternion.FromToRotation(transform.forward, (pointToLookAt - transform.position).normalized);
 
 
-        Debug.DrawLine(transform.position, transform.position + (pointToLookAt - transform.position).normalized * 10.0f, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (secondGravityCenter - gravityCenter).normalized*10.0f,Color.red);
 
 
 
