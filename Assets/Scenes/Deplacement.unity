@@ -425,9 +425,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: MaxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: Acceleration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: Deceleration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: MaxSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: Acceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: Deceleration
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: turnSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+    - {fileID: 5486800, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1752717393
@@ -529,10 +563,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 92634876}
-  distance: 10
-  height: 5
+  distance: 100
+  height: 50
   rotationDamping: 10
   heightDamping: 10
+  lerpDampening: 0.1
+  offset: {x: 1, y: 1, z: 1}
+  smoothTime: 1
 --- !u!1001 &1877269570
 Prefab:
   m_ObjectHideFlags: 0

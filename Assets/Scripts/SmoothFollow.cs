@@ -46,15 +46,15 @@ namespace UnityStandardAssets.Utility
             //cimetic camera
             //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-            Vector3 _forward = (target.position + target.forward) - (transform.position + transform.forward);
-            Vector3 _up = (target.position + target.up);
+            //Vector3 _forward = (target.position + target.forward) - (transform.position + transform.forward);
+            //Vector3 _up = (target.position + target.up);
 
-            Quaternion _newRot = Quaternion.LookRotation(_forward, -_up);
+            //Quaternion _newRot = Quaternion.LookRotation(_forward, -_up);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, _newRot, lerpDampening);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, _newRot, lerpDampening);
 
             // Always look at the target
-            //transform.LookAt(target, target.up);
+            transform.LookAt(target, target.up);
 		}
 	}
 }

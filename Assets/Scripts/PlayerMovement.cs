@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
 
+    private float SpeedX = 0;//Don't touch this
+    private float SpeedY = 0;
+    public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
+    public float Acceleration = 10;//How fast will object reach a maximum speed
+    public float Deceleration = 10;//How fast will object reach a speed of 0
+
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -98,11 +104,13 @@ public class PlayerMovement : MonoBehaviour
         //gravityDirection.Normalize();
         if (isGrounded)
         {
+
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
-            moveDirection = Input.GetAxisRaw("Vertical")*transform.forward*speed;
+            moveDirection = transform.forward*calculateSpeedY();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += Input.GetAxisRaw("Horizontal")*transform.right*turnSpeed;
+            moveDirection += transform.right*calculateSpeedX();
+
             if (Input.GetButton("Jump"))
                 moveDirection += jumpSpeed*-gravityDirection;
 
@@ -146,6 +154,63 @@ public class PlayerMovement : MonoBehaviour
             
         }*/
 
+    }
+
+    float calculateSpeedX()
+    {
+        float _xStick = Input.GetAxisRaw("Horizontal");
+
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed))
+            SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
+        else
+        {
+            if (SpeedX > Deceleration * Time.deltaTime)
+                SpeedX = SpeedX - Deceleration * Time.deltaTime;
+            else if (SpeedX < -Deceleration * Time.deltaTime)
+                SpeedX = SpeedX + Deceleration * Time.deltaTime;
+            else
+                SpeedX = 0;
+        }
+
+        return SpeedX;
+    }
+
+
+    float calculateSpeedY()
+    {
+        float _yStick = Input.GetAxisRaw("Vertical");
+
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed))
+            SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
+        else
+        {
+            if (SpeedY > Deceleration * Time.deltaTime)
+                SpeedY = SpeedY - Deceleration * Time.deltaTime;
+            else if (SpeedY < -Deceleration * Time.deltaTime)
+                SpeedY = SpeedY + Deceleration * Time.deltaTime;
+            else
+                SpeedY = 0;
+        }
+
+        Debug.Log(SpeedY);
+
+        return SpeedY;
+    }
+
+    public void reduceCurrentSpeed(float _modifier)
+    {
+        SpeedX /= _modifier;
+        SpeedY /= _modifier;
+    }
+
+    public void multiplySpeedMax(float _modifier)
+    {
+        MaxSpeed *= _modifier;
+    }
+
+    public void divideSpeedMax(float _modifier)
+    {
+        MaxSpeed /= _modifier;
     }
 
     void DebugPoint(Vector3 position, Color color)

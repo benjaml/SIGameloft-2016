@@ -9,7 +9,7 @@ public class BlocSpeedModifier : MonoBehaviour {
     {
         if(col.tag == "Player")
         {
-            col.gameObject.GetComponent<PlayerController>().reduceCurrentSpeed(modifierSpeed);
+            col.gameObject.GetComponent<PlayerMovement>().reduceCurrentSpeed(modifierSpeed);
             Destroy(gameObject);
         }
     }
