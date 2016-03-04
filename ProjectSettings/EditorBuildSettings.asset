@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/Clarisse_Menu.unity
+    path: Assets/Scenes/Clarisse_Menu.unity
   - enabled: 1
-    path: Assets/Scene/Clarisse_GameTest.unity
+    path: Assets/Scenes/Clarisse_GameTest.unity
   - enabled: 1
-    path: Assets/Scene/Clarisse_Credits.unity
+    path: Assets/Scenes/Clarisse_Credits.unity
