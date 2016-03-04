@@ -226,15 +226,17 @@ class PlaygroundParticleWindowC : EditorWindow {
 	bool CheckForInternetConnection ()
 	{
 		System.Net.WebClient client = new System.Net.WebClient();
-		System.Uri versionUrl = new System.Uri (playgroundSettings.versionUrl);
+		System.IO.Stream stream = null;
 		try {
-			 client.OpenReadAsync(versionUrl);
+			stream = client.OpenRead(playgroundSettings.versionUrl);
 			return true;
 		} catch {
 			return false;
 		} finally {
 			if(client != null)
 				client.Dispose();
+			if(stream != null)
+				stream.Dispose();
 		}
 	}
 
