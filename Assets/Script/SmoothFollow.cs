@@ -20,8 +20,16 @@ namespace UnityStandardAssets.Utility
 		[SerializeField]
 		private float heightDamping;
 
-		// Use this for initialization
-		void Start() { }
+        [SerializeField]
+        private float lerpDampening = 0.1f;
+
+        public Vector3 offset;
+
+        public float smoothTime;
+        Vector3 smoothVel;
+
+        // Use this for initialization
+        void Start() { }
 
 		// Update is called once per frame
 		void Update()
@@ -30,36 +38,23 @@ namespace UnityStandardAssets.Utility
 			if (!target)
 				return;
 
-			// Calculate the current rotation angles
-			var wantedRotationAngle = target.eulerAngles.y;
-            var wantedRotationAngle2 = target.eulerAngles;
-			var wantedHeight = target.position.y + height;
-
-			var currentRotationAngle = transform.eulerAngles.y;
-            var currentRotationAngle2 = transform.eulerAngles;
-			var currentHeight = transform.position.y;
-
-			// Damp the rotation around the y-axis
-			currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
-
-            // Damp the height
-            currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
-
-			// Convert the angle into a rotation
-			var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
-
-			// Set the position of the camera on the x-z plane to:
-			// distance meters behind the target
-			transform.position = target.position;
-			transform.position -= currentRotation * Vector3.forward * distance;
-
-            //transform.rotation = Quaternion.FromToRotation(currentRotationAngle2, wantedRotationAngle2);
-
             // Set the height of the camera
-            transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x ,currentHeight , transform.position.z),0.1f);
+            transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-			// Always look at the target
-			transform.LookAt(target);
+            transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
+
+            //cimetic camera
+            //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
+
+            Vector3 _forward = (target.position + target.forward) - (transform.position + transform.forward);
+            Vector3 _up = (target.position + target.up);
+
+            Quaternion _newRot = Quaternion.LookRotation(_forward, -_up);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, _newRot, lerpDampening);
+
+            // Always look at the target
+            //transform.LookAt(target, target.up);
 		}
 	}
 }
