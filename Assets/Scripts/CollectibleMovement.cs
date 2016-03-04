@@ -7,7 +7,7 @@ public class CollectibleMovement : MonoBehaviour
     public Transform previousTarget;            // The position that that camera will be following.
     private float smoothing = 30;               // The speed with which the camera will be following.
     public bool collected;
-    public GameObject Player;
+    public GameObject player;
 
     private Vector3 offsetPos;                  // The initial offset from the previousTarget.
 
@@ -15,13 +15,15 @@ public class CollectibleMovement : MonoBehaviour
 
     void Start()
     {
-        targetCollectible = Player.GetComponent<PlayerCollectible>().targetCollectible.transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        targetCollectible = player.GetComponent<PlayerCollectible>().targetCollectible.transform;
         collected = false;
     }
 
     public void offsetInitialisation ()
     {
-        previousTarget = Player.GetComponent<PlayerCollectible>().lastObject.transform;
+        GameObject tmp = player.GetComponent<PlayerCollectible>().lastObject;
+        previousTarget = player.GetComponent<PlayerCollectible>().lastObject.transform;
         offsetPos = (transform.position - previousTarget.position);
     }
 
