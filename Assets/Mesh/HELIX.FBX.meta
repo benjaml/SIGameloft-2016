@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: 6cda1f49ca29fe643b640e2d7d8c2e62
-timeCreated: 1456849475
+guid: 3c3169e51d4b8464b953f26c8fc1a368
+timeCreated: 1456911039
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Helix001_MeshPart0
+    100004: Helix001_MeshPart1
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Spring001
+    400002: Helix001_MeshPart0
+    400004: Helix001_MeshPart1
+    2300000: Helix001_MeshPart0
+    2300002: Helix001_MeshPart1
+    3300000: Helix001_MeshPart0
+    3300002: Helix001_MeshPart1
+    4300000: Helix001_MeshPart0
+    4300002: Helix001_MeshPart1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
