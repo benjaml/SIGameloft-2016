@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public float cylinderRadius = 2.5f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
-    public float speed = 6.0F;
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
@@ -41,8 +40,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        heightModificator -= Input.GetKey(KeyCode.E) ? 0.03f : 0.0f;
-        heightModificator += Input.GetKey(KeyCode.Z) ? 0.03f : 0.0f;
+        heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
+        heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
         heightModificator = Mathf.Clamp(heightModificator, -1.5f, 2.0f);
         heightModificator *= 0.95f;
         distanceFromCenter = 5.0f + heightModificator;
@@ -191,8 +190,6 @@ public class PlayerMovement : MonoBehaviour
             else
                 SpeedY = 0;
         }
-
-        Debug.Log(SpeedY);
 
         return SpeedY;
     }
