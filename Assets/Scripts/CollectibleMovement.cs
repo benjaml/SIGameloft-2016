@@ -5,7 +5,7 @@ public class CollectibleMovement : MonoBehaviour
 {
     public Transform targetCollectible;
     public Transform previousTarget;            // The position that that camera will be following.
-    private float smoothing = 40;               // The speed with which the camera will be following.
+    private float smoothing = 30;               // The speed with which the camera will be following.
     public bool collected;
     public GameObject Player;
 
