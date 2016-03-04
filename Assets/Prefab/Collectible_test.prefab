@@ -87,7 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615b675bf8dce49498646fb57188e44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetCollectible: {fileID: 0}
+  previousTarget: {fileID: 0}
   collected: 0
   Player: {fileID: 0}
 --- !u!1001 &100100000

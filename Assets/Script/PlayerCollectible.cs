@@ -30,15 +30,15 @@ public class PlayerCollectible : MonoBehaviour {
                 lastObject = listCollectible[listCollectible.Count - 2];
             }
 
-            randomWidth = Random.Range(-0.25f, 0.25f);
-            randomHeight = Random.Range(-1, 0.5f);
-            randomDistance = Random.Range(-0.15f, 0.5f);
+            randomWidth = Random.Range(-3f, 3);
+            randomHeight = Random.Range(-0.1f, 1);
+            randomDistance = Random.Range(0.000f, 0.200f);
 
             
-            col.transform.eulerAngles = lastObject.transform.eulerAngles;
-            col.transform.position = new Vector3((targetCollectible.transform.position.x + randomWidth), 
-                                                  targetCollectible.transform.position.y + randomHeight, 
-                                                  lastObject.transform.position.z + randomDistance + 0.1f);
+            col.transform.eulerAngles = targetCollectible.transform.eulerAngles;
+            col.transform.position = new Vector3(targetCollectible.transform.position.x + randomWidth, 
+                                                  lastObject.transform.position.y - 0.045f, 
+                                                  lastObject.transform.position.z + randomDistance);
 
             col.GetComponent<CollectibleMovement>().offsetInitialisation();
 

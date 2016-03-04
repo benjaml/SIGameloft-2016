@@ -5,7 +5,7 @@ public class CollectibleMovement : MonoBehaviour
 {
     public Transform targetCollectible;
     public Transform previousTarget;            // The position that that camera will be following.
-    private float smoothing = 20f;      // The speed with which the camera will be following.
+    private float smoothing = 40;               // The speed with which the camera will be following.
     public bool collected;
     public GameObject Player;
 
@@ -30,7 +30,7 @@ public class CollectibleMovement : MonoBehaviour
         if (collected == true)
         {
             // Create a postion the camera is aiming for based on the offset from the previousTarget.
-            Vector3 _targetPos = new Vector3(targetCollectible.position.x, targetCollectible.position.y , previousTarget.position.z) + offsetPos;
+            Vector3 _targetPos = new Vector3(targetCollectible.position.x, previousTarget.position.y, previousTarget.position.z) + (offsetPos/3);
 
             // Smoothly interpolate between the camera's current position and it's previousTarget position.
             transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing * Time.deltaTime);
