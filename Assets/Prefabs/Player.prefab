@@ -16,7 +16,7 @@ GameObject:
   - 54: {fileID: 5444492}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cylinderRadius: 2.5
   distanceFromCenter: 5
-  turnSpeed: 30
+  turnSpeed: 50
   jumpSpeed: 8
   gravity: 20
   baseSpeed: 100

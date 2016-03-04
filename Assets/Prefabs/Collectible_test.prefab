@@ -90,7 +90,7 @@ MonoBehaviour:
   targetCollectible: {fileID: 0}
   previousTarget: {fileID: 0}
   collected: 0
-  Player: {fileID: 101774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
