@@ -41,20 +41,29 @@ namespace UnityStandardAssets.Utility
             // Set the height of the camera
             transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-            transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
+            //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
 
             //cimetic camera
             //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
 
-            //Vector3 _forward = (target.position + target.forward) - (transform.position + transform.forward);
-            //Vector3 _up = (target.position + target.up);
+            //LookAt correct but Shaky
+            //Vector3 _vForward = target.position - transform.position;
+            //Vector3 _vUp = (target.position + target.up) - (transform.position + transform.up);
 
-            //Quaternion _newRot = Quaternion.LookRotation(_forward, -_up);
+            //Quaternion _rot = Quaternion.LookRotation(_vForward, _vUp);
 
-            //transform.rotation = Quaternion.Lerp(transform.rotation, _newRot, lerpDampening);
+            //FromToRotation Very Smooth but does not look the player
+            /*Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
+            Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
+        
+            Quaternion _newRot = _up * _forward;
 
-            // Always look at the target
+            //Apply rotations to smooth the movement of cam
+            transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
+            //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
+
+            // Always look at the target, but is shaky
             transform.LookAt(target, target.up);
-		}
+        }
 	}
 }

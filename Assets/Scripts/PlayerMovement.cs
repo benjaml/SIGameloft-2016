@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+    public float baseSpeed = 50.0f;
 
     private float SpeedX = 0;//Don't touch this
     private float SpeedY = 0;
@@ -159,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float _xStick = Input.GetAxisRaw("Horizontal");
 
-        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed))
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed) && (SpeedX > -turnSpeed))
             SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
         else
         {
@@ -179,16 +180,16 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed))
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed) && (SpeedY > -MaxSpeed))
             SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (SpeedY > Deceleration * Time.deltaTime)
+            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime)
                 SpeedY = SpeedY - Deceleration * Time.deltaTime;
-            else if (SpeedY < -Deceleration * Time.deltaTime)
+            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime)
                 SpeedY = SpeedY + Deceleration * Time.deltaTime;
             else
-                SpeedY = 0;
+                SpeedY = baseSpeed;
         }
 
         return SpeedY;
@@ -203,11 +204,13 @@ public class PlayerMovement : MonoBehaviour
     public void multiplySpeedMax(float _modifier)
     {
         MaxSpeed *= _modifier;
+        turnSpeed *= _modifier;
     }
 
     public void divideSpeedMax(float _modifier)
     {
         MaxSpeed /= _modifier;
+        turnSpeed /= _modifier;
     }
 
     void DebugPoint(Vector3 position, Color color)

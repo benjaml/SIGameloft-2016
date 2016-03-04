@@ -424,44 +424,10 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: MaxSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: Deceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: MaxSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: Acceleration
+      propertyPath: turnSpeed
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: Deceleration
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: turnSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11492728, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-    - {fileID: 5486800, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1752717393
