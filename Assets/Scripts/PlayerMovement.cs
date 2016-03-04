@@ -81,20 +81,20 @@ public class PlayerMovement : MonoBehaviour
             //Debug.DrawLine(transform.position + transform.forward,transform.position + transform.forward - transform.up*10.0f,Color.blue);
             if (hit.transform.tag == "floor")
             {
-                secondGravityCenter = hit.point - (hit.normal *cylinderRadius);
+                secondGravityCenter = hit.point - (hit.normal * hit.transform.localScale.z * cylinderRadius);
                 
                 // permet de voir les points de gravité
                 Debug.DrawLine(hit.point, hit.normal, Color.green);
                 DebugPoint(gravityCenter, Color.red);
                 DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
-                lookRotation = Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
         }
         // on applique les transformation de rotation a la rotation actuelle
         //targetRotation *= transform.rotation;
         //float tmpGrav = gravity;
-        gravityDirection = gravityCenter - transform.position;
+        gravityDirection = (gravityCenter - transform.position).normalized;
         //gravityDirection.Normalize();
         if (isGrounded)
         {
@@ -115,13 +115,13 @@ public class PlayerMovement : MonoBehaviour
     
     void ApplyMovement()
     {
-        DebugPoint(targetPosition, Color.blue);
         DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter, Color.black);
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.1f);
         // on applique les modification de position et rotation en smooth
-        //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
-        transform.rotation = Quaternion.Slerp(transform.rotation,transform.rotation*Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized), 0.01f);
+        //Vector3 pointToLookAt = transform.position + (secondGravityCenter - gravityCenter).normalized;
+        Vector3 pointToLookAt = secondGravityCenter-gravityDirection*distanceFromCenter;
+        DebugPoint(pointToLookAt, Color.blue);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
 
