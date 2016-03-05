@@ -70,7 +70,7 @@ namespace UnityStandardAssets.Utility
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
 
-            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+            Quaternion targetRotation = Quaternion.LookRotation((target.position+0*target.forward) - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
 

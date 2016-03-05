@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
+
+    private Quaternion lastRotation = Quaternion.identity;
     
 
     void Start()
@@ -132,8 +134,11 @@ public class PlayerMovement : MonoBehaviour
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
-       
+        targetRotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
+        if (lastRotation != Quaternion.identity)
+            transform.rotation = Quaternion.Slerp(lastRotation, targetRotation, 0.1f);
+        lastRotation = transform.rotation;
+
 
     }
 
