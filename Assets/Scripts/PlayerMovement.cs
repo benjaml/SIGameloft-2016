@@ -7,16 +7,26 @@ public class PlayerMovement : MonoBehaviour
     public float cylinderRadius = 2.5f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
-    public float turnSpeed = 3.0F;
+    public float turnSpeedMax = 3.0F;
+    public float airTurnSpeedMax = 3.0f;
     public float jumpSpeed = 8.0F;
+    public float heightJump = 5.0f;
+    private bool jumping = false;
+    public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
+    public float baseAirSpeed = 25.0f;
+    public float slowSpeed = 10.0f;
+    public float slowAirSpeed = 5.0f;
 
-    private float SpeedX = 0;//Don't touch this
-    private float SpeedY = 0;
+    private float turnSpeed = 0;//Don't touch this
+    private float speedForward = 0;
     public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
+    public float MaxAirSpeed = 10.0f;
     public float Acceleration = 10;//How fast will object reach a maximum speed
     public float Deceleration = 10;//How fast will object reach a speed of 0
+    public float airAcceleration = 10;
+    public float airDeceleration = 10;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -41,13 +51,29 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
-        heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
-        heightModificator = Mathf.Clamp(heightModificator, -2.5f, 2.0f);
-        heightModificator *= 0.98f;
+
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+            jumping = true;
+
+        if(jumping)
+            heightModificator += jumpSpeed * Time.deltaTime;
+
+        heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
+
+        if (heightModificator >= heightJump)
+            jumping = false;
+
+        if (!isGrounded && !jumping)
+            heightModificator -= speedFall * Time.deltaTime;
+        else
+            heightModificator *= 0.98f;
+
         distanceFromCenter = 7f + heightModificator;
 
+        Debug.Log(distanceFromCenter);
 
         isGrounded = distanceFromCenter <10.0f ? true : false;
 
@@ -103,19 +129,24 @@ public class PlayerMovement : MonoBehaviour
         //float tmpGrav = gravity;
         gravityDirection = gravityCenter - transform.position;
         //gravityDirection.Normalize();
-        if (isGrounded)
-        {
 
+        if(isGrounded)
+        {
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
-            moveDirection = transform.forward*calculateSpeedY();
+            moveDirection = transform.forward * calculateSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right*calculateSpeedX();
-
-            if (Input.GetButton("Jump"))
-                moveDirection += jumpSpeed*-gravityDirection;
-
+            moveDirection += transform.right * calculateTurnSpeed();
         }
+        else
+        {
+            //tmpGrav *= 0.1f;
+            // avance sur le tube avec la variabe speed
+            moveDirection = transform.forward * calculateAirSpeedForward();
+            // tourne autour du tube avec la variabe turnSpeed
+            moveDirection += transform.right * calculateAirTurnSpeed();
+        }
+        
         // on ajoute la gravité au déplacement
         //moveDirection += tmpGrav*Time.deltaTime*gravityDirection;
         targetPosition = (transform.position + (moveDirection*Time.deltaTime));
@@ -136,70 +167,114 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    float calculateSpeedX()
+    //calculate the turn speed when grounded
+    float calculateTurnSpeed()
     {
         float _xStick = Input.GetAxisRaw("Horizontal");
 
-        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed) && (SpeedX > -turnSpeed))
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < turnSpeedMax) && (turnSpeed > -turnSpeedMax))
         {
 
-            if ((_xStick > 0.3) && SpeedX < 0)
-                SpeedX = 0;
+            if ((_xStick > 0.3) && turnSpeed < 0)
+                turnSpeed = 0;
 
-            if ((_xStick < -0.3) && SpeedX > 0)
-                SpeedX = 0;
+            if ((_xStick < -0.3) && turnSpeed > 0)
+                turnSpeed = 0;
 
-            SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
+            turnSpeed = turnSpeed + _xStick * Acceleration * Time.deltaTime;
         }
         else
         {
-            if (SpeedX > Deceleration * Time.deltaTime)
-                SpeedX = SpeedX - Deceleration * Time.deltaTime;
-            else if (SpeedX < -Deceleration * Time.deltaTime)
-                SpeedX = SpeedX + Deceleration * Time.deltaTime;
+            if (turnSpeed > Deceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - Deceleration * Time.deltaTime;
+            else if (turnSpeed < -Deceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + Deceleration * Time.deltaTime;
             else
-                SpeedX = 0;
+                turnSpeed = 0;
         }
 
-        return SpeedX;
+        return turnSpeed;
     }
 
+    //calculate the turn speed when in air
+    float calculateAirTurnSpeed()
+    {
+        float _xStick = Input.GetAxisRaw("Horizontal");
 
-    float calculateSpeedY()
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < airTurnSpeedMax) && (turnSpeed > -airTurnSpeedMax))
+        {
+
+            turnSpeed = turnSpeed + _xStick * airAcceleration * Time.deltaTime;
+        }
+        else
+        {
+            if (turnSpeed > airDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - airDeceleration * Time.deltaTime;
+            else if (turnSpeed < -airDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + Deceleration * Time.deltaTime;
+            else
+                turnSpeed = 0;
+        }
+
+        return turnSpeed;
+    }
+
+    //calculate speed forward when grounded
+    float calculateSpeedForward()
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed) && (SpeedY > -MaxSpeed))
-            SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxSpeed) && (speedForward >= slowSpeed))
+            speedForward += _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime)
-                SpeedY = SpeedY - Deceleration * Time.deltaTime;
-            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime)
-                SpeedY = SpeedY + Deceleration * Time.deltaTime;
+            if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+                speedForward = speedForward - Deceleration * Time.deltaTime;
+            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
+                speedForward = speedForward + Deceleration * Time.deltaTime;
             else
-                SpeedY = baseSpeed;
+                speedForward = baseSpeed;
         }
 
-        return SpeedY;
+        return speedForward;
+    }
+
+    //calculate speed forward when in air
+    float calculateAirSpeedForward()
+    {
+        float _yStick = Input.GetAxisRaw("Vertical");
+
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxAirSpeed) && (speedForward >= slowAirSpeed))
+            speedForward += _yStick * airAcceleration * Time.deltaTime;
+        else
+        {
+            if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
+                speedForward = speedForward - airDeceleration * Time.deltaTime;
+            else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
+                speedForward = speedForward + airDeceleration * Time.deltaTime;
+            else
+                speedForward = baseAirSpeed;
+        }
+
+        return speedForward;
     }
 
     public void reduceCurrentSpeed(float _modifier)
     {
-        SpeedX /= _modifier;
-        SpeedY /= _modifier;
+        turnSpeed /= _modifier;
+        speedForward /= _modifier;
     }
 
     public void multiplySpeedMax(float _modifier)
     {
         MaxSpeed *= _modifier;
-        turnSpeed *= _modifier;
+        turnSpeedMax *= _modifier;
     }
 
     public void divideSpeedMax(float _modifier)
     {
         MaxSpeed /= _modifier;
-        turnSpeed /= _modifier;
+        turnSpeedMax /= _modifier;
     }
 
     void DebugPoint(Vector3 position, Color color)

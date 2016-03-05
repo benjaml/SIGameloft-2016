@@ -6,10 +6,8 @@ public class ResetScene : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.tag);
         if(col.gameObject.tag == "Player")
         {
-            Debug.Log("biclette");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
