@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 490304}
   - 33: {fileID: 3376534}
   - 23: {fileID: 2347210}
+  - 114: {fileID: 11418066}
   m_Layer: 0
   m_Name: SM_Obstacle04
   m_TagString: Untagged
@@ -23,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187372}
-  m_LocalRotation: {x: 0.8238357, y: 0.5668287, z: 0.00000013422114, w: -0.00000009234896}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.8233876, y: 0.56652075, z: 0.027163597, w: 0.018689368}
+  m_LocalPosition: {x: 63.6, y: 18.9, z: -37.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,7 +40,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a66882d4d8ff62a47bb9c19818019719, type: 2}
+  - {fileID: 2100000, guid: d33f524a1a8875f489a9a60f8467dc37, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -62,6 +63,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187372}
   m_Mesh: {fileID: 4300000, guid: 578e7d49f0af56c478a08988bb471c31, type: 3}
+--- !u!114 &11418066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e7d7b4adb4dbb4d8606f3d9825fb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Vector: {x: 0, y: 0, z: 1}
+  m_Speed: 30
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

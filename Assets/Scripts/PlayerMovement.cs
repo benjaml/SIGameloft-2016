@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+
     }
 
 
@@ -140,7 +141,16 @@ public class PlayerMovement : MonoBehaviour
         float _xStick = Input.GetAxisRaw("Horizontal");
 
         if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed) && (SpeedX > -turnSpeed))
+        {
+
+            if ((_xStick > 0.3) && SpeedX < 0)
+                SpeedX = 0;
+
+            if ((_xStick < -0.3) && SpeedX > 0)
+                SpeedX = 0;
+
             SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
+        }
         else
         {
             if (SpeedX > Deceleration * Time.deltaTime)

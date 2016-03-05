@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 7ccd2b487cd7ec6418348d4f2db061ca
+timeCreated: 1457112206
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _SkyGradient: {fileID: 2800000, guid: 5d9a33a989f91334782040ec2ee8a7ae, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
