@@ -138,6 +138,19 @@ BoxCollider:
 Transform:
   m_PrefabParentObject: {fileID: 458454, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_PrefabInternal: {fileID: 774763381}
+--- !u!114 &92634879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92634872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45588f6aaf9bfb24caaee7f5fe17e207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerWrath: {fileID: 1914165681}
+  listProvisoireCollectible: []
 --- !u!1 &119498595
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +848,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d36b1e6d6394a384f8111c3dd8f31131, type: 3}
   m_PrefabInternal: {fileID: 1877269570}
+--- !u!1 &1914165681 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 175174, guid: a7047613201c2e64d85a22a8c55211bf, type: 2}
+  m_PrefabInternal: {fileID: 1752044104}
 --- !u!1 &1928611680 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 9de1d9e273c55de4db4c58b704fc1428, type: 3}
