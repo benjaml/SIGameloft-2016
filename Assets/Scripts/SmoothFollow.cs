@@ -31,9 +31,8 @@ namespace UnityStandardAssets.Utility
         // Use this for initialization
 	    void Awake()
 	    {
-            distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
-	        height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
-
+            //distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
+	        //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
         }
 
 		// Update is called once per frame
@@ -45,6 +44,7 @@ namespace UnityStandardAssets.Utility
 
             // Set the height of the camera
             transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
+            transform.position += offset;
 
             //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
 

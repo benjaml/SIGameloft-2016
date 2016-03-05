@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MA_BellRing
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: M_Clouds_Big01
+  m_Shader: {fileID: 4800000, guid: 8d5027583f2a8824fb9fb87ec0b3d01e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -78,6 +78,27 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _CloudTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
+          m_Scale: {x: 3, y: 0.5}
+          m_Offset: {x: 0.18, y: 0.21}
+      data:
+        first:
+          name: _clouds
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _UVDeformationTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -126,7 +147,71 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0.6
+        second: 0
+      data:
+        first:
+          name: _Transmission
+        second: 1
+      data:
+        first:
+          name: _Alpha
+        second: 1
+      data:
+        first:
+          name: _ShadowOpacity
+        second: 0.38
+      data:
+        first:
+          name: _CloudMouvementSpeed
+        second: 0.4
+      data:
+        first:
+          name: _CloudsMouvSlider
+        second: 0.5636981
+      data:
+        first:
+          name: _LightTransitionSlider
+        second: 1
+      data:
+        first:
+          name: _BoolDay
+        second: 1
+      data:
+        first:
+          name: _BoolAfternoon
+        second: 1
+      data:
+        first:
+          name: _LightAffected
+        second: 1
+      data:
+        first:
+          name: _ShadowSaturation
+        second: 0.62
+      data:
+        first:
+          name: _node_110
+        second: 1.26
+      data:
+        first:
+          name: _LightOpacity
+        second: -0.11
+      data:
+        first:
+          name: _DiffuseLightness
+        second: -3.3
+      data:
+        first:
+          name: _BoolSunRise
+        second: 1
+      data:
+        first:
+          name: _CloudLightness
+        second: 0.5
+      data:
+        first:
+          name: _UVDeformationStrength
+        second: 0
     m_Colors:
       data:
         first:
@@ -135,4 +220,24 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.5588235, g: 0.33268702, b: 0.09039791, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Diffuse
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: 0.4250865, g: 0.4155493, b: 0.4632353, a: 1}
+      data:
+        first:
+          name: _SunColorNight
+        second: {r: 0.6764706, g: 0.21388409, b: 0.30002084, a: 1}
+      data:
+        first:
+          name: _SunColorNoon
+        second: {r: 1, g: 0.63002026, b: 0.29411763, a: 1}
+      data:
+        first:
+          name: _SunColorDay
+        second: {r: 1, g: 0.98448277, b: 0.9338235, a: 1}
