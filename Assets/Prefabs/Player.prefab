@@ -27,6 +27,7 @@ GameObject:
   - 54: {fileID: 5486800}
   - 114: {fileID: 11400938}
   - 114: {fileID: 11447482}
+  - 114: {fileID: 11402402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -501,6 +502,17 @@ MonoBehaviour:
   listCollectible: []
   targetCollectible: {fileID: 102814}
   lastObject: {fileID: 0}
+--- !u!114 &11402402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14181a16d69f03d41893a88452b51ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11447482
 MonoBehaviour:
   m_ObjectHideFlags: 1

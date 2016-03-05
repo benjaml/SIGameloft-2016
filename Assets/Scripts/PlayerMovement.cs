@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float Acceleration = 10;//How fast will object reach a maximum speed
     public float Deceleration = 10;//How fast will object reach a speed of 0
 
-    //position et rotation que je personnage devrais avoir en fin de déplacement
+    //position et rotation que le personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private Quaternion lookRotation;
@@ -153,9 +153,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (SpeedX > Deceleration * Time.deltaTime)
+            if (SpeedX > Deceleration * Time.deltaTime || SpeedX > turnSpeed)
                 SpeedX = SpeedX - Deceleration * Time.deltaTime;
-            else if (SpeedX < -Deceleration * Time.deltaTime)
+            else if (SpeedX < -Deceleration * Time.deltaTime || SpeedX < -turnSpeed)
                 SpeedX = SpeedX + Deceleration * Time.deltaTime;
             else
                 SpeedX = 0;
@@ -173,9 +173,9 @@ public class PlayerMovement : MonoBehaviour
             SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime)
+            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime || SpeedY > MaxSpeed)
                 SpeedY = SpeedY - Deceleration * Time.deltaTime;
-            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime)
+            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime || SpeedY < -MaxSpeed)
                 SpeedY = SpeedY + Deceleration * Time.deltaTime;
             else
                 SpeedY = baseSpeed;
@@ -188,6 +188,12 @@ public class PlayerMovement : MonoBehaviour
     {
         SpeedX /= _modifier;
         SpeedY /= _modifier;
+    }
+
+    public void multiplyCurrentSpeed(float _modifier)
+    {
+        SpeedX *= _modifier;
+        SpeedY *= _modifier;
     }
 
     public void multiplySpeedMax(float _modifier)
