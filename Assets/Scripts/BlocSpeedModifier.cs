@@ -3,16 +3,29 @@ using System.Collections;
 
 public class BlocSpeedModifier : MonoBehaviour {
 
-    public float modifierSpeed = 20;
+    private float modifierSpeed = 2;
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter (Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if (col.tag == "Player")
         {
-            col.gameObject.transform.parent.GetComponent<PlayerMovement>().reduceCurrentSpeed(modifierSpeed);
-            //Destroy(gameObject);
-
+            PlayerMovement Script = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
+            Script.reduceCurrentSpeed(modifierSpeed);
+            StartCoroutine(destructionBloc());
         }
+    }
+
+    IEnumerator destructionBloc()
+    {
+        int _tmp = 0;
+        while (_tmp < 20)
+        {
+            _tmp++;
+            yield return new WaitForEndOfFrame();
+        }
+        Destroy(gameObject);
+        yield return null;
+
     }
 
 }
