@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _CloudTexture
-        second:
-          m_Texture: {fileID: 2800000, guid: 5e32d8f9dae8d3f4eb9d507ea4ebb5c0, type: 3}
-          m_Scale: {x: 3, y: 1}
-          m_Offset: {x: 1.09, y: 0.68}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -87,6 +80,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _CloudTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 5e32d8f9dae8d3f4eb9d507ea4ebb5c0, type: 3}
+          m_Scale: {x: 3, y: 1}
+          m_Offset: {x: 1.09, y: 0.68}
+      data:
+        first:
           name: _clouds
         second:
           m_Texture: {fileID: 0}
@@ -114,52 +114,16 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _CloudMouvementSpeed
-        second: 0.5
-      data:
-        first:
-          name: _Alpha
-        second: 1
-      data:
-        first:
-          name: _CloudsMouvSlider
-        second: 0.14006609
-      data:
-        first:
-          name: _LightTransitionSlider
-        second: 0.32996327
-      data:
-        first:
-          name: _BoolDay
-        second: 1
-      data:
-        first:
-          name: _BoolAfternoon
-        second: 0
-      data:
-        first:
-          name: _Transmission
-        second: 1
-      data:
-        first:
-          name: _LightAffected
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -180,6 +144,42 @@ Material:
         first:
           name: _Mode
         second: 0
+      data:
+        first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _CloudMouvementSpeed
+        second: 0.5
+      data:
+        first:
+          name: _Alpha
+        second: 1
+      data:
+        first:
+          name: _CloudsMouvSlider
+        second: 0.3128818
+      data:
+        first:
+          name: _LightTransitionSlider
+        second: 0.45152718
+      data:
+        first:
+          name: _BoolDay
+        second: 1
+      data:
+        first:
+          name: _BoolAfternoon
+        second: 1
+      data:
+        first:
+          name: _Transmission
+        second: 1
+      data:
+        first:
+          name: _LightAffected
+        second: 1
       data:
         first:
           name: _ShadowOpacity
@@ -207,7 +207,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-        second: 0.7349967
+        second: 0.61179745
       data:
         first:
           name: _UVDeformationStrength

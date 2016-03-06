@@ -454,7 +454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 524055327}
   m_LocalRotation: {x: -0.41923112, y: -0.110320084, z: -0.10642936, w: 0.894845}
-  m_LocalPosition: {x: 63.6, y: 24.47, z: -31.35}
+  m_LocalPosition: {x: 64.06, y: 24.42, z: -31.21}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heightJump: 10
-  speedJump: 60
+  speedJump: 10
   speedFall: 1
 --- !u!1001 &727014830
 Prefab:
@@ -981,7 +981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
       propertyPath: jumpSpeed
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
       propertyPath: MaxAirSpeed

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float airTurnSpeedMax = 3.0f;
     public float jumpSpeed = 8.0F;
     public float heightJump = 5.0f;
-    private bool jumping = false;
+    public bool jumping = false;
     public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
@@ -106,9 +106,9 @@ public class PlayerMovement : MonoBehaviour
             jumping = false;
         }
 
-        if (!isGrounded && !jumping)
+        if (!jumping && !isGrounded)
             heightModificator -= speedFall * Time.deltaTime;
-        else
+        else if(!jumping)
             heightModificator *= 0.98f;
 
         distanceFromCenter = 7f + heightModificator;
