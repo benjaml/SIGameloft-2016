@@ -41,6 +41,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   wrath: 0
+  smoothWrath: 0.3
+  wrathAugementationByTick: 5
+  timeBetweenTick: 0.3
+  numberOfCollectibles: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

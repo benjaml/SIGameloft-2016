@@ -23,6 +23,7 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float lerpDampening = 0.1f;
 
+        public float modifierAdvanceCam = 2;
         public Vector3 offset;
 
         public float smoothTime;
@@ -43,8 +44,8 @@ namespace UnityStandardAssets.Utility
 				return; 
 
             // Set the height of the camera
-            transform.position = Vector3.Lerp(target.position, target.position+(distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
-            transform.position += offset;
+            transform.position = Vector3.SmoothDamp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up)) + offset,ref smoothVel,smoothTime);
+            //transform.position += offset;
 
             //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
 
@@ -58,17 +59,17 @@ namespace UnityStandardAssets.Utility
             //Quaternion _rot = Quaternion.LookRotation(_vForward, _vUp);
 
             //FromToRotation Very Smooth but does not look the player
-            /*Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
-            Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
+            //Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
+            //Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
         
-            Quaternion _newRot = _up * _forward;
+            //Quaternion _newRot = _up * _forward;
 
             //Apply rotations to smooth the movement of cam
-            transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
+            //transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
 
-            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+            Quaternion targetRotation = Quaternion.LookRotation((target.position + modifierAdvanceCam * target.forward) - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
 
@@ -76,4 +77,5 @@ namespace UnityStandardAssets.Utility
             //transform.LookAt(target, target.up);
         }
     }
+
 }

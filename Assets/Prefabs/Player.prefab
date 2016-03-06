@@ -26,11 +26,10 @@ GameObject:
   - 114: {fileID: 11470774}
   - 54: {fileID: 5486800}
   - 114: {fileID: 11400938}
-  - 114: {fileID: 11447482}
-  - 114: {fileID: 11402402}
+  - 114: {fileID: 11428004}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,7 +501,7 @@ MonoBehaviour:
   listCollectible: []
   targetCollectible: {fileID: 102814}
   lastObject: {fileID: 0}
---- !u!114 &11402402
+--- !u!114 &11428004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -510,23 +509,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 101774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14181a16d69f03d41893a88452b51ab1, type: 3}
+  m_Script: {fileID: 11500000, guid: 45588f6aaf9bfb24caaee7f5fe17e207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11447482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2946be325fc7e74090dc683f2a3c01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listCollectible: []
-  targetCollectible: {fileID: 113120}
-  lastObject: {fileID: 0}
 --- !u!114 &11470774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,13 +525,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cylinderRadius: 3.5
   distanceFromCenter: 7
-  turnSpeed: 20
+  turnSpeedMax: 30
+  airTurnSpeedMax: 3
   jumpSpeed: 100
+  heightJump: 5
+  speedFall: 0.5
   gravity: 150
-  baseSpeed: 20
-  MaxSpeed: 100
+  baseSpeed: 30
+  baseAirSpeed: 25
+  slowSpeed: 10
+  slowAirSpeed: 5
+  MaxSpeed: 50
+  MaxAirSpeed: 10
   Acceleration: 100
   Deceleration: 80
+  airAcceleration: 10
+  airDeceleration: 10
+  speedDash: 300
+  dashCooldown: 5
+  dashDuration: 1
   gravityCenter: {x: 0, y: 0, z: 0}
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}

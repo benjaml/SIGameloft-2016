@@ -10,6 +10,7 @@ public class CollectibleSpeedModifier : MonoBehaviour {
         if (col.tag == "Player")
         {
             col.gameObject.transform.parent.GetComponent<PlayerMovement>().multiplyCurrentSpeed(modifierSpeed);
+            Destroy(this);
         }
     }
 }
