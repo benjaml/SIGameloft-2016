@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 3.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
-    public float baseSpeed = 50.0f;
+    public float baseSpeed = 30.0f;
 
     private float SpeedX = 0;//Don't touch this
     private float SpeedY = 0;
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
         heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
