@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, 2.0f);
         heightModificator *= 0.98f;
-        distanceFromCenter = 7f + heightModificator;
+        distanceFromCenter = 8f + heightModificator;
 
 
         isGrounded = distanceFromCenter <10.0f ? true : false;
