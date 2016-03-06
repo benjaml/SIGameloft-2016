@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     public float Deceleration = 10;//How fast will object reach a speed of 0
     public float airAcceleration = 10;
     public float airDeceleration = 10;
+    public float speedDash = 300.0f;
+    public float dashCooldown = 5.0f;
+    public float dashDuration = 1.0f;
+    private float timeStartDash;
+    private bool dashing = false;
+    private float _xStick = 0.0f;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -45,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
+        timeStartDash = -dashCooldown;
     }
 
 
@@ -53,12 +59,19 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
+        if(!jumping)
+            heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
 
         if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
             jumping = true;
 
-        if(jumping)
+        if (Input.GetButtonDown("A_0") && (timeStartDash + dashCooldown < Time.time))
+        {
+            timeStartDash = Time.time;
+            dashing = true;
+        }
+
+        if (jumping)
             heightModificator += jumpSpeed * Time.deltaTime;
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
@@ -72,9 +85,7 @@ public class PlayerMovement : MonoBehaviour
             heightModificator *= 0.98f;
 
         distanceFromCenter = 7f + heightModificator;
-
-        Debug.Log(distanceFromCenter);
-
+        
         isGrounded = distanceFromCenter <10.0f ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
@@ -163,14 +174,13 @@ public class PlayerMovement : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
-       
-
     }
 
     //calculate the turn speed when grounded
     float calculateTurnSpeed()
     {
-        float _xStick = Input.GetAxisRaw("Horizontal");
+        if(!dashing)
+            _xStick = Input.GetAxisRaw("Horizontal");
 
         if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < turnSpeedMax) && (turnSpeed > -turnSpeedMax))
         {
@@ -181,11 +191,24 @@ public class PlayerMovement : MonoBehaviour
             if ((_xStick < -0.3) && turnSpeed > 0)
                 turnSpeed = 0;
 
-            turnSpeed = turnSpeed + _xStick * Acceleration * Time.deltaTime;
+
+            if((timeStartDash + dashDuration > Time.time))
+            {
+                turnSpeed = turnSpeed + _xStick * Acceleration * speedDash * Time.deltaTime;
+            }
+            else
+            {
+                turnSpeed = turnSpeed + _xStick * Acceleration * Time.deltaTime;
+                dashing = false;
+            }
         }
         else
         {
-            if (turnSpeed > Deceleration * Time.deltaTime)
+            if (turnSpeed > turnSpeedMax)
+                turnSpeed = turnSpeedMax;
+            else if (turnSpeed < -turnSpeedMax)
+                turnSpeed = -turnSpeedMax;
+            else if (turnSpeed > Deceleration * Time.deltaTime)
                 turnSpeed = turnSpeed - Deceleration * Time.deltaTime;
             else if (turnSpeed < -Deceleration * Time.deltaTime)
                 turnSpeed = turnSpeed + Deceleration * Time.deltaTime;

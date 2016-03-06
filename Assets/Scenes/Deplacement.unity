@@ -917,6 +917,18 @@ Prefab:
       propertyPath: airTurnSpeedMax
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: speedDash
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
