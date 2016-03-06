@@ -23,10 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private float speedForward = 0;
     public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
     public float MaxAirSpeed = 10.0f;
+    public float turnAcceleration = 10.0f;
+    public float turnDeceleration = 10.0f;
     public float Acceleration = 10;//How fast will object reach a maximum speed
     public float Deceleration = 10;//How fast will object reach a speed of 0
     public float airAcceleration = 10;
     public float airDeceleration = 10;
+    public float turnAirAcceleration = 10.0f;
+    public float turnAirDeceleration = 10.0f;
     public float speedDash = 300.0f;
     public float dashCooldown = 5.0f;
     public float dashDuration = 1.0f;
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Fait Marcher les tremplins. pourquoi? parce que ta mère.
+        //Fait Marcher les tremplins. pourquoi? parce que voilà.
         Debug.Log("jS " + jumpSpeed);
         Debug.Log("sF " + speedFall);
         Debug.Log("hJ " + heightJump);
@@ -221,11 +225,11 @@ public class PlayerMovement : MonoBehaviour
 
             if((timeStartDash + dashDuration > Time.time))
             {
-                turnSpeed = turnSpeed + _xStick * Acceleration * speedDash * Time.deltaTime;
+                turnSpeed = turnSpeed + _xStick * turnAcceleration * speedDash * Time.deltaTime;
             }
             else
             {
-                turnSpeed = turnSpeed + _xStick * Acceleration * Time.deltaTime;
+                turnSpeed = turnSpeed + _xStick * turnAcceleration * Time.deltaTime;
                 dashing = false;
             }
         }
@@ -235,10 +239,10 @@ public class PlayerMovement : MonoBehaviour
                 turnSpeed = turnSpeedMax;
             else if (turnSpeed < -turnSpeedMax)
                 turnSpeed = -turnSpeedMax;
-            else if (turnSpeed > Deceleration * Time.deltaTime)
-                turnSpeed = turnSpeed - Deceleration * Time.deltaTime;
-            else if (turnSpeed < -Deceleration * Time.deltaTime)
-                turnSpeed = turnSpeed + Deceleration * Time.deltaTime;
+            else if (turnSpeed > turnDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - turnDeceleration * Time.deltaTime;
+            else if (turnSpeed < -turnDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + turnDeceleration * Time.deltaTime;
             else
                 turnSpeed = 0;
         }
@@ -254,14 +258,14 @@ public class PlayerMovement : MonoBehaviour
         if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < airTurnSpeedMax) && (turnSpeed > -airTurnSpeedMax))
         {
 
-            turnSpeed = turnSpeed + _xStick * airAcceleration * Time.deltaTime;
+            turnSpeed = turnSpeed + _xStick * turnAirAcceleration * Time.deltaTime;
         }
         else
         {
-            if (turnSpeed > airDeceleration * Time.deltaTime)
-                turnSpeed = turnSpeed - airDeceleration * Time.deltaTime;
-            else if (turnSpeed < -airDeceleration * Time.deltaTime)
-                turnSpeed = turnSpeed + Deceleration * Time.deltaTime;
+            if (turnSpeed > turnAirDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - turnAirDeceleration * Time.deltaTime;
+            else if (turnSpeed < -turnAirDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + turnAirDeceleration * Time.deltaTime;
             else
                 turnSpeed = 0;
         }
