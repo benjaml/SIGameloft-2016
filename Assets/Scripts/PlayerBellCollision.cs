@@ -12,34 +12,32 @@ public class PlayerBellCollision : MonoBehaviour {
     //On clear la liste + FX de clear si besoin. 
 
     //Variable to stock the gameManagerWrath
-    public GameObject gameManagerWrath;
+    private GameManagerWrath gameManagerWrath;
 
-    //temporary list of collectible:
-    public List<GameObject> listProvisoireCollectible = new List<GameObject>();
+    void Start()
+    {
 
-    //Variable to stock the number of collectibles:
-    private int numberOfCollectibles;
+        gameManagerWrath = GameManagerWrath.instance;
+    }
 
 
     void OnTriggerEnter (Collider col)
     {
         if (col.tag == "bell")
         {
-            //Start animation, fx and sound
-            numberOfCollectibles = listProvisoireCollectible.Count;
-            Debug.Log(numberOfCollectibles);
+        Debug.Log("lol");
 
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles
-            wrathManagmementFunction.numberOfCollectibles = numberOfCollectibles;
+            wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
+            Debug.Log(wrathManagmementFunction.numberOfCollectibles);
 
             //Start the function to reduce the wrath gauge of the dragon
             wrathManagmementFunction.wrathManaging();
 
 
             //Clear the list with fx
-            listProvisoireCollectible.Clear();
         }
     }
 }

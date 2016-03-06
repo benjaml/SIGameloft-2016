@@ -6,6 +6,9 @@ TagManager:
   tags:
   - floor
   - bell
+  - collectible
+  - collected
+  - Dragon
   layers:
   - Default
   - TransparentFX

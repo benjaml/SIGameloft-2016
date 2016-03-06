@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+       
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
         heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;

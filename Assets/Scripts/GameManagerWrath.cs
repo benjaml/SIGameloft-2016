@@ -1,12 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManagerWrath : MonoBehaviour {
+public class GameManagerWrath : MonoBehaviour
+{
 
+
+    public static GameManagerWrath instance = null;
     public GameObject player;
+    private Material dragon;
     [Range(0, 500)]
-    public int wrath;
-    private int wrathLast = -1;
+    public float wrath;
+    private float wrathLast = -1;
+    private float wrathVelocity = 0.0f;
+    public float smoothWrath = 0.3f;
+    public float wrathAugementationByTick = 5f;
+    public float timeBetweenTick = 0.3f;
 
     public int numberOfCollectibles;
 
@@ -18,9 +26,30 @@ public class GameManagerWrath : MonoBehaviour {
     
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+                Destroy(this);
+        }
         DontDestroyOnLoad(gameObject);
+        player = GameObject.FindGameObjectWithTag("Player");
+        dragon = GameObject.FindGameObjectWithTag("Dragon").GetComponent<MeshRenderer>().material;
     }
 
+    void OnLevelWasLoaded(int level)
+    {
+        if (level == 0)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            dragon = GameObject.FindGameObjectWithTag("Dragon").GetComponent<MeshRenderer>().material;
+            wrath = 0;
+        }
+
+    }
     void Start ()
     {
         StartCoroutine(wrathAugmentation());
@@ -31,8 +60,10 @@ public class GameManagerWrath : MonoBehaviour {
         if (wrathLast != wrath)
         {
             wrathLast = wrath;
-            Debug.Log(wrath);
+            //Debug.Log(wrath);
         }
+        float newPosition = Mathf.SmoothDamp(dragon.GetFloat("_Madness"), wrath, ref wrathVelocity, smoothWrath)/500f;
+        dragon.SetFloat("_Madness", wrath/500f);
     }
 
     public void wrathManaging()
@@ -40,24 +71,26 @@ public class GameManagerWrath : MonoBehaviour {
         if (numberOfCollectibles <= 0)
             return;
         else if (numberOfCollectibles <= 5)
-            wrath -= 5;
+            wrath -= 50;
 
         else if (numberOfCollectibles <= 10)
-            wrath -= 2;
+            wrath -= 100;
 
         else if (numberOfCollectibles <= 15)
-            wrath -= 3;
+            wrath -= 150;
 
         else if (numberOfCollectibles <= 20)
-            wrath -= 4;
+            wrath -= 200;
+
+        dragon.SetFloat("_Madness", wrath / 500f);
     }
 
     IEnumerator wrathAugmentation()
     {
         while (true)
         {
-            wrath++;
-            yield return new WaitForSeconds(0.5f);
+            wrath+=wrathAugementationByTick;
+            yield return new WaitForSeconds(timeBetweenTick);
         }
 
     }
