@@ -59,13 +59,22 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        if(!jumping)
-            heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
+        if(isGrounded)
+        {
+            if(Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetKey(KeyCode.Z))
+            {
+                heightModificator -= 0.3f;
+            }
+            else
+            {
+                heightModificator -= 0.0f;
+            }
+        }
 
-        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+        if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
             jumping = true;
 
-        if (Input.GetButtonDown("A_0") && (timeStartDash + dashCooldown < Time.time))
+        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time))
         {
             timeStartDash = Time.time;
             dashing = true;
