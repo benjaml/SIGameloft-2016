@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - floor
-  - collectible
-  - collected
+  - bell
   layers:
   - Default
   - TransparentFX
