@@ -74,8 +74,9 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
             jumping = true;
 
-        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time))
+        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (Input.GetAxisRaw("Horizontal") > 0.3 || Input.GetAxisRaw("Horizontal") < -0.3) && (timeStartDash + dashCooldown < Time.time))
         {
+            Debug.Log("dash");
             timeStartDash = Time.time;
             dashing = true;
         }
