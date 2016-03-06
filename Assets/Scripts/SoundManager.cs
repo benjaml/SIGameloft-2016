@@ -21,7 +21,8 @@ public class SoundManager : MonoBehaviour {
     #endregion
 
     bool m_Ready = false;
-
+    int m_FlowerIndex = 0;
+    private float m_flowerDelay = 2;
 
 	// Use this for initialization
 	void Start()
@@ -43,7 +44,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[2].isPlaying)
                 {
                     Source[2].Stop();
-                    Source[2].clip = Sound[0];
+                    Source[2].clip = Sound[5];
                     Source[2].Play();
                 }
                 break;
@@ -52,7 +53,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[2].isPlaying)
                 {
                     Source[2].Stop();
-                    Source[2].clip = Sound[0];
+                    Source[2].clip = Sound[6];
                     Source[2].Play();
                 }
                 break;
@@ -61,7 +62,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[2].isPlaying)
                 {
                     Source[2].Stop();
-                    Source[2].clip = Sound[0];
+                    Source[2].clip = Sound[7];
                     Source[2].Play();
                 }
                 break;
@@ -70,7 +71,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[2].isPlaying)
                 {
                     Source[2].Stop();
-                    Source[2].clip = Sound[0];
+                    Source[2].clip = Sound[8];
                     Source[2].Play();
                 }
                 break;
@@ -81,7 +82,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[3].isPlaying)
                 {
                     Source[3].Stop();
-                    Source[3].clip = Sound[0];
+                    Source[3].clip = Sound[9];
                     Source[3].Play();
                 }
                 break;
@@ -92,7 +93,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[5].isPlaying)
                 {
                     Source[5].Stop();
-                    Source[5].clip = Sound[0];
+                    Source[5].clip = Sound[10];
                     Source[5].Play();
                 }
                 break;
@@ -101,7 +102,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[5].isPlaying)
                 {
                     Source[5].Stop();
-                    Source[5].clip = Sound[0];
+                    Source[5].clip = Sound[11];
                     Source[5].Play();
                 }
                 break;
@@ -112,7 +113,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[6].isPlaying)
                 {
                     Source[6].Stop();
-                    Source[6].clip = Sound[0];
+                    Source[6].clip = Sound[12];
                     Source[6].Play();
                 }
                 break;
@@ -121,56 +122,30 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[6].isPlaying)
                 {
                     Source[6].Stop();
-                    Source[6].clip = Sound[0];
+                    Source[6].clip = Sound[13];
                     Source[6].Play();
                 }
                 break;
             #endregion
 
             #region Flower
-            case SoundManagerType.Flower_1:
-                if (!Source[7].isPlaying)
-                {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[0];
-                    Source[7].Play();
-                }
-                break;
+            case SoundManagerType.Flower:
 
-            case SoundManagerType.Flower_2:
-                if (!Source[7].isPlaying)
-                {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[0];
-                    Source[7].Play();
-                }
-                break;
+                StopAllCoroutines();
+                m_FlowerIndex++;
 
-            case SoundManagerType.Flower_3:
-                if (!Source[7].isPlaying)
+                if(m_FlowerIndex > 5)
                 {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[0];
-                    Source[7].Play();
+                    m_FlowerIndex = 1;
                 }
-                break;
 
-            case SoundManagerType.Flower_4:
                 if (!Source[7].isPlaying)
                 {
                     Source[7].Stop();
-                    Source[7].clip = Sound[0];
+                    Source[7].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower aux index entre 0 et 4
                     Source[7].Play();
                 }
-                break;
-
-            case SoundManagerType.Flower_5:
-                if (!Source[7].isPlaying)
-                {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[0];
-                    Source[7].Play();
-                }
+                StartCoroutine(flowerCooldown());
                 break;
             #endregion
 
@@ -179,7 +154,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[8].isPlaying)
                 {
                     Source[8].Stop();
-                    Source[8].clip = Sound[0];
+                    Source[8].clip = Sound[14];
                     Source[8].Play();
                 }
                 break;
@@ -188,7 +163,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[9].isPlaying)
                 {
                     Source[9].Stop();
-                    Source[9].clip = Sound[0];
+                    Source[9].clip = Sound[15];
                     Source[9].Play();
                 }
                 break;
@@ -199,7 +174,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[4].isPlaying)
                 {
                     Source[4].Stop();
-                    Source[4].clip = Music[0];
+                    Source[4].clip = Voice[1];
                     Source[4].Play();
                 }
                 break;
@@ -209,5 +184,12 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
+    IEnumerator flowerCooldown ()
+    {
+
+        yield return new WaitForSeconds(m_flowerDelay);
+        m_FlowerIndex = 0;
+
+    }
    
 }

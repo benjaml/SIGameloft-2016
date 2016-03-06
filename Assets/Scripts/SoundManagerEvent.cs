@@ -42,11 +42,7 @@ public enum SoundManagerType
     Gong,
     Bell,
         //Flowers
-    Flower_1,
-    Flower_2,
-    Flower_3,
-    Flower_4,
-    Flower_5,
+    Flower,
         //Environment 
     Stream,
     Thunder,
