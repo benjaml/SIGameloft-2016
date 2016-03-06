@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeStartDash;
     private bool dashing = false;
     private float _xStick = 0.0f;
+    private float initJumpSpeed, initHeightJump, initSpeedFall;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -52,11 +53,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         timeStartDash = -dashCooldown;
+        initHeightJump = heightJump;
+        initJumpSpeed = jumpSpeed;
+        initSpeedFall = speedFall;
     }
 
 
     void Update()
     {
+        //Fait Marcher les tremplins. pourquoi? parce que ta mère.
+        Debug.Log("jS " + jumpSpeed);
+        Debug.Log("sF " + speedFall);
+        Debug.Log("hJ " + heightJump);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if(isGrounded)
@@ -68,6 +76,13 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 heightModificator -= 0.0f;
+            }
+
+            if (!jumping)
+            {
+                jumpSpeed = initJumpSpeed;
+                speedFall = initSpeedFall;
+                heightJump = initHeightJump;
             }
         }
 
@@ -87,7 +102,9 @@ public class PlayerMovement : MonoBehaviour
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
 
         if (heightModificator >= heightJump)
+        {
             jumping = false;
+        }
 
         if (!isGrounded && !jumping)
             heightModificator -= speedFall * Time.deltaTime;
@@ -315,6 +332,14 @@ public class PlayerMovement : MonoBehaviour
     {
         MaxSpeed /= _modifier;
         turnSpeedMax /= _modifier;
+    }
+
+    public void Spring(float _jumpSpeedMod, float _heightJumpMod, float _speedFallMod)
+    {
+        jumping = true;
+        heightJump = _heightJumpMod;
+        jumpSpeed = _jumpSpeedMod;
+        speedFall = _speedFallMod;
     }
 
     void DebugPoint(Vector3 position, Color color)
