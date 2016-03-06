@@ -23,14 +23,17 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float lerpDampening = 0.1f;
 
+	    public float forwardValue;
+
         public Vector3 offset;
 
         public float smoothTime = 0.3f;
         Vector3 smoothVel;
+        Vector3 smoothVel2;
 
 
         // Use this for initialization
-	    void Awake()
+        void Awake()
 	    {
             //distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
 	        //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
@@ -69,8 +72,8 @@ namespace UnityStandardAssets.Utility
             transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
-
-            Quaternion targetRotation = Quaternion.LookRotation((target.position+0*target.forward) - transform.position);
+		    Vector3 lookPoint = Vector3.SmoothDamp(transform.position,target.position + forwardValue*target.forward, ref smoothVel2, smoothTime);
+            Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
 

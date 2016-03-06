@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
+    public float rotationSpeed = 50.0f;
 
     private float SpeedX = 0;//Don't touch this
     private float SpeedY = 0;
@@ -134,14 +135,13 @@ public class PlayerMovement : MonoBehaviour
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 
-        targetRotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
-        if (lastRotation != Quaternion.identity)
-            transform.rotation = Quaternion.Slerp(lastRotation, targetRotation, 0.1f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, Time.deltaTime * rotationSpeed);
+        
         lastRotation = transform.rotation;
 
 
     }
-
+     
     float calculateSpeedX()
     {
         float _xStick = Input.GetAxisRaw("Horizontal");
