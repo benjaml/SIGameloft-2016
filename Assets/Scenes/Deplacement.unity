@@ -877,6 +877,10 @@ Prefab:
       propertyPath: MaxSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400938, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
@@ -980,11 +984,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 92634876}
-  distance: 5
-  height: 1
+  distance: 4
+  height: 3
   rotationDamping: 10
   heightDamping: 10
   lerpDampening: 0.1
+  forwardValue: 13
   offset: {x: 0, y: 0, z: 0}
   smoothTime: 0.1
 --- !u!1001 &1756166104

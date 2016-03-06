@@ -10,12 +10,24 @@ namespace UnityStandardAssets.Utility
 		private Transform target;
 		// The distance in the x-z plane to the target
 		[SerializeField]
-		private float distance = 10.0f;
+		private float distanceInterne = 10.0f;
 		// the height we want the camera to be above the target
 		[SerializeField]
-		private float height = 5.0f;
+		private float heightInterne = 5.0f;
 
-		[SerializeField]
+        [SerializeField]
+        private float distanceExterne = 10.0f;
+        // the height we want the camera to be above the target
+        [SerializeField]
+        private float heightExterne = 5.0f;
+
+        [SerializeField]
+        private float distance = 10.0f;
+        // the height we want the camera to be above the target
+        [SerializeField]
+        private float height = 5.0f;
+
+        [SerializeField]
 		private float rotationDamping;
 		[SerializeField]
 		private float heightDamping;
@@ -42,6 +54,7 @@ namespace UnityStandardAssets.Utility
 		// Update is called once per frame
 		void Update()
 		{
+
 			// Early out if we don't have a target
 			if (!target)
 				return;
@@ -67,16 +80,17 @@ namespace UnityStandardAssets.Utility
             Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
         
             Quaternion _newRot = _up * _forward;
-
+            */
             //Apply rotations to smooth the movement of cam
-            transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, 6.0f * Time.deltaTime);*/
+		    //transform.forward = target.forward;
+            //transform.rotation = Quaternion.FromToRotation(transform.up, target.up);
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
 		    Vector3 lookPoint = Vector3.SmoothDamp(transform.position,target.position + forwardValue*target.forward, ref smoothVel2, smoothTime);
             Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position);
+            //targetRotation *= Quaternion.FromToRotation(transform.up, target.up); 
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
-
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.5f);
             // Always look at the target, but is shaky
             //transform.LookAt(target, target.up);
         }
