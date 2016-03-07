@@ -25,8 +25,6 @@ public class PlayerBellCollision : MonoBehaviour {
     {
         if (col.tag == "bell")
         {
-        Debug.Log("lol");
-
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles

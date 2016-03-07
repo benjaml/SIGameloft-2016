@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18de0568a2f37c74a87a72502d568acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocLDTest: {fileID: 142768, guid: 7efaa8c5b6f650b4ea8b18c727ea7afc, type: 2}
+  blocLD: {fileID: 106492, guid: 0c4fa2a13436b1649ae83f12b2763879, type: 2}
   myListGlobal:
-  - {fileID: 0}
+  - {fileID: 106492, guid: 0c4fa2a13436b1649ae83f12b2763879, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

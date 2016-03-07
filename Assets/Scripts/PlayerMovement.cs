@@ -60,10 +60,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
-    
+
+
 
     void Start()
     {
+
         timeStartDash = -dashCooldown;
         initHeightJump = heightJump;
         initJumpSpeed = jumpSpeed;
@@ -75,13 +77,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+
         //Fait Marcher les tremplins. pourquoi? parce que voilà.
         //Debug.Log("jS " + jumpSpeed);
         //Debug.Log("sF " + speedFall);
         //Debug.Log("hJ " + heightJump);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        if(isGrounded)
+        if (isGrounded)
         {
             if(Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetKey(KeyCode.Z))
             {
