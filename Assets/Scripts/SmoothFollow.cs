@@ -44,12 +44,12 @@ namespace UnityStandardAssets.Utility
         private Vector3 smoothVel2;
         private float smoothVelRot;
 
-        public float interiorHeight = 3.0f;
+        public float interiorHeight = 2.0f;
         public float interiorDistance = 5.0f;
-        public float exteriorHeight = 10.0f;
-        public float exteriorDistance = 1.0f;
-        public float exteriorForward = 0.0f;
-        public float interiorForward = 13.0f;
+        public float interiorForward = 15.0f;
+        public float exteriorHeight = 15.0f;
+        public float exteriorDistance = 10.0f;
+        public float exteriorForward = -5.0f;
 
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
