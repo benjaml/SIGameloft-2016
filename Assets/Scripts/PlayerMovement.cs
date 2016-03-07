@@ -4,19 +4,48 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float cylinderRadius = 2.5f;
+    private float cylinderRadius = 2.5f;
+    public float baseDistanceFromCenter = 7.0f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
-    public float turnSpeed = 3.0F;
+    public float turnSpeedMax = 3.0F;
+    public float airTurnSpeedMax = 3.0f;
     public float jumpSpeed = 8.0F;
+    public float heightJump = 5.0f;
+    private bool jumping = false;
+    private bool chargeJump = false;
+    public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
+    public float baseAirSpeed = 25.0f;
+    public float slowSpeed = 10.0f;
+    public float slowAirSpeed = 5.0f;
 
-    private float SpeedX = 0;//Don't touch this
-    private float SpeedY = 0;
+    private float turnSpeed = 0;//Don't touch this
+    private float speedForward = 0;
     public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
+    public float MaxAirSpeed = 10.0f;
+    public float turnAcceleration = 10.0f;
+    public float turnDeceleration = 10.0f;
     public float Acceleration = 10;//How fast will object reach a maximum speed
     public float Deceleration = 10;//How fast will object reach a speed of 0
+    public float airAcceleration = 10;
+    public float airDeceleration = 10;
+    public float turnAirAcceleration = 10.0f;
+    public float turnAirDeceleration = 10.0f;
+    public float speedDash = 300.0f;
+    public float dashCooldown = 5.0f;
+    public float dashDuration = 1.0f;
+    private float startHeightmax;
+    public float heightMaxDuration = 0.0f;
+    private float timeStartDash;
+    private bool dashing = false;
+    private bool rightDash = false;
+    private bool leftDash = false;
+    private bool lDashed = false;
+    private bool rDashed = false;
+    private float _xStick = 0.0f;
+    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -35,21 +64,106 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
+        timeStartDash = -dashCooldown;
+        initHeightJump = heightJump;
+        initJumpSpeed = jumpSpeed;
+        initSpeedFall = speedFall;
+        accelerateJump = 0.0f;
+        distanceFromCenter = baseDistanceFromCenter;
     }
 
 
     void Update()
     {
+        //Fait Marcher les tremplins. pourquoi? parce que voilà.
+        //Debug.Log("jS " + jumpSpeed);
+        //Debug.Log("sF " + speedFall);
+        //Debug.Log("hJ " + heightJump);
+
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        heightModificator -= Input.GetAxisRaw("R_YAxis_0") < -0.3 ? 0.03f : 0.0f;
-        heightModificator += Input.GetAxisRaw("R_YAxis_0") > 0.3 ? 0.03f : 0.0f;
-        heightModificator = Mathf.Clamp(heightModificator, -2.5f, 2.0f);
-        heightModificator *= 0.98f;
-        distanceFromCenter = 7f + heightModificator;
+        if(isGrounded)
+        {
+            if(Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetKey(KeyCode.Z))
+            {
+                heightModificator -= 0.3f;
+            }
+            else
+            {
+                heightModificator -= 0.0f;
+            }
 
+            if (!jumping)
+            {
+                accelerateJump = 0.0f;
+                jumpSpeed = initJumpSpeed;
+                speedFall = initSpeedFall;
+                heightJump = initHeightJump;
+            }
+        }
 
-        isGrounded = distanceFromCenter <10.0f ? true : false;
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+            chargeJump = true;
+
+        if((chargeJump && (Input.GetAxisRaw("R_YAxis_0") < 0.3)) || (Input.GetKeyUp(KeyCode.Space) && isGrounded))
+        {
+            chargeJump = false;
+            jumping = true;
+        }
+
+        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
+        {
+            timeStartDash = Time.time;
+            dashing = true;
+            leftDash = true;
+            lDashed = true;
+        }
+
+        if (Input.GetAxisRaw("TriggersL_0") < 0.3)
+            lDashed = false;
+
+        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
+        {
+            timeStartDash = Time.time;
+            dashing = true;
+            rightDash = true;
+            rDashed = true;
+        }
+
+        if (Input.GetAxisRaw("TriggersR_0") < 0.3)
+            rDashed = false;
+
+        if (jumping)
+        {
+            if( accelerateJump < 1.0f && heightModificator < heightJump * 0.7f)
+                accelerateJump += Time.deltaTime;
+
+            if (heightModificator >= heightJump * 0.7f && accelerateJump > 0.1f)
+                accelerateJump -= Time.deltaTime;
+
+            heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
+        }
+
+        heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
+
+        if (heightModificator >= heightJump)
+        {
+            if (jumping)
+                startHeightmax = Time.time;
+            jumping = false;
+            accelerateJump = 0.0f;
+        }
+
+        if (!jumping && !isGrounded && (startHeightmax + heightMaxDuration < Time.time))
+        {
+            accelerateJump += Time.deltaTime;
+            heightModificator -= speedFall * accelerateJump * Time.deltaTime;
+        }
+        else if (!jumping && (startHeightmax + heightMaxDuration < Time.time))
+            heightModificator *= 0.98f;
+
+        distanceFromCenter = baseDistanceFromCenter + heightModificator;
+
+        isGrounded = distanceFromCenter <7.5f ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -103,19 +217,24 @@ public class PlayerMovement : MonoBehaviour
         //float tmpGrav = gravity;
         gravityDirection = gravityCenter - transform.position;
         //gravityDirection.Normalize();
-        if (isGrounded)
-        {
 
+        if(isGrounded)
+        {
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
-            moveDirection = transform.forward*calculateSpeedY();
+            moveDirection = transform.forward * calculateSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right*calculateSpeedX();
-
-            if (Input.GetButton("Jump"))
-                moveDirection += jumpSpeed*-gravityDirection;
-
+            moveDirection += transform.right * calculateTurnSpeed();
         }
+        else
+        {
+            //tmpGrav *= 0.1f;
+            // avance sur le tube avec la variabe speed
+            moveDirection = transform.forward * calculateAirSpeedForward();
+            // tourne autour du tube avec la variabe turnSpeed
+            moveDirection += transform.right * calculateAirTurnSpeed();
+        }
+        
         // on ajoute la gravité au déplacement
         //moveDirection += tmpGrav*Time.deltaTime*gravityDirection;
         targetPosition = (transform.position + (moveDirection*Time.deltaTime));
@@ -132,74 +251,155 @@ public class PlayerMovement : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
-       
-
     }
 
-    float calculateSpeedX()
+    //calculate the turn speed when grounded
+    float calculateTurnSpeed()
+    {
+        if(!dashing)
+            _xStick = Input.GetAxisRaw("Horizontal");
+        else
+        {
+            if (leftDash)
+                _xStick = -1.0f;
+
+            if (rightDash)
+                _xStick = 1.0f;
+        }
+
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < turnSpeedMax) && (turnSpeed > -turnSpeedMax))
+        {
+
+            if ((_xStick > 0.3) && turnSpeed < 0)
+                turnSpeed = 0;
+
+            if ((_xStick < -0.3) && turnSpeed > 0)
+                turnSpeed = 0;
+
+
+            if((timeStartDash + dashDuration > Time.time))
+            {
+                turnSpeed = turnSpeed + _xStick * turnAcceleration * speedDash * Time.deltaTime;
+            }
+            else
+            {
+                turnSpeed = turnSpeed + _xStick * turnAcceleration * Time.deltaTime;
+                dashing = false;
+                rightDash = false;
+                leftDash = false;
+            }
+        }
+        else
+        {
+            if (turnSpeed > turnSpeedMax)
+                turnSpeed = turnSpeedMax;
+            else if (turnSpeed < -turnSpeedMax)
+                turnSpeed = -turnSpeedMax;
+            else if (turnSpeed > turnDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - turnDeceleration * Time.deltaTime;
+            else if (turnSpeed < -turnDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + turnDeceleration * Time.deltaTime;
+            else
+                turnSpeed = 0;
+        }
+
+        return turnSpeed;
+    }
+
+    //calculate the turn speed when in air
+    float calculateAirTurnSpeed()
     {
         float _xStick = Input.GetAxisRaw("Horizontal");
 
-        if (((_xStick > 0.3) || (_xStick < -0.3)) && (SpeedX < turnSpeed) && (SpeedX > -turnSpeed))
+        if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < airTurnSpeedMax) && (turnSpeed > -airTurnSpeedMax))
         {
 
-            if ((_xStick > 0.3) && SpeedX < 0)
-                SpeedX = 0;
-
-            if ((_xStick < -0.3) && SpeedX > 0)
-                SpeedX = 0;
-
-            SpeedX = SpeedX + _xStick * Acceleration * Time.deltaTime;
+            turnSpeed = turnSpeed + _xStick * turnAirAcceleration * Time.deltaTime;
         }
         else
         {
-            if (SpeedX > Deceleration * Time.deltaTime)
-                SpeedX = SpeedX - Deceleration * Time.deltaTime;
-            else if (SpeedX < -Deceleration * Time.deltaTime)
-                SpeedX = SpeedX + Deceleration * Time.deltaTime;
+            if (turnSpeed > turnAirDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed - turnAirDeceleration * Time.deltaTime;
+            else if (turnSpeed < -turnAirDeceleration * Time.deltaTime)
+                turnSpeed = turnSpeed + turnAirDeceleration * Time.deltaTime;
             else
-                SpeedX = 0;
+                turnSpeed = 0;
         }
 
-        return SpeedX;
+        return turnSpeed;
     }
 
-
-    float calculateSpeedY()
+    //calculate speed forward when grounded
+    float calculateSpeedForward()
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (SpeedY < MaxSpeed) && (SpeedY > -MaxSpeed))
-            SpeedY = SpeedY + _yStick * Acceleration * Time.deltaTime;
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxSpeed) && (speedForward >= slowSpeed))
+            speedForward += _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (SpeedY > baseSpeed + Deceleration * Time.deltaTime)
-                SpeedY = SpeedY - Deceleration * Time.deltaTime;
-            else if (SpeedY < -baseSpeed  + Deceleration * Time.deltaTime)
-                SpeedY = SpeedY + Deceleration * Time.deltaTime;
+            if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+                speedForward = speedForward - Deceleration * Time.deltaTime;
+            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
+                speedForward = speedForward + Deceleration * Time.deltaTime;
             else
-                SpeedY = baseSpeed;
+                speedForward = baseSpeed;
         }
 
-        return SpeedY;
+        return speedForward;
+    }
+
+    //calculate speed forward when in air
+    float calculateAirSpeedForward()
+    {
+        float _yStick = Input.GetAxisRaw("Vertical");
+
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxAirSpeed) && (speedForward >= slowAirSpeed))
+            speedForward += _yStick * airAcceleration * Time.deltaTime;
+        else
+        {
+            if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
+                speedForward = speedForward - airDeceleration * Time.deltaTime;
+            else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
+                speedForward = speedForward + airDeceleration * Time.deltaTime;
+            else
+                speedForward = baseAirSpeed;
+        }
+
+        return speedForward;
     }
 
     public void reduceCurrentSpeed(float _modifier)
     {
-        SpeedX /= _modifier;
-        SpeedY /= _modifier;
+        turnSpeed /= _modifier;
+        speedForward /= _modifier;
     }
+
+    public void multiplyCurrentSpeed(float _modifier)
+    {
+        turnSpeed *= _modifier;
+        speedForward *= _modifier;
+    }
+    
 
     public void multiplySpeedMax(float _modifier)
     {
         MaxSpeed *= _modifier;
-        turnSpeed *= _modifier;
+        turnSpeedMax *= _modifier;
     }
 
     public void divideSpeedMax(float _modifier)
     {
         MaxSpeed /= _modifier;
-        turnSpeed /= _modifier;
+        turnSpeedMax /= _modifier;
+    }
+
+    public void Spring(float _jumpSpeedMod, float _heightJumpMod, float _speedFallMod)
+    {
+        jumping = true;
+        heightJump = _heightJumpMod;
+        jumpSpeed = _jumpSpeedMod;
+        speedFall = _speedFallMod;
     }
 
     void DebugPoint(Vector3 position, Color color)
