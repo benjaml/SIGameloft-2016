@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - floor
+  - bell
   - collectible
   - collected
+  - Dragon
+  - obstacleAir
+  - obstacleFloor
   layers:
   - Default
   - TransparentFX
