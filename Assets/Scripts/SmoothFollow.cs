@@ -40,13 +40,20 @@ namespace UnityStandardAssets.Utility
         public Vector3 offset;
 
         public float smoothTime = 0.3f;
-        Vector3 smoothVel;
-        Vector3 smoothVel2;
-        float smoothVelRot;
+        private Vector3 smoothVel;
+        private Vector3 smoothVel2;
+        private float smoothVelRot;
+
         public float interiorHeight = 3.0f;
         public float interiorDistance = 5.0f;
         public float exteriorHeight = 10.0f;
         public float exteriorDistance = 1.0f;
+        public float exteriorForward = 0.0f;
+        public float interiorForward = 13.0f;
+
+        private float topAngle = 359.9f;
+        private float exteriorAngle = 270.0f;
+        private float downAngle = 180.0f;
 
         // Use this for initialization
         void Awake()
@@ -65,7 +72,8 @@ namespace UnityStandardAssets.Utility
 
             // Set the height of the camera
             //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
-            transform.position = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)) + offset, ref smoothVel, smoothTime);
+            transform.position = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
+            //transform.position = target.position + (distance * (-target.forward)) + (height * (target.up));
             //transform.position += offset;
 
             //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
@@ -106,11 +114,42 @@ namespace UnityStandardAssets.Utility
             targetRotation = Quaternion.FromToRotation(transform.up, target.up);
             targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint-transform.position));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
-            
+
             //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, target.eulerAngles, ref smoothVelRot, smoothTime);
 
             // Always look at the target, but is shaky
             //transform.LookAt(target, target.up);
+
+            float _zAngle = transform.eulerAngles.z;
+
+            if (_zAngle == 0)
+                _zAngle = 360;
+
+            if(_zAngle <= topAngle && _zAngle >= downAngle)
+            {
+                float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
+
+                if(interiorDistance > exteriorDistance)
+                    distance = exteriorDistance + ((_angleToChangeCamera * (interiorDistance - exteriorDistance)) / 90);
+                else
+                    distance = exteriorDistance - ((_angleToChangeCamera * (exteriorDistance - interiorDistance)) / 90);
+
+                if (interiorHeight > exteriorHeight)
+                    height = exteriorHeight + ((_angleToChangeCamera * (interiorHeight - exteriorHeight)) / 90);
+                else
+                    height = exteriorHeight - ((_angleToChangeCamera * (exteriorHeight - interiorHeight)) / 90);
+
+                if (interiorForward > exteriorForward)
+                    forwardValue = exteriorForward + ((_angleToChangeCamera * (interiorForward - exteriorForward)) / 90);
+                else
+                    forwardValue = exteriorForward - ((_angleToChangeCamera * (exteriorForward - interiorForward)) / 90);
+            }
+            else
+            {
+                height = interiorHeight;
+                distance = interiorDistance;
+                forwardValue = interiorForward;
+            }
         }
     }
 }
