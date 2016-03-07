@@ -4,7 +4,8 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float cylinderRadius = 2.5f;
+    private float cylinderRadius = 2.5f;
+    public float baseDistanceFromCenter = 7.0f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
     public float turnSpeedMax = 3.0F;
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeStartDash;
     private bool dashing = false;
     private float _xStick = 0.0f;
-    private float initJumpSpeed, initHeightJump, initSpeedFall;
+    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -60,15 +61,17 @@ public class PlayerMovement : MonoBehaviour
         initHeightJump = heightJump;
         initJumpSpeed = jumpSpeed;
         initSpeedFall = speedFall;
+        accelerateJump = 0.0f;
+        distanceFromCenter = baseDistanceFromCenter;
     }
 
 
     void Update()
     {
         //Fait Marcher les tremplins. pourquoi? parce que voilà.
-        Debug.Log("jS " + jumpSpeed);
-        Debug.Log("sF " + speedFall);
-        Debug.Log("hJ " + heightJump);
+        //Debug.Log("jS " + jumpSpeed);
+        //Debug.Log("sF " + speedFall);
+        //Debug.Log("hJ " + heightJump);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if(isGrounded)
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!jumping)
             {
+                accelerateJump = 0.0f;
                 jumpSpeed = initJumpSpeed;
                 speedFall = initSpeedFall;
                 heightJump = initHeightJump;
@@ -101,23 +105,30 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (jumping)
-            heightModificator += jumpSpeed * Time.deltaTime;
+        {
+            accelerateJump += Time.deltaTime;
+            heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
+        }
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
 
         if (heightModificator >= heightJump)
         {
             jumping = false;
+            accelerateJump = 0.0f;
         }
 
         if (!jumping && !isGrounded)
-            heightModificator -= speedFall * Time.deltaTime;
-        else if(!jumping)
+        {
+            accelerateJump += Time.deltaTime;
+            heightModificator -= speedFall * accelerateJump * Time.deltaTime;
+        }
+        else if (!jumping)
             heightModificator *= 0.98f;
 
-        distanceFromCenter = 7f + heightModificator;
-        
-        isGrounded = distanceFromCenter <10.0f ? true : false;
+        distanceFromCenter = baseDistanceFromCenter + heightModificator;
+
+        isGrounded = distanceFromCenter <7.5f ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -174,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(isGrounded)
         {
+            Debug.Log("tata");
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateSpeedForward();
