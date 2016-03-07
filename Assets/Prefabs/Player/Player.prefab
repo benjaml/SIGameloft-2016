@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cylinderRadius: 3.5
+  baseDistanceFromCenter: 7
   distanceFromCenter: 7
   turnSpeedMax: 30
   airTurnSpeedMax: 15

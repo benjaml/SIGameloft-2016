@@ -294,19 +294,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cylinderRadius: 5
-  speed: 100
-  turnSpeed: 20
+  baseDistanceFromCenter: 7
+  distanceFromCenter: 5
+  turnSpeedMax: 3
+  airTurnSpeedMax: 3
   jumpSpeed: 100
+  heightJump: 5
+  jumping: 0
+  speedFall: 0.5
   gravity: 150
-  currentSpiral: {fileID: 0}
-  currentMinY: 0
-  currentMaxY: 0
+  baseSpeed: 50
+  baseAirSpeed: 25
+  slowSpeed: 10
+  slowAirSpeed: 5
+  MaxSpeed: 10
+  MaxAirSpeed: 10
+  turnAcceleration: 10
+  turnDeceleration: 10
+  Acceleration: 10
+  Deceleration: 10
+  airAcceleration: 10
+  airDeceleration: 10
+  turnAirAcceleration: 10
+  turnAirDeceleration: 10
+  speedDash: 300
+  dashCooldown: 5
+  dashDuration: 1
   gravityCenter: {x: 0, y: 0, z: 0}
+  secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
   isGrounded: 0
-  curDir: 0
-  mouseSensibility: 20
 --- !u!114 &11472322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listCollectible: []
   targetCollectible: {fileID: 122038}
-  _lastObject: {fileID: 0}
+  lastObject: {fileID: 0}
 --- !u!124 &12427670
 Behaviour:
   m_ObjectHideFlags: 1

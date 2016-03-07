@@ -97,8 +97,13 @@ MonoBehaviour:
   rotationDamping: 10
   heightDamping: 10
   lerpDampening: 0.1
+  forwardValue: 0
   offset: {x: 1, y: 1, z: 1}
   smoothTime: 1
+  interiorHeight: 3
+  interiorDistance: 5
+  exteriorHeight: 10
+  exteriorDistance: 1
 --- !u!124 &12425498
 Behaviour:
   m_ObjectHideFlags: 1
