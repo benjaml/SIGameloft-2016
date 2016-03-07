@@ -475,7 +475,7 @@ Transform:
   m_LocalScale: {x: 22.54837, y: 32.99748, z: 37.276775}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
 --- !u!114 &505246211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,6 +1180,10 @@ Prefab:
       propertyPath: turnAcceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+      propertyPath: jumpSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
@@ -1290,6 +1294,10 @@ MonoBehaviour:
   forwardValue: 13
   offset: {x: -2.7, y: 0.7, z: 2.6}
   smoothTime: 0.1
+  interiorHeight: 3
+  interiorDistance: 5
+  exteriorHeight: 10
+  exteriorDistance: 1
 --- !u!1001 &1756166104
 Prefab:
   m_ObjectHideFlags: 0

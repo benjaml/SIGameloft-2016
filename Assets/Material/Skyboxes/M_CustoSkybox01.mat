@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SkyGradient
-        second:
-          m_Texture: {fileID: 2800000, guid: 5d9a33a989f91334782040ec2ee8a7ae, type: 3}
-          m_Scale: {x: 0.0008, y: 0.5}
-          m_Offset: {x: 0.09, y: 0.5}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -87,6 +80,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _SkyGradient
+        second:
+          m_Texture: {fileID: 2800000, guid: 5d9a33a989f91334782040ec2ee8a7ae, type: 3}
+          m_Scale: {x: 0.0008, y: 0.5}
+          m_Offset: {x: 0.09, y: 0.5}
+      data:
+        first:
           name: _SkyMap
         second:
           m_Texture: {fileID: 8900000, guid: 6730496b98efe4a41b1e1cc57bc62d5c, type: 2}
@@ -116,10 +116,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _TimeSlider
-        second: 105.949356
       data:
         first:
           name: _Glossiness
@@ -152,6 +148,10 @@ Material:
         first:
           name: _Mode
         second: 0
+      data:
+        first:
+          name: _TimeSlider
+        second: 919.1553
       data:
         first:
           name: _Saturation

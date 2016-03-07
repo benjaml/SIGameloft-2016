@@ -15,7 +15,7 @@ public class PlayerBouncing : MonoBehaviour {
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-        baseSpeedAir = gameObject.transform.parent.GetComponent<PlayerMovement>().baseAirSpeed;
+        baseSpeedAir = GetComponent<PlayerMovement>().baseAirSpeed;
     }
 
     void OnTriggerEnter(Collider col)
