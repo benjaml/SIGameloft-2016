@@ -87,8 +87,11 @@ namespace UnityStandardAssets.Utility
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
             Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue * target.forward, ref smoothVel2, smoothTime);
-            Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position);
+            Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position, transform.position + target.up);
             //targetRotation *= Quaternion.FromToRotation(transform.up, target.up); 
+
+            Debug.DrawLine(transform.position, transform.position + target.up * 10, Color.red);
+            Debug.DrawLine(target.position, target.position + target.up * 10, Color.blue);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
             // Always look at the target, but is shaky

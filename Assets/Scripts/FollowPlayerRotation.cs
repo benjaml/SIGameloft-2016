@@ -15,7 +15,9 @@ public class FollowPlayerRotation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.eulerAngles = new Vector3(Player.eulerAngles.z - 90, _rot.y, _rot.z);
+        //transform.eulerAngles = new Vector3(Player.eulerAngles.z - 90, _rot.y, _rot.z);
+        //transform.eulerAngles = new Vector3(_rot.x, Player.eulerAngles.z, _rot.z);
+        //transform.eulerAngles = new Vector3(_rot.x, _rot.y, Player.eulerAngles.z);
 
-	}
+    }
 }
