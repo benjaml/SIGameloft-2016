@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
 
-        isGrounded = distanceFromCenter <7.5f ? true : false;
+        isGrounded = distanceFromCenter <baseDistanceFromCenter ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
