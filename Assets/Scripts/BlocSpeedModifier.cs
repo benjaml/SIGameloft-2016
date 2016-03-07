@@ -31,8 +31,10 @@ public class BlocSpeedModifier : MonoBehaviour {
             stockMaxSpeed = playerMovementScript.MaxSpeed;
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
-            StartCoroutine(reducingSpeed());
+            ShakeManager.instance.LetsShake(200, false, true);
 
+            StartCoroutine(reducingSpeed());
+            
             //Add a certain value to the dragon wrath
         }
     }
@@ -67,9 +69,12 @@ public class BlocSpeedModifier : MonoBehaviour {
         for (int i = 0; i < flowersLost; i++)
         {
             Debug.Log("hello");
-            GameObject tmp = flowersList[flowersList.Count - 1];
-            flowersList.Remove(flowersList[flowersList.Count-1]);
-            Destroy(tmp);
+            if (flowersList[flowersList.Count - 1] != flowersList[0])
+            {
+                GameObject tmp = flowersList[flowersList.Count - 1];
+                flowersList.Remove(flowersList[flowersList.Count - 1]);
+                Destroy(tmp);
+            }
 
         }
 

@@ -127,11 +127,11 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 0.1956895
+        second: 0.14952064
       data:
         first:
           name: _LightTransitionSlider
-        second: 0.08748853
+        second: 0.045017123
       data:
         first:
           name: _BoolDay
