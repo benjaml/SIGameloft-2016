@@ -34,8 +34,8 @@ public class PlayerBouncing : MonoBehaviour {
 
             playerMovementScript.baseSpeed = 0;
             //Movement arrière dotween
-            transform.DOMoveZ(transform.position.z + (direction.z * -1), 0.5f);
-            transform.DOMoveX(transform.position.x + (direction.x * -1), 0.5f);
+            transform.DOMoveZ((transform.position.z + (direction.z * -0.5f)), 0.35f);
+            transform.DOMoveX((transform.position.x + (direction.x * -0.5f)), 0.35f);
             playerMovementScript.baseSpeed = _stockBaseSpeed;
             return;
         }

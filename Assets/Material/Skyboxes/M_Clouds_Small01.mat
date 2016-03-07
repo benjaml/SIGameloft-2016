@@ -167,11 +167,11 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 0.08896091
+        second: 0.43819293
       data:
         first:
           name: _LightTransitionSlider
-        second: 1
+        second: 0.9527717
       data:
         first:
           name: _BoolDay
@@ -179,7 +179,7 @@ Material:
       data:
         first:
           name: _BoolAfternoon
-        second: 0
+        second: 1
       data:
         first:
           name: _LightAffected

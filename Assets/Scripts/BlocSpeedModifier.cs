@@ -10,6 +10,7 @@ public class BlocSpeedModifier : MonoBehaviour {
         if (col.tag == "Player")
         {
             PlayerMovement Script = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             Script.reduceCurrentSpeed(modifierSpeed);
             StartCoroutine(destructionBloc());
         }
