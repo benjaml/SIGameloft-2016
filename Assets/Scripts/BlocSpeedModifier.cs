@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlocSpeedModifier : MonoBehaviour {
 
-    private float modifierSpeed = 2;
+    private float modifierSpeed = 0.85f;
 
     void OnTriggerEnter (Collider col)
     {

@@ -15,7 +15,7 @@ public class PlayerBouncing : MonoBehaviour {
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-        baseSpeedAir = gameObject.transform.parent.GetComponent<PlayerMovement>().baseAirSpeed;
+        baseSpeedAir = playerMovementScript.baseAirSpeed;
     }
 
     void OnTriggerEnter(Collider col)
@@ -32,7 +32,7 @@ public class PlayerBouncing : MonoBehaviour {
             Debug.Log(transform.position);
 
 
-            playerMovementScript.baseSpeed = 0;
+            playerMovementScript.baseSpeed = playerMovementScript.baseSpeed/2;
             //Movement arrière dotween
             transform.DOMoveZ(transform.position.z + (direction.z * -1), 0.5f);
             transform.DOMoveX(transform.position.x + (direction.x * -1), 0.5f);
@@ -41,6 +41,7 @@ public class PlayerBouncing : MonoBehaviour {
         }
         if (col.tag == "obstcaleAir")
         {
+            Debug.Log("hello");
             float _stockBaseAirSpeed = playerMovementScript.baseAirSpeed;
 
             Debug.Log(transform.position);
@@ -51,7 +52,7 @@ public class PlayerBouncing : MonoBehaviour {
             Debug.Log(transform.position);
 
 
-            playerMovementScript.baseAirSpeed = 0;
+            playerMovementScript.baseAirSpeed = playerMovementScript.baseAirSpeed/2;
             //Movement arrière dotween
             transform.DOMoveZ(transform.position.z + (direction.z * -1), 0.5f);
             transform.DOMoveX(transform.position.x + (direction.x * -1), 0.5f);
