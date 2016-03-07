@@ -1,33 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BlocSpeedModifier : MonoBehaviour {
 
     public float reduceSpeed = 0.6f;
     public float accelerationTime;
     public int lowSpeedTime = 5;
+    public int flowersLost = 5;
+
     private float stockBaseSpeed;
     private float stockMaxSpeed;
+
+    private List<GameObject> flowersList;
     PlayerMovement playerMovementScript; 
 
     void OnTriggerEnter (Collider col)
     {
         if (col.tag == "Player")
         {
+            flowersList = col.gameObject.transform.parent.GetComponent<PlayerCollectible>().listCollectible;
+            losingFlowers();
+
             playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
+
             stockBaseSpeed = playerMovementScript.baseSpeed;
             playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
-            Debug.Log(playerMovementScript.baseSpeed * reduceSpeed);
+
+
             stockMaxSpeed = playerMovementScript.MaxSpeed;
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
+
             StartCoroutine(reducingSpeed());
-            //StartCoroutine(destructionBloc());
+
+            //Add a certain value to the dragon wrath
         }
     }
 
     IEnumerator reducingSpeed()
     {
-        Debug.Log("hello");
         int _tmp = 0;
         while (_tmp < lowSpeedTime)
         {
@@ -38,7 +49,7 @@ public class BlocSpeedModifier : MonoBehaviour {
         {
             while (playerMovementScript.MaxSpeed < stockMaxSpeed)
             {
-                Debug.Log(playerMovementScript.MaxSpeed);
+
                 playerMovementScript.baseSpeed += accelerationTime;
                 playerMovementScript.MaxSpeed += accelerationTime;
                 yield return new WaitForSeconds(0.2f);
@@ -50,17 +61,19 @@ public class BlocSpeedModifier : MonoBehaviour {
         yield return null;
     }
 
-    //IEnumerator destructionBloc()
-    //{
-    //    int _tmp = 0;
-    //    while (_tmp < 20)
-    //    {
-    //        _tmp++;
-    //        yield return new WaitForEndOfFrame();
-    //    }
-    //    Destroy(gameObject);
-    //    yield return null;
+    void losingFlowers()
+    {
+        Debug.Log(flowersLost);
+        for (int i = 0; i < flowersLost; i++)
+        {
+            Debug.Log("hello");
+            GameObject tmp = flowersList[flowersList.Count - 1];
+            flowersList.Remove(flowersList[flowersList.Count-1]);
+            Destroy(tmp);
 
-    //}
+        }
+
+
+    }
 
 }

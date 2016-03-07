@@ -799,11 +799,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
       propertyPath: reduceSpeed
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
       propertyPath: accelerationTime
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6543734, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
       propertyPath: m_Enabled
@@ -812,6 +812,10 @@ Prefab:
     - target: {fileID: 2331170, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: flowersLost
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
