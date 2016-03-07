@@ -20,26 +20,20 @@ namespace UnityStandardAssets.Utility
         // the height we want the camera to be above the target
         [SerializeField]
         private float heightExterne = 5.0f;*/
-
-        [SerializeField]
+        
         private float distance = 10.0f;
         // the height we want the camera to be above the target
-        [SerializeField]
         private float height = 5.0f;
-
-        [SerializeField]
+        
         private float rotationDamping;
-        [SerializeField]
         private float heightDamping;
-
-        [SerializeField]
         private float lerpDampening = 0.1f;
 
-        public float forwardValue;
+        private float forwardValue;
 
         public Vector3 offset;
 
-        public float smoothTime = 0.3f;
+        private float smoothTime = 0.3f;
         private Vector3 smoothVel;
         private Vector3 smoothVel2;
         private float smoothVelRot;
@@ -50,6 +44,10 @@ namespace UnityStandardAssets.Utility
         public float exteriorHeight = 15.0f;
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
+
+        public float accelerationHeight = 5.0f;
+        public float accelerationDistance = 20.0f;
+        private float accelerationAngle = 90.0f;
 
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
@@ -149,6 +147,15 @@ namespace UnityStandardAssets.Utility
                 height = interiorHeight;
                 distance = interiorDistance;
                 forwardValue = interiorForward;
+            }
+
+            float _yStick = Input.GetAxisRaw("Vertical");
+
+            if ((_yStick > 0.3) && accelerationAngle > 0.0f)
+            {
+                distance = (distance + accelerationDistance) - ((accelerationAngle * accelerationDistance) / 90);
+                height = (height / accelerationHeight) + ((accelerationAngle * (height - (height / accelerationHeight))) / 90);
+                accelerationAngle -= Time.deltaTime;
             }
         }
     }

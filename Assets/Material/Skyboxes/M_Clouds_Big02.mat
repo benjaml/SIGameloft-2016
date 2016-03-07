@@ -150,28 +150,20 @@ Material:
         second: 0
       data:
         first:
-          name: _Alpha
-        second: 0.26
-      data:
-        first:
-          name: _Transmission
-        second: 55.53
-      data:
-        first:
-          name: _ShadowOpacity
-        second: 0.4
-      data:
-        first:
           name: _CloudMouvementSpeed
         second: 0.4
       data:
         first:
+          name: _Alpha
+        second: 0.26
+      data:
+        first:
           name: _CloudsMouvSlider
-        second: 0.09956508
+        second: 0.032814726
       data:
         first:
           name: _LightTransitionSlider
-        second: 0.86613107
+        second: 0.91206056
       data:
         first:
           name: _BoolDay
@@ -182,8 +174,16 @@ Material:
         second: 0
       data:
         first:
+          name: _Transmission
+        second: 55.53
+      data:
+        first:
           name: _LightAffected
         second: 1
+      data:
+        first:
+          name: _ShadowOpacity
+        second: 0.4
       data:
         first:
           name: _ShadowSaturation
@@ -207,7 +207,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-        second: 0.56693447
+        second: 0.8446579
       data:
         first:
           name: _UVDeformationStrength
@@ -221,10 +221,6 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _ShadowColor
-        second: {r: 0.4250865, g: 0.4155493, b: 0.4632353, a: 1}
       data:
         first:
           name: _Diffuse
@@ -241,3 +237,7 @@ Material:
         first:
           name: _SunColorDay
         second: {r: 1, g: 0.9724138, b: 0.88235295, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: 0.4250865, g: 0.4155493, b: 0.4632353, a: 1}
