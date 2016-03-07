@@ -42,7 +42,11 @@ namespace UnityStandardAssets.Utility
         public float smoothTime = 0.3f;
         Vector3 smoothVel;
         Vector3 smoothVel2;
-
+        float smoothVelRot;
+        public float interiorHeight = 3.0f;
+        public float interiorDistance = 5.0f;
+        public float exteriorHeight = 10.0f;
+        public float exteriorDistance = 1.0f;
 
         // Use this for initialization
         void Awake()
@@ -81,16 +85,30 @@ namespace UnityStandardAssets.Utility
         
             Quaternion _newRot = _up * _forward;
             */
+
             //Apply rotations to smooth the movement of cam
             //transform.forward = target.forward;
             //transform.rotation = Quaternion.FromToRotation(transform.up, target.up);
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
+            Quaternion targetRotation;
             Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue * target.forward, ref smoothVel2, smoothTime);
-            Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position);
+
+            /*Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position, transform.position + target.up);
             //targetRotation *= Quaternion.FromToRotation(transform.up, target.up); 
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.8f);
+            Debug.DrawLine(transform.position, transform.position + target.up * 10, Color.red);
+            Debug.DrawLine(target.position, target.position + target.up * 10, Color.blue);
+
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
+            */
+            
+            targetRotation = Quaternion.FromToRotation(transform.up, target.up);
+            targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint-transform.position));
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
+            
+            //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, target.eulerAngles, ref smoothVelRot, smoothTime);
+
             // Always look at the target, but is shaky
             //transform.LookAt(target, target.up);
         }
