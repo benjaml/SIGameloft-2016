@@ -1223,12 +1223,14 @@ MonoBehaviour:
   heightDamping: 10
   lerpDampening: 0.1
   forwardValue: 13
-  offset: {x: -2.7, y: 0.7, z: 2.6}
+  offset: {x: 0, y: 0, z: 0}
   smoothTime: 0.1
   interiorHeight: 3
   interiorDistance: 5
+  interiorForward: 15
   exteriorHeight: 10
   exteriorDistance: 1
+  exteriorForward: -5
 --- !u!1001 &1756166104
 Prefab:
   m_ObjectHideFlags: 0
