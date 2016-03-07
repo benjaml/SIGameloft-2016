@@ -16,7 +16,6 @@ public class PlayerCollectible : MonoBehaviour {
     {
 
         listCollectible.Add(targetCollectible);
-        //lastObject = listCollectible[0];
     }
 
     void OnTriggerEnter (Collider col)
