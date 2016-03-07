@@ -15,7 +15,7 @@ public class PlayerBouncing : MonoBehaviour {
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-        //baseSpeedAir = gameObject.transform.parent.GetComponent<PlayerMovement>().baseAirSpeed;
+        baseSpeedAir = gameObject.transform.parent.GetComponent<PlayerMovement>().baseAirSpeed;
     }
 
     void OnTriggerEnter(Collider col)
@@ -41,7 +41,22 @@ public class PlayerBouncing : MonoBehaviour {
         }
         if (col.tag == "obstcaleAir")
         {
+            float _stockBaseAirSpeed = playerMovementScript.baseAirSpeed;
 
+            Debug.Log(transform.position);
+
+            objectCollision = col.gameObject;
+            objectPosition = new Vector3(objectCollision.transform.position.x, objectCollision.transform.position.y, objectCollision.transform.position.z);
+            direction = objectPosition - transform.position;
+            Debug.Log(transform.position);
+
+
+            playerMovementScript.baseAirSpeed = 0;
+            //Movement arrière dotween
+            transform.DOMoveZ(transform.position.z + (direction.z * -1), 0.5f);
+            transform.DOMoveX(transform.position.x + (direction.x * -1), 0.5f);
+            playerMovementScript.baseAirSpeed = _stockBaseAirSpeed;
+            return;
         }
     }
 }

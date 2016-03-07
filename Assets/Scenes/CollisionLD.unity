@@ -804,6 +804,10 @@ Prefab:
       propertyPath: m_TagString
       value: obstacleFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 102022, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
   m_IsPrefabParent: 0
@@ -1090,11 +1094,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 92634876}
-  distance: 55
-  height: 25
+  distance: 5
+  height: 3
   rotationDamping: 10
   heightDamping: 10
   lerpDampening: 0.1
+  forwardValue: 0
   offset: {x: 0, y: 0, z: 0}
   smoothTime: 1
 --- !u!1001 &1756166104
@@ -1142,6 +1147,56 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c62aaaabec409194f9710dc0efd5872e, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1775234910
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 93.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 45.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -71.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.24011359
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.97074485
+      objectReference: {fileID: 0}
+    - target: {fileID: 419172, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 102022, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_Name
+      value: ObstacleFloor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 102022, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_TagString
+      value: obstacleAir
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1975607716
 Prefab:
