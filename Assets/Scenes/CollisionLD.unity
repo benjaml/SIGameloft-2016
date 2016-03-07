@@ -541,17 +541,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 101774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_PrefabInternal: {fileID: 1651314354}
---- !u!114 &984069483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 984069479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43416c76e26dc82409098e78a692ca4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1070685703
 Prefab:
   m_ObjectHideFlags: 0
@@ -804,6 +793,26 @@ Prefab:
       propertyPath: m_TagString
       value: obstacleFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: lowSpeedTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: reduceSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452196, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: accelerationTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543734, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331170, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b00a65a930f2e314e8c18ed1eb9347ff, type: 2}
   m_IsPrefabParent: 0
@@ -989,6 +998,8 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 11402402, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
     - {fileID: 11447482, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+    - {fileID: 11427610, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+    - {fileID: 11478982, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1752717393
@@ -1073,7 +1084,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752717393}
   m_LocalRotation: {x: 0.022855476, y: 0.9785149, z: -0.18175831, w: 0.0946054}
-  m_LocalPosition: {x: 59.6, y: 27.26, z: -4.69}
+  m_LocalPosition: {x: 68.2, y: 27.2, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
