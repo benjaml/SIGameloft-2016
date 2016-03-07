@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public float speedDash = 300.0f;
     public float dashCooldown = 5.0f;
     public float dashDuration = 1.0f;
+    private float startHeightmax;
+    public float heightMaxDuration = 0.0f;
     private float timeStartDash;
     private bool dashing = false;
     private float _xStick = 0.0f;
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
             jumping = true;
 
-        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (Input.GetAxisRaw("Horizontal") > 0.3 || Input.GetAxisRaw("Horizontal") < -0.3) && (timeStartDash + dashCooldown < Time.time))
+        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (Input.GetAxisRaw("Horizontal") > 0.3 || Input.GetAxisRaw("Horizontal") < -0.3) && (timeStartDash + dashCooldown < Time.time) && isGrounded)
         {
             Debug.Log("dash");
             timeStartDash = Time.time;
@@ -106,7 +108,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumping)
         {
-            accelerateJump += Time.deltaTime;
+            if( accelerateJump < 1.0f && heightModificator < heightJump * 0.7f)
+                accelerateJump += Time.deltaTime;
+
+            if (heightModificator >= heightJump * 0.7f && accelerateJump > 0.1f)
+                accelerateJump -= Time.deltaTime;
+
             heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
         }
 
@@ -114,16 +121,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (heightModificator >= heightJump)
         {
+            if (jumping)
+                startHeightmax = Time.time;
             jumping = false;
             accelerateJump = 0.0f;
         }
 
-        if (!jumping && !isGrounded)
+        if (!jumping && !isGrounded && (startHeightmax + heightMaxDuration < Time.time))
         {
             accelerateJump += Time.deltaTime;
             heightModificator -= speedFall * accelerateJump * Time.deltaTime;
         }
-        else if (!jumping)
+        else if (!jumping && (startHeightmax + heightMaxDuration < Time.time))
             heightModificator *= 0.98f;
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
@@ -185,7 +194,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(isGrounded)
         {
-            Debug.Log("tata");
             //tmpGrav *= 0.1f;
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateSpeedForward();
