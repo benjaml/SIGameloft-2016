@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float airTurnSpeedMax = 3.0f;
     public float jumpSpeed = 8.0F;
     public float heightJump = 5.0f;
-    public bool jumping = false;
+    private bool jumping = false;
+    private bool chargeJump = false;
     public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
@@ -39,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
     public float heightMaxDuration = 0.0f;
     private float timeStartDash;
     private bool dashing = false;
+    private bool rightDash = false;
+    private bool leftDash = false;
+    private bool lDashed = false;
+    private bool rDashed = false;
     private float _xStick = 0.0f;
     private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
 
@@ -96,15 +101,36 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
-            jumping = true;
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+            chargeJump = true;
 
-        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (Input.GetAxisRaw("Horizontal") > 0.3 || Input.GetAxisRaw("Horizontal") < -0.3) && (timeStartDash + dashCooldown < Time.time) && isGrounded)
+        if((chargeJump && (Input.GetAxisRaw("R_YAxis_0") < 0.3)) || (Input.GetKeyUp(KeyCode.Space) && isGrounded))
         {
-            Debug.Log("dash");
+            chargeJump = false;
+            jumping = true;
+        }
+
+        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
+        {
             timeStartDash = Time.time;
             dashing = true;
+            leftDash = true;
+            lDashed = true;
         }
+
+        if (Input.GetAxisRaw("TriggersL_0") < 0.3)
+            lDashed = false;
+
+        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
+        {
+            timeStartDash = Time.time;
+            dashing = true;
+            rightDash = true;
+            rDashed = true;
+        }
+
+        if (Input.GetAxisRaw("TriggersR_0") < 0.3)
+            rDashed = false;
 
         if (jumping)
         {
@@ -232,6 +258,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!dashing)
             _xStick = Input.GetAxisRaw("Horizontal");
+        else
+        {
+            if (leftDash)
+                _xStick = -1.0f;
+
+            if (rightDash)
+                _xStick = 1.0f;
+        }
 
         if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < turnSpeedMax) && (turnSpeed > -turnSpeedMax))
         {
@@ -251,6 +285,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 turnSpeed = turnSpeed + _xStick * turnAcceleration * Time.deltaTime;
                 dashing = false;
+                rightDash = false;
+                leftDash = false;
             }
         }
         else
