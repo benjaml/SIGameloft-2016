@@ -9,6 +9,8 @@ TagManager:
   - collectible
   - collected
   - Dragon
+  - obstacleAir
+  - obstacleFloor
   layers:
   - Default
   - TransparentFX
