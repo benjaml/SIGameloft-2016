@@ -34,22 +34,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &102814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 417390}
-  - 95: {fileID: 9575088}
-  m_Layer: 0
-  m_Name: TargetCollectible
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &113120
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,18 +156,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 468572}
   m_RootOrder: 2
---- !u!4 &417390
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.39, y: -0, z: -1.26}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 458454}
-  m_RootOrder: 3
 --- !u!4 &417520
 Transform:
   m_ObjectHideFlags: 1
@@ -245,7 +217,6 @@ Transform:
   - {fileID: 410092}
   - {fileID: 468572}
   - {fileID: 424668}
-  - {fileID: 417390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &468572
@@ -357,8 +328,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!95 &9571762
 Animator:
   serializedVersion: 3
@@ -366,23 +337,6 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113120}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebf22faef1f19ea46809e7efbbcafd2b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9575088
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102814}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ebf22faef1f19ea46809e7efbbcafd2b, type: 2}
@@ -499,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listCollectible: []
-  targetCollectible: {fileID: 102814}
+  targetCollectible: {fileID: 113120}
   lastObject: {fileID: 0}
 --- !u!114 &11428004
 MonoBehaviour:
@@ -525,30 +479,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDistanceFromCenter: 7
   distanceFromCenter: 7
-  turnSpeedMax: 30
-  airTurnSpeedMax: 15
-  jumpSpeed: 10
-  heightJump: 10
+  turnSpeedMax: 40
+  airTurnSpeedMax: 25
+  jumpSpeed: 30
+  heightJump: 9
   jumping: 0
-  speedFall: 2
-  gravity: 150
+  speedFall: 15
+  gravity: 500
   baseSpeed: 30
-  baseAirSpeed: 15
+  baseAirSpeed: 30
   slowSpeed: 10
-  slowAirSpeed: 5
-  MaxSpeed: 100
+  slowAirSpeed: 10
+  MaxSpeed: 50
   MaxAirSpeed: 50
-  turnAcceleration: 10
-  turnDeceleration: 10
-  Acceleration: 100
-  Deceleration: 80
-  airAcceleration: 80
-  airDeceleration: 40
-  turnAirAcceleration: 10
-  turnAirDeceleration: 10
-  speedDash: 300
+  turnAcceleration: 100
+  turnDeceleration: 50
+  Acceleration: 75
+  Deceleration: 55
+  airAcceleration: 75
+  airDeceleration: 55
+  turnAirAcceleration: 100
+  turnAirDeceleration: 30
+  speedDash: 80
   dashCooldown: 1
   dashDuration: 0.2
+  heightMaxDuration: 0
   gravityCenter: {x: 0, y: 0, z: 0}
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
