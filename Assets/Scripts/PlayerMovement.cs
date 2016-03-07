@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float airTurnSpeedMax = 3.0f;
     public float jumpSpeed = 8.0F;
     public float heightJump = 5.0f;
-    public bool jumping = false;
+    private bool jumping = false;
+    private bool chargeJump = false;
     public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
@@ -100,8 +101,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+            chargeJump = true;
+
+        if((chargeJump && (Input.GetAxisRaw("R_YAxis_0") < 0.3)) || (Input.GetKeyUp(KeyCode.Space) && isGrounded))
+        {
+            chargeJump = false;
             jumping = true;
+        }
 
         if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
         {
