@@ -167,11 +167,11 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 0.7042327
+        second: 1.2163907
       data:
         first:
           name: _LightTransitionSlider
-        second: 0.41693068
+        second: 1
       data:
         first:
           name: _BoolDay
@@ -207,7 +207,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-        second: 0.79153466
+        second: 0.5
       data:
         first:
           name: _UVDeformationStrength
