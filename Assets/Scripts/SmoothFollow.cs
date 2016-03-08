@@ -21,9 +21,9 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float heightExterne = 5.0f;*/
         
-        private float distance = 10.0f;
+        public float distance = 10.0f;
         // the height we want the camera to be above the target
-        private float height = 5.0f;
+        public float height = 5.0f;
         
         private float rotationDamping;
         private float heightDamping;
@@ -168,30 +168,28 @@ namespace UnityStandardAssets.Utility
 
             float speed = player.getSpeed();
 
-            float speedToAngle = (((speed + player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
+            if (speed < player.getBaseSpeed())
+                speed = player.getBaseSpeed();
 
-            Debug.Log(speedToAngle);
+            if (speed > player.getMaxSpeed())
+                speed = player.getMaxSpeed();
 
-            if (speed > previousSpeed)
-            {
-                if (distance > percentAccDist)
-                    distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
-                else
-                    distance = percentAccDist - ((speedToAngle * (percentAccDist - distance)) / 90);
+            float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
 
-                if (height > percentAccHeight)
-                    height = percentAccHeight + ((speedToAngle * (height - percentAccHeight)) / 90);
-                else
-                    height = percentAccHeight - ((speedToAngle * (percentAccHeight - height)) / 90);
+            if (distance > percentAccDist)
+                distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
+            else
+                distance = percentAccDist - ((speedToAngle * (percentAccDist - distance)) / 90);
 
-                if (baseFOV > accelerationFOV)
-                    mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
-                else
-                    mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
-                
-            }
+            if (height > percentAccHeight)
+                height = percentAccHeight + ((speedToAngle * (height - percentAccHeight)) / 90);
+            else
+                height = percentAccHeight - ((speedToAngle * (percentAccHeight - height)) / 90);
 
-            previousSpeed = speed;
+            if (baseFOV > accelerationFOV)
+                mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
+            else
+                mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
         }
     }
 }
