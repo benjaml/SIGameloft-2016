@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
 
-    public float tilt;
 
 
     void Start()
@@ -78,11 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Petite ligne de code pour le tilt, piqué sur internet.
-
-        rigidbody.rotation = Quaternion.Euler(0.0f, 0.0f, rigidbody.velocity.x * -tilt)
-
-
+        
         //Fait Marcher les tremplins. pourquoi? parce que voilà.
         //Debug.Log("jS " + jumpSpeed);
         //Debug.Log("sF " + speedFall);
