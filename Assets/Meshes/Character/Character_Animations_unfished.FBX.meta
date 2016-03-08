@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: d497e5af8a815b545819f87e2a409452
+timeCreated: 1457457366
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone_Body
+    100002: Bone_LeftWing_01
+    100004: Bone_LeftWing_02
+    100006: Bone_LeftWing_03
+    100008: Bone_LeftWing_End
+    100010: Bone_RightWing_01
+    100012: Bone_RightWing_02
+    100014: Bone_RightWing_03
+    100016: Bone_RightWing_End
+    100018: Bone_Tail_01
+    100020: Bone_Tail_02
+    100022: Bone_Tail_03
+    100024: Bone_Tail_Hit
+    100026: Bone_Tail_HitEnd
+    100028: Bone_Tail_Start
+    100030: //RootNode
+    100032: Helper_Body
+    100034: Helper_LeftWing
+    100036: Helper_LeftWing_Start
+    100038: Helper_RightWing
+    100040: Helper_RightWing_Start
+    100042: Helper_Root
+    100044: Helper_Tail
+    100046: Helper_Tail_Start
+    100048: RigController_Master
+    100050: RigController_Tail_Primary
+    100052: RigController_Tail_Secondary
+    100054: SK_Manta
+    400000: Bone_Body
+    400002: Bone_LeftWing_01
+    400004: Bone_LeftWing_02
+    400006: Bone_LeftWing_03
+    400008: Bone_LeftWing_End
+    400010: Bone_RightWing_01
+    400012: Bone_RightWing_02
+    400014: Bone_RightWing_03
+    400016: Bone_RightWing_End
+    400018: Bone_Tail_01
+    400020: Bone_Tail_02
+    400022: Bone_Tail_03
+    400024: Bone_Tail_Hit
+    400026: Bone_Tail_HitEnd
+    400028: Bone_Tail_Start
+    400030: //RootNode
+    400032: Helper_Body
+    400034: Helper_LeftWing
+    400036: Helper_LeftWing_Start
+    400038: Helper_RightWing
+    400040: Helper_RightWing_Start
+    400042: Helper_Root
+    400044: Helper_Tail
+    400046: Helper_Tail_Start
+    400048: RigController_Master
+    400050: RigController_Tail_Primary
+    400052: RigController_Tail_Secondary
+    400054: SK_Manta
+    4300000: SK_Manta
+    7400000: Idle
+    7400002: Jump
+    7400004: RollLeft
+    7400006: RollRight
+    9500000: //RootNode
+    13700000: SK_Manta
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 168
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RollLeft
+      takeName: Take 001
+      firstFrame: 196
+      lastFrame: 222
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RollRight
+      takeName: Take 001
+      firstFrame: 196
+      lastFrame: 222
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

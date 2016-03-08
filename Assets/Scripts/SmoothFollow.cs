@@ -21,9 +21,9 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float heightExterne = 5.0f;*/
         
-        private float distance = 10.0f;
+        public float distance = 10.0f;
         // the height we want the camera to be above the target
-        private float height = 5.0f;
+        public float height = 5.0f;
         
         private float rotationDamping;
         private float heightDamping;
@@ -45,19 +45,30 @@ namespace UnityStandardAssets.Utility
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
 
-        public float accelerationHeight = 5.0f;
+        public float accelerationHeight = -80.0f;
+        private float percentAccHeight;
         public float accelerationDistance = 20.0f;
-        private float accelerationAngle = 90.0f;
+        private float percentAccDist;
+
+        public float baseFOV = 60.0f;
+        public float accelerationFOV = 40.0f;
+
+        private Camera mainCam;
+
+        private PlayerMovement player;
 
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
         private float downAngle = 180.0f;
+        private float previousSpeed;
 
         // Use this for initialization
         void Awake()
         {
             //distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
+            mainCam = Camera.main;
+            player = target.gameObject.GetComponent<PlayerMovement>();
         }
 
         // Update is called once per frame
@@ -125,6 +136,10 @@ namespace UnityStandardAssets.Utility
 
             if(_zAngle <= topAngle && _zAngle >= downAngle)
             {
+
+                percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
+                percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
+
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
 
                 if(interiorDistance > exteriorDistance)
@@ -147,16 +162,34 @@ namespace UnityStandardAssets.Utility
                 height = interiorHeight;
                 distance = interiorDistance;
                 forwardValue = interiorForward;
+                percentAccDist = interiorDistance * (1 + (accelerationDistance / 100));
+                percentAccHeight = interiorHeight * (1 + (accelerationHeight / 100));
             }
 
-            float _yStick = Input.GetAxisRaw("Vertical");
+            float speed = player.getSpeed();
 
-            if ((_yStick > 0.3) && accelerationAngle > 0.0f)
-            {
-                distance = (distance + accelerationDistance) - ((accelerationAngle * accelerationDistance) / 90);
-                height = (height / accelerationHeight) + ((accelerationAngle * (height - (height / accelerationHeight))) / 90);
-                accelerationAngle -= Time.deltaTime;
-            }
+            if (speed < player.getBaseSpeed())
+                speed = player.getBaseSpeed();
+
+            if (speed > player.getMaxSpeed())
+                speed = player.getMaxSpeed();
+
+            float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
+
+            if (distance > percentAccDist)
+                distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
+            else
+                distance = percentAccDist - ((speedToAngle * (percentAccDist - distance)) / 90);
+
+            if (height > percentAccHeight)
+                height = percentAccHeight + ((speedToAngle * (height - percentAccHeight)) / 90);
+            else
+                height = percentAccHeight - ((speedToAngle * (percentAccHeight - height)) / 90);
+
+            if (baseFOV > accelerationFOV)
+                mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
+            else
+                mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
         }
     }
 }
