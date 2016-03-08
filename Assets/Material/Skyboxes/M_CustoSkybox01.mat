@@ -114,16 +114,16 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Glossiness
+        second: 0.5
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -151,7 +151,7 @@ Material:
       data:
         first:
           name: _TimeSlider
-        second: 21.502214
+        second: 99.23524
       data:
         first:
           name: _Saturation

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ParticlePlayground;
 
 public class PlayerMovement : MonoBehaviour
 {
