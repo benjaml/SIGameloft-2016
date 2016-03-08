@@ -49,16 +49,18 @@ namespace UnityStandardAssets.Utility
         private float percentAccHeight;
         public float accelerationDistance = 20.0f;
         private float percentAccDist;
-        private float accelerationAngle = 90.0f;
 
         public float baseFOV = 60.0f;
         public float accelerationFOV = 40.0f;
 
         private Camera mainCam;
 
+        private PlayerMovement player;
+
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
         private float downAngle = 180.0f;
+        private float previousSpeed;
 
         // Use this for initialization
         void Awake()
@@ -66,6 +68,7 @@ namespace UnityStandardAssets.Utility
             //distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
             mainCam = Camera.main;
+            player = target.gameObject.GetComponent<PlayerMovement>();
         }
 
         // Update is called once per frame
@@ -163,59 +166,32 @@ namespace UnityStandardAssets.Utility
                 percentAccHeight = interiorHeight * (1 + (accelerationHeight / 100));
             }
 
-            float _yStick = Input.GetAxisRaw("Vertical");
+            float speed = player.getSpeed();
 
-            if ((_yStick > 0.3) && accelerationAngle > 0.0f)
+            float speedToAngle = (((speed + player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
+
+            Debug.Log(speedToAngle);
+
+            if (speed > previousSpeed)
             {
                 if (distance > percentAccDist)
-                    distance = percentAccDist + ((accelerationAngle * (distance - percentAccDist)) / 90);
+                    distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
                 else
-                    distance = percentAccDist - ((accelerationAngle * (percentAccDist - distance)) / 90);
+                    distance = percentAccDist - ((speedToAngle * (percentAccDist - distance)) / 90);
 
                 if (height > percentAccHeight)
-                    height = percentAccHeight + ((accelerationAngle * (height - percentAccHeight)) / 90);
+                    height = percentAccHeight + ((speedToAngle * (height - percentAccHeight)) / 90);
                 else
-                    height = percentAccHeight - ((accelerationAngle * (percentAccHeight - height)) / 90);
+                    height = percentAccHeight - ((speedToAngle * (percentAccHeight - height)) / 90);
 
                 if (baseFOV > accelerationFOV)
-                    mainCam.fieldOfView = accelerationFOV + ((accelerationAngle * (baseFOV - accelerationFOV)) / 90);
+                    mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
                 else
-                    mainCam.fieldOfView = accelerationFOV - ((accelerationAngle * (accelerationFOV - baseFOV)) / 90);
-
-                accelerationAngle -= 1;
+                    mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+                
             }
 
-            if((_yStick > 0.3) && accelerationAngle == 0.0f)
-            {
-                height = percentAccHeight;
-                distance = percentAccDist;
-                mainCam.fieldOfView = accelerationFOV;
-            }
-
-            if(_yStick < 0.3 && accelerationAngle < 90 )
-            {
-                if (distance > percentAccDist)
-                    distance = percentAccDist + ((accelerationAngle * (distance - percentAccDist)) / 90);
-                else
-                    distance = percentAccDist - ((accelerationAngle * (percentAccDist - distance)) / 90);
-
-                if (height > percentAccHeight)
-                    height = percentAccHeight + ((accelerationAngle * (height - percentAccHeight)) / 90);
-                else
-                    height = percentAccHeight - ((accelerationAngle * (percentAccHeight - height)) / 90);
-
-                if (baseFOV > accelerationFOV)
-                    mainCam.fieldOfView = accelerationFOV + ((accelerationAngle * (baseFOV - accelerationFOV)) / 90);
-                else
-                    mainCam.fieldOfView = accelerationFOV - ((accelerationAngle * (accelerationFOV - baseFOV)) / 90);
-
-                accelerationAngle += 1;
-            }
-
-            if (_yStick < 0.3 && accelerationAngle == 90)
-            {
-                mainCam.fieldOfView = baseFOV;
-            }
+            previousSpeed = speed;
         }
     }
 }
