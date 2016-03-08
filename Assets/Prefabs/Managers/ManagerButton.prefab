@@ -27,6 +27,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b1ce767160bab49aded34729ef573a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MainMenuButtonsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_OptionsMenuButtonsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_CurrentPanel: MainPanel
+  m_CurrentIndex: 0
+  m_EndInput: 0
+  m_AnimationScript: {fileID: 0}
 --- !u!224 &22478996
 RectTransform:
   m_ObjectHideFlags: 1

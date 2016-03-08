@@ -1,30 +1,83 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BlocSpeedModifier : MonoBehaviour {
 
-    private float modifierSpeed = 2;
+    public float reduceSpeed = 0.6f;
+    public float accelerationTime;
+    public int lowSpeedTime = 5;
+    public int flowersLost = 5;
+
+    private float stockBaseSpeed;
+    private float stockMaxSpeed;
+
+    private List<GameObject> flowersList;
+    PlayerMovement playerMovementScript; 
 
     void OnTriggerEnter (Collider col)
     {
         if (col.tag == "Player")
         {
-            PlayerMovement Script = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
-            Script.reduceCurrentSpeed(modifierSpeed);
-            StartCoroutine(destructionBloc());
+            flowersList = col.gameObject.transform.parent.GetComponent<PlayerCollectible>().listCollectible;
+            losingFlowers();
+
+            playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
+
+            stockBaseSpeed = playerMovementScript.baseSpeed;
+            playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
+
+
+            stockMaxSpeed = playerMovementScript.MaxSpeed;
+            playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
+
+            ShakeManager.instance.LetsShake(200, false, true);
+
+            StartCoroutine(reducingSpeed());
+            
+            //Add a certain value to the dragon wrath
         }
     }
 
-    IEnumerator destructionBloc()
+    IEnumerator reducingSpeed()
     {
         int _tmp = 0;
-        while (_tmp < 20)
+        while (_tmp < lowSpeedTime)
         {
             _tmp++;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.1f);
         }
-        Destroy(gameObject);
+        if (_tmp >= lowSpeedTime)
+        {
+            while (playerMovementScript.MaxSpeed < stockMaxSpeed)
+            {
+
+                playerMovementScript.baseSpeed += accelerationTime;
+                playerMovementScript.MaxSpeed += accelerationTime;
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+        Debug.Log(stockMaxSpeed);
+        playerMovementScript.baseSpeed= stockBaseSpeed;
+        playerMovementScript.MaxSpeed = stockMaxSpeed;
         yield return null;
+    }
+
+    void losingFlowers()
+    {
+        Debug.Log(flowersLost);
+        for (int i = 0; i < flowersLost; i++)
+        {
+            Debug.Log("hello");
+            if (flowersList[flowersList.Count - 1] != flowersList[0])
+            {
+                GameObject tmp = flowersList[flowersList.Count - 1];
+                flowersList.Remove(flowersList[flowersList.Count - 1]);
+                Destroy(tmp);
+            }
+
+        }
+
 
     }
 

@@ -8,6 +8,7 @@ public class GameManagerWrath : MonoBehaviour
     public static GameManagerWrath instance = null;
     public GameObject player;
     private Material dragon;
+    public float maxWrath;
     [Range(0, 500)]
     public float wrath;
     private float wrathLast = -1;
@@ -62,6 +63,8 @@ public class GameManagerWrath : MonoBehaviour
             wrathLast = wrath;
             //Debug.Log(wrath);
         }
+        if (wrath > maxWrath)
+            wrath = maxWrath;
         float newPosition = Mathf.SmoothDamp(dragon.GetFloat("_Madness"), wrath, ref wrathVelocity, smoothWrath)/500f;
         dragon.SetFloat("_Madness", wrath/500f);
     }
