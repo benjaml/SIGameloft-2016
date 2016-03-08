@@ -39,14 +39,18 @@ namespace UnityStandardAssets.Utility
         private float smoothVelRot;
 
         public float interiorHeight = 2.0f;
+        public float interiorHeightDive = 5.0f;
+        private float interiorHeightForCalc;
         public float interiorDistance = 5.0f;
         public float interiorForward = 15.0f;
         public float exteriorHeight = 15.0f;
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
 
-        public float accelerationHeight = -80.0f;
+        public float accelerationHeight = -75.0f;
+        public float accelerationHeightDive = -40.0f;
         private float percentAccHeight;
+        private float accelerationHeightForCalc;
         public float accelerationDistance = 20.0f;
         private float percentAccDist;
 
@@ -134,6 +138,17 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
+            if(Input.GetAxisRaw("R_YAxis_0") < -0.3f)
+            {
+                interiorHeightForCalc = interiorHeightDive;
+                accelerationHeightForCalc = accelerationHeightDive;
+            }
+            else
+            {
+                interiorHeightForCalc = interiorHeight;
+                accelerationHeightForCalc = accelerationHeight;
+            }
+
             if(_zAngle <= topAngle && _zAngle >= downAngle)
             {
 
@@ -147,10 +162,10 @@ namespace UnityStandardAssets.Utility
                 else
                     distance = exteriorDistance - ((_angleToChangeCamera * (exteriorDistance - interiorDistance)) / 90);
 
-                if (interiorHeight > exteriorHeight)
-                    height = exteriorHeight + ((_angleToChangeCamera * (interiorHeight - exteriorHeight)) / 90);
+                if (interiorHeightForCalc > exteriorHeight)
+                    height = exteriorHeight + ((_angleToChangeCamera * (interiorHeightForCalc - exteriorHeight)) / 90);
                 else
-                    height = exteriorHeight - ((_angleToChangeCamera * (exteriorHeight - interiorHeight)) / 90);
+                    height = exteriorHeight - ((_angleToChangeCamera * (exteriorHeight - interiorHeightForCalc)) / 90);
 
                 if (interiorForward > exteriorForward)
                     forwardValue = exteriorForward + ((_angleToChangeCamera * (interiorForward - exteriorForward)) / 90);
@@ -159,11 +174,11 @@ namespace UnityStandardAssets.Utility
             }
             else
             {
-                height = interiorHeight;
+                height = interiorHeightForCalc;
                 distance = interiorDistance;
                 forwardValue = interiorForward;
                 percentAccDist = interiorDistance * (1 + (accelerationDistance / 100));
-                percentAccHeight = interiorHeight * (1 + (accelerationHeight / 100));
+                percentAccHeight = interiorHeightForCalc * (1 + (accelerationHeightForCalc / 100));
             }
 
             float speed = player.getSpeed();
