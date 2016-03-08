@@ -78,15 +78,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Fait Marcher les tremplins. pourquoi? parce que voilà.
-        //Debug.Log("jS " + jumpSpeed);
-        //Debug.Log("sF " + speedFall);
-        //Debug.Log("hJ " + heightJump);
+        Debug.Log(jumped);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if(isGrounded)
         {
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
+            if((Input.GetAxisRaw("R_YAxis_0") > 0.3f || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z)) && !jumped)
             {
                 heightModificator -= 0.3f;
             }
@@ -104,18 +101,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
+        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3f || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
         {
             jumped = true;
             jumping = true;
         }
 
-        if(jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("B_0") || Input.GetKeyUp(KeyCode.Space)))
+        if(jumped && ((Input.GetAxisRaw("R_YAxis_0") > -0.3f && Input.GetAxisRaw("R_YAxis_0") < 0.3f) || Input.GetButtonUp("B_0") || Input.GetKeyUp(KeyCode.Space)))
         {
             jumped = false;
         }
 
-        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
+        if ((Input.GetAxisRaw("TriggersL_0") > 0.3f || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
         {
             timeStartDash = Time.time;
             dashing = true;
@@ -123,10 +120,10 @@ public class PlayerMovement : MonoBehaviour
             lDashed = true;
         }
 
-        if (Input.GetAxisRaw("TriggersL_0") < 0.3)
+        if (Input.GetAxisRaw("TriggersL_0") < 0.3f)
             lDashed = false;
 
-        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
+        if ((Input.GetAxisRaw("TriggersR_0") > 0.3f || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
         {
             timeStartDash = Time.time;
             dashing = true;
@@ -134,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             rDashed = true;
         }
 
-        if (Input.GetAxisRaw("TriggersR_0") < 0.3)
+        if (Input.GetAxisRaw("TriggersR_0") < 0.3f)
             rDashed = false;
 
         if (jumping)
@@ -145,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
                 accelerateJump = 0.1f;
 
             heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
-            Debug.Log(accelerateJump);
         }
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
@@ -401,6 +397,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Spring(float _jumpSpeedMod, float _heightJumpMod, float _speedFallMod)
     {
+        jumped = true;
         jumping = true;
         heightJump = _heightJumpMod;
         jumpSpeed = _jumpSpeedMod;
