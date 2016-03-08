@@ -339,7 +339,7 @@ Animator:
   m_GameObject: {fileID: 113120}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebf22faef1f19ea46809e7efbbcafd2b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -477,13 +477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDistanceFromCenter: 7
+  baseDistanceFromCenter: 9
   distanceFromCenter: 7
   turnSpeedMax: 40
   airTurnSpeedMax: 25
   jumpSpeed: 30
   heightJump: 9
-  jumping: 0
   speedFall: 15
   gravity: 500
   baseSpeed: 30
