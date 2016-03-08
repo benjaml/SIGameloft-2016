@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101774}
   m_LocalRotation: {x: -0.037387133, y: 0.98769623, z: 0.046966847, w: 0.14440374}
-  m_LocalPosition: {x: 58.76571, y: 22.36, z: -11.753539}
+  m_LocalPosition: {x: 8.9, y: 28.3, z: -15.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410092}
@@ -339,7 +339,7 @@ Animator:
   m_GameObject: {fileID: 113120}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebf22faef1f19ea46809e7efbbcafd2b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -482,8 +482,10 @@ MonoBehaviour:
   turnSpeedMax: 40
   airTurnSpeedMax: 25
   jumpSpeed: 30
+  accelerationJump: 3
   heightJump: 9
-  jumping: 0
+  heightChargeJump: 1.25
+  speedChargeJump: 4
   speedFall: 15
   gravity: 500
   baseSpeed: 30
