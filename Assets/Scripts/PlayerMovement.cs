@@ -266,6 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void launchJumping()
     {
+        SoundManagerEvent.emit(SoundManagerType.Jump);
         jumped = true;
         jumping = true;
     }

@@ -29,27 +29,27 @@ using System.Collections;
 public enum SoundManagerType
 {
     //Sounds
-        //Character
-	Diving,
-    Jump,
-    Flying,
-    Straff,
-    Damage,
-        //Dragon
-    Anrgy,
-    Suffering,
+    //Character
+    Diving, //Script pas mergés
+    Jump, //OK (pas testé)
+    Flying, // A faire boucler ? Je sais pas où le mettre.
+    Straff, // Comment je fais boucler ?
+    Damage, //OK (pas testé)
+    //Dragon
+    Anrgy, // Pas de script ?
+    Suffering, //Pas de script 
         //Bells
-    Gong,
-    Bell,
+    Gong, //Script pas mergé
+    Bell, //Script pas mergé 
         //Flowers
-    Flower,
+    Flower, //Script pas mergé, comment qu'on fait pour faire plusieurs sons ?
         //Environment 
-    Stream,
-    Thunder,
+    Stream, //Je sais pas où mettre
+    Thunder, //Je sais pas où mettre
 
     //Voice
         //Character
-    Talk,
+    Talk, //Je sais pas où mettre
 }
 
 public class SoundManagerEvent : MonoBehaviour
