@@ -174,7 +174,7 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 36.63549
+        second: 11.278332
       data:
         first:
           name: _LightTransitionSlider
@@ -231,7 +231,7 @@ Material:
       data:
         first:
           name: _ShadowColor
-        second: {r: 0.08627451, g: 0.14509805, b: 0.24705884, a: 1}
+        second: {r: 0.5647059, g: 0.39607847, b: 0.6117647, a: 1}
       data:
         first:
           name: _SunColorNight
@@ -247,7 +247,7 @@ Material:
       data:
         first:
           name: _SunColor
-        second: {r: 0.43382353, g: 0.73536664, b: 1, a: 1}
+        second: {r: 1, g: 0.60494995, b: 0.41176468, a: 1}
       data:
         first:
           name: _Diffuse
