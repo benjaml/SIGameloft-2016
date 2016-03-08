@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6543734}
   - 23: {fileID: 2331170}
   - 114: {fileID: 11452196}
+  - 114: {fileID: 11456284}
   m_Layer: 0
   m_Name: ObstacleCubeDestructible
   m_TagString: obstacle
@@ -85,6 +86,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e773188a7cb41741a11e8e1ccfa1766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11456284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102022}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9988eb62e4af14418f0c380a20ba3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
