@@ -407,6 +407,25 @@ public class PlayerMovement : MonoBehaviour
         speedFall = _speedFallMod;
     }
 
+    public float getBaseSpeed()
+    {
+        if (isGrounded)
+            return baseSpeed;
+        return baseAirSpeed;
+    }
+
+    public float getMaxSpeed()
+    {
+        if (isGrounded)
+            return MaxSpeed;
+        return MaxAirSpeed;
+    }
+
+    public float getSpeed()
+    {
+        return speedForward;
+    }
+
     void DebugPoint(Vector3 position, Color color)
     {
         Debug.DrawLine(position, position + Vector3.up * 5, color);
