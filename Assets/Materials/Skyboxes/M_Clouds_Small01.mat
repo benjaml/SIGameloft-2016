@@ -38,20 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _CloudTexture
-        second:
-          m_Texture: {fileID: 2800000, guid: 8bde8f836059c294a9e54708cf2f0865, type: 3}
-          m_Scale: {x: 3, y: 1}
-          m_Offset: {x: 1.09, y: 0.68}
-      data:
-        first:
-          name: _ShadowMask
-        second:
-          m_Texture: {fileID: 2800000, guid: fdcb5a46bc5ccc04c81f094f86400b04, type: 3}
-          m_Scale: {x: 3, y: 1}
-          m_Offset: {x: 1.09, y: 0.68}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -94,6 +80,20 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _CloudTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 8bde8f836059c294a9e54708cf2f0865, type: 3}
+          m_Scale: {x: 3, y: 10}
+          m_Offset: {x: 1.09, y: 0.68}
+      data:
+        first:
+          name: _ShadowMask
+        second:
+          m_Texture: {fileID: 2800000, guid: fdcb5a46bc5ccc04c81f094f86400b04, type: 3}
+          m_Scale: {x: 3, y: 10}
+          m_Offset: {x: 1.09, y: 0.68}
+      data:
+        first:
           name: _clouds
         second:
           m_Texture: {fileID: 0}
@@ -121,52 +121,16 @@ Material:
         second: 0.5
       data:
         first:
-          name: _CloudMouvementSpeed
-        second: 0.06
-      data:
-        first:
-          name: _Alpha
-        second: 1
-      data:
-        first:
-          name: _CloudsMouvSlider
-        second: 5.17612
-      data:
-        first:
-          name: _LightTransitionSlider
-        second: 1
-      data:
-        first:
-          name: _BoolDay
-        second: 1
-      data:
-        first:
-          name: _BoolAfternoon
-        second: 0
-      data:
-        first:
-          name: _Transmission
-        second: 1
-      data:
-        first:
-          name: _LightAffected
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -189,8 +153,44 @@ Material:
         second: 0
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Alpha
+        second: 1
+      data:
+        first:
+          name: _Transmission
+        second: 1
+      data:
+        first:
           name: _ShadowOpacity
         second: 0.38
+      data:
+        first:
+          name: _CloudMouvementSpeed
+        second: 0.06
+      data:
+        first:
+          name: _CloudsMouvSlider
+        second: 36.63549
+      data:
+        first:
+          name: _LightTransitionSlider
+        second: 1
+      data:
+        first:
+          name: _BoolDay
+        second: 1
+      data:
+        first:
+          name: _BoolAfternoon
+        second: 0
+      data:
+        first:
+          name: _LightAffected
+        second: 1
       data:
         first:
           name: _ShadowSaturation
@@ -230,6 +230,10 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _ShadowColor
+        second: {r: 0.08627451, g: 0.14509805, b: 0.24705884, a: 1}
+      data:
+        first:
           name: _SunColorNight
         second: {r: 0.625, g: 0.14705881, b: 0.23605472, a: 1}
       data:
@@ -243,11 +247,7 @@ Material:
       data:
         first:
           name: _SunColor
-        second: {r: 0.78366774, g: 0.7123853, b: 0.5774609, a: 1}
-      data:
-        first:
-          name: _ShadowColor
-        second: {r: 0.24620329, g: 0.16448335, b: 0.35367805, a: 1}
+        second: {r: 0.43382353, g: 0.73536664, b: 1, a: 1}
       data:
         first:
           name: _Diffuse

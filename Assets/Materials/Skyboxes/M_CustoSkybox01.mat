@@ -38,20 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SkyGradient
-        second:
-          m_Texture: {fileID: 2800000, guid: 9c64a96045b80bd4984362e0c2a66572, type: 3}
-          m_Scale: {x: 0.0009, y: 0.5}
-          m_Offset: {x: 0.09, y: 0.5}
-      data:
-        first:
-          name: _OrageGradient
-        second:
-          m_Texture: {fileID: 2800000, guid: 49f42b07bb70b424c93ffde5db196917, type: 3}
-          m_Scale: {x: 1, y: 0.5}
-          m_Offset: {x: 0, y: 0.5}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -94,6 +80,20 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _SkyGradient
+        second:
+          m_Texture: {fileID: 2800000, guid: 9c64a96045b80bd4984362e0c2a66572, type: 3}
+          m_Scale: {x: 0.0009, y: 0.5}
+          m_Offset: {x: 0.09, y: 0.5}
+      data:
+        first:
+          name: _OrageGradient
+        second:
+          m_Texture: {fileID: 2800000, guid: 49f42b07bb70b424c93ffde5db196917, type: 3}
+          m_Scale: {x: 1, y: 0.5}
+          m_Offset: {x: 0, y: 0.5}
+      data:
+        first:
           name: _SkyMap
         second:
           m_Texture: {fileID: 8900000, guid: 6730496b98efe4a41b1e1cc57bc62d5c, type: 2}
@@ -105,6 +105,27 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: 647a3cf5c8a058a4aa84d579d888e37d, type: 3}
           m_Scale: {x: 1, y: 0.2}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Stars
+        second:
+          m_Texture: {fileID: 8900000, guid: 3cd885d01b22bf74ab6ecaa93a8a11bc, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_8526
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_792
+        second:
+          m_Texture: {fileID: 8900000, guid: efd85d3575e9ff945b9a0832fd700e0d, type: 2}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
@@ -121,28 +142,16 @@ Material:
         second: 0.5
       data:
         first:
-          name: _TimeSlider
-        second: 517.6124
-      data:
-        first:
-          name: _Madness
-        second: 0
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -165,12 +174,28 @@ Material:
         second: 0
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Madness
+        second: 0
+      data:
+        first:
+          name: _TimeSlider
+        second: 660
+      data:
+        first:
           name: _Saturation
         second: 0
       data:
         first:
           name: _node_55
         second: 42
+      data:
+        first:
+          name: _StarsOpacity
+        second: 0.5
     m_Colors:
       data:
         first:
