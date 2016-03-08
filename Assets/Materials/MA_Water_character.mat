@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MA_Water_character
-  m_Shader: {fileID: 4800000, guid: fe2af3e8304f36f4992bb27f2a82414e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1f911ad1e56fa164dbf40afd189f62fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -168,12 +168,28 @@ Material:
         second: 0.01
       data:
         first:
-          name: _Specular
-        second: 0.175
+          name: _Alpha
+        second: 0.524
+      data:
+        first:
+          name: _Transmission
+        second: 1
       data:
         first:
           name: _Madness
         second: 0
+      data:
+        first:
+          name: _Specular
+        second: 0.175
+      data:
+        first:
+          name: _GlobalOffsetMad
+        second: 2
+      data:
+        first:
+          name: _ShadowOpacity
+        second: 0.589
       data:
         first:
           name: _MouvSpeed
@@ -216,28 +232,12 @@ Material:
         second: 0.64
       data:
         first:
-          name: _Transmission
-        second: 1
-      data:
-        first:
           name: _LightReflectionOpacity
         second: 0.13
       data:
         first:
-          name: _GlobalOffsetMad
-        second: 2
-      data:
-        first:
           name: _GlobalOffsetMouvSpeed
         second: 0.15
-      data:
-        first:
-          name: _Alpha
-        second: 0.524
-      data:
-        first:
-          name: _ShadowOpacity
-        second: 0.589
       data:
         first:
           name: _AlphaBandes1
@@ -314,6 +314,14 @@ Material:
         first:
           name: _node_2886
         second: 0.25
+      data:
+        first:
+          name: _OutlineSide
+        second: 1
+      data:
+        first:
+          name: _GlobalOffset
+        second: 0
     m_Colors:
       data:
         first:
@@ -337,6 +345,10 @@ Material:
         second: {r: 0.24855477, g: 0.25, b: 0.14522058, a: 1}
       data:
         first:
+          name: _ShadowColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
           name: _node_6852
         second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
       data:
@@ -351,10 +363,6 @@ Material:
         first:
           name: _SidesColor
         second: {r: 0.042820066, g: 0.6700603, b: 0.72794116, a: 1}
-      data:
-        first:
-          name: _ShadowColor
-        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color_Inside

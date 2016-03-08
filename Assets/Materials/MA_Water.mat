@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MA_Water
-  m_Shader: {fileID: 4800000, guid: fe2af3e8304f36f4992bb27f2a82414e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1f911ad1e56fa164dbf40afd189f62fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -314,6 +314,10 @@ Material:
         first:
           name: _node_2886
         second: 0.25
+      data:
+        first:
+          name: _GlobalOffset
+        second: 0
     m_Colors:
       data:
         first:
