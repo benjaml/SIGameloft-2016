@@ -31,7 +31,6 @@ public class BlocSpeedModifier : MonoBehaviour {
             stockMaxSpeed = playerMovementScript.MaxSpeed;
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
-            ShakeManager.instance.LetsShake(200, false, true);
 
             StartCoroutine(reducingSpeed());
             

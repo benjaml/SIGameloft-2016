@@ -25,10 +25,10 @@ public class PlayerBellCollision : MonoBehaviour {
 
     void Start()
     {
-        fxGong_flowers.emit = false;
-        fxGong_2.emit = false;
-        fxBell_flowers.emit = false;
-        fxBell_2.emit = false;
+        fxGong_flowers.enabled = false;
+        fxGong_2.enabled = false;
+        fxBell_flowers.enabled = false;
+        fxBell_2.enabled = false;
 
         gameManagerWrath = GameManagerWrath.instance;
 
@@ -98,7 +98,7 @@ public class PlayerBellCollision : MonoBehaviour {
                 GetComponent<PlayerCollectible>().listCollectible.Clear();
             }
 
-
+            GetComponent<PlayerCollectible>().listCollectible.Add(_tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
             StartCoroutine(fxGongEmission());
@@ -112,9 +112,9 @@ public class PlayerBellCollision : MonoBehaviour {
         if (nbFlower > 0)
         {
             
-            fxBell_flowers.emit = true;
+            fxBell_flowers.enabled = true;
         }
-        fxBell_2.emit = true;
+        fxBell_2.enabled = true;
         yield return new WaitForSeconds(1.1f);
         fxBell_flowers.emit = false;
         fxBell_2.emit = false;
@@ -125,9 +125,9 @@ public class PlayerBellCollision : MonoBehaviour {
     {
         if (nbFlower > 0)
         {
-            fxGong_flowers.emit = true;
+            fxGong_flowers.enabled = true;
         }
-        fxGong_2.emit = true;
+        fxGong_2.enabled = true;
         yield return new WaitForSeconds(0.25f);
         fxGong_flowers.emit = false;
         fxGong_2.emit = false;

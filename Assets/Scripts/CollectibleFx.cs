@@ -9,8 +9,8 @@ public class CollectibleFx : MonoBehaviour {
 
 
     void Start () {
-        fxLotus_1.emit = false;
-        fxLotus_2.emit = false;
+        fxLotus_1.enabled = false;
+        fxLotus_2.enabled = false;
      
     }
 
@@ -29,11 +29,12 @@ public class CollectibleFx : MonoBehaviour {
 
     IEnumerator fxLotusEmission()
     {
-        fxLotus_1.emit = true;
-        fxLotus_2.emit = true;
+        fxLotus_1.enabled = true;
+        fxLotus_2.enabled = true;
         yield return new WaitForSeconds(0.5f);
         fxLotus_1.emit = false;
         fxLotus_2.emit = false;
+        yield return null;
 
     }
 }
