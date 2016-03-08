@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class GenerationBlocs : MonoBehaviour {
 
-    //FAIRE UN SYSTEM PLUS SOUPLE BASE SUR LA ROTATION 
-    //FAIRE UN SCRIPT POUR RECUPERER END ET START SUR L'OBJET
 
     //Récupère l'asset "Test_BlocLD".
     public GameObject blocLDTest;       
@@ -35,7 +33,7 @@ public class GenerationBlocs : MonoBehaviour {
         while (true)
         {
             //Instantiate a bloc 
-            GameObject bloc = Instantiate(blocLDTest, new Vector3(0, _height * _heightNb, 0), Quaternion.Euler(90, 0, 0)) as GameObject;
+            GameObject bloc = Instantiate(blocLDTest, new Vector3(0, _height * _heightNb, 0), Quaternion.Euler(blocLDTest.transform.eulerAngles.x, 0, 0)) as GameObject;
 
             //name the block
             bloc.name = "bloc_" + _blocNb;
@@ -53,7 +51,7 @@ public class GenerationBlocs : MonoBehaviour {
 
 
                 //set the position of the actual bloc 
-                bloc.transform.position = new Vector3(transform.position.x, transform.position.y - _heightDifference, transform.position.z) * -1;
+                bloc.transform.position = new Vector3(blocLDTest.transform.position.x, blocLDTest.transform.position.y + _heightDifference, blocLDTest.transform.position.z);
             }
 
             myListGlobal.Add(bloc);
