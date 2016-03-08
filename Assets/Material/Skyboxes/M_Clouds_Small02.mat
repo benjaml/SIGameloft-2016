@@ -114,20 +114,16 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -150,6 +146,10 @@ Material:
         second: 0
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
           name: _Alpha
         second: 0.4
       data:
@@ -167,19 +167,19 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 0.85216916
+        second: 0.09636967
       data:
         first:
           name: _LightTransitionSlider
-        second: 1
+        second: 0.7679956
       data:
         first:
           name: _BoolDay
-        second: 0
+        second: 1
       data:
         first:
           name: _BoolAfternoon
-        second: 1
+        second: 0
       data:
         first:
           name: _LightAffected
@@ -207,7 +207,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-        second: 0.5
+        second: 0.6160022
       data:
         first:
           name: _UVDeformationStrength
