@@ -10,7 +10,12 @@ public class CollectibleFx : MonoBehaviour {
 
     void Start () {
         fxLotus_1.emit = false;
-        fxLotus_1.emit = false;
+        fxLotus_2.emit = false;
+     
+    }
+
+    void Update ()
+    {
         Debug.Log(fxLotus_1.emit);
     }
 
@@ -24,11 +29,11 @@ public class CollectibleFx : MonoBehaviour {
 
     IEnumerator fxLotusEmission()
     {
-        //fxLotus_1.emit = true;
-        //fxLotus_2.emit = true;
+        fxLotus_1.emit = true;
+        fxLotus_2.emit = true;
         yield return new WaitForSeconds(0.5f);
         fxLotus_1.emit = false;
-        fxLotus_1.emit = false;
+        fxLotus_2.emit = false;
 
     }
 }
