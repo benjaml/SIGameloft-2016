@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private float cylinderRadius = 2.5f;
+    private float cylinderRadius = 5f;
     public float baseDistanceFromCenter = 7.0f;
     public float distanceFromCenter = 5f;
     private float heightModificator;
@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
 
-        isGrounded = distanceFromCenter <7.5f ? true : false;
+        isGrounded = distanceFromCenter < baseDistanceFromCenter ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
