@@ -7,13 +7,17 @@ public class PlayerMovement : MonoBehaviour
     private float cylinderRadius = 2.5f;
     public float baseDistanceFromCenter = 7.0f;
     public float distanceFromCenter = 5f;
+    private float groundDetection = 7.2f;
     private float heightModificator;
     public float turnSpeedMax = 3.0F;
     public float airTurnSpeedMax = 3.0f;
-    public float jumpSpeed = 8.0F;
+    public float jumpSpeed = 50.0F;
+    public float accelerationJump = 5.0f;
     public float heightJump = 5.0f;
     private bool jumping = false;
     private bool chargeJump = false;
+    public float heightChargeJump = 1.25f;
+    public float speedChargeJump = 10.0f;
     public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
@@ -70,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         initSpeedFall = speedFall;
         accelerateJump = 0.0f;
         distanceFromCenter = baseDistanceFromCenter;
+        groundDetection = baseDistanceFromCenter + 0.2f;
     }
 
 
@@ -101,10 +106,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded)
+        if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        {
+            Debug.Log(heightModificator);
             chargeJump = true;
+            if (heightModificator > -heightChargeJump)
+                heightModificator -= Time.deltaTime * speedChargeJump;
+        }
 
-        if((chargeJump && (Input.GetAxisRaw("R_YAxis_0") < 0.3)) || (Input.GetKeyUp(KeyCode.Space) && isGrounded))
+        if(chargeJump && (Input.GetAxisRaw("R_YAxis_0") < 0.3 || Input.GetKeyUp(KeyCode.Space)))
         {
             chargeJump = false;
             jumping = true;
@@ -135,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumping)
         {
             if( accelerateJump < 1.0f && heightModificator < heightJump * 0.7f)
-                accelerateJump += Time.deltaTime;
+                accelerateJump += Time.deltaTime * accelerationJump;
 
             if (heightModificator >= heightJump * 0.7f && accelerateJump > 0.1f)
                 accelerateJump -= Time.deltaTime;
@@ -158,12 +168,12 @@ public class PlayerMovement : MonoBehaviour
             accelerateJump += Time.deltaTime;
             heightModificator -= speedFall * accelerateJump * Time.deltaTime;
         }
-        else if (!jumping && (startHeightmax + heightMaxDuration < Time.time))
+        else if (!jumping && !chargeJump && (startHeightmax + heightMaxDuration < Time.time))
             heightModificator *= 0.98f;
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
 
-        isGrounded = distanceFromCenter <7.5f ? true : false;
+        isGrounded = distanceFromCenter < groundDetection ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
