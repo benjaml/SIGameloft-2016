@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public Animator animator;
+    public bool isFresco = false;
 
     void Start()
     {
@@ -86,31 +87,36 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("hJ " + heightJump);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        if(isGrounded)
+        if (!isFresco)
         {
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
+
+            if (isGrounded)
             {
-                heightModificator -= 0.3f;
-            }
-            else
-            {
-                heightModificator -= 0.0f;
+                if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
+                {
+                    heightModificator -= 0.3f;
+                }
+                else
+                {
+                    heightModificator -= 0.0f;
+                }
+
+                if (!jumping)
+                {
+                    accelerateJump = accelerationJump;
+                    jumpSpeed = initJumpSpeed;
+                    speedFall = initSpeedFall;
+                    heightJump = initHeightJump;
+                }
             }
 
-            if (!jumping)
+            if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) &&
+                isGrounded && !jumped)
             {
-                accelerateJump = accelerationJump;
-                jumpSpeed = initJumpSpeed;
-                speedFall = initSpeedFall;
-                heightJump = initHeightJump;
+                Invoke("launchJumping", 0.75f);
+
+                animator.SetTrigger("jump");
             }
-        }
-
-        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
-        {
-            Invoke("launchJumping",0.75f);
-
-            animator.SetTrigger("jump");
         }
 
         if(jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
@@ -150,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
                 accelerateJump = 0.1f;
 
             heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
-            Debug.Log(accelerateJump);
         }
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
@@ -172,7 +177,6 @@ public class PlayerMovement : MonoBehaviour
             heightModificator *= 0.98f;
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
-
         isGrounded = distanceFromCenter < groundDetection ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
@@ -234,7 +238,8 @@ public class PlayerMovement : MonoBehaviour
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right * calculateTurnSpeed();
+            if(!isFresco)
+                moveDirection += transform.right * calculateTurnSpeed();
         }
         else
         {
@@ -242,7 +247,8 @@ public class PlayerMovement : MonoBehaviour
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateAirSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right * calculateAirTurnSpeed();
+            if (!isFresco)
+                moveDirection += transform.right * calculateAirTurnSpeed();
         }
         
         // on ajoute la gravité au déplacement

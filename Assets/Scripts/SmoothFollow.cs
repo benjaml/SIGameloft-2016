@@ -62,6 +62,15 @@ namespace UnityStandardAssets.Utility
         private float downAngle = 180.0f;
         private float previousSpeed;
 
+        [Header("Fresque Camera")]
+        public float fresqueDistance;
+        public float fresqueHeight;
+        public float fresqueForwardPosition;
+        public float fresqueLookForward;
+        public float smoothTimeCinematic;
+
+        public bool isFresco = true;
+
         // Use this for initialization
         void Awake()
         {
@@ -79,55 +88,34 @@ namespace UnityStandardAssets.Utility
             if (!target)
                 return;
 
-            // Set the height of the camera
-            //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
-            transform.position = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
-            //transform.position = target.position + (distance * (-target.forward)) + (height * (target.up));
-            //transform.position += offset;
+            if (!isFresco)
+            {
+                // Set the height of the camera
+                //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
+                transform.position = Vector3.SmoothDamp(transform.position,
+                    target.position + (distance*(-target.forward)) + (height*(target.up)), ref smoothVel, smoothTime);
+                Quaternion targetRotation;
+                Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue*target.forward,
+                    ref smoothVel2, smoothTime);
 
-            //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
+                targetRotation = Quaternion.FromToRotation(transform.up, target.up);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
 
-            //cimetic camera
-            //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
+            }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position,target.position + (fresqueDistance * (target.right)) + (fresqueHeight * (target.up)) + (fresqueForwardPosition * (target.forward)), ref smoothVel, smoothTimeCinematic);
+                Quaternion targetRotation;
+                Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + fresqueLookForward * target.forward,
+                    ref smoothVel2, smoothTimeCinematic);
 
-            //LookAt correct but Shaky
-            //Vector3 _vForward = target.position - transform.position;
-            //Vector3 _vUp = (target.position + target.up) - (transform.position + transform.up);
+                targetRotation = Quaternion.FromToRotation(transform.up, target.up);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
 
-            //Quaternion _rot = Quaternion.LookRotation(_vForward, _vUp);
-
-            //FromToRotation Very Smooth but does not look the player
-            /*Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
-            Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
-        
-            Quaternion _newRot = _up * _forward;
-            */
-
-            //Apply rotations to smooth the movement of cam
-            //transform.forward = target.forward;
-            //transform.rotation = Quaternion.FromToRotation(transform.up, target.up);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
-            Quaternion targetRotation;
-            Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue * target.forward, ref smoothVel2, smoothTime);
-
-            /*Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position, transform.position + target.up);
-            //targetRotation *= Quaternion.FromToRotation(transform.up, target.up); 
-
-            Debug.DrawLine(transform.position, transform.position + target.up * 10, Color.red);
-            Debug.DrawLine(target.position, target.position + target.up * 10, Color.blue);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
-            */
+            }
             
-            targetRotation = Quaternion.FromToRotation(transform.up, target.up);
-            targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint-transform.position));
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
-
-            //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, target.eulerAngles, ref smoothVelRot, smoothTime);
-
-            // Always look at the target, but is shaky
-            //transform.LookAt(target, target.up);
 
             float _zAngle = transform.eulerAngles.z;
 
