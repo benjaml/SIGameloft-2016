@@ -115,9 +115,9 @@ public class PlayerMovement : MonoBehaviour
         else if(!jumping)
             heightModificator *= 0.98f;
 
-        distanceFromCenter = 7f + heightModificator;
+        distanceFromCenter = 12f + heightModificator;
         
-        isGrounded = distanceFromCenter <10.0f ? true : false;
+        isGrounded = distanceFromCenter <12.5f ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -278,13 +278,17 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxSpeed) && (speedForward >= slowSpeed))
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
             speedForward += _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+            if (speedForward > MaxSpeed)
+                speedForward = MaxSpeed;
+            else if (speedForward < baseSpeed)
+                speedForward = baseSpeed;
+            else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward - Deceleration * Time.deltaTime;
-            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
+            else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward + Deceleration * Time.deltaTime;
             else
                 speedForward = baseSpeed;
@@ -298,11 +302,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxAirSpeed) && (speedForward >= slowAirSpeed))
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
             speedForward += _yStick * airAcceleration * Time.deltaTime;
         else
         {
-            if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
+            if (speedForward > MaxAirSpeed)
+                speedForward = MaxAirSpeed;
+            else if (speedForward < baseAirSpeed)
+                speedForward = baseAirSpeed;
+            else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
                 speedForward = speedForward - airDeceleration * Time.deltaTime;
             else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
                 speedForward = speedForward + airDeceleration * Time.deltaTime;

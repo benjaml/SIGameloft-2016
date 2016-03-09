@@ -83,9 +83,13 @@ namespace UnityStandardAssets.Utility
             if (!target)
                 return;
 
+            float yPos = transform.position.y;
+
             // Set the height of the camera
             //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
-            transform.position = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
+            Vector3 newPos = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
+            //newPos.y = yPos;
+            transform.position = newPos;
             //transform.position = target.position + (distance * (-target.forward)) + (height * (target.up));
             //transform.position += offset;
 
@@ -189,6 +193,8 @@ namespace UnityStandardAssets.Utility
             if (speed > player.getMaxSpeed())
                 speed = player.getMaxSpeed();
 
+            speed = Mathf.Round(speed);
+
             float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
 
             if (distance > percentAccDist)
@@ -205,6 +211,8 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+
+            Debug.Log(player.getSpeed());
         }
     }
 }
