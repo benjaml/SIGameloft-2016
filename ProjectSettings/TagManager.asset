@@ -13,6 +13,16 @@ TagManager:
   - obstacleFloor
   - gong
   - obstacle
+  - Rock02
+  - Obstacle04
+  - Arch
+  - Souche
+  - Obstacle01
+  - Rock01
+  - Obstacles01
+  - Rock2
+  - JumpRing
+  - Vertebre
   layers:
   - Default
   - TransparentFX
