@@ -10,7 +10,7 @@ public class AreaSpeedModifier : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
-            PlayerMovement _controller = col.gameObject.GetComponent<PlayerMovement>();
+            PlayerMovement _controller = col.transform.parent.gameObject.GetComponent<PlayerMovement>();
 
             if (decelerate)
             {
@@ -27,7 +27,7 @@ public class AreaSpeedModifier : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            PlayerMovement _controller = col.gameObject.GetComponent<PlayerMovement>();
+            PlayerMovement _controller = col.transform.parent.gameObject.GetComponent<PlayerMovement>();
 
             if (decelerate)
             {

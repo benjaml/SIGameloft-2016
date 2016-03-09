@@ -11,6 +11,8 @@ TagManager:
   - Dragon
   - obstacleAir
   - obstacleFloor
+  - gong
+  - obstacle
   layers:
   - Default
   - TransparentFX

@@ -21,9 +21,9 @@ namespace UnityStandardAssets.Utility
         [SerializeField]
         private float heightExterne = 5.0f;*/
         
-        private float distance = 10.0f;
+        public float distance = 10.0f;
         // the height we want the camera to be above the target
-        private float height = 5.0f;
+        public float height = 5.0f;
         
         private float rotationDamping;
         private float heightDamping;
@@ -39,25 +39,40 @@ namespace UnityStandardAssets.Utility
         private float smoothVelRot;
 
         public float interiorHeight = 2.0f;
+        public float interiorHeightDive = 5.0f;
+        private float interiorHeightForCalc;
         public float interiorDistance = 5.0f;
         public float interiorForward = 15.0f;
         public float exteriorHeight = 15.0f;
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
 
-        public float accelerationHeight = 5.0f;
+        public float accelerationHeight = -75.0f;
+        public float accelerationHeightDive = -40.0f;
+        private float percentAccHeight;
+        private float accelerationHeightForCalc;
         public float accelerationDistance = 20.0f;
-        private float accelerationAngle = 90.0f;
+        private float percentAccDist;
+
+        public float baseFOV = 60.0f;
+        public float accelerationFOV = 40.0f;
+
+        private Camera mainCam;
+
+        private PlayerMovement player;
 
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
         private float downAngle = 180.0f;
+        private float previousSpeed;
 
         // Use this for initialization
         void Awake()
         {
             //distance = Mathf.Abs(target.position.z - transform.position.z)/ lerpDampening;
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
+            mainCam = Camera.main;
+            player = target.gameObject.GetComponent<PlayerMovement>();
         }
 
         // Update is called once per frame
@@ -68,9 +83,13 @@ namespace UnityStandardAssets.Utility
             if (!target)
                 return;
 
+            float yPos = transform.position.y;
+
             // Set the height of the camera
             //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
-            transform.position = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
+            Vector3 newPos = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
+            //newPos.y = yPos;
+            transform.position = newPos;
             //transform.position = target.position + (distance * (-target.forward)) + (height * (target.up));
             //transform.position += offset;
 
@@ -123,8 +142,23 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
+            if(Input.GetAxisRaw("R_YAxis_0") > 0.3f)
+            {
+                interiorHeightForCalc = interiorHeightDive;
+                accelerationHeightForCalc = accelerationHeightDive;
+            }
+            else
+            {
+                interiorHeightForCalc = interiorHeight;
+                accelerationHeightForCalc = accelerationHeight;
+            }
+
             if(_zAngle <= topAngle && _zAngle >= downAngle)
             {
+
+                percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
+                percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
+
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
 
                 if(interiorDistance > exteriorDistance)
@@ -132,10 +166,10 @@ namespace UnityStandardAssets.Utility
                 else
                     distance = exteriorDistance - ((_angleToChangeCamera * (exteriorDistance - interiorDistance)) / 90);
 
-                if (interiorHeight > exteriorHeight)
-                    height = exteriorHeight + ((_angleToChangeCamera * (interiorHeight - exteriorHeight)) / 90);
+                if (interiorHeightForCalc > exteriorHeight)
+                    height = exteriorHeight + ((_angleToChangeCamera * (interiorHeightForCalc - exteriorHeight)) / 90);
                 else
-                    height = exteriorHeight - ((_angleToChangeCamera * (exteriorHeight - interiorHeight)) / 90);
+                    height = exteriorHeight - ((_angleToChangeCamera * (exteriorHeight - interiorHeightForCalc)) / 90);
 
                 if (interiorForward > exteriorForward)
                     forwardValue = exteriorForward + ((_angleToChangeCamera * (interiorForward - exteriorForward)) / 90);
@@ -144,19 +178,41 @@ namespace UnityStandardAssets.Utility
             }
             else
             {
-                height = interiorHeight;
+                height = interiorHeightForCalc;
                 distance = interiorDistance;
                 forwardValue = interiorForward;
+                percentAccDist = interiorDistance * (1 + (accelerationDistance / 100));
+                percentAccHeight = interiorHeightForCalc * (1 + (accelerationHeightForCalc / 100));
             }
 
-            float _yStick = Input.GetAxisRaw("Vertical");
+            float speed = player.getSpeed();
 
-            if ((_yStick > 0.3) && accelerationAngle > 0.0f)
-            {
-                distance = (distance + accelerationDistance) - ((accelerationAngle * accelerationDistance) / 90);
-                height = (height / accelerationHeight) + ((accelerationAngle * (height - (height / accelerationHeight))) / 90);
-                accelerationAngle -= Time.deltaTime;
-            }
+            if (speed < player.getBaseSpeed())
+                speed = player.getBaseSpeed();
+
+            if (speed > player.getMaxSpeed())
+                speed = player.getMaxSpeed();
+
+            speed = Mathf.Round(speed);
+
+            float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
+
+            if (distance > percentAccDist)
+                distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
+            else
+                distance = percentAccDist - ((speedToAngle * (percentAccDist - distance)) / 90);
+
+            if (height > percentAccHeight)
+                height = percentAccHeight + ((speedToAngle * (height - percentAccHeight)) / 90);
+            else
+                height = percentAccHeight - ((speedToAngle * (percentAccHeight - height)) / 90);
+
+            if (baseFOV > accelerationFOV)
+                mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
+            else
+                mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+
+            Debug.Log(player.getSpeed());
         }
     }
 }

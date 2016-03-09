@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ParticlePlayground;
 
 public class CollectibleMovement : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class CollectibleMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform.parent.gameObject;
         targetCollectible = player.GetComponent<PlayerCollectible>().targetCollectible.transform;
-        collected = false;
+
     }
 
     public void offsetInitialisation ()
@@ -31,16 +32,20 @@ public class CollectibleMovement : MonoBehaviour
     {
         if (collected == true)
         {
-            // Create a postion the camera is aiming for based on the offset from the previousTarget.
-            Vector3 _targetPos = new Vector3(targetCollectible.position.x, previousTarget.position.y, previousTarget.position.z) + (offsetPos/3);
+            // Create a postion the collectible is aiming for based on the offset from the previousTarget.
+            if (previousTarget != null)
+            {
+                Vector3 _targetPos = new Vector3(targetCollectible.position.x, previousTarget.position.y, previousTarget.position.z) + (offsetPos / 3);
 
-            // Smoothly interpolate between the camera's current position and it's previousTarget position.
-            transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing*Time.deltaTime);
+                // Smoothly interpolate between the camera's current position and it's previousTarget position.
+                transform.position = Vector3.Lerp(transform.position, _targetPos, smoothing * Time.deltaTime);
 
 
 
-            //Keep the same rotation than the previousTarget
-            transform.eulerAngles = previousTarget.eulerAngles;
+                //Keep the same rotation than the previousTarget
+                transform.eulerAngles = previousTarget.eulerAngles;
+            }
         }
     }
+
 }

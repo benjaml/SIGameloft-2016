@@ -38,6 +38,34 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _FoamTex
+        second:
+          m_Texture: {fileID: 2800000, guid: dd0a425ad60b4e34aaed7a6b41cf35e7, type: 3}
+          m_Scale: {x: 2, y: 3}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Clouds
+        second:
+          m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+          m_Scale: {x: 7, y: 4}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 2800000, guid: 263b0239f45cb9049a87d8a57304673c, type: 3}
+          m_Scale: {x: 5, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OffsetTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 8bfed68c9c6e3344d99ecc62624aec4c, type: 3}
+          m_Scale: {x: 5, y: 5}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -80,34 +108,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Normal
-        second:
-          m_Texture: {fileID: 2800000, guid: 263b0239f45cb9049a87d8a57304673c, type: 3}
-          m_Scale: {x: 5, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _FoamTex
-        second:
-          m_Texture: {fileID: 2800000, guid: dd0a425ad60b4e34aaed7a6b41cf35e7, type: 3}
-          m_Scale: {x: 2, y: 3}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Clouds
-        second:
-          m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
-          m_Scale: {x: 7, y: 4}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _OffsetTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 8bfed68c9c6e3344d99ecc62624aec4c, type: 3}
-          m_Scale: {x: 5, y: 5}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _UVDef
         second:
           m_Texture: {fileID: 2800000, guid: 71a5c330c5c57b546bbcaa87fa688b15, type: 3}
@@ -128,16 +128,40 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Madness
+        second: 0
+      data:
+        first:
+          name: _Specular
+        second: 0.175
+      data:
+        first:
+          name: _Glossiness
+        second: 0.85
+      data:
+        first:
+          name: _GlobalOffsetMad
+        second: 2
+      data:
+        first:
+          name: _Refraction
+        second: 0.01
+      data:
+        first:
+          name: _Alpha
+        second: 0.524
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.85
       data:
         first:
           name: _BumpScale
@@ -160,32 +184,8 @@ Material:
         second: 0
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _Refraction
-        second: 0.01
-      data:
-        first:
-          name: _Alpha
-        second: 0.524
-      data:
-        first:
           name: _Transmission
         second: 1
-      data:
-        first:
-          name: _Madness
-        second: 0
-      data:
-        first:
-          name: _Specular
-        second: 0.175
-      data:
-        first:
-          name: _GlobalOffsetMad
-        second: 2
       data:
         first:
           name: _ShadowOpacity

@@ -134,8 +134,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120322}
-  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 0.09474254, y: -9.185364, z: 3.6797237}
+  m_LocalRotation: {x: 0.63425255, y: -0.19520544, z: 0.16994748, w: 0.7285166}
+  m_LocalPosition: {x: 0.09474182, y: -9.185364, z: 3.6797256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 475076}
@@ -191,7 +191,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: def9cb3db6241d34caacdcffb6a24ffa, type: 2}
+  - {fileID: 2100000, guid: 3dd00bbb0f19cbc4bab47c38bfa0ae9c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -217,7 +217,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3dd00bbb0f19cbc4bab47c38bfa0ae9c, type: 2}
+  - {fileID: 2100000, guid: def9cb3db6241d34caacdcffb6a24ffa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -433,11 +433,33 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3dd00bbb0f19cbc4bab47c38bfa0ae9c, type: 2}
   - {fileID: 2100000, guid: def9cb3db6241d34caacdcffb6a24ffa, type: 2}
   sun: {fileID: 10851168}
-  sunNightColor: {r: 0.9558824, g: 0.35142735, b: 0.46398097, a: 1}
-  sunNoonColor: {r: 1, g: 0.7760649, b: 0.29411763, a: 1}
-  sunDayColor: {r: 1, g: 0.9858012, b: 0.9485294, a: 1}
-  skyboxGradients: []
-  daySpeed: 1.5
+  sunColors:
+  - {r: 1, g: 0.84578985, b: 0.2794118, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.54724944, b: 0.22794116, a: 1}
+  - {r: 0.28676468, g: 0.6458419, b: 1, a: 1}
+  - {r: 1, g: 0.5093307, b: 0.39705884, a: 1}
+  cloudColorsLight:
+  - {r: 1, g: 0.9568628, b: 0.6784314, a: 1}
+  - {r: 0.9803922, g: 0.94117653, b: 0.9490197, a: 1}
+  - {r: 1, g: 0.6981744, b: 0.31617647, a: 1}
+  - {r: 0.43382353, g: 0.73536664, b: 1, a: 1}
+  - {r: 1, g: 0.60494995, b: 0.41176468, a: 1}
+  cloudColorsShadow:
+  - {r: 0.92549026, g: 0.5529412, b: 0.2901961, a: 1}
+  - {r: 0.32156864, g: 0.58431375, b: 0.86274517, a: 1}
+  - {r: 0.34509805, g: 0.1764706, b: 0.41960788, a: 1}
+  - {r: 0.08627451, g: 0.14509805, b: 0.24705884, a: 1}
+  - {r: 0.5647059, g: 0.39607847, b: 0.6117647, a: 1}
+  daySpeed: 0.23
+  sunIntensity:
+  - 0.7
+  - 1
+  - 0.7
+  - 0.4
+  - 0.7
+  transitionStart: 3
+  transitionSpeed: 1.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
