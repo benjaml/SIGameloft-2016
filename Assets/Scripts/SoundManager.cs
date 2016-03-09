@@ -106,6 +106,15 @@ public class SoundManager : MonoBehaviour {
                     Source[5].Play();
                 }
                 break;
+
+            case SoundManagerType.BellRung:
+                if (!Source[5].isPlaying)
+                {
+                    Source[5].Stop();
+                    Source[5].clip = Sound[16];
+                    Source[5].Play();
+                }
+                break;
             #endregion
 
             #region Bell

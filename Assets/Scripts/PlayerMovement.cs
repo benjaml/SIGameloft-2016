@@ -380,6 +380,7 @@ public class PlayerMovement : MonoBehaviour
             speedForward += _yStick * airAcceleration * Time.deltaTime;
         else
         {
+            SoundManagerEvent.emit(SoundManagerType.Straff);
             if (speedForward > MaxAirSpeed)
                 speedForward = MaxAirSpeed;
             else if (speedForward < baseAirSpeed)
@@ -464,6 +465,9 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit(Collision col)
     {
         if (col.transform.tag == "floor")
+        {
+            SoundManagerEvent.emit(SoundManagerType.Flying);
             isGrounded = false;
+        }
     }
 }

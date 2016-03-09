@@ -19,7 +19,7 @@ using System.Collections;
 				//SpawnFXAt(go.transform.position);
 			}
 		};
-		EventManagerScript.onEvent += maCallback;
+		EventManagerScript.onEvent += maCallback; 
  * 
  * qui permet de:
 		EventManagerScript.onEvent -= maCallback; //Retire l'appel
@@ -30,15 +30,16 @@ public enum SoundManagerType
 {
     //Sounds
     //Character
-    Diving, //avec le fx de dive
+    Diving, //avec le fx de dive OK (à voir si la loupe marche)
     Jump, //OK (pas testé)
-    Flying, // A faire boucler ? Quand isGrounded == false
-    Straff, // Comment je fais boucler ? Quand les joystick marchent
+    Flying, // A faire boucler ? Quand isGrounded == false OK (Loop à tester
+    Straff, // OK (loop à tester)
     Damage, //OK (pas testé)
 
     //Dragon
     Anrgy, //Quand il passe en énervé (définir la valeur)
     Suffering, //Quand fresco == true
+    BellRung,
 
         //Bells
     Gong, //Collision gong

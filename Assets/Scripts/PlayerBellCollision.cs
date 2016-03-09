@@ -40,7 +40,8 @@ public class PlayerBellCollision : MonoBehaviour {
         #region Collision Bell
         if (col.tag == "bell")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Bell);
+            Invoke("dragonSound", 0.5f);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
             nbFlower = GetComponent<PlayerCollectible>().listCollectible.Count - 1;
 
@@ -134,4 +135,8 @@ public class PlayerBellCollision : MonoBehaviour {
         yield return null;
     }
 
+    void dragonSound()
+    {
+        SoundManagerEvent.emit(SoundManagerType.Suffering);
+    }
 }

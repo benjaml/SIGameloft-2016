@@ -38,7 +38,7 @@ public class PlayerFx : MonoBehaviour {
         if (Input.GetAxisRaw("R_YAxis_0") < 0.1 && isGrounded)
         {
             StartCoroutine(fxDive());
-            SoundManagerType.Diving
+
             
         }
 

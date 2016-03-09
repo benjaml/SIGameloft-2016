@@ -514,6 +514,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11423254, guid: 8067f15af7f7fc44c92bf2eed99a6c24, type: 2}
+      propertyPath: Sound.Array.size
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 421920, guid: 8067f15af7f7fc44c92bf2eed99a6c24, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
