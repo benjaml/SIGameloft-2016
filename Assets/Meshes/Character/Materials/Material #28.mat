@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 'Material #28'
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 1f911ad1e56fa164dbf40afd189f62fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -34,6 +34,34 @@ Material:
           name: _DetailNormalMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FoamTex
+        second:
+          m_Texture: {fileID: 2800000, guid: dd0a425ad60b4e34aaed7a6b41cf35e7, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Clouds
+        second:
+          m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 2800000, guid: 263b0239f45cb9049a87d8a57304673c, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OffsetTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 8bfed68c9c6e3344d99ecc62624aec4c, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -93,16 +121,40 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Madness
+        second: 0.4539779
+      data:
+        first:
+          name: _Specular
+        second: 0
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
+      data:
+        first:
+          name: _GlobalOffsetMad
+        second: 0
+      data:
+        first:
+          name: _GlobalOffset
+        second: 0
+      data:
+        first:
+          name: _OutlineSide
+        second: 1
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -123,10 +175,6 @@ Material:
         first:
           name: _Mode
         second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0
     m_Colors:
       data:
         first:
@@ -136,3 +184,15 @@ Material:
         first:
           name: _Color
         second: {r: 0.588, g: 0.588, b: 0.588, a: 1}
+      data:
+        first:
+          name: _MainColor
+        second: {r: 0.375, g: 0.002757356, b: 0.002757356, a: 1}
+      data:
+        first:
+          name: _MainColor_Mad
+        second: {r: 0.375, g: 0.002757356, b: 0.002757356, a: 1}
+      data:
+        first:
+          name: _FoamMad
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}

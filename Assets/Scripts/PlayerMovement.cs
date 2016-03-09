@@ -64,6 +64,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
 
 
+    public bool isDiving= false;
+
+
     public Animator animator;
 
     void Start()
@@ -90,10 +93,21 @@ public class PlayerMovement : MonoBehaviour
         {
             if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
             {
-                heightModificator -= 0.3f;
+                heightModificator -= 0.1f;
+                isDiving = true;
+                Debug.Log("Dive");
+                animator.SetTrigger("DiveStart");
+
             }
             else
             {
+                if (isDiving)
+                {
+                    Debug.Log("endDive");
+                    isDiving = false;
+                    animator.SetTrigger("DiveEnd");
+                }
+
                 heightModificator -= 0.0f;
             }
 
@@ -123,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
             timeStartDash = Time.time;
             dashing = true;
             leftDash = true;
+            transform.localScale = new Vector3(1f, 1f, 1f);
             animator.SetTrigger("barellRollLeft");
             lDashed = true;
         }
@@ -135,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
             timeStartDash = Time.time;
             dashing = true;
             rightDash = true;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
             animator.SetTrigger("barellRollRight");
             rDashed = true;
         }
@@ -213,10 +229,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 secondGravityCenter = hit.point - (hit.normal *cylinderRadius);
                 
-                // permet de voir les points de gravité
-                Debug.DrawLine(hit.point, hit.normal, Color.green);
-                DebugPoint(gravityCenter, Color.red);
-                DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
                 targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
@@ -302,6 +314,8 @@ public class PlayerMovement : MonoBehaviour
                 dashing = false;
                 rightDash = false;
                 leftDash = false;
+                Invoke("ResetLocalScale", 0.5f);
+
             }
         }
         else
@@ -320,6 +334,13 @@ public class PlayerMovement : MonoBehaviour
 
         return turnSpeed;
     }
+
+    void ResetLocalScale()
+    {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+
+    }
+
 
     //calculate the turn speed when in air
     float calculateAirTurnSpeed()
