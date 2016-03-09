@@ -7,8 +7,9 @@ public class BlocSpeedModifier : MonoBehaviour {
     public float reduceSpeed = 0.6f;
     public float accelerationTime;
     public int lowSpeedTime = 5;
-    public int flowersLost = 5;
+    public float percentOfFlowerLost = 30;
 
+    private float flowersLost;
     private float stockBaseSpeed;
     private float stockMaxSpeed;
 
@@ -64,6 +65,8 @@ public class BlocSpeedModifier : MonoBehaviour {
 
     void losingFlowers()
     {
+
+        flowersLost = (flowersList.Count - 1) - (Mathf.Floor((flowersList.Count - 1) * (1 - (percentOfFlowerLost / 100))));
         Debug.Log(flowersLost);
         for (int i = 0; i < flowersLost; i++)
         {
