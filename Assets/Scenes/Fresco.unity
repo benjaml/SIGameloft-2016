@@ -1168,6 +1168,10 @@ Prefab:
       propertyPath: rightnessFactor
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
+      propertyPath: accelerationHeightDive
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
   m_IsPrefabParent: 0
