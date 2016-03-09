@@ -121,10 +121,6 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _Madness
         second: 0
       data:
@@ -134,7 +130,7 @@ Material:
       data:
         first:
           name: _TimeSlider
-        second: 287.00177
+        second: 21.852339
       data:
         first:
           name: _Parallax
@@ -162,6 +158,10 @@ Material:
       data:
         first:
           name: _Mode
+        second: 0
+      data:
+        first:
+          name: _Metallic
         second: 0
       data:
         first:
