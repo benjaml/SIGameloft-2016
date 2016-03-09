@@ -40,13 +40,13 @@ public class PlayerBellCollision : MonoBehaviour {
         #region Collision Bell
         if (col.tag == "bell")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Bell);
+            Invoke("dragonSound", 0.5f);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
             nbFlower = GetComponent<PlayerCollectible>().listCollectible.Count - 1;
 
             //Set the lenght of the list as the number of collectibles
             wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
-            Debug.Log(wrathManagmementFunction.numberOfCollectibles);
 
             //Start the function to reduce the wrath gauge of the dragon
             wrathManagmementFunction.wrathManaging();
@@ -75,7 +75,7 @@ public class PlayerBellCollision : MonoBehaviour {
         #region Collision Gong
         if (col.tag == "gong")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Gong);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles
@@ -134,4 +134,8 @@ public class PlayerBellCollision : MonoBehaviour {
         yield return null;
     }
 
+    void dragonSound()
+    {
+        SoundManagerEvent.emit(SoundManagerType.BellRung);
+    }
 }

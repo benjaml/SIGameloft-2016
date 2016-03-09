@@ -382,7 +382,10 @@ public class PlayerMovement : MonoBehaviour
         float _yStick = Input.GetAxisRaw("Vertical");
 
         if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
+        {
             speedForward += _yStick * Acceleration * Time.deltaTime;
+            SoundManagerEvent.emit(SoundManagerType.Acceleration);
+        }
         else
         {
             if (speedForward > MaxSpeed)
@@ -391,7 +394,7 @@ public class PlayerMovement : MonoBehaviour
                 speedForward = baseSpeed;
             else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward - Deceleration * Time.deltaTime;
-            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
+            else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward + Deceleration * Time.deltaTime;
             else
                 speedForward = baseSpeed;
@@ -409,6 +412,7 @@ public class PlayerMovement : MonoBehaviour
             speedForward += _yStick * airAcceleration * Time.deltaTime;
         else
         {
+            SoundManagerEvent.emit(SoundManagerType.Straff);
             if (speedForward > MaxAirSpeed)
                 speedForward = MaxAirSpeed;
             else if (speedForward < baseAirSpeed)
@@ -500,11 +504,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.transform.tag == "floor")
             isGrounded = true;
+        SoundManagerEvent.emit(SoundManagerType.Stream);
     }
 
     void OnCollisionExit(Collision col)
     {
         if (col.transform.tag == "floor")
+        {
+            SoundManagerEvent.emit(SoundManagerType.Jump);
             isGrounded = false;
+        }
     }
 }

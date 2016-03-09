@@ -211,6 +211,7 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
         }
 
+<<<<<<< HEAD
         public void fresqueMode()
         {
             isFresco = true;
@@ -219,6 +220,8 @@ namespace UnityStandardAssets.Utility
         public void gameMode()
         {
             isFresco = false;
+=======
+>>>>>>> origin/Sounds_and_fx
         }
     }
 }

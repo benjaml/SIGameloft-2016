@@ -76,6 +76,10 @@ public class GameManagerWrath : MonoBehaviour
 
     void Update ()
     {
+        if (wrath == maxWrath/2)
+        {
+            SoundManagerEvent.emit(SoundManagerType.Anrgy);
+        }
         if (wrathLast != wrath)
         {
             wrathLast = wrath;
