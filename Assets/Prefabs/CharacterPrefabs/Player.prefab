@@ -1237,7 +1237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101774}
   m_LocalRotation: {x: -0.037387133, y: 0.98769623, z: 0.046966847, w: 0.14440374}
-  m_LocalPosition: {x: 58.63, y: 23.88, z: -11.62}
+  m_LocalPosition: {x: 1.57, y: 1.9, z: -1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424668}
@@ -2336,11 +2336,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 499978}
   sourceTransforms:
   - transform: {fileID: 499978}
-    instanceID: -193188
+    instanceID: -766506
     available: 1
-    position: {x: 60.549335, y: 23.1242, z: -12.618576}
+    position: {x: 3.4893332, y: 1.1442018, z: -2.048576}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 60.549335, y: 23.1242, z: -12.618576}
+    previousPosition: {x: 3.4893332, y: 1.1442018, z: -2.048576}
     forward: {x: -0.2817418, y: -0.10357567, z: 0.95388347}
     up: {x: 0.9554995, y: 0.06029046, z: 0.28876567}
     right: {x: 0.08741918, y: -0.99279255, z: -0.08198018}
@@ -2353,15 +2353,15 @@ MonoBehaviour:
       e00: 0.08741915
       e01: 0.9554995
       e02: -0.2817418
-      e03: 60.549335
+      e03: 3.4893332
       e10: -0.99279255
       e11: 0.060290456
       e12: -0.10357567
-      e13: 23.1242
+      e13: 1.1442018
       e20: -0.08198018
       e21: 0.28876567
       e22: 0.9538834
-      e23: -12.618576
+      e23: -2.048576
       e30: 0
       e31: 0
       e32: 0
@@ -3077,11 +3077,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 414512}
   sourceTransforms:
   - transform: {fileID: 414512}
-    instanceID: -193172
+    instanceID: -766496
     available: 1
-    position: {x: 59.33436, y: 24.138939, z: -14.004708}
+    position: {x: 2.2743554, y: 2.1589391, z: -3.434708}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 59.33436, y: 24.138939, z: -14.004708}
+    previousPosition: {x: 2.2743554, y: 2.1589391, z: -3.434708}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -3094,15 +3094,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 59.33436
+      e03: 2.2743554
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 24.138939
+      e13: 2.1589391
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -14.004708
+      e23: -3.434708
       e30: 0
       e31: 0
       e32: 0
@@ -3813,11 +3813,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 428790}
   sourceTransforms:
   - transform: {fileID: 428790}
-    instanceID: -193174
+    instanceID: -766498
     available: 1
-    position: {x: 59.441418, y: 24.178297, z: -14.367184}
+    position: {x: 2.3814175, y: 2.198298, z: -3.797184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 59.441418, y: 24.178297, z: -14.367184}
+    previousPosition: {x: 2.3814175, y: 2.198298, z: -3.797184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -3830,15 +3830,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 59.441418
+      e03: 2.3814175
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 24.178297
+      e13: 2.198298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -14.367184
+      e23: -3.797184
       e30: 0
       e31: 0
       e32: 0
@@ -4549,11 +4549,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 408280}
   sourceTransforms:
   - transform: {fileID: 408280}
-    instanceID: -193166
+    instanceID: -766490
     available: 1
-    position: {x: 59.441418, y: 24.178297, z: -14.367184}
+    position: {x: 2.3814175, y: 2.198298, z: -3.797184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 59.441418, y: 24.178297, z: -14.367184}
+    previousPosition: {x: 2.3814175, y: 2.198298, z: -3.797184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -4566,15 +4566,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 59.441418
+      e03: 2.3814175
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 24.178297
+      e13: 2.198298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -14.367184
+      e23: -3.797184
       e30: 0
       e31: 0
       e32: 0
@@ -5305,11 +5305,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 483996}
   sourceTransforms:
   - transform: {fileID: 483996}
-    instanceID: -193196
+    instanceID: -766512
     available: 1
-    position: {x: 57.682835, y: 22.94333, z: -13.484874}
+    position: {x: 0.6228347, y: 0.9633321, z: -2.914874}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 57.682835, y: 22.94333, z: -13.484874}
+    previousPosition: {x: 0.6228347, y: 0.9633321, z: -2.914874}
     forward: {x: -0.2817418, y: -0.10357567, z: 0.95388347}
     up: {x: 0.9554995, y: 0.06029046, z: 0.28876567}
     right: {x: 0.08741918, y: -0.99279255, z: -0.08198018}
@@ -5322,15 +5322,15 @@ MonoBehaviour:
       e00: 0.08741915
       e01: 0.9554995
       e02: -0.2817418
-      e03: 57.682835
+      e03: 0.6228347
       e10: -0.99279255
       e11: 0.060290456
       e12: -0.10357567
-      e13: 22.94333
+      e13: 0.9633321
       e20: -0.08198018
       e21: 0.28876567
       e22: 0.9538834
-      e23: -13.484874
+      e23: -2.914874
       e30: 0
       e31: 0
       e32: 0
@@ -6041,11 +6041,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 439188}
   sourceTransforms:
   - transform: {fileID: 439188}
-    instanceID: -193148
+    instanceID: -766480
     available: 1
-    position: {x: 59.33436, y: 24.138939, z: -14.004708}
+    position: {x: 2.2743554, y: 2.1589391, z: -3.434708}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 59.33436, y: 24.138939, z: -14.004708}
+    previousPosition: {x: 2.2743554, y: 2.1589391, z: -3.434708}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -6058,15 +6058,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 59.33436
+      e03: 2.2743554
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 24.138939
+      e13: 2.1589391
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -14.004708
+      e23: -3.434708
       e30: 0
       e31: 0
       e32: 0
@@ -6808,11 +6808,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 474240}
   sourceTransforms:
   - transform: {fileID: 474240}
-    instanceID: -193194
+    instanceID: -766510
     available: 1
-    position: {x: 58.561302, y: 23.239786, z: -11.259018}
+    position: {x: 1.5013019, y: 1.2597871, z: -0.6890178}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 58.561302, y: 23.239786, z: -11.259018}
+    previousPosition: {x: 1.5013019, y: 1.2597871, z: -0.6890178}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -6825,15 +6825,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 58.561302
+      e03: 1.5013019
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 23.239786
+      e13: 1.2597871
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -11.259018
+      e23: -0.6890178
       e30: 0
       e31: 0
       e32: 0
@@ -7544,11 +7544,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 451678}
   sourceTransforms:
   - transform: {fileID: 451678}
-    instanceID: -193198
+    instanceID: -766514
     available: 1
-    position: {x: 59.441418, y: 24.178297, z: -14.367184}
+    position: {x: 2.3814175, y: 2.198298, z: -3.797184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 59.441418, y: 24.178297, z: -14.367184}
+    previousPosition: {x: 2.3814175, y: 2.198298, z: -3.797184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -7561,15 +7561,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 59.441418
+      e03: 2.3814175
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 24.178297
+      e13: 2.198298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -14.367184
+      e23: -3.797184
       e30: 0
       e31: 0
       e32: 0
@@ -8329,11 +8329,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 407338}
   sourceTransforms:
   - transform: {fileID: 407338}
-    instanceID: -193190
+    instanceID: -766508
     available: 1
-    position: {x: 60.549335, y: 23.1242, z: -12.618576}
+    position: {x: 3.4893332, y: 1.1442018, z: -2.048576}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 60.549335, y: 23.1242, z: -12.618576}
+    previousPosition: {x: 3.4893332, y: 1.1442018, z: -2.048576}
     forward: {x: 0.28174213, y: 0.10357568, z: -0.9538832}
     up: {x: -0.95549953, y: -0.06028925, z: -0.2887659}
     right: {x: 0.08741821, y: -0.9927926, z: -0.08198047}
@@ -8346,15 +8346,15 @@ MonoBehaviour:
       e00: 0.0874182
       e01: -0.95549953
       e02: 0.28174213
-      e03: 60.549335
+      e03: 3.4893332
       e10: -0.9927926
       e11: -0.060289264
       e12: 0.10357568
-      e13: 23.1242
+      e13: 1.1442018
       e20: -0.08198047
       e21: -0.2887659
       e22: -0.9538832
-      e23: -12.618576
+      e23: -2.048576
       e30: 0
       e31: 0
       e32: 0
@@ -9070,11 +9070,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 497624}
   sourceTransforms:
   - transform: {fileID: 497624}
-    instanceID: -193162
+    instanceID: -766486
     available: 1
-    position: {x: 58.92583, y: 23.988754, z: -12.621577}
+    position: {x: 1.8658292, y: 2.0087545, z: -2.0515773}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 58.92583, y: 23.988754, z: -12.621577}
+    previousPosition: {x: 1.8658292, y: 2.0087545, z: -2.0515773}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -9087,15 +9087,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 58.92583
+      e03: 1.8658292
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 23.988754
+      e13: 2.0087545
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -12.621577
+      e23: -2.0515773
       e30: 0
       e31: 0
       e32: 0
@@ -9271,13 +9271,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDistanceFromCenter: 8.5
-  distanceFromCenter: 8.5
+  baseDistanceFromCenter: 10
+  distanceFromCenter: 10
   turnSpeedMax: 40
   airTurnSpeedMax: 25
-  jumpSpeed: 30
-  accelerationJump: 5
-  heightJump: 9
+  jumpSpeed: 10
+  accelerationJump: 2
+  heightJump: 4.5
   speedFall: 15
   gravity: 500
   baseSpeed: 30
@@ -9865,11 +9865,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 434298}
   sourceTransforms:
   - transform: {fileID: 434298}
-    instanceID: -193182
+    instanceID: -766504
     available: 1
-    position: {x: 58.92583, y: 23.988754, z: -12.621577}
+    position: {x: 1.8658292, y: 2.0087545, z: -2.0515773}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 58.92583, y: 23.988754, z: -12.621577}
+    previousPosition: {x: 1.8658292, y: 2.0087545, z: -2.0515773}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -9882,15 +9882,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 58.92583
+      e03: 1.8658292
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 23.988754
+      e13: 2.0087545
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -12.621577
+      e23: -2.0515773
       e30: 0
       e31: 0
       e32: 0
@@ -10606,11 +10606,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 423804}
   sourceTransforms:
   - transform: {fileID: 423804}
-    instanceID: -193168
+    instanceID: -766492
     available: 1
-    position: {x: 57.682835, y: 22.94333, z: -13.484874}
+    position: {x: 0.6228347, y: 0.9633321, z: -2.914874}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 57.682835, y: 22.94333, z: -13.484874}
+    previousPosition: {x: 0.6228347, y: 0.9633321, z: -2.914874}
     forward: {x: 0.28174213, y: 0.10357568, z: -0.9538832}
     up: {x: -0.95549953, y: -0.06028925, z: -0.2887659}
     right: {x: 0.08741821, y: -0.9927926, z: -0.08198047}
@@ -10623,15 +10623,15 @@ MonoBehaviour:
       e00: 0.0874182
       e01: -0.95549953
       e02: 0.28174213
-      e03: 57.682835
+      e03: 0.6228347
       e10: -0.9927926
       e11: -0.060289264
       e12: 0.10357568
-      e13: 22.94333
+      e13: 0.9633321
       e20: -0.08198047
       e21: -0.2887659
       e22: -0.9538832
-      e23: -13.484874
+      e23: -2.914874
       e30: 0
       e31: 0
       e32: 0
