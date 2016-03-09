@@ -121,19 +121,32 @@ Material:
         second: 0.5
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
           name: _CloudMouvementSpeed
         second: 0.05
+=======
+          name: _Glossiness
+        second: 0.5
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
       data:
         first:
           name: _Alpha
         second: 1
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
           name: _CloudsMouvSlider
         second: 5.17612
       data:
         first:
           name: _LightTransitionSlider
+=======
+          name: _BumpScale
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
         second: 1
       data:
         first:
@@ -173,6 +186,7 @@ Material:
         second: 1
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
           name: _OcclusionStrength
         second: 1
       data:
@@ -187,6 +201,22 @@ Material:
         first:
           name: _Mode
         second: 0
+=======
+          name: _CloudsMouvSlider
+        second: 0.7152574
+      data:
+        first:
+          name: _LightTransitionSlider
+        second: 0.46102953
+      data:
+        first:
+          name: _BoolDay
+        second: 0
+      data:
+        first:
+          name: _BoolAfternoon
+        second: 1
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
       data:
         first:
           name: _ShadowOpacity
@@ -214,7 +244,11 @@ Material:
       data:
         first:
           name: _CloudLightness
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
         second: 0.5
+=======
+        second: 0.76948524
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
       data:
         first:
           name: _UVDeformationStrength

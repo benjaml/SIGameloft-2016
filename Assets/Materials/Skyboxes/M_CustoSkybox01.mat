@@ -121,14 +121,24 @@ Material:
         second: 0.5
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_CustoSkybox01.mat
           name: _TimeSlider
         second: 517.6124
+=======
+          name: _Glossiness
+        second: 0.5
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_CustoSkybox01.mat
       data:
         first:
           name: _Madness
         second: 0
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_CustoSkybox01.mat
           name: _Glossiness
         second: 0.5
       data:
@@ -145,6 +155,8 @@ Material:
         second: 1
       data:
         first:
+=======
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_CustoSkybox01.mat
           name: _BumpScale
         second: 1
       data:
@@ -165,6 +177,17 @@ Material:
         second: 0
       data:
         first:
+<<<<<<< HEAD:Assets/Materials/Skyboxes/M_CustoSkybox01.mat
+=======
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _TimeSlider
+        second: 715.2574
+      data:
+        first:
+>>>>>>> origin/FX:Assets/Material/Skyboxes/M_CustoSkybox01.mat
           name: _Saturation
         second: 0
       data:
