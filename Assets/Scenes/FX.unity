@@ -2236,6 +2236,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 92634876}
+    - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
+      propertyPath: accelerationFOV
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
   m_IsPrefabParent: 0
