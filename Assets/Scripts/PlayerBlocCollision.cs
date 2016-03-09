@@ -17,7 +17,7 @@ public class PlayerBlocCollision : MonoBehaviour {
 	
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "obstacleAir" || col.gameObject.tag == "obstacleFloor")
+        if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacleAir")
         {
             StartCoroutine(fxBlocCollision());
         }

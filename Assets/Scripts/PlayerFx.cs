@@ -24,9 +24,8 @@ public class PlayerFx : MonoBehaviour {
         fxRightTilt_2.enabled = false;
     }
 
-        void Update ()
+    void Update ()
     {
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
         isGrounded = GetComponent<PlayerMovement>().isGrounded;
 
         if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)

@@ -65,7 +65,6 @@ public class BlocSpeedModifier : MonoBehaviour {
 
     void losingFlowers()
     {
-        Debug.Log(flowersLost);
         for (int i = 0; i < flowersLost; i++)
         {
             if (flowersList[flowersList.Count - 1] != flowersList[0])

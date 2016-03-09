@@ -211,8 +211,7 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
-
-            Debug.Log(player.getSpeed());
+            
         }
     }
 }

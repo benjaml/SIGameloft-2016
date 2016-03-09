@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("jS " + jumpSpeed);
         //Debug.Log("sF " + speedFall);
         //Debug.Log("hJ " + heightJump);
-
+        targetRotation = Quaternion.identity;
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if(isGrounded)
         {
@@ -150,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
                 accelerateJump = 0.1f;
 
             heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
-            Debug.Log(accelerateJump);
         }
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
@@ -253,13 +252,12 @@ public class PlayerMovement : MonoBehaviour
     
     void ApplyMovement()
     {
-        DebugPoint(targetPosition, Color.blue);
-        DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter, Color.black);
+        Debug.Log(calculateSpeedForward());
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.5f);
         // on applique les modification de position et rotation en smooth
         //transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
-
+        //if(targetRotation != Quaternion.identity)
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
     }
 
