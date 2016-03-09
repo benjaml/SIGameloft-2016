@@ -40,16 +40,16 @@ Material:
         first:
           name: _CloudTexture
         second:
-          m_Texture: {fileID: 2800000, guid: 8bde8f836059c294a9e54708cf2f0865, type: 3}
-          m_Scale: {x: 3, y: 1}
+          m_Texture: {fileID: 2800000, guid: 5e32d8f9dae8d3f4eb9d507ea4ebb5c0, type: 3}
+          m_Scale: {x: 3, y: 10}
           m_Offset: {x: 1.47, y: 0}
       data:
         first:
           name: _ShadowMask
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+          m_Texture: {fileID: 2800000, guid: 28e69286a17fa1b49ab9bffc21a3a8c8, type: 3}
+          m_Scale: {x: 3, y: 10}
+          m_Offset: {x: 1.47, y: 0}
       data:
         first:
           name: _ParallaxMap
@@ -130,7 +130,7 @@ Material:
       data:
         first:
           name: _CloudMouvementSpeed
-        second: 0.3
+        second: 0.04
       data:
         first:
           name: _Alpha
@@ -138,11 +138,11 @@ Material:
       data:
         first:
           name: _LightAffected
-        second: 1
+        second: 0
       data:
         first:
           name: _CloudsMouvSlider
-        second: 4.1670523
+        second: 3.9491067
       data:
         first:
           name: _Parallax
@@ -174,15 +174,15 @@ Material:
       data:
         first:
           name: _LightTransitionSlider
-        second: 0.46102953
+        second: 1
       data:
         first:
           name: _BoolDay
-        second: 0
+        second: 1
       data:
         first:
           name: _BoolAfternoon
-        second: 1
+        second: 0
       data:
         first:
           name: _Transmission
@@ -214,7 +214,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-        second: 0.76948524
+        second: 0.5
       data:
         first:
           name: _UVDeformationStrength
@@ -235,11 +235,11 @@ Material:
       data:
         first:
           name: _SunColor
-        second: {r: 0.9999909, g: 0.69828767, b: 0.31647137, a: 1}
+        second: {r: 1, g: 0.9568628, b: 0.6784314, a: 1}
       data:
         first:
           name: _ShadowColor
-        second: {r: 0.34508708, g: 0.17666064, b: 0.41981438, a: 1}
+        second: {r: 0.92549026, g: 0.5529412, b: 0.2901961, a: 1}
       data:
         first:
           name: _SunColorNight
