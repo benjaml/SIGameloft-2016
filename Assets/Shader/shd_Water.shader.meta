@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: a4bffcd1f57530b41acf2573d1aa3dd3
+timeCreated: 1457012799
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _Clouds: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  - _Losanges: {fileID: 2800000, guid: dd0a425ad60b4e34aaed7a6b41cf35e7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
