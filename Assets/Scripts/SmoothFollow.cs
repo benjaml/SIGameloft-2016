@@ -138,7 +138,7 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if(Input.GetAxisRaw("R_YAxis_0") < -0.3f)
+            if(Input.GetAxisRaw("R_YAxis_0") > 0.3f)
             {
                 interiorHeightForCalc = interiorHeightDive;
                 accelerationHeightForCalc = accelerationHeightDive;

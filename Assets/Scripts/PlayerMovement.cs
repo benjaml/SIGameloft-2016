@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
 
         if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
         {
-            Invoke("launchJumping",0.75f);
+            launchJumping();
 
             animator.SetTrigger("jump");
         }
