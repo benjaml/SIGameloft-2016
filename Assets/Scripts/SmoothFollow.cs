@@ -20,11 +20,11 @@ namespace UnityStandardAssets.Utility
         // the height we want the camera to be above the target
         [SerializeField]
         private float heightExterne = 5.0f;*/
-        
+
         public float distance = 10.0f;
         // the height we want the camera to be above the target
         public float height = 5.0f;
-        
+
         private float rotationDamping;
         private float heightDamping;
         private float lerpDampening = 0.1f;
@@ -61,10 +61,11 @@ namespace UnityStandardAssets.Utility
 
         private PlayerMovement player;
 
+        private float realTopAngle = 0.0f;
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
+        private float interiorAngle = 90.0f;
         private float downAngle = 180.0f;
-        private float previousSpeed;
 
         // Use this for initialization
         void Awake()
@@ -127,9 +128,9 @@ namespace UnityStandardAssets.Utility
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
             */
-            
+
             targetRotation = Quaternion.FromToRotation(transform.up, target.up);
-            targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint-transform.position));
+            targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
 
             //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, target.eulerAngles, ref smoothVelRot, smoothTime);
@@ -142,10 +143,19 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3f)
+            if (Input.GetAxisRaw("R_YAxis_0") < -0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
             {
-                interiorHeightForCalc = interiorHeightDive;
-                accelerationHeightForCalc = accelerationHeightDive;
+                float _angleToDiveCamera = Mathf.Abs(interiorAngle - _zAngle);
+
+                if (interiorHeight > interiorHeightDive)
+                    interiorHeightForCalc = interiorHeightDive + ((_angleToDiveCamera * (interiorHeight - interiorHeightDive)) / 90);
+                else
+                    interiorHeightForCalc = interiorHeightDive - ((_angleToDiveCamera * (interiorHeightDive - interiorHeight)) / 90);
+
+                if (accelerationHeight > accelerationHeightDive)
+                    accelerationHeightForCalc = accelerationHeightDive + ((_angleToDiveCamera * (accelerationHeight - accelerationHeightDive)) / 90);
+                else
+                    accelerationHeightForCalc = accelerationHeightDive - ((_angleToDiveCamera * (accelerationHeightDive - accelerationHeight)) / 90);
             }
             else
             {
@@ -153,15 +163,14 @@ namespace UnityStandardAssets.Utility
                 accelerationHeightForCalc = accelerationHeight;
             }
 
-            if(_zAngle <= topAngle && _zAngle >= downAngle)
+            if (_zAngle <= topAngle && _zAngle >= downAngle)
             {
-
                 percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
                 percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
 
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
 
-                if(interiorDistance > exteriorDistance)
+                if (interiorDistance > exteriorDistance)
                     distance = exteriorDistance + ((_angleToChangeCamera * (interiorDistance - exteriorDistance)) / 90);
                 else
                     distance = exteriorDistance - ((_angleToChangeCamera * (exteriorDistance - interiorDistance)) / 90);
@@ -211,8 +220,6 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
-
-            Debug.Log(player.getSpeed());
         }
     }
 }
