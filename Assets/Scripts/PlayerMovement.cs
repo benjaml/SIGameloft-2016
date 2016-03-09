@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private bool lDashed = false;
     private bool rDashed = false;
     private float _xStick = 0.0f;
-    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
+    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump, initBaseSpeed;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
 
-
     public Animator animator;
     public bool isFresco = false;
 
@@ -73,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         initHeightJump = heightJump;
         initJumpSpeed = jumpSpeed;
         initSpeedFall = speedFall;
+        initBaseSpeed = baseSpeed;
         accelerateJump = 0.0f;
         distanceFromCenter = baseDistanceFromCenter;
         groundDetection = baseDistanceFromCenter + 0.2f;
@@ -109,20 +109,12 @@ public class PlayerMovement : MonoBehaviour
                     heightJump = initHeightJump;
                 }
             }
+        }
 
-<<<<<<< HEAD
-        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
+        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped && !isFresco)
         {
             launchJumping();
-=======
-            if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) &&
-                isGrounded && !jumped)
-            {
-                Invoke("launchJumping", 0.75f);
->>>>>>> origin/Fresque
-
-                animator.SetTrigger("jump");
-            }
+            animator.SetTrigger("jump");
         }
 
         if(jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
@@ -275,11 +267,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
     }
 
-
     public void launchJumping()
     {
-        jumped = true;
-        jumping = true;
+            jumped = true;
+            jumping = true;
     }
 
     //calculate the turn speed when grounded
@@ -456,6 +447,18 @@ public class PlayerMovement : MonoBehaviour
     public float getSpeed()
     {
         return speedForward;
+    }
+
+    public void frescoMode(float _modifierBaseSpeed)
+    {
+        isFresco = true;
+        baseSpeed = _modifierBaseSpeed;
+    }
+
+    public void gameMode()
+    {
+        isFresco = false;
+        baseSpeed = initBaseSpeed;
     }
 
     void DebugPoint(Vector3 position, Color color)
