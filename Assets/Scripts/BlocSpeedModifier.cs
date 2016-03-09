@@ -6,7 +6,7 @@ public class BlocSpeedModifier : MonoBehaviour {
 
     public float reduceSpeed = 0.6f;
     public float accelerationTime;
-    public int lowSpeedTime = 5;
+    public float lowSpeedTime = 5f;
     public float percentOfFlowerLost = 30;
 
     private float flowersLost;
@@ -26,10 +26,11 @@ public class BlocSpeedModifier : MonoBehaviour {
             playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
 
             stockBaseSpeed = playerMovementScript.baseSpeed;
+            stockMaxSpeed = playerMovementScript.MaxSpeed;
+
             playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
 
 
-            stockMaxSpeed = playerMovementScript.MaxSpeed;
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
 
@@ -41,23 +42,18 @@ public class BlocSpeedModifier : MonoBehaviour {
 
     IEnumerator reducingSpeed()
     {
-        int _tmp = 0;
+        float _tmp = 0f;
         while (_tmp < lowSpeedTime)
         {
-            _tmp++;
+            _tmp +=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        if (_tmp >= lowSpeedTime)
+        while (playerMovementScript.MaxSpeed < stockMaxSpeed)
         {
-            while (playerMovementScript.MaxSpeed < stockMaxSpeed)
-            {
-
-                playerMovementScript.baseSpeed += accelerationTime;
-                playerMovementScript.MaxSpeed += accelerationTime;
-                yield return new WaitForSeconds(0.2f);
-            }
+            playerMovementScript.baseSpeed += accelerationTime;
+            playerMovementScript.MaxSpeed += accelerationTime;
+            yield return new WaitForSeconds(0.2f);
         }
-        Debug.Log(stockMaxSpeed);
         playerMovementScript.baseSpeed= stockBaseSpeed;
         playerMovementScript.MaxSpeed = stockMaxSpeed;
         yield return null;
@@ -67,7 +63,6 @@ public class BlocSpeedModifier : MonoBehaviour {
     {
 
         flowersLost = (flowersList.Count - 1) - (Mathf.Floor((flowersList.Count - 1) * (1 - (percentOfFlowerLost / 100))));
-        Debug.Log(flowersLost);
         for (int i = 0; i < flowersLost; i++)
         {
             if (flowersList[flowersList.Count - 1] != flowersList[0])

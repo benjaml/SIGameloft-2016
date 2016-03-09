@@ -252,7 +252,6 @@ public class PlayerMovement : MonoBehaviour
     
     void ApplyMovement()
     {
-        Debug.Log(calculateSpeedForward());
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
         transform.position = Vector3.Lerp(transform.position,gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,0.5f);
         // on applique les modification de position et rotation en smooth

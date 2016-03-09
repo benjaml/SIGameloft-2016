@@ -142,7 +142,7 @@ Material:
       data:
         first:
           name: _CloudsMouvSlider
-        second: 2.0166674
+        second: 4.1670523
       data:
         first:
           name: _Parallax
@@ -235,11 +235,11 @@ Material:
       data:
         first:
           name: _SunColor
-        second: {r: 0.9803998, g: 0.94118255, b: 0.94891554, a: 1}
+        second: {r: 0.9999909, g: 0.69828767, b: 0.31647137, a: 1}
       data:
         first:
           name: _ShadowColor
-        second: {r: 0.32180107, g: 0.58430165, b: 0.8625248, a: 1}
+        second: {r: 0.34508708, g: 0.17666064, b: 0.41981438, a: 1}
       data:
         first:
           name: _SunColorNight
