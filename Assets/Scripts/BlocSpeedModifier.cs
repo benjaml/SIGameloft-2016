@@ -31,7 +31,6 @@ public class BlocSpeedModifier : MonoBehaviour {
             stockMaxSpeed = playerMovementScript.MaxSpeed;
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
-            ShakeManager.instance.LetsShake(200, false, true);
 
             StartCoroutine(reducingSpeed());
             
@@ -68,7 +67,6 @@ public class BlocSpeedModifier : MonoBehaviour {
         Debug.Log(flowersLost);
         for (int i = 0; i < flowersLost; i++)
         {
-            Debug.Log("hello");
             if (flowersList[flowersList.Count - 1] != flowersList[0])
             {
                 GameObject tmp = flowersList[flowersList.Count - 1];

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class PlayerCollectible : MonoBehaviour {
 
     public List<GameObject> listCollectible = new List<GameObject>();
@@ -24,6 +25,7 @@ public class PlayerCollectible : MonoBehaviour {
 
         if (col.tag == "collectible")
         {
+       
             if (!listCollectible.Contains(col.gameObject))
             {
                 listCollectible.Add(col.gameObject);
@@ -44,7 +46,10 @@ public class PlayerCollectible : MonoBehaviour {
 
             col.GetComponent<CollectibleMovement>().collected = true;
             col.transform.gameObject.tag = "collected";
+            col.transform.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         }
     }
+
+
 }
