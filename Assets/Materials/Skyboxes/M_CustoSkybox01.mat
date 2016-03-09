@@ -121,20 +121,12 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Metallic
-        second: 0
+          name: _TimeSlider
+        second: 30.903267
       data:
         first:
           name: _Madness
         second: 0
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _TimeSlider
-        second: 287.00177
       data:
         first:
           name: _Parallax
@@ -143,6 +135,10 @@ Material:
         first:
           name: _ZWrite
         second: 1
+      data:
+        first:
+          name: _Glossiness
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -162,6 +158,10 @@ Material:
       data:
         first:
           name: _Mode
+        second: 0
+      data:
+        first:
+          name: _Metallic
         second: 0
       data:
         first:

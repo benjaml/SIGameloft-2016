@@ -26,24 +26,22 @@ public class PlayerFx : MonoBehaviour {
 
         void Update ()
     {
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
         isGrounded = GetComponent<PlayerMovement>().isGrounded;
 
         if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
         {
             fxDiveFoam.enabled = true;
             fxDiveFoam.emit = true;
+            SoundManagerEvent.emit(SoundManagerType.Diving); //A faire looper
         }
 
         if (Input.GetAxisRaw("R_YAxis_0") < 0.1 && isGrounded)
         {
             StartCoroutine(fxDive());
+            SoundManagerType.Diving
+            
         }
-        if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
-        {
-            fxDiveFoam.enabled = true;
-            fxDiveFoam.emit = true;
-        }
+
 
         //Left tilt
         if (Input.GetAxisRaw("Horizontal") > 0.2f  && isGrounded)

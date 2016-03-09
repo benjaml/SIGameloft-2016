@@ -30,26 +30,28 @@ public enum SoundManagerType
 {
     //Sounds
     //Character
-    Diving, //Script pas mergés
+    Diving, //avec le fx de dive
     Jump, //OK (pas testé)
-    Flying, // A faire boucler ? Je sais pas où le mettre.
-    Straff, // Comment je fais boucler ?
+    Flying, // A faire boucler ? Quand isGrounded == false
+    Straff, // Comment je fais boucler ? Quand les joystick marchent
     Damage, //OK (pas testé)
+
     //Dragon
-    Anrgy, // Pas de script ?
-    Suffering, //Pas de script 
+    Anrgy, //Quand il passe en énervé (définir la valeur)
+    Suffering, //Quand fresco == true
+
         //Bells
-    Gong, //Script pas mergé
-    Bell, //Script pas mergé 
+    Gong, //Collision gong
+    Bell, //collision bell
         //Flowers
     Flower, //Script pas mergé, comment qu'on fait pour faire plusieurs sons ?
         //Environment 
-    Stream, //Je sais pas où mettre
+    Stream, //quand isGrounded
     Thunder, //Je sais pas où mettre
 
     //Voice
         //Character
-    Talk, //Je sais pas où mettre
+    Talk, //Une fois qu'on a récupérer 5 fleurs.
 }
 
 public class SoundManagerEvent : MonoBehaviour
