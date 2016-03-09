@@ -62,14 +62,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
-
-<<<<<<< HEAD
-
+    
     public bool isDiving= false;
-
-
-=======
->>>>>>> origin/CameraAndFixes
+    
     public Animator animator;
     public bool isFresco = false;
 
@@ -96,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if (!isFresco)
         {
-<<<<<<< HEAD
             if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
             {
                 heightModificator -= 0.1f;
@@ -116,8 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
                 heightModificator -= 0.0f;
             }
-=======
->>>>>>> origin/CameraAndFixes
 
             if (isGrounded)
             {
@@ -294,14 +286,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void launchJumping()
     {
-<<<<<<< HEAD
         SoundManagerEvent.emit(SoundManagerType.Jump);
         jumped = true;
         jumping = true;
-=======
-            jumped = true;
-            jumping = true;
->>>>>>> origin/CameraAndFixes
     }
 
     //calculate the turn speed when grounded
