@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private bool lDashed = false;
     private bool rDashed = false;
     private float _xStick = 0.0f;
-    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
+    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump, initBaseSpeed;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -63,11 +63,15 @@ public class PlayerMovement : MonoBehaviour
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
 
+<<<<<<< HEAD
 
     public bool isDiving= false;
 
 
+=======
+>>>>>>> origin/CameraAndFixes
     public Animator animator;
+    public bool isFresco = false;
 
     void Start()
     {
@@ -75,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         initHeightJump = heightJump;
         initJumpSpeed = jumpSpeed;
         initSpeedFall = speedFall;
+        initBaseSpeed = baseSpeed;
         accelerateJump = 0.0f;
         distanceFromCenter = baseDistanceFromCenter;
         groundDetection = baseDistanceFromCenter + 0.2f;
@@ -89,8 +94,9 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("hJ " + heightJump);
         targetRotation = Quaternion.identity;
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        if(isGrounded)
+        if (!isFresco)
         {
+<<<<<<< HEAD
             if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
             {
                 heightModificator -= 0.1f;
@@ -110,20 +116,33 @@ public class PlayerMovement : MonoBehaviour
 
                 heightModificator -= 0.0f;
             }
+=======
+>>>>>>> origin/CameraAndFixes
 
-            if (!jumping)
+            if (isGrounded)
             {
-                accelerateJump = accelerationJump;
-                jumpSpeed = initJumpSpeed;
-                speedFall = initSpeedFall;
-                heightJump = initHeightJump;
+                if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
+                {
+                    heightModificator -= 0.3f;
+                }
+                else
+                {
+                    heightModificator -= 0.0f;
+                }
+
+                if (!jumping)
+                {
+                    accelerateJump = accelerationJump;
+                    jumpSpeed = initJumpSpeed;
+                    speedFall = initSpeedFall;
+                    heightJump = initHeightJump;
+                }
             }
         }
 
-        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
+        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped && !isFresco)
         {
             launchJumping();
-
             animator.SetTrigger("jump");
         }
 
@@ -187,7 +206,6 @@ public class PlayerMovement : MonoBehaviour
             heightModificator *= 0.98f;
 
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
-
         isGrounded = distanceFromCenter < groundDetection ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
@@ -245,7 +263,8 @@ public class PlayerMovement : MonoBehaviour
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right * calculateTurnSpeed();
+            if(!isFresco)
+                moveDirection += transform.right * calculateTurnSpeed();
         }
         else
         {
@@ -253,7 +272,8 @@ public class PlayerMovement : MonoBehaviour
             // avance sur le tube avec la variabe speed
             moveDirection = transform.forward * calculateAirSpeedForward();
             // tourne autour du tube avec la variabe turnSpeed
-            moveDirection += transform.right * calculateAirTurnSpeed();
+            if (!isFresco)
+                moveDirection += transform.right * calculateAirTurnSpeed();
         }
         
         // on ajoute la gravité au déplacement
@@ -272,12 +292,16 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
     }
 
-
     public void launchJumping()
     {
+<<<<<<< HEAD
         SoundManagerEvent.emit(SoundManagerType.Jump);
         jumped = true;
         jumping = true;
+=======
+            jumped = true;
+            jumping = true;
+>>>>>>> origin/CameraAndFixes
     }
 
     //calculate the turn speed when grounded
@@ -463,6 +487,18 @@ public class PlayerMovement : MonoBehaviour
     public float getSpeed()
     {
         return speedForward;
+    }
+
+    public void frescoMode(float _modifierBaseSpeed)
+    {
+        isFresco = true;
+        baseSpeed = _modifierBaseSpeed;
+    }
+
+    public void gameMode()
+    {
+        isFresco = false;
+        baseSpeed = initBaseSpeed;
     }
 
     void DebugPoint(Vector3 position, Color color)

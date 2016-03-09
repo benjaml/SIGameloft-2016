@@ -92,15 +92,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: -2.7, y: 0.7, z: 2.6}
+  distance: 10
+  height: 5
+  smoothTime: 0.3
+  rightnessFactor: 8
   interiorHeight: 2
+  interiorHeightDive: 5
   interiorDistance: 5
   interiorForward: 15
   exteriorHeight: 15
   exteriorDistance: 10
   exteriorForward: -5
-  accelerationHeight: 2
-  accelerationDistance: 5
+  accelerationHeight: -75
+  accelerationHeightDive: -20
+  accelerationDistance: -50
+  baseFOV: 60
+  accelerationFOV: 80
+  fresqueDistance: 15
+  fresqueHeight: 20
+  fresqueForwardPosition: 5.5
+  fresqueLookForward: 4
+  smoothTimeCinematic: 0.3
+  isFresco: 0
 --- !u!124 &12448136
 Behaviour:
   m_ObjectHideFlags: 1

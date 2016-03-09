@@ -17,7 +17,9 @@ public class FollowPlayerRotation : MonoBehaviour {
 
         //transform.eulerAngles = new Vector3(Player.eulerAngles.z - 90, _rot.y, _rot.z);
         //transform.eulerAngles = new Vector3(_rot.x, Player.eulerAngles.z, _rot.z);
-        //transform.eulerAngles = new Vector3(_rot.x, _rot.y, Player.eulerAngles.z);
+        transform.eulerAngles = new Vector3(_rot.x, _rot.y, -1 * Player.eulerAngles.z);
+
+        //transform.rotation = Player.rotation;
 
     }
 }

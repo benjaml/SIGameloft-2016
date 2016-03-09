@@ -20,24 +20,24 @@ namespace UnityStandardAssets.Utility
         // the height we want the camera to be above the target
         [SerializeField]
         private float heightExterne = 5.0f;*/
-        
+
         public float distance = 10.0f;
         // the height we want the camera to be above the target
         public float height = 5.0f;
-        
+
         private float rotationDamping;
         private float heightDamping;
         private float lerpDampening = 0.1f;
 
         private float forwardValue;
 
-        public Vector3 offset;
-
-        private float smoothTime = 0.3f;
+        public float smoothTime = 0.8f;
         private Vector3 smoothVel;
         private Vector3 smoothVel2;
         private float smoothVelRot;
 
+        public float rightnessFactor = 4.0f;
+        private float rightness;
         public float interiorHeight = 2.0f;
         public float interiorHeightDive = 5.0f;
         private float interiorHeightForCalc;
@@ -47,6 +47,7 @@ namespace UnityStandardAssets.Utility
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
 
+        [Header("Valeur Acceleration")]
         public float accelerationHeight = -75.0f;
         public float accelerationHeightDive = -40.0f;
         private float percentAccHeight;
@@ -61,10 +62,20 @@ namespace UnityStandardAssets.Utility
 
         private PlayerMovement player;
 
+        private float realTopAngle = 0.0f;
         private float topAngle = 359.9f;
         private float exteriorAngle = 270.0f;
+        private float interiorAngle = 90.0f;
         private float downAngle = 180.0f;
-        private float previousSpeed;
+
+        [Header("Fresque Camera")]
+        public float fresqueDistance;
+        public float fresqueHeight;
+        public float fresqueForwardPosition;
+        public float fresqueLookForward;
+        public float smoothTimeCinematic;
+
+        public bool isFresco = false;
 
         // Use this for initialization
         void Awake()
@@ -83,69 +94,57 @@ namespace UnityStandardAssets.Utility
             if (!target)
                 return;
 
-            float yPos = transform.position.y;
+            if (!isFresco)
+            {
+                if (Input.GetAxisRaw("Horizontal") > 0.3)
+                    rightness = rightnessFactor;
+                else if (Input.GetAxisRaw("Horizontal") < -0.3)
+                    rightness = -1.0f * rightnessFactor;
+                else
+                    rightness = 0.0f;
 
-            // Set the height of the camera
-            //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
-            Vector3 newPos = Vector3.SmoothDamp(transform.position, target.position + (distance * (-target.forward)) + (height * (target.up)), ref smoothVel, smoothTime);
-            //newPos.y = yPos;
-            transform.position = newPos;
-            //transform.position = target.position + (distance * (-target.forward)) + (height * (target.up));
-            //transform.position += offset;
+                // Set the height of the camera
+                //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
+                transform.position = Vector3.SmoothDamp(transform.position,
+                    target.position + (distance*(-target.forward)) + (height*(target.up) + (rightness * target.right)), ref smoothVel, smoothTime);
+                Quaternion targetRotation;
+                Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue*target.forward,
+                    ref smoothVel2, smoothTime);
 
-            //transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref smoothVel, smoothTime);
+                targetRotation = Quaternion.FromToRotation(transform.up, target.up);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, smoothTime);
+            }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position,target.position + (fresqueDistance * (target.right)) + (fresqueHeight * (target.up)) + (fresqueForwardPosition * (target.forward)), ref smoothVel, smoothTimeCinematic);
+                Quaternion targetRotation;
+                Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + fresqueLookForward * target.forward,
+                    ref smoothVel2, smoothTimeCinematic);
 
-            //cimetic camera
-            //transform.position = Vector3.Lerp(target.position, (distance * (-target.forward)) + (height * (target.up)) ,lerpDampening);
-
-            //LookAt correct but Shaky
-            //Vector3 _vForward = target.position - transform.position;
-            //Vector3 _vUp = (target.position + target.up) - (transform.position + transform.up);
-
-            //Quaternion _rot = Quaternion.LookRotation(_vForward, _vUp);
-
-            //FromToRotation Very Smooth but does not look the player
-            /*Quaternion _forward = Quaternion.FromToRotation(transform.position, target.position - transform.position);
-            Quaternion _up = Quaternion.FromToRotation(transform.position - transform.up, target.position - target.up);
-        
-            Quaternion _newRot = _up * _forward;
-            */
-
-            //Apply rotations to smooth the movement of cam
-            //transform.forward = target.forward;
-            //transform.rotation = Quaternion.FromToRotation(transform.up, target.up);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*Quaternion.FromToRotation(transform.forward,(target.position-transform.position).normalized),0.1f);
-            Quaternion targetRotation;
-            Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue * target.forward, ref smoothVel2, smoothTime);
-
-            /*Quaternion targetRotation = Quaternion.LookRotation(lookPoint - transform.position, transform.position + target.up);
-            //targetRotation *= Quaternion.FromToRotation(transform.up, target.up); 
-
-            Debug.DrawLine(transform.position, transform.position + target.up * 10, Color.red);
-            Debug.DrawLine(target.position, target.position + target.up * 10, Color.blue);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
-            */
-            
-            targetRotation = Quaternion.FromToRotation(transform.up, target.up);
-            targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint-transform.position));
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
-
-            //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, target.eulerAngles, ref smoothVelRot, smoothTime);
-
-            // Always look at the target, but is shaky
-            //transform.LookAt(target, target.up);
+                targetRotation = Quaternion.FromToRotation(transform.up, target.up);
+                targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, 0.1f);
+            }
 
             float _zAngle = transform.eulerAngles.z;
 
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3f)
+            if (Input.GetAxisRaw("R_YAxis_0") > 0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
             {
-                interiorHeightForCalc = interiorHeightDive;
-                accelerationHeightForCalc = accelerationHeightDive;
+                float _angleToDiveCamera = Mathf.Abs(interiorAngle - _zAngle);
+
+                if (interiorHeight > interiorHeightDive)
+                    interiorHeightForCalc = interiorHeightDive + ((_angleToDiveCamera * (interiorHeight - interiorHeightDive)) / 90);
+                else
+                    interiorHeightForCalc = interiorHeightDive - ((_angleToDiveCamera * (interiorHeightDive - interiorHeight)) / 90);
+
+                if (accelerationHeight > accelerationHeightDive)
+                    accelerationHeightForCalc = accelerationHeightDive + ((_angleToDiveCamera * (accelerationHeight - accelerationHeightDive)) / 90);
+                else
+                    accelerationHeightForCalc = accelerationHeightDive - ((_angleToDiveCamera * (accelerationHeightDive - accelerationHeight)) / 90);
             }
             else
             {
@@ -153,15 +152,14 @@ namespace UnityStandardAssets.Utility
                 accelerationHeightForCalc = accelerationHeight;
             }
 
-            if(_zAngle <= topAngle && _zAngle >= downAngle)
+            if (_zAngle <= topAngle && _zAngle >= downAngle)
             {
-
                 percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
                 percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
 
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
 
-                if(interiorDistance > exteriorDistance)
+                if (interiorDistance > exteriorDistance)
                     distance = exteriorDistance + ((_angleToChangeCamera * (interiorDistance - exteriorDistance)) / 90);
                 else
                     distance = exteriorDistance - ((_angleToChangeCamera * (exteriorDistance - interiorDistance)) / 90);
@@ -211,7 +209,20 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+<<<<<<< HEAD
             
+=======
+        }
+
+        public void fresqueMode()
+        {
+            isFresco = true;
+        }
+
+        public void gameMode()
+        {
+            isFresco = false;
+>>>>>>> origin/CameraAndFixes
         }
     }
 }
