@@ -29,30 +29,34 @@ using System.Collections;
 public enum SoundManagerType
 {
     //Sounds
-    //Character
-    Diving, //avec le fx de dive OK (à voir si la loupe marche)
-    Jump, //OK (pas testé)
-    Flying, // A faire boucler ? Quand isGrounded == false OK (Loop à tester
-    Straff, // OK (loop à tester)
-    Damage, //OK (pas testé)
+        //Character
+    Diving, //OK (pas testé) index 9
+    DiveOut, //OK (pas testé)  index 10
+    Jump, //OK (pas testé) index 11
+    Straff, // OK (pas testé) index 12
+    Acceleration,//OK (pas testé) index 13
 
-    //Dragon
-    Anrgy, //Quand il passe en énervé (définir la valeur)
-    Suffering, //Quand fresco == true
-    BellRung,
+        //Dragon
+    Anrgy, //OK (pas testé, valeur à définir) index 14
+    Suffering, //OK (pas testé) index de 5 à 8
+    BellRung, //OK (pas testé) index 15
 
         //Bells
-    Gong, //Collision gong
-    Bell, //collision bell
+    Gong, //OK (pas testé) index 16
+    Bell, //OK (pas testé) index 17
+
         //Flowers
-    Flower, //Script pas mergé, comment qu'on fait pour faire plusieurs sons ?
-        //Environment 
-    Stream, //quand isGrounded
+    Flower, //OK (pas testé) index 0 à 4
+
+        //Environment   
+    Impact, //OK (pas testé) index 18
+    Stream, //A mettre en continu index 19
     Thunder, //Je sais pas où mettre
 
     //Voice
         //Character
-    Talk, //Une fois qu'on a récupérer 5 fleurs.
+    CharacterHurt, //OK (pas testé) index 0
+    Talk, //OK (pas testé) index 1 à 5
 }
 
 public class SoundManagerEvent : MonoBehaviour

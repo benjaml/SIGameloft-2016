@@ -47,7 +47,6 @@ public class PlayerBellCollision : MonoBehaviour {
 
             //Set the lenght of the list as the number of collectibles
             wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
-            Debug.Log(wrathManagmementFunction.numberOfCollectibles);
 
             //Start the function to reduce the wrath gauge of the dragon
             wrathManagmementFunction.wrathManaging();
@@ -76,7 +75,7 @@ public class PlayerBellCollision : MonoBehaviour {
         #region Collision Gong
         if (col.tag == "gong")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Gong);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles
@@ -137,6 +136,6 @@ public class PlayerBellCollision : MonoBehaviour {
 
     void dragonSound()
     {
-        SoundManagerEvent.emit(SoundManagerType.Suffering);
+        SoundManagerEvent.emit(SoundManagerType.BellRung);
     }
 }

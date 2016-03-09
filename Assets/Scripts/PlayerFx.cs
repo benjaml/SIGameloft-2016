@@ -68,7 +68,7 @@ public class PlayerFx : MonoBehaviour {
 
         if (Input.GetAxisRaw("Horizontal") == 0  && isGrounded)
         {
-
+            SoundManagerEvent.emit(SoundManagerType.DiveOut);
             StartCoroutine(fxTiltRight());
             StartCoroutine(fxTiltLeft());
         }
