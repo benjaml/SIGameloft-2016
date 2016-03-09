@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
         {
             launchJumping();
-
+            SoundManagerEvent.emit(SoundManagerType.Jump);
             animator.SetTrigger("jump");
         }
 
@@ -150,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
                 accelerateJump = 0.1f;
 
             heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
-            Debug.Log(accelerateJump);
         }
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
@@ -470,7 +469,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.transform.tag == "floor")
         {
-            SoundManagerEvent.emit(SoundManagerType.Jump);
+
             isGrounded = false;
         }
     }

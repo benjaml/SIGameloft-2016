@@ -65,7 +65,7 @@ public class PlayerBellCollision : MonoBehaviour {
                 }
                 GetComponent<PlayerCollectible>().listCollectible.Clear();
             }
-            GetComponent<PlayerCollectible>().listCollectible.Add(_tmpObject);
+            GetComponent<PlayerCollectible>().listCollectible.Insert(0,_tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
             StartCoroutine(fxBellEmission());
@@ -98,7 +98,7 @@ public class PlayerBellCollision : MonoBehaviour {
                 GetComponent<PlayerCollectible>().listCollectible.Clear();
             }
 
-            GetComponent<PlayerCollectible>().listCollectible.Add(_tmpObject);
+            GetComponent<PlayerCollectible>().listCollectible.Insert(0, _tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
             StartCoroutine(fxGongEmission());

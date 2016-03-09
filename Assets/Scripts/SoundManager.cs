@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour {
 
     bool m_Ready = false;
     int m_FlowerIndex = 0;
+    int m_FlowerSource = 0;
     private float m_flowerDelay = 2;
     int m_VoiceFlowerIndex = 0;
     int m_DragonSufferingIndex = 4;
@@ -153,14 +154,16 @@ public class SoundManager : MonoBehaviour {
 
                 if(m_FlowerIndex > 5)
                 {
+                    SoundManagerEvent.emit(SoundManagerType.Talk);
                     m_FlowerIndex = 1;
                 }
+                m_FlowerSource = m_FlowerIndex + 8;
 
-                if (!Source[7].isPlaying)
+                if (!Source[m_FlowerSource].isPlaying)
                 {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower dans sounds aux index entre 0 et 4
-                    Source[7].Play();
+                    Source[9].Stop();
+                    Source[9].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower dans sounds aux index entre 0 et 4
+                    Source[9].Play();
                 }
                 StartCoroutine(flowerCooldown());
                 break;
@@ -178,11 +181,11 @@ public class SoundManager : MonoBehaviour {
                 break;
 
             case SoundManagerType.Stream:
-                if (!Source[8].isPlaying)
+                if (!Source[7].isPlaying)
                 {
-                    Source[8].Stop();
-                    Source[8].clip = Sound[19];
-                    Source[8].Play();
+                    Source[7].Stop();
+                    Source[7].clip = Sound[19];
+                    Source[7].Play();
                 }
                 break;
 
@@ -215,11 +218,12 @@ public class SoundManager : MonoBehaviour {
                         m_VoiceFlowerIndex = 1;
                     }
                 }
+                Debug.Log(m_VoiceFlowerIndex);
 
                 if (!Source[4].isPlaying)
                 {
                     Source[4].Stop();
-                    Source[4].clip = Sound[m_VoiceFlowerIndex - 1]; //Mettre les sons dans de voix dans Voice,  aux index entre 1 et 5
+                    Source[4].clip = Voice[m_VoiceFlowerIndex - 1]; //Mettre les sons dans de voix dans Voice,  aux index entre 1 et 5
                     Source[4].Play();
                 }
                 StartCoroutine(flowerCooldown());

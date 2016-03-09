@@ -55,6 +55,11 @@ public class PlayerFx : MonoBehaviour {
 
         }
 
+        if (Input.GetAxisRaw("R_YAxis_0") > 0 && Input.GetAxisRaw("R_YAxis_0") < 0.2f && isGrounded)
+        {
+            SoundManagerEvent.emit(SoundManagerType.DiveOut);
+        }
+
         //Right tilt
         if (Input.GetAxisRaw("Horizontal") < -0.2f && isGrounded)
         {
@@ -68,7 +73,7 @@ public class PlayerFx : MonoBehaviour {
 
         if (Input.GetAxisRaw("Horizontal") == 0  && isGrounded)
         {
-            SoundManagerEvent.emit(SoundManagerType.DiveOut);
+            SoundManagerEvent.emit(SoundManagerType.Stream);
             StartCoroutine(fxTiltRight());
             StartCoroutine(fxTiltLeft());
         }
