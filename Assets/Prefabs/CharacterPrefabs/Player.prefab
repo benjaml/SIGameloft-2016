@@ -1282,11 +1282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDistanceFromCenter: 9
-  distanceFromCenter: 9
+  baseDistanceFromCenter: 10
+  distanceFromCenter: 10
   turnSpeedMax: 40
   airTurnSpeedMax: 25
-  jumpSpeed: 2
+  jumpSpeed: 10
   accelerationJump: 3
   heightJump: 9
   speedFall: 15
