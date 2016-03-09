@@ -38,20 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _CloudTexture
-        second:
-          m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
-          m_Scale: {x: 3, y: 0.5}
-          m_Offset: {x: 0.18, y: 0.21}
-      data:
-        first:
-          name: _ShadowMask
-        second:
-          m_Texture: {fileID: 2800000, guid: 4bd329ec9cc58354db18fd7d81f3e18f, type: 3}
-          m_Scale: {x: 3, y: 0.5}
-          m_Offset: {x: 0.18, y: 0.21}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -94,6 +80,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _CloudTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
+          m_Scale: {x: 3, y: 0.5}
+          m_Offset: {x: 0.18, y: 0.21}
+      data:
+        first:
           name: _clouds
         second:
           m_Texture: {fileID: 0}
@@ -121,57 +114,8 @@ Material:
         second: 0.5
       data:
         first:
-<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
-          name: _CloudMouvementSpeed
-        second: 0.05
-=======
           name: _Glossiness
         second: 0.5
-      data:
-        first:
-          name: _Parallax
-        second: 0.02
->>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
-      data:
-        first:
-          name: _Alpha
-        second: 1
-      data:
-        first:
-<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
-          name: _CloudsMouvSlider
-        second: 5.17612
-      data:
-        first:
-          name: _LightTransitionSlider
-=======
-          name: _BumpScale
->>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
-        second: 1
-      data:
-        first:
-          name: _BoolDay
-        second: 1
-      data:
-        first:
-          name: _BoolAfternoon
-        second: 0
-      data:
-        first:
-          name: _Transmission
-        second: 1
-      data:
-        first:
-          name: _LightAffected
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _Metallic
-        second: 0
       data:
         first:
           name: _Parallax
@@ -186,7 +130,6 @@ Material:
         second: 1
       data:
         first:
-<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
           name: _OcclusionStrength
         second: 1
       data:
@@ -201,7 +144,28 @@ Material:
         first:
           name: _Mode
         second: 0
-=======
+      data:
+        first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Alpha
+        second: 1
+      data:
+        first:
+          name: _Transmission
+        second: 1
+      data:
+        first:
+          name: _ShadowOpacity
+        second: 0.38
+      data:
+        first:
+          name: _CloudMouvementSpeed
+        second: 0.4
+      data:
+        first:
           name: _CloudsMouvSlider
         second: 0.7152574
       data:
@@ -216,11 +180,10 @@ Material:
         first:
           name: _BoolAfternoon
         second: 1
->>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
       data:
         first:
-          name: _ShadowOpacity
-        second: 0.38
+          name: _LightAffected
+        second: 1
       data:
         first:
           name: _ShadowSaturation
@@ -244,11 +207,7 @@ Material:
       data:
         first:
           name: _CloudLightness
-<<<<<<< HEAD:Assets/Materials/Skyboxes/M_Clouds_Big01.mat
-        second: 0.5
-=======
         second: 0.76948524
->>>>>>> origin/FX:Assets/Material/Skyboxes/M_Clouds_Big01.mat
       data:
         first:
           name: _UVDeformationStrength
@@ -264,6 +223,14 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _ShadowColor
+        second: {r: 0.4250865, g: 0.4155493, b: 0.4632353, a: 1}
+      data:
+        first:
+          name: _Diffuse
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
           name: _SunColorNight
         second: {r: 0.6764706, g: 0.21388409, b: 0.30002084, a: 1}
       data:
@@ -274,15 +241,3 @@ Material:
         first:
           name: _SunColorDay
         second: {r: 1, g: 0.98448277, b: 0.9338235, a: 1}
-      data:
-        first:
-          name: _SunColor
-        second: {r: 0.78366774, g: 0.7123853, b: 0.5774609, a: 1}
-      data:
-        first:
-          name: _ShadowColor
-        second: {r: 0.24620329, g: 0.16448335, b: 0.35367805, a: 1}
-      data:
-        first:
-          name: _Diffuse
-        second: {r: 1, g: 1, b: 1, a: 1}
