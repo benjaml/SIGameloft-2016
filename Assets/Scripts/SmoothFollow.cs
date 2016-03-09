@@ -31,13 +31,13 @@ namespace UnityStandardAssets.Utility
 
         private float forwardValue;
 
-        public Vector3 offset;
-
-        private float smoothTime = 0.3f;
+        public float smoothTime = 0.8f;
         private Vector3 smoothVel;
         private Vector3 smoothVel2;
         private float smoothVelRot;
 
+        public float rightnessFactor = 4.0f;
+        private float rightness;
         public float interiorHeight = 2.0f;
         public float interiorHeightDive = 5.0f;
         private float interiorHeightForCalc;
@@ -47,6 +47,7 @@ namespace UnityStandardAssets.Utility
         public float exteriorDistance = 10.0f;
         public float exteriorForward = -5.0f;
 
+        [Header("Valeur Acceleration")]
         public float accelerationHeight = -75.0f;
         public float accelerationHeightDive = -40.0f;
         private float percentAccHeight;
@@ -95,17 +96,24 @@ namespace UnityStandardAssets.Utility
 
             if (!isFresco)
             {
+                if (Input.GetAxisRaw("Horizontal") > 0.3)
+                    rightness = rightnessFactor;
+                else if (Input.GetAxisRaw("Horizontal") < -0.3)
+                    rightness = -1.0f * rightnessFactor;
+                else
+                    rightness = 0.0f;
+
                 // Set the height of the camera
                 //transform.position = Vector3.Lerp(transform.position, target.position+(distance * (-target.forward)) + (height * (target.up))+ offset, lerpDampening*Time.deltaTime);
                 transform.position = Vector3.SmoothDamp(transform.position,
-                    target.position + (distance*(-target.forward)) + (height*(target.up)), ref smoothVel, smoothTime);
+                    target.position + (distance*(-target.forward)) + (height*(target.up) + (rightness * target.right)), ref smoothVel, smoothTime);
                 Quaternion targetRotation;
                 Vector3 lookPoint = Vector3.SmoothDamp(transform.position, target.position + forwardValue*target.forward,
                     ref smoothVel2, smoothTime);
 
                 targetRotation = Quaternion.FromToRotation(transform.up, target.up);
                 targetRotation *= Quaternion.FromToRotation(transform.forward, (lookPoint - transform.position));
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, smoothTime);
             }
             else
             {
@@ -124,7 +132,7 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if (Input.GetAxisRaw("R_YAxis_0") < -0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
+            if (Input.GetAxisRaw("R_YAxis_0") > 0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
             {
                 float _angleToDiveCamera = Mathf.Abs(interiorAngle - _zAngle);
 

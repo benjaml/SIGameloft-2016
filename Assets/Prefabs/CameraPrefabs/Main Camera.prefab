@@ -94,17 +94,26 @@ MonoBehaviour:
   target: {fileID: 0}
   distance: 10
   height: 5
-  offset: {x: -2.7, y: 0.7, z: 2.6}
+  smoothTime: 0.3
+  forwardness: -4
   interiorHeight: 2
+  interiorHeightDive: 15
   interiorDistance: 5
   interiorForward: 15
   exteriorHeight: 15
   exteriorDistance: 10
   exteriorForward: -5
-  accelerationHeight: 2
-  accelerationDistance: 5
+  accelerationHeight: -75
+  accelerationHeightDive: -40
+  accelerationDistance: -50
   baseFOV: 60
   accelerationFOV: 80
+  fresqueDistance: 15
+  fresqueHeight: 20
+  fresqueForwardPosition: 5.5
+  fresqueLookForward: 4
+  smoothTimeCinematic: 0.3
+  isFresco: 0
 --- !u!124 &12448136
 Behaviour:
   m_ObjectHideFlags: 1
