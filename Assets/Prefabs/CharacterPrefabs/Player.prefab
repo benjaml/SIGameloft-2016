@@ -1290,7 +1290,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101774}
   m_LocalRotation: {x: -0.037387133, y: 0.98769623, z: 0.046966847, w: 0.14440374}
-  m_LocalPosition: {x: 8.46, y: 6.53, z: -15.38}
+  m_LocalPosition: {x: 8.9, y: 1.5, z: -15.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424668}
@@ -2335,11 +2335,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 499978}
   sourceTransforms:
   - transform: {fileID: 499978}
-    instanceID: -1724168
+    instanceID: -2695508
     available: 1
-    position: {x: 10.3793335, y: 5.774202, z: -16.378576}
+    position: {x: 10.819332, y: 0.74420184, z: -16.798576}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 10.3793335, y: 5.774202, z: -16.378576}
+    previousPosition: {x: 10.819332, y: 0.74420184, z: -16.798576}
     forward: {x: -0.2817418, y: -0.10357567, z: 0.95388347}
     up: {x: 0.9554995, y: 0.06029046, z: 0.28876567}
     right: {x: 0.08741918, y: -0.99279255, z: -0.08198018}
@@ -2352,15 +2352,15 @@ MonoBehaviour:
       e00: 0.08741915
       e01: 0.9554995
       e02: -0.2817418
-      e03: 10.3793335
+      e03: 10.819332
       e10: -0.99279255
       e11: 0.060290456
       e12: -0.10357567
-      e13: 5.774202
+      e13: 0.74420184
       e20: -0.08198018
       e21: 0.28876567
       e22: 0.9538834
-      e23: -16.378576
+      e23: -16.798576
       e30: 0
       e31: 0
       e32: 0
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19884946}
-  particleSystemId: 9
+  particleSystemId: 7
   particleSystemGameObject: {fileID: 158342}
   particleSystemTransform: {fileID: 499978}
   particleSystemRenderer: {fileID: 19985316}
@@ -3076,11 +3076,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 414512}
   sourceTransforms:
   - transform: {fileID: 414512}
-    instanceID: -1724158
+    instanceID: -2695498
     available: 1
-    position: {x: 9.164355, y: 6.7889395, z: -17.764708}
+    position: {x: 9.604355, y: 1.7589393, z: -18.184708}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.164355, y: 6.7889395, z: -17.764708}
+    previousPosition: {x: 9.604355, y: 1.7589393, z: -18.184708}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -3093,15 +3093,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 9.164355
+      e03: 9.604355
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.7889395
+      e13: 1.7589393
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -17.764708
+      e23: -18.184708
       e30: 0
       e31: 0
       e32: 0
@@ -3229,7 +3229,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19888214}
-  particleSystemId: 3
+  particleSystemId: 2
   particleSystemGameObject: {fileID: 198070}
   particleSystemTransform: {fileID: 414512}
   particleSystemRenderer: {fileID: 19916100}
@@ -3812,11 +3812,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 428790}
   sourceTransforms:
   - transform: {fileID: 428790}
-    instanceID: -1724160
+    instanceID: -2695500
     available: 1
-    position: {x: 9.271418, y: 6.828298, z: -18.127184}
+    position: {x: 9.711417, y: 1.798298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.271418, y: 6.828298, z: -18.127184}
+    previousPosition: {x: 9.711417, y: 1.798298, z: -18.547184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -3829,15 +3829,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 9.271418
+      e03: 9.711417
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.828298
+      e13: 1.798298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -18.127184
+      e23: -18.547184
       e30: 0
       e31: 0
       e32: 0
@@ -3965,7 +3965,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19861864}
-  particleSystemId: 11
+  particleSystemId: 5
   particleSystemGameObject: {fileID: 152568}
   particleSystemTransform: {fileID: 428790}
   particleSystemRenderer: {fileID: 19970364}
@@ -4548,11 +4548,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 408280}
   sourceTransforms:
   - transform: {fileID: 408280}
-    instanceID: -1724152
+    instanceID: -2695492
     available: 1
-    position: {x: 9.271418, y: 6.828298, z: -18.127184}
+    position: {x: 9.711417, y: 1.798298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.271418, y: 6.828298, z: -18.127184}
+    previousPosition: {x: 9.711417, y: 1.798298, z: -18.547184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -4565,15 +4565,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 9.271418
+      e03: 9.711417
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.828298
+      e13: 1.798298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -18.127184
+      e23: -18.547184
       e30: 0
       e31: 0
       e32: 0
@@ -4701,7 +4701,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19898620}
-  particleSystemId: 0
+  particleSystemId: 6
   particleSystemGameObject: {fileID: 132928}
   particleSystemTransform: {fileID: 408280}
   particleSystemRenderer: {fileID: 19933836}
@@ -5304,11 +5304,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 483996}
   sourceTransforms:
   - transform: {fileID: 483996}
-    instanceID: -1724174
+    instanceID: -2695514
     available: 1
-    position: {x: 7.5128345, y: 5.5933323, z: -17.244875}
+    position: {x: 7.952834, y: 0.56333214, z: -17.664875}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.5128345, y: 5.5933323, z: -17.244875}
+    previousPosition: {x: 7.952834, y: 0.56333214, z: -17.664875}
     forward: {x: -0.2817418, y: -0.10357567, z: 0.95388347}
     up: {x: 0.9554995, y: 0.06029046, z: 0.28876567}
     right: {x: 0.08741918, y: -0.99279255, z: -0.08198018}
@@ -5321,15 +5321,15 @@ MonoBehaviour:
       e00: 0.08741915
       e01: 0.9554995
       e02: -0.2817418
-      e03: 7.5128345
+      e03: 7.952834
       e10: -0.99279255
       e11: 0.060290456
       e12: -0.10357567
-      e13: 5.5933323
+      e13: 0.56333214
       e20: -0.08198018
       e21: 0.28876567
       e22: 0.9538834
-      e23: -17.244875
+      e23: -17.664875
       e30: 0
       e31: 0
       e32: 0
@@ -5457,7 +5457,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19874688}
-  particleSystemId: 6
+  particleSystemId: 9
   particleSystemGameObject: {fileID: 140572}
   particleSystemTransform: {fileID: 483996}
   particleSystemRenderer: {fileID: 19900306}
@@ -6040,11 +6040,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 439188}
   sourceTransforms:
   - transform: {fileID: 439188}
-    instanceID: -1724142
+    instanceID: -2695482
     available: 1
-    position: {x: 9.164355, y: 6.7889395, z: -17.764708}
+    position: {x: 9.604355, y: 1.7589393, z: -18.184708}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.164355, y: 6.7889395, z: -17.764708}
+    previousPosition: {x: 9.604355, y: 1.7589393, z: -18.184708}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -6057,15 +6057,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 9.164355
+      e03: 9.604355
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.7889395
+      e13: 1.7589393
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -17.764708
+      e23: -18.184708
       e30: 0
       e31: 0
       e32: 0
@@ -6193,7 +6193,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19890550}
-  particleSystemId: 2
+  particleSystemId: 3
   particleSystemGameObject: {fileID: 159216}
   particleSystemTransform: {fileID: 439188}
   particleSystemRenderer: {fileID: 19979984}
@@ -6807,11 +6807,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 474240}
   sourceTransforms:
   - transform: {fileID: 474240}
-    instanceID: -1724172
+    instanceID: -2695512
     available: 1
-    position: {x: 8.391302, y: 5.889787, z: -15.019018}
+    position: {x: 8.831302, y: 0.8597871, z: -15.439018}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 8.391302, y: 5.889787, z: -15.019018}
+    previousPosition: {x: 8.831302, y: 0.8597871, z: -15.439018}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -6824,15 +6824,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 8.391302
+      e03: 8.831302
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 5.889787
+      e13: 0.8597871
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -15.019018
+      e23: -15.439018
       e30: 0
       e31: 0
       e32: 0
@@ -6960,7 +6960,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19824732}
-  particleSystemId: 1
+  particleSystemId: 11
   particleSystemGameObject: {fileID: 142650}
   particleSystemTransform: {fileID: 474240}
   particleSystemRenderer: {fileID: 19913404}
@@ -7543,11 +7543,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 451678}
   sourceTransforms:
   - transform: {fileID: 451678}
-    instanceID: -1724176
+    instanceID: -2695516
     available: 1
-    position: {x: 9.271418, y: 6.828298, z: -18.127184}
+    position: {x: 9.711417, y: 1.798298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.271418, y: 6.828298, z: -18.127184}
+    previousPosition: {x: 9.711417, y: 1.798298, z: -18.547184}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -7560,15 +7560,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 9.271418
+      e03: 9.711417
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.828298
+      e13: 1.798298
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -18.127184
+      e23: -18.547184
       e30: 0
       e31: 0
       e32: 0
@@ -7696,7 +7696,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19835848}
-  particleSystemId: 5
+  particleSystemId: 4
   particleSystemGameObject: {fileID: 183762}
   particleSystemTransform: {fileID: 451678}
   particleSystemRenderer: {fileID: 19988792}
@@ -8328,11 +8328,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 407338}
   sourceTransforms:
   - transform: {fileID: 407338}
-    instanceID: -1724170
+    instanceID: -2695510
     available: 1
-    position: {x: 10.3793335, y: 5.774202, z: -16.378576}
+    position: {x: 10.819332, y: 0.74420184, z: -16.798576}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 10.3793335, y: 5.774202, z: -16.378576}
+    previousPosition: {x: 10.819332, y: 0.74420184, z: -16.798576}
     forward: {x: 0.28174213, y: 0.10357568, z: -0.9538832}
     up: {x: -0.95549953, y: -0.06028925, z: -0.2887659}
     right: {x: 0.08741821, y: -0.9927926, z: -0.08198047}
@@ -8345,15 +8345,15 @@ MonoBehaviour:
       e00: 0.0874182
       e01: -0.95549953
       e02: 0.28174213
-      e03: 10.3793335
+      e03: 10.819332
       e10: -0.9927926
       e11: -0.060289264
       e12: 0.10357568
-      e13: 5.774202
+      e13: 0.74420184
       e20: -0.08198047
       e21: -0.2887659
       e22: -0.9538832
-      e23: -16.378576
+      e23: -16.798576
       e30: 0
       e31: 0
       e32: 0
@@ -9069,11 +9069,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 497624}
   sourceTransforms:
   - transform: {fileID: 497624}
-    instanceID: -1724148
+    instanceID: -2695488
     available: 1
-    position: {x: 8.755829, y: 6.638755, z: -16.381577}
+    position: {x: 9.195828, y: 1.6087545, z: -16.801579}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 8.755829, y: 6.638755, z: -16.381577}
+    previousPosition: {x: 9.195828, y: 1.6087545, z: -16.801579}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -9086,15 +9086,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 8.755829
+      e03: 9.195828
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.638755
+      e13: 1.6087545
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -16.381577
+      e23: -16.801579
       e30: 0
       e31: 0
       e32: 0
@@ -9222,7 +9222,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19807182}
-  particleSystemId: 4
+  particleSystemId: 0
   particleSystemGameObject: {fileID: 124410}
   particleSystemTransform: {fileID: 497624}
   particleSystemRenderer: {fileID: 19905790}
@@ -9270,8 +9270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85f69f207bbf5409eff912aea41dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDistanceFromCenter: 10
-  distanceFromCenter: 10
+  baseDistanceFromCenter: 11
+  distanceFromCenter: 11
   turnSpeedMax: 40
   airTurnSpeedMax: 25
   jumpSpeed: 30
@@ -9299,7 +9299,9 @@ MonoBehaviour:
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
   isGrounded: 0
+  isDiving: 0
   animator: {fileID: 9501210}
+  isFresco: 0
 --- !u!114 &11470902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9862,11 +9864,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 434298}
   sourceTransforms:
   - transform: {fileID: 434298}
-    instanceID: -1724166
+    instanceID: -2695506
     available: 1
-    position: {x: 8.755829, y: 6.638755, z: -16.381577}
+    position: {x: 9.195828, y: 1.6087545, z: -16.801579}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 8.755829, y: 6.638755, z: -16.381577}
+    previousPosition: {x: 9.195828, y: 1.6087545, z: -16.801579}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -9879,15 +9881,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 8.755829
+      e03: 9.195828
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.638755
+      e13: 1.6087545
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -16.381577
+      e23: -16.801579
       e30: 0
       e31: 0
       e32: 0
@@ -10015,7 +10017,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19894010}
-  particleSystemId: 7
+  particleSystemId: 1
   particleSystemGameObject: {fileID: 120940}
   particleSystemTransform: {fileID: 434298}
   particleSystemRenderer: {fileID: 19970686}
@@ -10603,11 +10605,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 423804}
   sourceTransforms:
   - transform: {fileID: 423804}
-    instanceID: -1724154
+    instanceID: -2695494
     available: 1
-    position: {x: 7.5128345, y: 5.5933323, z: -17.244875}
+    position: {x: 7.952834, y: 0.56333214, z: -17.664875}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.5128345, y: 5.5933323, z: -17.244875}
+    previousPosition: {x: 7.952834, y: 0.56333214, z: -17.664875}
     forward: {x: 0.28174213, y: 0.10357568, z: -0.9538832}
     up: {x: -0.95549953, y: -0.06028925, z: -0.2887659}
     right: {x: 0.08741821, y: -0.9927926, z: -0.08198047}
@@ -10620,15 +10622,15 @@ MonoBehaviour:
       e00: 0.0874182
       e01: -0.95549953
       e02: 0.28174213
-      e03: 7.5128345
+      e03: 7.952834
       e10: -0.9927926
       e11: -0.060289264
       e12: 0.10357568
-      e13: 5.5933323
+      e13: 0.56333214
       e20: -0.08198047
       e21: -0.2887659
       e22: -0.9538832
-      e23: -17.244875
+      e23: -17.664875
       e30: 0
       e31: 0
       e32: 0
