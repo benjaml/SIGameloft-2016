@@ -38,6 +38,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_CurrentPanel: MainPanel
   m_CurrentIndex: 0
+  m_Volume: 0
   m_EndInput: 0
   m_AnimationScript: {fileID: 0}
 --- !u!224 &22478996

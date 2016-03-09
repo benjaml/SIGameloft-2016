@@ -17,7 +17,6 @@ public class ButtonManager : MonoBehaviour {
 
     public AnimationManager m_AnimationScript;
 
-
     public void Update()
     {
         // Check if the gamepad's stick is at its standby position. If True, the player can move the stick to interact with the menu.
