@@ -17,11 +17,7 @@ public class PlayerBlocCollision : MonoBehaviour {
 	
     void OnTriggerEnter(Collider col)
     {
-<<<<<<< HEAD
         if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacleAir")
-=======
-        if (col.gameObject.tag == "obstacleAir" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacle")
->>>>>>> origin/Sounds_and_fx
         {
             StartCoroutine(fxBlocCollision());
             SoundManagerEvent.emit(SoundManagerType.CharacterHurt);

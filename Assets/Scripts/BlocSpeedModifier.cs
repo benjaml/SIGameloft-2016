@@ -20,11 +20,8 @@ public class BlocSpeedModifier : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-<<<<<<< HEAD
-=======
             SoundManagerEvent.emit(SoundManagerType.Impact);
             SoundManagerEvent.emit(SoundManagerType.CharacterHurt);
->>>>>>> origin/Sounds_and_fx
             flowersList = col.gameObject.transform.parent.GetComponent<PlayerCollectible>().listCollectible;
             losingFlowers();
 
