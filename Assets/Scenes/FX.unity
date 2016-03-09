@@ -1621,11 +1621,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aa087a3a306f5409a2a0ed8ce67a5d, type: 2}
   m_IsPrefabParent: 0
---- !u!95 &919788299 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9528772, guid: d386e8ce946052742a84a36712d1c2cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 1737794377}
 --- !u!1001 &935869213
 Prefab:
   m_ObjectHideFlags: 0
@@ -2620,29 +2615,13 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: baseDistanceFromCenter
-      value: 10
+      propertyPath: slowSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: distanceFromCenter
-      value: 10
+      propertyPath: slowAirSpeed
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: accelerationJump
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: heightJump
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470774, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 919788299}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
   m_IsPrefabParent: 0
