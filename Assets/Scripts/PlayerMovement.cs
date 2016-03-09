@@ -4,18 +4,14 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private float cylinderRadius = 5f;
-    public float baseDistanceFromCenter = 7.0f;
+    public float cylinderRadius = 2.5f;
     public float distanceFromCenter = 5f;
-    private float groundDetection = 7.2f;
     private float heightModificator;
     public float turnSpeedMax = 3.0F;
     public float airTurnSpeedMax = 3.0f;
-    public float jumpSpeed = 50.0F;
-    public float accelerationJump = 5.0f;
+    public float jumpSpeed = 8.0F;
     public float heightJump = 5.0f;
-    private bool jumping = false;
-    private bool jumped = false;
+    public bool jumping = false;
     public float speedFall = 0.50f;
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
@@ -38,16 +34,10 @@ public class PlayerMovement : MonoBehaviour
     public float speedDash = 300.0f;
     public float dashCooldown = 5.0f;
     public float dashDuration = 1.0f;
-    private float startHeightmax;
-    public float heightMaxDuration = 0.0f;
     private float timeStartDash;
     private bool dashing = false;
-    private bool rightDash = false;
-    private bool leftDash = false;
-    private bool lDashed = false;
-    private bool rDashed = false;
     private float _xStick = 0.0f;
-    private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump;
+    private float initJumpSpeed, initHeightJump, initSpeedFall;
 
     //position et rotation que je personnage devrais avoir en fin de déplacement
     private Vector3 targetPosition;
@@ -62,9 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
-
-
-    public Animator animator;
+    
 
     void Start()
     {
@@ -72,23 +60,20 @@ public class PlayerMovement : MonoBehaviour
         initHeightJump = heightJump;
         initJumpSpeed = jumpSpeed;
         initSpeedFall = speedFall;
-        accelerateJump = 0.0f;
-        distanceFromCenter = baseDistanceFromCenter;
-        groundDetection = baseDistanceFromCenter + 0.2f;
     }
 
 
     void Update()
     {
         //Fait Marcher les tremplins. pourquoi? parce que voilà.
-        //Debug.Log("jS " + jumpSpeed);
-        //Debug.Log("sF " + speedFall);
-        //Debug.Log("hJ " + heightJump);
+        Debug.Log("jS " + jumpSpeed);
+        Debug.Log("sF " + speedFall);
+        Debug.Log("hJ " + heightJump);
 
         //heightModificator -= CONDITION ? SI OUI: SI NON;
         if(isGrounded)
         {
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
+            if(Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetKey(KeyCode.Z))
             {
                 heightModificator -= 0.3f;
             }
@@ -99,81 +84,40 @@ public class PlayerMovement : MonoBehaviour
 
             if (!jumping)
             {
-                accelerateJump = accelerationJump;
                 jumpSpeed = initJumpSpeed;
                 speedFall = initSpeedFall;
                 heightJump = initHeightJump;
             }
         }
 
-        if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped)
-        {
-            launchJumping();
+        if ((Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetKey(KeyCode.Space)) && isGrounded)
+            jumping = true;
 
-            animator.SetTrigger("jump");
-        }
-
-        if(jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
+        if ((Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.E)) && (Input.GetAxisRaw("Horizontal") > 0.3 || Input.GetAxisRaw("Horizontal") < -0.3) && (timeStartDash + dashCooldown < Time.time))
         {
-            jumped = false;
-        }
-
-        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
-        {
+            Debug.Log("dash");
             timeStartDash = Time.time;
             dashing = true;
-            leftDash = true;
-            animator.SetTrigger("barellRollLeft");
-            lDashed = true;
         }
-
-        if (Input.GetAxisRaw("TriggersL_0") < 0.3)
-            lDashed = false;
-
-        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
-        {
-            timeStartDash = Time.time;
-            dashing = true;
-            rightDash = true;
-            animator.SetTrigger("barellRollRight");
-            rDashed = true;
-        }
-
-        if (Input.GetAxisRaw("TriggersR_0") < 0.3)
-            rDashed = false;
 
         if (jumping)
-        {
-            if (accelerateJump > 0.1f)
-                accelerateJump -= Time.deltaTime * 1.5f;
-            else
-                accelerateJump = 0.1f;
-
-            heightModificator += jumpSpeed * accelerateJump * Time.deltaTime;
-            Debug.Log(accelerateJump);
-        }
+            heightModificator += jumpSpeed * Time.deltaTime;
 
         heightModificator = Mathf.Clamp(heightModificator, -2.5f, heightJump);
 
         if (heightModificator >= heightJump)
         {
-            if (jumping)
-                startHeightmax = Time.time;
             jumping = false;
-            accelerateJump = 0.0f;
         }
 
-        if (!jumping && !isGrounded && (startHeightmax + heightMaxDuration < Time.time))
-        {
-            accelerateJump += Time.deltaTime;
-            heightModificator -= speedFall * accelerateJump * Time.deltaTime;
-        }
-        else if (!jumping && !jumped && (startHeightmax + heightMaxDuration < Time.time))
+        if (!jumping && !isGrounded)
+            heightModificator -= speedFall * Time.deltaTime;
+        else if(!jumping)
             heightModificator *= 0.98f;
 
-        distanceFromCenter = baseDistanceFromCenter + heightModificator;
-
-        isGrounded = distanceFromCenter < groundDetection ? true : false;
+        distanceFromCenter = 12f + heightModificator;
+        
+        isGrounded = distanceFromCenter <12.5f ? true : false;
 
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -263,26 +207,11 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation*transform.rotation, 0.1f);
     }
 
-
-    public void launchJumping()
-    {
-        jumped = true;
-        jumping = true;
-    }
-
     //calculate the turn speed when grounded
     float calculateTurnSpeed()
     {
         if(!dashing)
             _xStick = Input.GetAxisRaw("Horizontal");
-        else
-        {
-            if (leftDash)
-                _xStick = -1.0f;
-
-            if (rightDash)
-                _xStick = 1.0f;
-        }
 
         if (((_xStick > 0.3) || (_xStick < -0.3)) && (turnSpeed < turnSpeedMax) && (turnSpeed > -turnSpeedMax))
         {
@@ -302,8 +231,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 turnSpeed = turnSpeed + _xStick * turnAcceleration * Time.deltaTime;
                 dashing = false;
-                rightDash = false;
-                leftDash = false;
             }
         }
         else
@@ -351,13 +278,17 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxSpeed) && (speedForward >= slowSpeed))
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
             speedForward += _yStick * Acceleration * Time.deltaTime;
         else
         {
-            if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+            if (speedForward > MaxSpeed)
+                speedForward = MaxSpeed;
+            else if (speedForward < baseSpeed)
+                speedForward = baseSpeed;
+            else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward - Deceleration * Time.deltaTime;
-            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
+            else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
                 speedForward = speedForward + Deceleration * Time.deltaTime;
             else
                 speedForward = baseSpeed;
@@ -371,11 +302,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward < MaxAirSpeed) && (speedForward >= slowAirSpeed))
+        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
             speedForward += _yStick * airAcceleration * Time.deltaTime;
         else
         {
-            if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
+            if (speedForward > MaxAirSpeed)
+                speedForward = MaxAirSpeed;
+            else if (speedForward < baseAirSpeed)
+                speedForward = baseAirSpeed;
+            else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
                 speedForward = speedForward - airDeceleration * Time.deltaTime;
             else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
                 speedForward = speedForward + airDeceleration * Time.deltaTime;
