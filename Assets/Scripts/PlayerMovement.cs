@@ -108,12 +108,7 @@ public class PlayerMovement : MonoBehaviour
             launchJumping();
             animator.SetTrigger("jump");
         }
-<<<<<<< HEAD
-        if (jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
-=======
-
         if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
->>>>>>> origin/CameraAndFixes
         {
             jumped = false;
         }
