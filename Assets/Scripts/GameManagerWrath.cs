@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 using System.Collections;
 
 public class GameManagerWrath : MonoBehaviour
@@ -93,6 +94,10 @@ public class GameManagerWrath : MonoBehaviour
         while (true)
         {
             wrath+=wrathAugementationByTick;
+
+            if (wrath > (3 * maxWrath) / 4 && wrath <= maxWrath)
+                Camera.main.GetComponent<VignetteAndChromaticAberration>().intensity = ((wrath - (3*maxWrath/4)) / (maxWrath / 4));
+
             yield return new WaitForSeconds(timeBetweenTick);
         }
 
