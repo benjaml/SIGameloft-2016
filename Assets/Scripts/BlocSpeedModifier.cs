@@ -24,7 +24,9 @@ public class BlocSpeedModifier : MonoBehaviour {
 
             playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
 
-            stockBaseSpeed = playerMovementScript.baseSpeed;
+            playerMovementScript.reduceCurrentSpeed(reduceSpeed, lowSpeedTime);
+
+            /*stockBaseSpeed = playerMovementScript.baseSpeed;
             playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
 
 
@@ -32,7 +34,7 @@ public class BlocSpeedModifier : MonoBehaviour {
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
 
-            StartCoroutine(reducingSpeed());
+            StartCoroutine(reducingSpeed());*/
             
             //Add a certain value to the dragon wrath
         }

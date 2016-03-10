@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration = 1.0f;
     private float startHeightmax;
     public float heightMaxDuration = 0.0f;
+    private float noChangeSpeedDuration = 0.0f;
     private float timeStartDash;
     private bool dashing = false;
     private bool rightDash = false;
@@ -354,20 +355,32 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
-            speedForward += _yStick * Acceleration * Time.deltaTime;
+        if (noChangeSpeedDuration <= 0)
+        {
+            noChangeSpeedDuration = 0.0f;
+
+            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
+                speedForward += _yStick * Acceleration * Time.deltaTime;
+            else
+            {
+                if (speedForward > MaxSpeed)
+                    speedForward = MaxSpeed;
+                else if (speedForward < baseSpeed)
+                    speedForward = baseSpeed;
+                else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+                    speedForward = speedForward - Deceleration * Time.deltaTime;
+                else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
+                    speedForward = speedForward + Deceleration * Time.deltaTime;
+                else
+                    speedForward = baseSpeed;
+            }
+        }
         else
         {
-            if (speedForward > MaxSpeed)
-                speedForward = MaxSpeed;
-            else if (speedForward < baseSpeed)
-                speedForward = baseSpeed;
-            else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
-                speedForward = speedForward - Deceleration * Time.deltaTime;
-            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
-                speedForward = speedForward + Deceleration * Time.deltaTime;
-            else
-                speedForward = baseSpeed;
+            noChangeSpeedDuration -= Time.deltaTime;
+
+            if (speedForward < baseAirSpeed)
+                speedForward = baseAirSpeed;
         }
 
         return speedForward;
@@ -378,19 +391,31 @@ public class PlayerMovement : MonoBehaviour
     {
         float _yStick = Input.GetAxisRaw("Vertical");
 
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
-            speedForward += _yStick * airAcceleration * Time.deltaTime;
+        if (noChangeSpeedDuration <= 0)
+        {
+            noChangeSpeedDuration = 0.0f;
+
+            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
+                speedForward += _yStick * airAcceleration * Time.deltaTime;
+            else
+            {
+                if (speedForward > MaxAirSpeed)
+                    speedForward = MaxAirSpeed;
+                else if (speedForward < baseAirSpeed)
+                    speedForward = baseAirSpeed;
+                else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
+                    speedForward = speedForward - airDeceleration * Time.deltaTime;
+                else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
+                    speedForward = speedForward + airDeceleration * Time.deltaTime;
+                else
+                    speedForward = baseAirSpeed;
+            }
+        }
         else
         {
-            if (speedForward > MaxAirSpeed)
-                speedForward = MaxAirSpeed;
-            else if (speedForward < baseAirSpeed)
-                speedForward = baseAirSpeed;
-            else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
-                speedForward = speedForward - airDeceleration * Time.deltaTime;
-            else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
-                speedForward = speedForward + airDeceleration * Time.deltaTime;
-            else
+            noChangeSpeedDuration -= Time.deltaTime;
+
+            if (speedForward < baseAirSpeed)
                 speedForward = baseAirSpeed;
         }
 
@@ -401,6 +426,13 @@ public class PlayerMovement : MonoBehaviour
     {
         turnSpeed /= _modifier;
         speedForward /= _modifier;
+    }
+
+    public void reduceCurrentSpeed(float _modifier, float _duration)
+    {
+        turnSpeed /= _modifier;
+        speedForward /= _modifier;
+        noChangeSpeedDuration = _duration;
     }
 
     public void multiplyCurrentSpeed(float _modifier)
@@ -447,6 +479,20 @@ public class PlayerMovement : MonoBehaviour
     public float getSpeed()
     {
         return speedForward;
+    }
+
+    public float getAcceleration()
+    {
+        if (isGrounded)
+            return Acceleration;
+        return airAcceleration;
+    }
+
+    public float getDeceleration()
+    {
+        if (isGrounded)
+            return Deceleration;
+        return airDeceleration;
     }
 
     public void frescoMode(float _modifierBaseSpeed)

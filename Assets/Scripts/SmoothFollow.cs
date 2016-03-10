@@ -68,6 +68,9 @@ namespace UnityStandardAssets.Utility
         private float interiorAngle = 90.0f;
         private float downAngle = 180.0f;
 
+        private float previousSpeed = 0.0f;
+        private float thresholdDelta = 2.0f;
+
         [Header("Fresque Camera")]
         public float fresqueDistance;
         public float fresqueHeight;
@@ -84,6 +87,7 @@ namespace UnityStandardAssets.Utility
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
             mainCam = Camera.main;
             player = target.gameObject.GetComponent<PlayerMovement>();
+            previousSpeed = player.getBaseSpeed();
         }
 
         // Update is called once per frame
@@ -185,6 +189,23 @@ namespace UnityStandardAssets.Utility
 
             float speed = player.getSpeed();
 
+            float deltaSpeed;
+
+            if (previousSpeed < speed)
+            {
+                deltaSpeed = player.getAcceleration() * Time.deltaTime * thresholdDelta;
+
+                if (previousSpeed + deltaSpeed < speed)
+                    speed = previousSpeed + deltaSpeed;
+            }
+            else if(previousSpeed > speed)
+            {
+                deltaSpeed = player.getDeceleration() * Time.deltaTime * thresholdDelta;
+
+                if (previousSpeed - deltaSpeed > speed)
+                    speed = previousSpeed - deltaSpeed;
+            }
+
             if (speed < player.getBaseSpeed())
                 speed = player.getBaseSpeed();
 
@@ -209,6 +230,8 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+
+            previousSpeed = speed;
         }
 
         public void fresqueMode()
