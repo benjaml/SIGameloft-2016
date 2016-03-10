@@ -20,6 +20,7 @@ public class PlayerBlocCollision : MonoBehaviour {
         if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacleAir")
         {
             StartCoroutine(fxBlocCollision());
+            gameObject.GetComponent<PlayerMovement>().hasHitObstacle();
         }
     }
 

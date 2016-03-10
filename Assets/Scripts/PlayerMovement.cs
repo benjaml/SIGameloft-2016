@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     private bool lDashed = false;
     private bool rDashed = false;
     private bool springed = false;
+    private bool attainedMaxSpeed = false;
+    private bool hitObstacle = false;
     private float _xStick = 0.0f;
     private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump, initBaseSpeed;
     //position et rotation que je personnage devrais avoir en fin de déplacement
@@ -61,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
     public Animator animator;
+    public Animator animatorShadow;
     public bool isFresco = false;
     
     void Start()
@@ -73,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         accelerateJump = 0.0f;
         distanceFromCenter = baseDistanceFromCenter;
         groundDetection = baseDistanceFromCenter + 0.2f;
+        animatorShadow.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -81,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("sF " + speedFall);
         //Debug.Log("hJ " + heightJump);
         //heightModificator -= CONDITION ? SI OUI: SI NON;
-        
+
         if (!isFresco)
         {
             if (isGrounded)
@@ -89,11 +93,18 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
                 {
                     heightModificator -= 0.3f;
+                    animator.gameObject.SetActive(false);
+                    animatorShadow.gameObject.SetActive(true);
                 }
                 else
                 {
                     heightModificator -= 0.0f;
+                    animator.gameObject.SetActive(true);
+
+                    if(heightModificator >= -1.2f)
+                        animatorShadow.gameObject.SetActive(false);
                 }
+
                 if (!jumping)
                 {
                     accelerateJump = accelerationJump;
@@ -107,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         {
             launchJumping();
             animator.SetTrigger("jump");
+            animatorShadow.SetTrigger("jump");
         }
         if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
         {
@@ -118,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
             dashing = true;
             leftDash = true;
             animator.SetTrigger("barellRollLeft");
+            animatorShadow.SetTrigger("barellRollLeft");
             lDashed = true;
         }
         if (Input.GetAxisRaw("TriggersL_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") > -0.3)
@@ -128,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
             dashing = true;
             rightDash = true;
             animator.SetTrigger("barellRollRight");
+            animatorShadow.SetTrigger("barellRollRight");
             rDashed = true;
         }
         if (Input.GetAxisRaw("TriggersR_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") < 0.3)
@@ -157,6 +171,9 @@ public class PlayerMovement : MonoBehaviour
         else if (!jumping && !jumped && (startHeightmax + heightMaxDuration < Time.time))
             heightModificator *= 0.98f;
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
+
+        Debug.Log(heightModificator);
+
         isGrounded = distanceFromCenter < groundDetection ? true : false;
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -315,6 +332,7 @@ public class PlayerMovement : MonoBehaviour
         float _yStick = Input.GetAxisRaw("Vertical");
         if (noChangeSpeedDuration <= 0)
         {
+            hitObstacle = false;
             noChangeSpeedDuration = 0.0f;
             if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
                 speedForward += _yStick * Acceleration * Time.deltaTime;
@@ -331,6 +349,27 @@ public class PlayerMovement : MonoBehaviour
                 else
                     speedForward = baseSpeed;
             }
+
+            if(speedForward >= MaxSpeed && !attainedMaxSpeed && isGrounded && !dashing && !hitObstacle)
+            { 
+                attainedMaxSpeed = true;
+                animator.SetBool("maxSpeed", true);
+                animatorShadow.SetBool("maxSpeed", true);
+            }
+
+            if (!isGrounded || dashing || hitObstacle)
+            {
+                attainedMaxSpeed = false;
+                animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
+            }
+
+            if (speedForward < MaxSpeed && attainedMaxSpeed)
+            {
+                attainedMaxSpeed = false;
+                animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
+            }
         }
         else
         {
@@ -346,6 +385,7 @@ public class PlayerMovement : MonoBehaviour
         float _yStick = Input.GetAxisRaw("Vertical");
         if (noChangeSpeedDuration <= 0)
         {
+            hitObstacle = false;
             noChangeSpeedDuration = 0.0f;
             if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
                 speedForward += _yStick * airAcceleration * Time.deltaTime;
@@ -361,6 +401,27 @@ public class PlayerMovement : MonoBehaviour
                     speedForward = speedForward + airDeceleration * Time.deltaTime;
                 else
                     speedForward = baseAirSpeed;
+            }
+
+            if (speedForward >= MaxSpeed && !attainedMaxSpeed && !hitObstacle)
+            {
+                attainedMaxSpeed = true;
+                animator.SetBool("maxSpeed", true);
+                animatorShadow.SetBool("maxSpeed", true);
+            }
+
+            if (!isGrounded || dashing || hitObstacle)
+            {
+                attainedMaxSpeed = false;
+                animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
+            }
+
+            if (speedForward < MaxSpeed && attainedMaxSpeed)
+            {
+                attainedMaxSpeed = false;
+                animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
             }
         }
         else
@@ -434,6 +495,15 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
             return Deceleration;
         return airDeceleration;
+    }
+    public void hasHitObstacle()
+    {
+        if (!hitObstacle && speedForward > baseSpeed)
+        {
+            hitObstacle = true;
+            animator.SetTrigger("hit");
+            animatorShadow.SetTrigger("hit");
+        }
     }
     public void frescoMode(float _modifierBaseSpeed)
     {
