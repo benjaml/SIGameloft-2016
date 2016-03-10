@@ -6,9 +6,15 @@ public class GameManagerWrath : MonoBehaviour
 
 
     public static GameManagerWrath instance = null;
+<<<<<<< HEAD
     public GameObject player;                       //Le gameObject du joueur 
     private Material[] dragonsMat;                  // Material/shader du dragon
     public float maxWrath = 500;
+=======
+    public GameObject player;
+    private Material dragon;
+    public float maxWrath;
+>>>>>>> Merging
     [Range(0, 500)]
     public float wrath;
     private float wrathLast = -1;
@@ -38,15 +44,7 @@ public class GameManagerWrath : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
-        GameObject[] dragons = GameObject.FindGameObjectsWithTag("Dragon");
-
-        int i = 0;
-        dragonsMat = new Material[dragons.Length];
-        foreach(GameObject _dragonGO in dragons)
-        {
-            dragonsMat[i] = _dragonGO.GetComponent<MeshRenderer>().material;
-            i++;
-        }
+        dragon = GameObject.FindGameObjectWithTag("Dragon").GetComponent<MeshRenderer>().material;
     }
 
     void OnLevelWasLoaded(int level)
@@ -54,17 +52,7 @@ public class GameManagerWrath : MonoBehaviour
         if (level == 0)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-
-            GameObject[] dragons = GameObject.FindGameObjectsWithTag("Dragon");
-
-            int i = 0;
-            dragonsMat = new Material[dragons.Length];
-            foreach (GameObject _dragonGO in dragons)
-            {
-                dragonsMat[i] = _dragonGO.GetComponent<MeshRenderer>().material;
-                i++;
-            }
-
+            dragon = GameObject.FindGameObjectWithTag("Dragon").GetComponent<MeshRenderer>().material;
             wrath = 0;
         }
 
@@ -76,10 +64,6 @@ public class GameManagerWrath : MonoBehaviour
 
     void Update ()
     {
-        if (wrath == maxWrath/2)
-        {
-            SoundManagerEvent.emit(SoundManagerType.Anrgy);
-        }
         if (wrathLast != wrath)
         {
             wrathLast = wrath;
@@ -87,12 +71,8 @@ public class GameManagerWrath : MonoBehaviour
         }
         if (wrath > maxWrath)
             wrath = maxWrath;
-
-        foreach(Material _matDragon in dragonsMat)
-        {
-            float newPosition = Mathf.SmoothDamp(_matDragon.GetFloat("_Madness"), wrath, ref wrathVelocity, smoothWrath) / 500f;
-            _matDragon.SetFloat("_Madness", wrath / 500f);
-        }
+        float newPosition = Mathf.SmoothDamp(dragon.GetFloat("_Madness"), wrath, ref wrathVelocity, smoothWrath)/500f;
+        dragon.SetFloat("_Madness", wrath/500f);
     }
 
     public void wrathManaging()
@@ -111,10 +91,7 @@ public class GameManagerWrath : MonoBehaviour
         else if (numberOfCollectibles <= 20)
             wrath -= 200;
 
-        foreach (Material _matDragon in dragonsMat)
-        {
-            _matDragon.SetFloat("_Madness", wrath / 500f);
-        }
+        dragon.SetFloat("_Madness", wrath / 500f);
     }
 
     IEnumerator wrathAugmentation()

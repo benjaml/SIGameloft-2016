@@ -13,6 +13,28 @@ TagManager:
   - obstacleFloor
   - gong
   - obstacle
+  - Arbre01
+  - Arbre02
+  - Arch
+  - Bamboo
+  - DragonRuin
+  - Gong
+  - GrandBonsai
+  - Hemisphere
+  - JumpRing
+  - Obstacle01
+  - Obstacle04
+  - Rocks01
+  - Rocks02
+  - Rocks03
+  - Rocks04
+  - Roots01
+  - Seashell
+  - Souche
+  - Spring01
+  - Stick01
+  - Tube
+  - Vertebre
   layers:
   - Default
   - TransparentFX

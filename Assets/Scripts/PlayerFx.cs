@@ -51,9 +51,12 @@ public class PlayerFx : MonoBehaviour {
             fxRightTilt_1.emit = true;
             fxRightTilt_2.enabled = true;
             fxRightTilt_2.emit = true;
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> Merging
         }
 
         //Right tilt
@@ -67,7 +70,7 @@ public class PlayerFx : MonoBehaviour {
            
         }
 
-        if (Input.GetAxisRaw("Horizontal") == 0  && isGrounded)
+        if ((Input.GetAxisRaw("Horizontal") == 0  && isGrounded)|| !isGrounded)
         {
 
             StartCoroutine(fxTiltRight());
