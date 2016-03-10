@@ -19,7 +19,7 @@ using System.Collections;
 				//SpawnFXAt(go.transform.position);
 			}
 		};
-		EventManagerScript.onEvent += maCallback;
+		EventManagerScript.onEvent += maCallback; 
  * 
  * qui permet de:
 		EventManagerScript.onEvent -= maCallback; //Retire l'appel
@@ -28,18 +28,36 @@ using System.Collections;
 
 public enum SoundManagerType
 {
-	MowerStart,
-    MowerStartAndGo,
-    MoweGrass,
-    MoweNoGrass,
-    PoolBounce,
-    BalloonBounce,
-    HomeRun,
-    MenuMove,
-    Victory,
-    WoodShock,
-    Jump,
-    Anrgy
+    //Sounds
+        //Character
+    Diving, //OK index 9
+    DiveOut, //OK (nop)  index 10
+    Jump, //OK (ça bug un peu) index 11
+    Straff, // OK (ok) index 12
+    Acceleration,//OK (ok) index 13
+    BarrelRoll,// OK (pas testé) index 20
+
+        //Dragon
+    Anrgy, //OK (ok, valeur à définir) index 14
+    Suffering, //OK (ok) index de 5 à 8
+    BellRung, //OK (ok) index 15
+
+        //Bells
+    Gong, //OK (ok) index 16
+    Bell, //OK (ok) index 17
+
+        //Flowers
+    Flower, //OK (pas testé) index 0 à 4
+
+        //Environment   
+    Impact, //OK (pas testé) index 18
+    Stream, //A mettre en continu index 19
+    Thunder, //Je sais pas où mettre
+
+    //Voice
+        //Character
+    CharacterHurt, //OK (pas testé) index 0
+    Talk, //OK (pas testé) index 1 à 5
 }
 
 public class SoundManagerEvent : MonoBehaviour
