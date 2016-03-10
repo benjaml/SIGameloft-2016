@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 heightModificator -= 0.1f;
                 isDiving = true;
-                Debug.Log("Dive");
+                //Debug.Log("Dive");
                 animator.SetTrigger("DiveStart");
 
             }
