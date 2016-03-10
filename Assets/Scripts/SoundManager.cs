@@ -2,20 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SoundManager : MonoBehaviour {
-	#region Members
+public class SoundManager : MonoBehaviour
+{
+    #region Members
 
-	[Header("MUSICS")]
-	public List<AudioClip> Music = new List<AudioClip>();
+    [Header("MUSICS")]
+    public List<AudioClip> Music = new List<AudioClip>();
 
-	[Header("SOUNDS")]
-	public List<AudioClip> Sound= new List<AudioClip>();
-	
-	[Header("VOICES")]
-	public List<AudioClip> Voice = new List<AudioClip>();
+    [Header("SOUNDS")]
+    public List<AudioClip> Sound = new List<AudioClip>();
 
-	[Header("Sound Listeners")]
-	public List<AudioSource> Source = new List<AudioSource>();
+    [Header("VOICES")]
+    public List<AudioClip> Voice = new List<AudioClip>();
+
+    [Header("Sound Listeners")]
+    public List<AudioSource> Source = new List<AudioSource>();
 
 
     #endregion
@@ -27,21 +28,21 @@ public class SoundManager : MonoBehaviour {
     int m_VoiceFlowerIndex = 1;
     int m_DragonSufferingIndex = 5;
 
-	// Use this for initialization
-	void Start()
-	{
-		SoundManagerEvent.onEvent += Play;
-	}
+    // Use this for initialization
+    void Start()
+    {
+        SoundManagerEvent.onEvent += Play;
+    }
 
-	void OnDestroy()
-	{
-		SoundManagerEvent.onEvent -= Play;
-	}
+    void OnDestroy()
+    {
+        SoundManagerEvent.onEvent -= Play;
+    }
 
-	public void Play(SoundManagerType emt)
-	{
-		switch (emt)
-		{
+    public void Play(SoundManagerType emt)
+    {
+        switch (emt)
+        {
             #region Character Movement 
             case SoundManagerType.Diving:
                 if (!Source[17].isPlaying)
@@ -114,13 +115,13 @@ public class SoundManager : MonoBehaviour {
 
                 if (m_DragonSufferingIndex > 6)
                 {
-                       m_DragonSufferingIndex = 5;
+                    m_DragonSufferingIndex = 5;
                 }
 
                 if (!Source[5].isPlaying)
                 {
                     Source[5].Stop();
-                    Source[5].clip = Sound[m_DragonSufferingIndex -1]; //Mettre les sons du dragon entre 5 et 6 //Pas de sons à 7 et 8
+                    Source[5].clip = Sound[m_DragonSufferingIndex - 1]; //Mettre les sons du dragon entre 5 et 6 //Pas de sons à 7 et 8
                     Source[5].Play();
                 }
                 break;
@@ -161,14 +162,14 @@ public class SoundManager : MonoBehaviour {
                 StopAllCoroutines();
                 m_FlowerIndex++;
 
-                if(m_FlowerIndex == 5)
+                if (m_FlowerIndex == 5)
                 {
                     SoundManagerEvent.emit(SoundManagerType.Talk);
                 }
 
-                if(m_FlowerIndex > 5)
+                if (m_FlowerIndex > 5)
                 {
-                    
+
                     m_FlowerIndex = 2;
                 }
                 m_FlowerSource = m_FlowerIndex + 8;
@@ -227,7 +228,7 @@ public class SoundManager : MonoBehaviour {
                 m_VoiceFlowerIndex++;
                 if (m_FlowerIndex == 5)
                 {
-                   if (m_VoiceFlowerIndex > 5)
+                    if (m_VoiceFlowerIndex > 5)
                     {
                         m_VoiceFlowerIndex = 1;
                     }
@@ -247,12 +248,12 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
-    IEnumerator flowerCooldown ()
+    IEnumerator flowerCooldown()
     {
 
         yield return new WaitForSeconds(m_flowerDelay);
         m_FlowerIndex = 0;
 
     }
-   
+
 }

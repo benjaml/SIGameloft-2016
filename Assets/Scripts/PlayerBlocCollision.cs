@@ -23,6 +23,9 @@ public class PlayerBlocCollision : MonoBehaviour {
         {
             StartCoroutine(fxBlocCollision());
             gameObject.GetComponent<PlayerMovement>().hasHitObstacle();
+            SoundManagerEvent.emit(SoundManagerType.CharacterHurt);
+            SoundManagerEvent.emit(SoundManagerType.Suffering);
+            SoundManagerEvent.emit(SoundManagerType.Impact);
         }
     }
 

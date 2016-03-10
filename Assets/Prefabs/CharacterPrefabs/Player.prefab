@@ -5818,6 +5818,7 @@ MonoBehaviour:
   listCollectible: []
   targetCollectible: {fileID: 113120}
   lastObject: {fileID: 0}
+  fxTrailFlower: {fileID: 11468704, guid: 567cc93366993e640bc20df8b7585f23, type: 2}
 --- !u!114 &11404108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6385,7 +6386,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 499978}
   sourceTransforms:
   - transform: {fileID: 499978}
-    instanceID: -12014
+    instanceID: -476154
     available: 1
     position: {x: 5.922838, y: -1.0735234, z: 4.2127604}
     localPosition: {x: 0, y: 0, z: 0}
@@ -7126,7 +7127,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 414512}
   sourceTransforms:
   - transform: {fileID: 414512}
-    instanceID: -12052
+    instanceID: -476170
     available: 1
     position: {x: 4.589609, y: 0.10482795, z: 2.3084269}
     localPosition: {x: 0, y: 0, z: 0}
@@ -7862,7 +7863,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 475682}
   sourceTransforms:
   - transform: {fileID: 475682}
-    instanceID: -12022
+    instanceID: -476162
     available: 1
     position: {x: 4.5880294, y: 0.13596183, z: 1.9297073}
     localPosition: {x: 0, y: 0, z: 0}
@@ -8598,7 +8599,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 474592}
   sourceTransforms:
   - transform: {fileID: 474592}
-    instanceID: -12020
+    instanceID: -476160
     available: 1
     position: {x: 4.5880294, y: 0.13596183, z: 1.9297073}
     localPosition: {x: 0, y: 0, z: 0}
@@ -8787,6 +8788,9 @@ MonoBehaviour:
   fxBell_2: {fileID: 11414628}
   fxGong_flowers: {fileID: 11470902}
   fxGong_2: {fileID: 11465530}
+  baseValueGong: 0
+  valueFlowerMultiplicator: 0
+  nbFlowers: 0
 --- !u!114 &11430684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9354,7 +9358,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 483996}
   sourceTransforms:
   - transform: {fileID: 483996}
-    instanceID: -12040
+    instanceID: -476198
     available: 1
     position: {x: 3.323616, y: -1.1368598, z: 4.218394}
     localPosition: {x: 0, y: 0, z: 0}
@@ -10090,7 +10094,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 439188}
   sourceTransforms:
   - transform: {fileID: 439188}
-    instanceID: -12054
+    instanceID: -476172
     available: 1
     position: {x: 4.589609, y: 0.10482795, z: 2.3084269}
     localPosition: {x: 0, y: 0, z: 0}
@@ -10857,7 +10861,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 474240}
   sourceTransforms:
   - transform: {fileID: 474240}
-    instanceID: -11996
+    instanceID: -476142
     available: 1
     position: {x: 4.6162477, y: -0.73303425, z: 5.1793466}
     localPosition: {x: 0, y: 0, z: 0}
@@ -11642,7 +11646,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 407338}
   sourceTransforms:
   - transform: {fileID: 407338}
-    instanceID: -12012
+    instanceID: -476152
     available: 1
     position: {x: 5.922838, y: -1.0735234, z: 4.2127604}
     localPosition: {x: 0, y: 0, z: 0}
@@ -12383,7 +12387,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 497624}
   sourceTransforms:
   - transform: {fileID: 497624}
-    instanceID: -12028
+    instanceID: -476208
     available: 1
     position: {x: 4.595636, y: -0.0139722675, z: 3.7535396}
     localPosition: {x: 0, y: 0, z: 0}
@@ -12570,9 +12574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxDiveFoam: {fileID: 11454592}
   fxRightTilt_1: {fileID: 11490742}
-  fxRightTilt_2: {fileID: 11430684}
   fxLeftTilt_1: {fileID: 11457260}
-  fxLeftTilt_2: {fileID: 11404108}
 --- !u!114 &11470774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12613,6 +12615,8 @@ MonoBehaviour:
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
   isGrounded: 0
+  Camera: {fileID: 0}
+  isDiving: 0
   animator: {fileID: 9548482}
   animatorShadow: {fileID: 9537504}
   isFresco: 0
@@ -13178,7 +13182,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 434298}
   sourceTransforms:
   - transform: {fileID: 434298}
-    instanceID: -12030
+    instanceID: -476210
     available: 1
     position: {x: 4.595636, y: -0.0139722675, z: 3.7535396}
     localPosition: {x: 0, y: 0, z: 0}
@@ -13914,7 +13918,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 409614}
   sourceTransforms:
   - transform: {fileID: 409614}
-    instanceID: -12024
+    instanceID: -476164
     available: 1
     position: {x: 4.5880294, y: 0.13596183, z: 1.9297073}
     localPosition: {x: 0, y: 0, z: 0}
@@ -14655,7 +14659,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 423804}
   sourceTransforms:
   - transform: {fileID: 423804}
-    instanceID: -12038
+    instanceID: -476196
     available: 1
     position: {x: 3.323616, y: -1.1368598, z: 4.218394}
     localPosition: {x: 0, y: 0, z: 0}

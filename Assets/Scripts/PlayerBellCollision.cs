@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using ParticlePlayground;
 
-public class PlayerBellCollision : MonoBehaviour {
+public class PlayerBellCollision : MonoBehaviour
+{
 
     //Déroulement du script:
     //Lorsque le joueur collide avec la cloche [Trigger]: 
@@ -23,6 +24,10 @@ public class PlayerBellCollision : MonoBehaviour {
     public PlaygroundParticlesC fxGong_flowers;
     public PlaygroundParticlesC fxGong_2;
 
+    public int baseValueGong;
+    public float valueFlowerMultiplicator;
+    public int nbFlowers;
+
     void Start()
     {
         fxGong_flowers.enabled = false;
@@ -35,18 +40,18 @@ public class PlayerBellCollision : MonoBehaviour {
     }
 
 
-    void OnTriggerEnter (Collider col)
+    void OnTriggerEnter(Collider col)
     {
         #region Collision Bell
         if (col.tag == "bell")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Bell);
+            Invoke("dragonSound", 0.5f);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
             nbFlower = GetComponent<PlayerCollectible>().listCollectible.Count - 1;
 
             //Set the lenght of the list as the number of collectibles
             wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
-            Debug.Log(wrathManagmementFunction.numberOfCollectibles);
 
             //Start the function to reduce the wrath gauge of the dragon
             wrathManagmementFunction.wrathManaging();
@@ -59,13 +64,13 @@ public class PlayerBellCollision : MonoBehaviour {
             if (GetComponent<PlayerCollectible>().listCollectible[GetComponent<PlayerCollectible>().listCollectible.Count - 1] != GetComponent<PlayerCollectible>().listCollectible[0])
             {
 
-                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count-1; i++)
+                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count - 1; i++)
                 {
                     Destroy(GetComponent<PlayerCollectible>().listCollectible[i].gameObject);
                 }
                 GetComponent<PlayerCollectible>().listCollectible.Clear();
             }
-            GetComponent<PlayerCollectible>().listCollectible.Add(_tmpObject);
+            GetComponent<PlayerCollectible>().listCollectible.Insert(0, _tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
             StartCoroutine(fxBellEmission());
@@ -75,7 +80,7 @@ public class PlayerBellCollision : MonoBehaviour {
         #region Collision Gong
         if (col.tag == "gong")
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Gong);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles
@@ -91,14 +96,14 @@ public class PlayerBellCollision : MonoBehaviour {
 
             if (GetComponent<PlayerCollectible>().listCollectible[GetComponent<PlayerCollectible>().listCollectible.Count - 1] != GetComponent<PlayerCollectible>().listCollectible[0])
             {
-                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count-1; i++)
+                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count - 1; i++)
                 {
                     Destroy(GetComponent<PlayerCollectible>().listCollectible[i].gameObject);
                 }
                 GetComponent<PlayerCollectible>().listCollectible.Clear();
             }
 
-            GetComponent<PlayerCollectible>().listCollectible.Add(_tmpObject);
+            GetComponent<PlayerCollectible>().listCollectible.Insert(0, _tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
             StartCoroutine(fxGongEmission());
@@ -111,7 +116,7 @@ public class PlayerBellCollision : MonoBehaviour {
     {
         if (nbFlower > 0)
         {
-            
+
             fxBell_flowers.enabled = true;
         }
         fxBell_2.enabled = true;
@@ -134,4 +139,8 @@ public class PlayerBellCollision : MonoBehaviour {
         yield return null;
     }
 
+    void dragonSound()
+    {
+        SoundManagerEvent.emit(SoundManagerType.BellRung);
+    }
 }

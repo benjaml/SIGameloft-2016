@@ -62,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
+
+    public GameObject Camera;
+    public bool isDiving = false;
     public Animator animator;
     public Animator animatorShadow;
     public bool isFresco = false;
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("sF " + speedFall);
         //Debug.Log("hJ " + heightJump);
         //heightModificator -= CONDITION ? SI OUI: SI NON;
+        targetRotation = Quaternion.identity;
 
         if (!isFresco)
         {
@@ -93,11 +97,17 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
                 {
                     heightModificator -= 0.3f;
+                    isDiving = true;
                     animator.gameObject.SetActive(false);
                     animatorShadow.gameObject.SetActive(true);
                 }
                 else
                 {
+                    if (isDiving)
+                    {
+                        isDiving = false;
+                        SoundManagerEvent.emit(SoundManagerType.DiveOut);
+                    }
                     heightModificator -= 0.0f;
                     animator.gameObject.SetActive(true);
 
@@ -117,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped && !isFresco)
         {
             launchJumping();
+            SoundManagerEvent.emit(SoundManagerType.Jump);
             animator.SetTrigger("jump");
             animatorShadow.SetTrigger("jump");
         }
@@ -129,7 +140,10 @@ public class PlayerMovement : MonoBehaviour
             timeStartDash = Time.time;
             dashing = true;
             leftDash = true;
+            transform.localScale = new Vector3(1f, 1f, 1f);
             animator.SetTrigger("barellRollLeft");
+            SoundManagerEvent.emit(SoundManagerType.BarrelRoll);
+
             animatorShadow.SetTrigger("barellRollLeft");
             lDashed = true;
         }
@@ -142,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
             rightDash = true;
             animator.SetTrigger("barellRollRight");
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            Invoke("ResetLocalScale", 0.6f);
+            SoundManagerEvent.emit(SoundManagerType.BarrelRoll);
             animatorShadow.SetTrigger("barellRollRight");
             rDashed = true;
         }
@@ -211,11 +225,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit.transform.tag == "floor")
             {
                 secondGravityCenter = hit.point - (hit.normal * cylinderRadius);
-
-                // permet de voir les points de gravité
-                Debug.DrawLine(hit.point, hit.normal, Color.green);
-                DebugPoint(gravityCenter, Color.red);
-                DebugPoint(secondGravityCenter, Color.red);
+                
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
                 targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
@@ -257,8 +267,6 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyMovement()
     {
-        DebugPoint(targetPosition, Color.blue);
-        DebugPoint(gravityCenter + (targetPosition - gravityCenter).normalized * distanceFromCenter, Color.black);
         //Debug.DrawLine(gravityCenter, gravityCenter + (targetPosition - gravityCenter).normalized*distanceFromCenter,Color.yellow);
         transform.position = Vector3.Lerp(transform.position, gravityCenter + (targetPosition - gravityCenter).normalized * distanceFromCenter, 0.5f);
         // on applique les modification de position et rotation en smooth
@@ -267,6 +275,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void launchJumping()
     {
+        SoundManagerEvent.emit(SoundManagerType.Jump);
         jumped = true;
         jumping = true;
     }
@@ -298,6 +307,8 @@ public class PlayerMovement : MonoBehaviour
                 dashing = false;
                 rightDash = false;
                 leftDash = false;
+                Invoke("ResetLocalScale", 0.6f);
+
             }
         }
         else
