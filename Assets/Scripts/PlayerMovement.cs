@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 20.0F;
     public float baseSpeed = 50.0f;
     public float baseAirSpeed = 25.0f;
-    private float slowSpeed = 10.0f;
-    private float slowAirSpeed = 5.0f;
+    public float  slowSpeed = 10.0f;
+    public float slowAirSpeed = 5.0f;
     private float turnSpeed = 0;//Don't touch this
     private float speedForward = 0;
     public float MaxSpeed = 10;//This is the maximum speed that the object will achieve
@@ -316,14 +316,14 @@ public class PlayerMovement : MonoBehaviour
         if (noChangeSpeedDuration <= 0)
         {
             noChangeSpeedDuration = 0.0f;
-            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
+            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= slowSpeed))
                 speedForward += _yStick * Acceleration * Time.deltaTime;
             else
             {
                 if (speedForward > MaxSpeed)
                     speedForward = MaxSpeed;
-                else if (speedForward < baseSpeed)
-                    speedForward = baseSpeed;
+                else if (speedForward < slowSpeed)
+                    speedForward = slowSpeed;
                 else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
                     speedForward = speedForward - Deceleration * Time.deltaTime;
                 else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
@@ -335,8 +335,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             noChangeSpeedDuration -= Time.deltaTime;
-            if (speedForward < baseAirSpeed)
-                speedForward = baseAirSpeed;
+            if (speedForward < slowSpeed)
+                speedForward = slowSpeed;
         }
         return speedForward;
     }
@@ -347,14 +347,14 @@ public class PlayerMovement : MonoBehaviour
         if (noChangeSpeedDuration <= 0)
         {
             noChangeSpeedDuration = 0.0f;
-            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
+            if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= slowAirSpeed))
                 speedForward += _yStick * airAcceleration * Time.deltaTime;
             else
             {
                 if (speedForward > MaxAirSpeed)
                     speedForward = MaxAirSpeed;
-                else if (speedForward < baseAirSpeed)
-                    speedForward = baseAirSpeed;
+                else if (speedForward < slowAirSpeed)
+                    speedForward = slowAirSpeed;
                 else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
                     speedForward = speedForward - airDeceleration * Time.deltaTime;
                 else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
@@ -366,8 +366,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             noChangeSpeedDuration -= Time.deltaTime;
-            if (speedForward < baseAirSpeed)
-                speedForward = baseAirSpeed;
+            if (speedForward < slowAirSpeed)
+                speedForward = slowAirSpeed;
         }
         return speedForward;
     }
@@ -407,11 +407,11 @@ public class PlayerMovement : MonoBehaviour
         jumpSpeed = _jumpSpeedMod;
         speedFall = _speedFallMod;
     }
-    public float getBaseSpeed()
+    public float getSlowSpeed()
     {
         if (isGrounded)
-            return baseSpeed;
-        return baseAirSpeed;
+            return slowSpeed;
+        return slowAirSpeed;
     }
     public float getMaxSpeed()
     {

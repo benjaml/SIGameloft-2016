@@ -17,6 +17,7 @@ public class GameManagerWrath : MonoBehaviour
     public float smoothWrath = 0.3f;
     public float wrathAugementationByTick = 5f;     //
     public float timeBetweenTick = 0.3f;
+    private bool freeze = false;
 
     public int numberOfCollectibles;
 
@@ -89,14 +90,30 @@ public class GameManagerWrath : MonoBehaviour
         dragon.SetFloat("_Madness", wrath / 500f);
     }
 
+    public void freezeWrath()
+    {
+        freeze = true;
+    }
+
+    public void continueWrath()
+    {
+        freeze = false;
+    }
+
     IEnumerator wrathAugmentation()
     {
         while (true)
         {
-            wrath+=wrathAugementationByTick;
+            if (!freeze)
+            {
+                wrath += wrathAugementationByTick;
 
-            if (wrath > (3 * maxWrath) / 4 && wrath <= maxWrath)
-                Camera.main.GetComponent<VignetteAndChromaticAberration>().intensity = ((wrath - (3*maxWrath/4)) / (maxWrath / 4));
+                if (wrath > (3 * maxWrath) / 4 && wrath <= maxWrath)
+                    Camera.main.GetComponent<VignetteAndChromaticAberration>().intensity = ((wrath - (3 * maxWrath / 4)) / (maxWrath / 4));
+
+                if (wrath < (3 * maxWrath) / 4)
+                    Camera.main.GetComponent<VignetteAndChromaticAberration>().intensity = 0.0f;
+            }
 
             yield return new WaitForSeconds(timeBetweenTick);
         }

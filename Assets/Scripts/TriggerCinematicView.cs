@@ -16,12 +16,14 @@ public class TriggerCinematicView : MonoBehaviour {
             {
                 Camera.main.GetComponent<SmoothFollow>().fresqueMode();
                 col.transform.parent.GetComponent<PlayerMovement>().frescoMode(frescoBaseSpeed);
+                GameManagerWrath.instance.freezeWrath();
             }
 
             if (isGameCam)
             {
                 Camera.main.GetComponent<SmoothFollow>().gameMode();
                 col.transform.parent.GetComponent<PlayerMovement>().gameMode();
+                GameManagerWrath.instance.continueWrath();
             }
         }
     }
