@@ -22,6 +22,7 @@ public class PlayerBlocCollision : MonoBehaviour {
             StartCoroutine(fxBlocCollision());
             SoundManagerEvent.emit(SoundManagerType.CharacterHurt);
             SoundManagerEvent.emit(SoundManagerType.Suffering);
+            SoundManagerEvent.emit(SoundManagerType.Impact);
 
 
         }

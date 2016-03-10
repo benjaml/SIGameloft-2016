@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("endDive");
                     isDiving = false;
+                    SoundManagerEvent.emit(SoundManagerType.DiveOut);
                     animator.SetTrigger("DiveEnd");
                 }
 
@@ -151,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
             leftDash = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
             animator.SetTrigger("barellRollLeft");
+            SoundManagerEvent.emit(SoundManagerType.BarrelRoll);
             lDashed = true;
         }
 
@@ -164,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
             rightDash = true;
             transform.localScale = new Vector3(-1f, 1f, 1f);
             animator.SetTrigger("barellRollRight");
+            SoundManagerEvent.emit(SoundManagerType.BarrelRoll);
             rDashed = true;
         }
 
@@ -413,7 +416,7 @@ public class PlayerMovement : MonoBehaviour
             speedForward += _yStick * airAcceleration * Time.deltaTime;
         else
         {
-            SoundManagerEvent.emit(SoundManagerType.Straff);
+ 
             if (speedForward > MaxAirSpeed)
                 speedForward = MaxAirSpeed;
             else if (speedForward < baseAirSpeed)

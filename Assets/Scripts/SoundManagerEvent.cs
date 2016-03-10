@@ -30,20 +30,21 @@ public enum SoundManagerType
 {
     //Sounds
         //Character
-    Diving, //OK (pas testé) index 9
-    DiveOut, //OK (pas testé)  index 10
-    Jump, //OK (pas testé) index 11
-    Straff, // OK (pas testé) index 12
-    Acceleration,//OK (pas testé) index 13
+    Diving, //OK index 9
+    DiveOut, //OK (nop)  index 10
+    Jump, //OK (ça bug un peu) index 11
+    Straff, // OK (ok) index 12
+    Acceleration,//OK (ok) index 13
+    BarrelRoll,// OK (pas testé) index 20
 
         //Dragon
-    Anrgy, //OK (pas testé, valeur à définir) index 14
-    Suffering, //OK (pas testé) index de 5 à 8
-    BellRung, //OK (pas testé) index 15
+    Anrgy, //OK (ok, valeur à définir) index 14
+    Suffering, //OK (ok) index de 5 à 8
+    BellRung, //OK (ok) index 15
 
         //Bells
-    Gong, //OK (pas testé) index 16
-    Bell, //OK (pas testé) index 17
+    Gong, //OK (ok) index 16
+    Bell, //OK (ok) index 17
 
         //Flowers
     Flower, //OK (pas testé) index 0 à 4

@@ -44,29 +44,29 @@ public class SoundManager : MonoBehaviour {
 		{
             #region Character Movement 
             case SoundManagerType.Diving:
-                if (!Source[2].isPlaying)
+                if (!Source[17].isPlaying)
                 {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[9];
-                    Source[2].Play();
+                    Source[17].Stop();
+                    Source[17].clip = Sound[9];
+                    Source[17].Play();
                 }
                 break;
 
             case SoundManagerType.DiveOut:
-                if (!Source[2].isPlaying)
+                if (!Source[18].isPlaying)
                 {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[10];
-                    Source[2].Play();
+                    Source[18].Stop();
+                    Source[18].clip = Sound[10];
+                    Source[18].Play();
                 }
                 break;
 
             case SoundManagerType.Jump:
-                if (!Source[2].isPlaying)
+                if (!Source[15].isPlaying)
                 {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[11];
-                    Source[2].Play();
+                    Source[15].Stop();
+                    Source[15].clip = Sound[11];
+                    Source[15].Play();
                 }
                 break;
 
@@ -85,6 +85,15 @@ public class SoundManager : MonoBehaviour {
                     Source[2].Stop();
                     Source[2].clip = Sound[13];
                     Source[2].Play();
+                }
+                break;
+
+            case SoundManagerType.BarrelRoll:
+                if (!Source[14].isPlaying)
+                {
+                    Source[14].Stop();
+                    Source[14].clip = Sound[20];
+                    Source[14].Play();
                 }
                 break;
 
