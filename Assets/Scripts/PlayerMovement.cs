@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     public Animator animator;
     public bool isFresco = false;
+    
     void Start()
     {
         timeStartDash = -dashCooldown;

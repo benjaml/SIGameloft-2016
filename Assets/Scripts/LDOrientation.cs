@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 [ExecuteInEditMode]
 public class LDOrientation : MonoBehaviour

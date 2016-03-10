@@ -149,7 +149,8 @@ Shader "Custom/SH_WaterKunda" {
                 float4 node_654 = tex2D(_FoamTex,TRANSFORM_TEX(node_5595, _FoamTex));
                 float2 node_6262 = lerp(i.uv0,node_118,0.03);
                 float4 node_902 = tex2D(_FoamTex,TRANSFORM_TEX(node_6262, _FoamTex));
-                float3 diffuseColor = lerp(((_MainColor.rgb*node_654.g)+node_902.b),_LightColor0.rgb,(viewReflectDirection.rgb.g*0.13));
+                float3 node_6391 = ((_MainColor.rgb*node_654.g)+node_902.b);
+                float3 diffuseColor = lerp(node_6391,_LightColor0.rgb,(viewReflectDirection.rgb.g*0.13));
                 diffuseColor *= 1-specularMonochrome;
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
@@ -270,7 +271,8 @@ Shader "Custom/SH_WaterKunda" {
                 float4 node_654 = tex2D(_FoamTex,TRANSFORM_TEX(node_5595, _FoamTex));
                 float2 node_6262 = lerp(i.uv0,node_118,0.03);
                 float4 node_902 = tex2D(_FoamTex,TRANSFORM_TEX(node_6262, _FoamTex));
-                float3 diffuseColor = lerp(((_MainColor.rgb*node_654.g)+node_902.b),_LightColor0.rgb,(viewReflectDirection.rgb.g*0.13));
+                float3 node_6391 = ((_MainColor.rgb*node_654.g)+node_902.b);
+                float3 diffuseColor = lerp(node_6391,_LightColor0.rgb,(viewReflectDirection.rgb.g*0.13));
                 diffuseColor *= 1-specularMonochrome;
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
