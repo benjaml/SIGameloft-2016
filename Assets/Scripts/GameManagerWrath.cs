@@ -8,7 +8,7 @@ public class GameManagerWrath : MonoBehaviour
     public static GameManagerWrath instance = null;
     public GameObject player;
     private Material[] dragonsMat;
-    public float maxWrath;
+    public float maxWrath = 500;
     [Range(0, 500)]
     public float wrath;
     private float wrathLast = -1;

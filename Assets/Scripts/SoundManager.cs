@@ -24,8 +24,8 @@ public class SoundManager : MonoBehaviour {
     int m_FlowerIndex = 0;
     int m_FlowerSource = 0;
     private float m_flowerDelay = 2;
-    int m_VoiceFlowerIndex = 0;
-    int m_DragonSufferingIndex = 4;
+    int m_VoiceFlowerIndex = 1;
+    int m_DragonSufferingIndex = 5;
 
 	// Use this for initialization
 	void Start()
@@ -152,24 +152,29 @@ public class SoundManager : MonoBehaviour {
                 StopAllCoroutines();
                 m_FlowerIndex++;
 
-                if(m_FlowerIndex > 5)
+                if(m_FlowerIndex == 5)
                 {
                     SoundManagerEvent.emit(SoundManagerType.Talk);
-                    m_FlowerIndex = 1;
+                }
+
+                if(m_FlowerIndex > 5)
+                {
+                    
+                    m_FlowerIndex = 2;
                 }
                 m_FlowerSource = m_FlowerIndex + 8;
 
                 if (!Source[m_FlowerSource].isPlaying)
                 {
-                    Source[9].Stop();
-                    Source[9].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower dans sounds aux index entre 0 et 4
-                    Source[9].Play();
+                    Source[m_FlowerSource].Stop();
+                    Source[m_FlowerSource].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower dans sounds aux index entre 0 et 4
+                    Source[m_FlowerSource].Play();
                 }
                 StartCoroutine(flowerCooldown());
                 break;
             #endregion
 
-            #region Envrionment
+            #region Environment
 
             case SoundManagerType.Impact:
                 if (!Source[8].isPlaying)
@@ -204,7 +209,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[3].isPlaying)
                 {
                     Source[3].Stop();
-                    Source[3].clip = Voice[1];
+                    Source[3].clip = Voice[0];
                     Source[3].Play();
                 }
                 break;

@@ -14,6 +14,8 @@ public class PlayerFx : MonoBehaviour {
     public PlaygroundParticlesC fxLeftTilt_1;
     public PlaygroundParticlesC fxLeftTilt_2;
 
+    private bool diving = false;
+
     private bool isGrounded;
 
     void Start()
@@ -28,12 +30,17 @@ public class PlayerFx : MonoBehaviour {
     {
         isGrounded = GetComponent<PlayerMovement>().isGrounded;
 
-        if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded && !diving)
         {
             fxDiveFoam.enabled = true;
             fxDiveFoam.emit = true;
-            SoundManagerEvent.emit(SoundManagerType.Diving); //A faire looper
+            SoundManagerEvent.emit(SoundManagerType.Diving);
+            diving = true;
         }
+
+        if (Input.GetAxisRaw("R_YAxis_0") < 0.3)
+            diving = false;
+
 
         if (Input.GetAxisRaw("R_YAxis_0") < 0.1 && isGrounded)
         {
