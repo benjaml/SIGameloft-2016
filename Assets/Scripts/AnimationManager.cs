@@ -4,11 +4,6 @@ using System.Collections;
 public class AnimationManager : MonoBehaviour {
 
     public Animator m_MenuAnimator;
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void Transition_To_Menu()
     {

@@ -12,27 +12,29 @@ public class ButtonManager : MonoBehaviour {
     public string m_CurrentPanel = "MainPanel";
     public int m_CurrentIndex = 0;
 
+    public GameObject m_PanelMainMenu;
+    public bool m_ReadyToPlay = false;
+
     // To link to the global volume of the game.
     public float m_Volume;
+    public Text m_TextVolume;
 
     public bool m_EndInput;
 
     public AnimationManager m_AnimationScript;
 
-    public void Start()
-    {
-        m_AnimationScript.transform.GetChild(1).GetComponent<CanvasRenderer>().SetAlpha(1f);
-    }
-
     public void Update()
     {
-        // Check if the gamepad's stick is at its standby position. If True, the player can move the stick to interact with the menu.
-        if (Input.GetAxis("L_YAxis_0") < 0.3f && Input.GetAxis("L_YAxis_0") > -0.3f)
+        if (m_ReadyToPlay)
         {
-            m_EndInput = true;
-        }
+            // Check if the gamepad's stick is at its standby position. If True, the player can move the stick to interact with the menu.
+            if (Input.GetAxis("L_YAxis_0") < 0.3f && Input.GetAxis("L_YAxis_0") > -0.3f)
+            {
+                m_EndInput = true;
+            }
 
-        CheckInputPositions();
+            CheckInputPositions();
+        }
     }
 
     public void CheckInputPositions()
@@ -214,7 +216,8 @@ public class ButtonManager : MonoBehaviour {
                     if (m_Volume != 10f)
                     {
                         m_Volume++;
-                        m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
+                        m_TextVolume.text = m_Volume.ToString();
+                        //m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
                     }
                     // Change the text, check if value isn't overiding the max and min values
                     break;
@@ -224,7 +227,8 @@ public class ButtonManager : MonoBehaviour {
                     if (m_Volume != 0f)
                     {
                         m_Volume--;
-                        m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
+                        m_TextVolume.text = m_Volume.ToString();
+                        //m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
                     }
                     // Change the text, check if value isn't overiding the max and min values
                     break;
@@ -307,35 +311,13 @@ public class ButtonManager : MonoBehaviour {
     }
 
 
-
-
-    ////When "Play" is pressed, this fonction load the game scene (index 1).
-    //public void PlayPressed(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 1)
-    //}
-
-    ////When "Replay" is pressed, this fonction re-load the game scene (index 1).
-    //public void Replay(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 1)
-    //}
-
-    ////When "Exit" is pressed, the game is closed.
-    //public void Exit()
-    //{
-    //    Application.Quit();
-    //}
-
-    ////When "Controls" is pressed, this fonction re-load the game scene (index 1).
-    //public void Controls()
-    //{
-
-    //}
-
-    ////When "Credits" is pressed, a scheme of the controls shows up on the current scene.
-    //public void CreditsPressed(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 2)
-    //}
+    // PENSER A METTRE LE SCRIPT ACTIVATE MAIN MENU SUR LA CAMERA DE L'ANIMATION
+    // METTRE L'EVENT ANIM SUR L'ANIMATION D'INTRODUCTION
+    public void EndOfIntroduction()
+    {
+        //m_PanelMainMenu.GetComponent<CanvasGroup>().alpha = 1;
+        //m_MainMenuButtonsList[0].Select();
+        m_ReadyToPlay = true;
+        //m_CurrentIndex = 0;
+    }
 }
