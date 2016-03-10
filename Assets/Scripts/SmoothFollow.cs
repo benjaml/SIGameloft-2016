@@ -198,8 +198,6 @@ namespace UnityStandardAssets.Utility
                 percentAccHeight = interiorHeightForCalc * (1 + (accelerationHeightForCalc / 100));
             }
 
-            Debug.Log(percentAccHeight);
-
             float speed = player.getSpeed();
 
             float deltaSpeed;
