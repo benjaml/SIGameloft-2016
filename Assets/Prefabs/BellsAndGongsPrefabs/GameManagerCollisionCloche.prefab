@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 441072}
   - 114: {fileID: 11432638}
+  - 114: {fileID: 11403920}
   m_Layer: 0
   m_Name: GameManagerCollisionCloche
   m_TagString: Untagged
@@ -28,6 +29,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11403920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb89dc6ca42e43458e06f051e5a2ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: e43ee6199abd1a44e879bc343079071f, type: 2}
+  first: {fileID: 24335828, guid: e43ee6199abd1a44e879bc343079071f, type: 2}
+  second: {fileID: 24360846, guid: e43ee6199abd1a44e879bc343079071f, type: 2}
 --- !u!114 &11432638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxWrath: 0
+  maxWrath: 500
   wrath: 0
   smoothWrath: 0.3
   wrathAugementationByTick: 5

@@ -21,8 +21,7 @@ public class SoundManager : MonoBehaviour {
     #endregion
 
     bool m_Ready = false;
-    int m_FlowerIndex = 0;
-    private float m_flowerDelay = 2;
+
 
 	// Use this for initialization
 	void Start()
@@ -39,157 +38,113 @@ public class SoundManager : MonoBehaviour {
 	{
 		switch (emt)
 		{
-            #region Character Movement 
-            case SoundManagerType.Diving:
-                if (!Source[2].isPlaying)
+            case SoundManagerType.MowerStart:
+                if (!Source[1].isPlaying)
                 {
+                    Source[1].Stop();
+                    Source[1].clip = Sound[0];
+                    Source[1].Play();
+                }
+                break;
+
+            case SoundManagerType.MowerStartAndGo:
+                Source[1].Stop();
+                Source[1].clip = Sound[1];
+                Source[1].Play();
+
+                m_Ready = true;
+                Play(SoundManagerType.MoweGrass);
+
+                StartCoroutine(DecreaseMoweSound());
+                break;
+
+            case SoundManagerType.MoweGrass:
+                if(m_Ready)
+                {
+                    StopAllCoroutines();
+
                     Source[2].Stop();
-                    Source[2].clip = Sound[5];
+                    Source[2].clip = Sound[2];
+
+                    if(Source[2].volume<0.5f)
+                    {
+                        Source[2].volume = 0.5f;
+                    }
+
                     Source[2].Play();
                 }
-                break;
+				
+				break;
 
-            case SoundManagerType.Jump:
-                if (!Source[2].isPlaying)
+            case SoundManagerType.MoweNoGrass:
+                if (m_Ready)
                 {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[6];
-                    Source[2].Play();
+                    StartCoroutine(DecreaseMoweSoundBig());
                 }
                 break;
 
-            case SoundManagerType.Flying:
-                if (!Source[2].isPlaying)
-                {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[7];
-                    Source[2].Play();
-                }
+            case SoundManagerType.PoolBounce:
+                Source[1].Stop();
+                Source[1].clip = Sound[4];
+                Source[1].Play();
                 break;
 
-            case SoundManagerType.Straff:
-                if (!Source[2].isPlaying)
-                {
-                    Source[2].Stop();
-                    Source[2].clip = Sound[8];
-                    Source[2].Play();
-                }
-                break;
-            #endregion
-
-            #region Character Damage
-            case SoundManagerType.Damage:
-                if (!Source[3].isPlaying)
-                {
-                    Source[3].Stop();
-                    Source[3].clip = Sound[9];
-                    Source[3].Play();
-                }
-                break;
-            #endregion
-
-            #region Dragon
-            case SoundManagerType.Anrgy:
-                if (!Source[5].isPlaying)
-                {
-                    Source[5].Stop();
-                    Source[5].clip = Sound[10];
-                    Source[5].Play();
-                }
+            case SoundManagerType.BalloonBounce:
+                Source[1].Stop();
+                Source[1].clip = Sound[5];
+                Source[1].Play();
                 break;
 
-            case SoundManagerType.Suffering:
-                if (!Source[5].isPlaying)
-                {
-                    Source[5].Stop();
-                    Source[5].clip = Sound[11];
-                    Source[5].Play();
-                }
-                break;
-            #endregion
-
-            #region Bell
-            case SoundManagerType.Gong:
-                if (!Source[6].isPlaying)
-                {
-                    Source[6].Stop();
-                    Source[6].clip = Sound[12];
-                    Source[6].Play();
-                }
+            case SoundManagerType.HomeRun:
+                Source[3].Stop();
+                Source[3].clip = Sound[6];
+                Source[3].Play();
                 break;
 
-            case SoundManagerType.Bell:
-                if (!Source[6].isPlaying)
-                {
-                    Source[6].Stop();
-                    Source[6].clip = Sound[13];
-                    Source[6].Play();
-                }
-                break;
-            #endregion
-
-            #region Flower
-            case SoundManagerType.Flower:
-
-                StopAllCoroutines();
-                m_FlowerIndex++;
-
-                if(m_FlowerIndex > 5)
-                {
-                    m_FlowerIndex = 1;
-                }
-
-                if (!Source[7].isPlaying)
-                {
-                    Source[7].Stop();
-                    Source[7].clip = Sound[m_FlowerIndex - 1]; //Mettre les sons des flower aux index entre 0 et 4
-                    Source[7].Play();
-                }
-                StartCoroutine(flowerCooldown());
-                break;
-            #endregion
-
-            #region Envrionment
-            case SoundManagerType.Stream:
-                if (!Source[8].isPlaying)
-                {
-                    Source[8].Stop();
-                    Source[8].clip = Sound[14];
-                    Source[8].Play();
-                }
+            case SoundManagerType.MenuMove:
+                Source[1].Stop();
+                Source[1].clip = Sound[7];
+                Source[1].Play();
                 break;
 
-            case SoundManagerType.Thunder:
-                if (!Source[9].isPlaying)
-                {
-                    Source[9].Stop();
-                    Source[9].clip = Sound[15];
-                    Source[9].Play();
-                }
+            case SoundManagerType.Victory:
+                Source[5].Stop();
+                Source[5].clip = Sound[8];
+                Source[5].Play();
                 break;
-            #endregion
 
-            #region Character Voice
-            case SoundManagerType.Talk:
-                if (!Source[4].isPlaying)
-                {
-                    Source[4].Stop();
-                    Source[4].clip = Voice[1];
-                    Source[4].Play();
-                }
+            case SoundManagerType.WoodShock:
+                Source[4].Stop();
+                Source[4].clip = Sound[9];
+                Source[4].Play();
                 break;
-                #endregion
+
 
 
         }
-    }
+	}
 
-    IEnumerator flowerCooldown ()
+    IEnumerator DecreaseMoweSound()
     {
+        while(Source[2].volume>0.5f)
+        {
+            Source[2].volume -= 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
 
-        yield return new WaitForSeconds(m_flowerDelay);
-        m_FlowerIndex = 0;
-
+        Source[2].volume = 0.5f;
     }
-   
+
+    IEnumerator DecreaseMoweSoundBig()
+    {
+        while (Source[2].volume > 0.1f)
+        {
+            Source[2].volume -= 0.05f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Source[2].volume = 0.1f;
+    }
+
+
 }

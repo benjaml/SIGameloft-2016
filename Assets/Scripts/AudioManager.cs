@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour {
     public AudioMixerGroup first;
     public AudioMixerGroup second;
 
-    private float firstVol = -30f;
-    private float secondVol = 10f;
+    private float firstVol = 1f;
+    private float secondVol = -40f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,24 +22,26 @@ public class AudioManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
-        if(Input.GetKey(KeyCode.Keypad2))
+        if (GetComponent<GameManagerWrath>().wrath > 250)
         {
-            if(firstVol < 10f && secondVol >= -30f)
+            if (secondVol <= 5)
             {
-                firstVol ++;
-                secondVol --;
+                firstVol --;
+                secondVol ++;
                 changeVolumeMixer();
             }
         }
 
-        if (Input.GetKey(KeyCode.Keypad1))
+
+        if (GetComponent<GameManagerWrath>().wrath < 250)
         {
-            if (firstVol >= -30f && secondVol < 10f)
+            if (firstVol <= 2)
             {
-                firstVol --;
-                secondVol ++;
+                firstVol++;
+                secondVol--;
                 changeVolumeMixer();
             }
         }

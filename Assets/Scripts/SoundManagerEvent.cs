@@ -28,28 +28,16 @@ using System.Collections;
 
 public enum SoundManagerType
 {
-    //Sounds
-    //Character
-    Diving, //Script pas mergés
-    Jump, //OK (pas testé)
-    Flying, // A faire boucler ? Je sais pas où le mettre.
-    Straff, // Comment je fais boucler ?
-    Damage, //OK (pas testé)
-    //Dragon
-    Anrgy, // Pas de script ?
-    Suffering, //Pas de script 
-        //Bells
-    Gong, //Script pas mergé
-    Bell, //Script pas mergé 
-        //Flowers
-    Flower, //Script pas mergé, comment qu'on fait pour faire plusieurs sons ?
-        //Environment 
-    Stream, //Je sais pas où mettre
-    Thunder, //Je sais pas où mettre
-
-    //Voice
-        //Character
-    Talk, //Je sais pas où mettre
+	MowerStart,
+    MowerStartAndGo,
+    MoweGrass,
+    MoweNoGrass,
+    PoolBounce,
+    BalloonBounce,
+    HomeRun,
+    MenuMove,
+    Victory,
+    WoodShock
 }
 
 public class SoundManagerEvent : MonoBehaviour
