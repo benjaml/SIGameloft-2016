@@ -23,6 +23,10 @@ public class PlayerBellCollision : MonoBehaviour {
     public PlaygroundParticlesC fxGong_flowers;
     public PlaygroundParticlesC fxGong_2;
 
+    public int baseValueGong;
+    public float valueFlowerMultiplicator;
+    public int numberFlower;
+
     void Start()
     {
         fxGong_flowers.enabled = false;
@@ -86,12 +90,13 @@ public class PlayerBellCollision : MonoBehaviour {
             wrathManagmementFunction.wrathManaging();
 
             //Clear the list with fx
-
+            float _tmpValue;
+            _tmpValue = Mathf.Floor(baseValueGong * (1 + (valueFlowerMultiplicator * numberFlower)));
             GameObject _tmpObject = transform.GetChild(0).gameObject;
 
             if (GetComponent<PlayerCollectible>().listCollectible[GetComponent<PlayerCollectible>().listCollectible.Count - 1] != GetComponent<PlayerCollectible>().listCollectible[0])
             {
-                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count-1; i++)
+                for (int i = 1; i < (_tmpValue -1); i++)
                 {
                     Destroy(GetComponent<PlayerCollectible>().listCollectible[i].gameObject);
                 }

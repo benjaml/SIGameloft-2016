@@ -2020,11 +2020,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8d3686fc5e4392a4a999d53f518a226f, type: 3}
   - {fileID: 8300000, guid: bc72376a836f0114a8ef01c7e31ffe4c, type: 3}
   Sound:
-  - {fileID: 8300000, guid: 94c2e3cd13118b143abcbce7f2684d0d, type: 3}
-  - {fileID: 8300000, guid: 734db1bd5c2c8254b8303a8e8ed49484, type: 3}
-  - {fileID: 8300000, guid: 8761fb2520e9caa4784faffde8274287, type: 3}
-  - {fileID: 8300000, guid: e555a49f2d0bb7a40ac623a177401792, type: 3}
-  - {fileID: 8300000, guid: 8d7a7bb666a9b854cae0a5b22e618a4a, type: 3}
+  - {fileID: 8300000, guid: 48d3e893c3ef5d447a8c3bd6da82fb9b, type: 3}
+  - {fileID: 8300000, guid: bdc95738d18f7c4499dbed59b37d713b, type: 3}
+  - {fileID: 8300000, guid: bba1788a91e269b47b4c408b59ef818e, type: 3}
+  - {fileID: 8300000, guid: 8ca932e040ea41a4e8112f4794b219b2, type: 3}
+  - {fileID: 8300000, guid: 075ee213a948226429e35bfa4289ba69, type: 3}
   - {fileID: 8300000, guid: b47da6b101696984888599a29d5ddff0, type: 3}
   - {fileID: 8300000, guid: 46a04bbfbe4387343be9561875ec8d16, type: 3}
   - {fileID: 0}

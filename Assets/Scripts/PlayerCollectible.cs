@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using ParticlePlayground;
 
 
 public class PlayerCollectible : MonoBehaviour {
@@ -8,6 +9,7 @@ public class PlayerCollectible : MonoBehaviour {
     public List<GameObject> listCollectible = new List<GameObject>();
     public GameObject targetCollectible;
     public GameObject lastObject;
+    public PlaygroundParticlesC fxTrailFlower;
 
     private float randomWidth; //x
     private float randomHeight; //y
@@ -17,15 +19,26 @@ public class PlayerCollectible : MonoBehaviour {
     {
 
         listCollectible.Add(targetCollectible);
+        fxTrailFlower.enabled = false;
+        fxTrailFlower.emit = false;
+    }
+
+    void Update ()
+    {
+        if (listCollectible.Count < 2)
+        {
+            fxTrailFlower.enabled = false;
+            fxTrailFlower.emit = false;
+        }
     }
 
     void OnTriggerEnter (Collider col)
     {
 
-
         if (col.tag == "collectible")
         {
-       
+            fxTrailFlower.enabled = true;
+            fxTrailFlower.emit = true;
             if (!listCollectible.Contains(col.gameObject))
             {
                 listCollectible.Add(col.gameObject);

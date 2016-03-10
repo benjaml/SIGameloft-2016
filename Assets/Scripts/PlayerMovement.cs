@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     
     public Animator animator;
     public bool isFresco = false;
+    public GameObject Camera;
 
     void Start()
     {
@@ -383,25 +384,35 @@ public class PlayerMovement : MonoBehaviour
     //calculate speed forward when grounded
     float calculateSpeedForward()
     {
+
         float _yStick = Input.GetAxisRaw("Vertical");
 
         if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
         {
             speedForward += _yStick * Acceleration * Time.deltaTime;
             SoundManagerEvent.emit(SoundManagerType.Acceleration);
+            Camera.GetComponent<CameraShader>().StartCoroutine("Acceleration");
         }
         else
         {
+
             if (speedForward > MaxSpeed)
                 speedForward = MaxSpeed;
             else if (speedForward < baseSpeed)
                 speedForward = baseSpeed;
             else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
+            {
                 speedForward = speedForward - Deceleration * Time.deltaTime;
+                Camera.GetComponent<CameraShader>().StartCoroutine("ReduceShader");
+            }
             else if (speedForward < -baseSpeed + Deceleration * Time.deltaTime)
+            {
                 speedForward = speedForward + Deceleration * Time.deltaTime;
+                Camera.GetComponent<CameraShader>().StartCoroutine("ReduceShader");
+            }
             else
                 speedForward = baseSpeed;
+
         }
 
         return speedForward;

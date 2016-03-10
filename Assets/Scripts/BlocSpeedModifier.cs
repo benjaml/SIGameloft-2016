@@ -8,13 +8,17 @@ public class BlocSpeedModifier : MonoBehaviour {
     public float accelerationTime;
     public float lowSpeedTime = 5f;
     public float percentOfFlowerLost = 30;
+    public int valueLostBloc;
 
     private float flowersLost;
     private float stockBaseSpeed;
     private float stockMaxSpeed;
 
+
     private List<GameObject> flowersList;
-    PlayerMovement playerMovementScript; 
+    PlayerMovement playerMovementScript;
+
+    public GameObject GameManager;
 
     void OnTriggerEnter (Collider col)
     {
@@ -37,8 +41,8 @@ public class BlocSpeedModifier : MonoBehaviour {
 
 
             StartCoroutine(reducingSpeed());
-            
-            //Add a certain value to the dragon wrath
+  
+
         }
     }
 
@@ -76,6 +80,7 @@ public class BlocSpeedModifier : MonoBehaviour {
 
         }
 
+        GameManager.GetComponent<GameManagerWrath>().wrath += valueLostBloc;
 
     }
 
