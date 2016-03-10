@@ -197,10 +197,6 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
             previousSpeed = speed;
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> Merging
         public void fresqueMode()
         {
             isFresco = true;

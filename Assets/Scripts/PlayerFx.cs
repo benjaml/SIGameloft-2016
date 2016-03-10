@@ -51,12 +51,6 @@ public class PlayerFx : MonoBehaviour {
             fxRightTilt_1.emit = true;
             fxRightTilt_2.enabled = true;
             fxRightTilt_2.emit = true;
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> Merging
         }
 
         //Right tilt

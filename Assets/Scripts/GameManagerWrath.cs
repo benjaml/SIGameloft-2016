@@ -6,15 +6,9 @@ public class GameManagerWrath : MonoBehaviour
 
 
     public static GameManagerWrath instance = null;
-<<<<<<< HEAD
-    public GameObject player;                       //Le gameObject du joueur 
-    private Material[] dragonsMat;                  // Material/shader du dragon
-    public float maxWrath = 500;
-=======
     public GameObject player;
     private Material dragon;
     public float maxWrath;
->>>>>>> Merging
     [Range(0, 500)]
     public float wrath;
     private float wrathLast = -1;

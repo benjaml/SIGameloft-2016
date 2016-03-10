@@ -84,29 +84,6 @@ public class PlayerMovement : MonoBehaviour
         
         if (!isFresco)
         {
-<<<<<<< HEAD
-            if(Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
-            {
-                heightModificator -= 0.1f;
-                isDiving = true;
-                //Debug.Log("Dive");
-                animator.SetTrigger("DiveStart");
-
-            }
-            else
-            {
-                if (isDiving)
-                {
-                    Debug.Log("endDive");
-                    isDiving = false;
-                    animator.SetTrigger("DiveEnd");
-                }
-
-                heightModificator -= 0.0f;
-            }
-
-=======
->>>>>>> Merging
             if (isGrounded)
             {
                 if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
@@ -219,8 +196,6 @@ public class PlayerMovement : MonoBehaviour
 
                 // permet de voir les points de gravité
                 Debug.DrawLine(hit.point, hit.normal, Color.green);
-                DebugPoint(gravityCenter, Color.red);
-                DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
                 targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
@@ -338,23 +313,6 @@ public class PlayerMovement : MonoBehaviour
     float calculateSpeedForward()
     {
         float _yStick = Input.GetAxisRaw("Vertical");
-<<<<<<< HEAD
-
-        if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxSpeed) && (speedForward >= baseSpeed))
-            speedForward += _yStick * Acceleration * Time.deltaTime;
-        else
-        {
-            if (speedForward > MaxSpeed)
-                speedForward = MaxSpeed;
-            else if (speedForward < baseSpeed)
-                speedForward = baseSpeed;
-            else if (speedForward > baseSpeed + Deceleration * Time.deltaTime)
-                speedForward = speedForward - Deceleration * Time.deltaTime;
-            else if (speedForward < -baseSpeed  + Deceleration * Time.deltaTime)
-                speedForward = speedForward + Deceleration * Time.deltaTime;
-            else
-                speedForward = baseSpeed;
-=======
         if (noChangeSpeedDuration <= 0)
         {
             noChangeSpeedDuration = 0.0f;
@@ -379,7 +337,6 @@ public class PlayerMovement : MonoBehaviour
             noChangeSpeedDuration -= Time.deltaTime;
             if (speedForward < baseAirSpeed)
                 speedForward = baseAirSpeed;
->>>>>>> Merging
         }
         return speedForward;
     }
@@ -389,20 +346,9 @@ public class PlayerMovement : MonoBehaviour
         float _yStick = Input.GetAxisRaw("Vertical");
         if (noChangeSpeedDuration <= 0)
         {
-<<<<<<< HEAD
-            if (speedForward > MaxAirSpeed)
-                speedForward = MaxAirSpeed;
-            else if (speedForward < baseAirSpeed)
-                speedForward = baseAirSpeed;
-            else if (speedForward > baseAirSpeed + airDeceleration * Time.deltaTime)
-                speedForward = speedForward - airDeceleration * Time.deltaTime;
-            else if (speedForward < -baseAirSpeed + airDeceleration * Time.deltaTime)
-                speedForward = speedForward + airDeceleration * Time.deltaTime;
-=======
             noChangeSpeedDuration = 0.0f;
             if (((_yStick > 0.3) || (_yStick < -0.3)) && (speedForward <= MaxAirSpeed) && (speedForward >= baseAirSpeed))
                 speedForward += _yStick * airAcceleration * Time.deltaTime;
->>>>>>> Merging
             else
             {
                 if (speedForward > MaxAirSpeed)
