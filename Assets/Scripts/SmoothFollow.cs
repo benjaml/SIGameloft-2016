@@ -136,7 +136,7 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if (Input.GetAxisRaw("R_YAxis_0") > 0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
+            if ((Input.GetAxisRaw("R_YAxis_0") > 0.3f || Input.GetKey(KeyCode.Z)) && (_zAngle >= realTopAngle && _zAngle <= downAngle))
             {
                 float _angleToDiveCamera = Mathf.Abs(interiorAngle - _zAngle);
 
@@ -158,10 +158,11 @@ namespace UnityStandardAssets.Utility
 
             if (_zAngle <= topAngle && _zAngle >= downAngle)
             {
-                percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
-                percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
-
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
+                float extPerAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
+                float extPerAccH = exteriorHeight * (1 + (accelerationHeight / 100));
+                float intPerAccDist = interiorDistance * (1 + (accelerationDistance / 100));
+                float intPerAccH = interiorHeightForCalc * (1 + (accelerationHeight / 100));
 
                 if (interiorDistance > exteriorDistance)
                     distance = exteriorDistance + ((_angleToChangeCamera * (interiorDistance - exteriorDistance)) / 90);
@@ -177,6 +178,16 @@ namespace UnityStandardAssets.Utility
                     forwardValue = exteriorForward + ((_angleToChangeCamera * (interiorForward - exteriorForward)) / 90);
                 else
                     forwardValue = exteriorForward - ((_angleToChangeCamera * (exteriorForward - interiorForward)) / 90);
+
+                if (intPerAccDist > extPerAccDist)
+                    percentAccDist = extPerAccDist + ((_angleToChangeCamera * (intPerAccDist - extPerAccDist)) / 90);
+                else
+                    percentAccDist = extPerAccDist - ((_angleToChangeCamera * (extPerAccDist - intPerAccDist)) / 90);
+
+                if (intPerAccH > extPerAccH)
+                    percentAccHeight = extPerAccH + ((_angleToChangeCamera * (intPerAccH - extPerAccH)) / 90);
+                else
+                    percentAccHeight = extPerAccH - ((_angleToChangeCamera * (extPerAccH - intPerAccH)) / 90);
             }
             else
             {
@@ -186,6 +197,8 @@ namespace UnityStandardAssets.Utility
                 percentAccDist = interiorDistance * (1 + (accelerationDistance / 100));
                 percentAccHeight = interiorHeightForCalc * (1 + (accelerationHeightForCalc / 100));
             }
+
+            Debug.Log(percentAccHeight);
 
             float speed = player.getSpeed();
 
