@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private bool leftDash = false;
     private bool lDashed = false;
     private bool rDashed = false;
+    private bool springed = false;
     private float _xStick = 0.0f;
     private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump, initBaseSpeed;
     //position et rotation que je personnage devrais avoir en fin de déplacement
@@ -107,7 +108,12 @@ public class PlayerMovement : MonoBehaviour
             launchJumping();
             animator.SetTrigger("jump");
         }
+<<<<<<< HEAD
         if (jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
+=======
+
+        if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
+>>>>>>> origin/CameraAndFixes
         {
             jumped = false;
         }
@@ -145,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumping)
                 startHeightmax = Time.time;
             jumping = false;
+            springed = false;
             accelerateJump = 0.0f;
         }
         if (!jumping && !isGrounded && (startHeightmax + heightMaxDuration < Time.time))
@@ -400,6 +407,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Spring(float _jumpSpeedMod, float _heightJumpMod, float _speedFallMod)
     {
+        springed = true;
+        jumped = true;
         jumping = true;
         heightJump = _heightJumpMod;
         jumpSpeed = _jumpSpeedMod;
