@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     // est ce que le joueur est au sol ( surtout utilisé pour pouvoir sauter)
     public bool isGrounded = false;
     public Animator animator;
+    public Animator animatorShadow;
     public bool isFresco = false;
     
     void Start()
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         accelerateJump = 0.0f;
         distanceFromCenter = baseDistanceFromCenter;
         groundDetection = baseDistanceFromCenter + 0.2f;
+        animatorShadow.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -91,10 +93,16 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetAxisRaw("R_YAxis_0") > 0.3 || Input.GetButton("B_0") || Input.GetKey(KeyCode.Z))
                 {
                     heightModificator -= 0.3f;
+                    animator.gameObject.SetActive(false);
+                    animatorShadow.gameObject.SetActive(true);
                 }
                 else
                 {
                     heightModificator -= 0.0f;
+                    animator.gameObject.SetActive(true);
+
+                    if(heightModificator >= -1.2f)
+                        animatorShadow.gameObject.SetActive(false);
                 }
 
                 if (!jumping)
@@ -110,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         {
             launchJumping();
             animator.SetTrigger("jump");
+            animatorShadow.SetTrigger("jump");
         }
         if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
         {
@@ -121,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
             dashing = true;
             leftDash = true;
             animator.SetTrigger("barellRollLeft");
+            animatorShadow.SetTrigger("barellRollLeft");
             lDashed = true;
         }
         if (Input.GetAxisRaw("TriggersL_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") > -0.3)
@@ -131,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
             dashing = true;
             rightDash = true;
             animator.SetTrigger("barellRollRight");
+            animatorShadow.SetTrigger("barellRollRight");
             rDashed = true;
         }
         if (Input.GetAxisRaw("TriggersR_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") < 0.3)
@@ -160,6 +171,9 @@ public class PlayerMovement : MonoBehaviour
         else if (!jumping && !jumped && (startHeightmax + heightMaxDuration < Time.time))
             heightModificator *= 0.98f;
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
+
+        Debug.Log(heightModificator);
+
         isGrounded = distanceFromCenter < groundDetection ? true : false;
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
             return;*/
@@ -339,22 +353,24 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if(speedForward >= MaxSpeed && !attainedMaxSpeed && isGrounded && !dashing && !hitObstacle)
-            {
-                Debug.Log("Poupidou");
+            { 
                 attainedMaxSpeed = true;
                 animator.SetBool("maxSpeed", true);
+                animatorShadow.SetBool("maxSpeed", true);
             }
 
             if (!isGrounded || dashing || hitObstacle)
             {
                 attainedMaxSpeed = false;
                 animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
             }
 
             if (speedForward < MaxSpeed && attainedMaxSpeed)
             {
                 attainedMaxSpeed = false;
                 animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
             }
         }
         else
@@ -393,18 +409,21 @@ public class PlayerMovement : MonoBehaviour
             {
                 attainedMaxSpeed = true;
                 animator.SetBool("maxSpeed", true);
+                animatorShadow.SetBool("maxSpeed", true);
             }
 
             if (!isGrounded || dashing || hitObstacle)
             {
                 attainedMaxSpeed = false;
                 animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
             }
 
             if (speedForward < MaxSpeed && attainedMaxSpeed)
             {
                 attainedMaxSpeed = false;
                 animator.SetBool("maxSpeed", false);
+                animatorShadow.SetBool("maxSpeed", false);
             }
         }
         else
@@ -485,6 +504,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hitObstacle = true;
             animator.SetTrigger("hit");
+            animatorShadow.SetTrigger("hit");
         }
     }
     public void frescoMode(float _modifierBaseSpeed)

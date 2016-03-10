@@ -155,7 +155,15 @@ ModelImporter:
     4300010: RigController_RightWing_Wave
     4300012: RigController_RightWing_End
     4300014: RigController_RightWing_EndRotator
-    7400000: Take 001
+    7400000: Idle
+    7400002: Jump
+    7400004: BarellRoll
+    7400006: IdleFast
+    7400008: Turn
+    7400010: Hit
+    7400012: DiveStart
+    7400014: DiveIn
+    7400016: DiveEnd
     9500000: //RootNode
     13700000: SK_Manta
   materials:
@@ -180,7 +188,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Idle
       takeName: Take 001
       firstFrame: 10
       lastFrame: 90
@@ -191,6 +199,1326 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BarellRoll
+      takeName: Take 001
+      firstFrame: 192
+      lastFrame: 222
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: IdleFast
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 271
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Turn
+      takeName: Take 001
+      firstFrame: 290
+      lastFrame: 330
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Hit
+      takeName: Take 001
+      firstFrame: 350
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DiveStart
+      takeName: Take 001
+      firstFrame: 400
+      lastFrame: 437
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DiveIn
+      takeName: Take 001
+      firstFrame: 438
+      lastFrame: 438
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: RigController_Master
+        weight: 1
+      - path: RigController_Master/Helper_Root
+        weight: 1
+      - path: RigController_Master/Helper_Root/Bone_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Bone_LeftWing_01/Bone_LeftWing_02/Bone_LeftWing_03/Bone_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_End_IK/IK
+          Chain_LeftWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_InterWave_IK/IK
+          Chain_LeftWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/Helper_LeftWing_Start/Helper_LeftWing_Wave_IK/IK
+          Chain_LeftWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_End/RigController_LeftWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_LeftWing/RigController_LeftWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_DefaultWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Bone_RightWing_01/Bone_RightWing_02/Bone_RightWing_03/Bone_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_End/IK
+          Chain_RightWing_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_InterWave/IK
+          Chain_RightWing_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RightWing_Start/Helper_RightWing_Wave/IK
+          Chain_RightWing_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_Default
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/Helper_RigthWing_DefaultEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_End/RigController_RightWing_EndRotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/Helper_RightWing/RigController_RightWing_Wave
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/Helper_Body/Bone_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle026
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle027
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Circle028
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_Hit/Bone_Tail_HitEnd
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_End_IK/IK
+          Chain_Tail_03
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_InterWave_IK/IK
+          Chain_Tail_02
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/Helper_Tail/Helper_Tail_Wave_IK/IK
+          Chain_Tail_01
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_End/RigController_TailHit_Rotator
+        weight: 1
+      - path: RigController_Master/Helper_Root/RigController_Tail_Primary/RigController_Tail_Secondary/Helper_Tail_Start/RigController_Tail_Wave
+        weight: 1
+      - path: SK_Manta
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DiveEnd
+      takeName: Take 001
+      firstFrame: 439
+      lastFrame: 483
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
