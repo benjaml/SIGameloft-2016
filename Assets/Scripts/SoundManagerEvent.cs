@@ -19,7 +19,7 @@ using System.Collections;
 				//SpawnFXAt(go.transform.position);
 			}
 		};
-		EventManagerScript.onEvent += maCallback; 
+		EventManagerScript.onEvent += maCallback;
  * 
  * qui permet de:
 		EventManagerScript.onEvent -= maCallback; //Retire l'appel
@@ -29,34 +29,27 @@ using System.Collections;
 public enum SoundManagerType
 {
     //Sounds
-        //Character
-    Diving, //OK (pas testé) index 9
-    DiveOut, //OK (pas testé)  index 10
-    Jump, //OK (pas testé) index 11
-    Straff, // OK (pas testé) index 12
-    Acceleration,//OK (pas testé) index 13
-
-        //Dragon
-    Anrgy, //OK (pas testé, valeur à définir) index 14
-    Suffering, //OK (pas testé) index de 5 à 8
-    BellRung, //OK (pas testé) index 15
-
+    //Character
+    Diving, //Script pas mergés
+    Jump, //OK (pas testé)
+    Flying, // A faire boucler ? Je sais pas où le mettre.
+    Straff, // Comment je fais boucler ?
+    Damage, //OK (pas testé)
+    //Dragon
+    Anrgy, // Pas de script ?
+    Suffering, //Pas de script 
         //Bells
-    Gong, //OK (pas testé) index 16
-    Bell, //OK (pas testé) index 17
-
+    Gong, //Script pas mergé
+    Bell, //Script pas mergé 
         //Flowers
-    Flower, //OK (pas testé) index 0 à 4
-
-        //Environment   
-    Impact, //OK (pas testé) index 18
-    Stream, //A mettre en continu index 19
+    Flower, //Script pas mergé, comment qu'on fait pour faire plusieurs sons ?
+        //Environment 
+    Stream, //Je sais pas où mettre
     Thunder, //Je sais pas où mettre
 
     //Voice
         //Character
-    CharacterHurt, //OK (pas testé) index 0
-    Talk, //OK (pas testé) index 1 à 5
+    Talk, //Je sais pas où mettre
 }
 
 public class SoundManagerEvent : MonoBehaviour

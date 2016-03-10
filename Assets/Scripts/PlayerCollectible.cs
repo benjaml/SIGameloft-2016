@@ -31,8 +31,6 @@ public class PlayerCollectible : MonoBehaviour {
                 listCollectible.Add(col.gameObject);
                 lastObject = listCollectible[listCollectible.Count - 2];
             }
-            SoundManagerEvent.emit(SoundManagerType.Flower);
-       
 
             randomWidth = Random.Range(-3f, 3);
             randomHeight = Random.Range(-0.1f, 1);

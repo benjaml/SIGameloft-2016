@@ -32,16 +32,17 @@ public class PlayerFx : MonoBehaviour {
         {
             fxDiveFoam.enabled = true;
             fxDiveFoam.emit = true;
-            SoundManagerEvent.emit(SoundManagerType.Diving); //A faire looper
         }
 
         if (Input.GetAxisRaw("R_YAxis_0") < 0.1 && isGrounded)
         {
             StartCoroutine(fxDive());
-
-            
         }
-
+        if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
+        {
+            fxDiveFoam.enabled = true;
+            fxDiveFoam.emit = true;
+        }
 
         //Left tilt
         if (Input.GetAxisRaw("Horizontal") > 0.2f  && isGrounded)
@@ -51,13 +52,8 @@ public class PlayerFx : MonoBehaviour {
             fxRightTilt_2.enabled = true;
             fxRightTilt_2.emit = true;
 
-            Debug.Log("patate");
 
-        }
 
-        if (Input.GetAxisRaw("R_YAxis_0") > 0 && Input.GetAxisRaw("R_YAxis_0") < 0.2f && isGrounded)
-        {
-            SoundManagerEvent.emit(SoundManagerType.DiveOut);
         }
 
         //Right tilt
@@ -71,9 +67,9 @@ public class PlayerFx : MonoBehaviour {
            
         }
 
-        if ((Input.GetAxisRaw("Horizontal") == 0  && isGrounded) || !isGrounded)
+        if ((Input.GetAxisRaw("Horizontal") == 0  && isGrounded)|| !isGrounded)
         {
-            SoundManagerEvent.emit(SoundManagerType.Stream);
+
             StartCoroutine(fxTiltRight());
             StartCoroutine(fxTiltLeft());
         }

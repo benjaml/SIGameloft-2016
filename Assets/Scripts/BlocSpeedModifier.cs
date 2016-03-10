@@ -20,29 +20,21 @@ public class BlocSpeedModifier : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-            SoundManagerEvent.emit(SoundManagerType.Impact);
-            SoundManagerEvent.emit(SoundManagerType.CharacterHurt);
             flowersList = col.gameObject.transform.parent.GetComponent<PlayerCollectible>().listCollectible;
             losingFlowers();
 
             playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
 
-<<<<<<< HEAD
             stockBaseSpeed = playerMovementScript.baseSpeed;
             stockMaxSpeed = playerMovementScript.MaxSpeed;
 
-=======
-            playerMovementScript.reduceCurrentSpeed(reduceSpeed, lowSpeedTime);
-
-            /*stockBaseSpeed = playerMovementScript.baseSpeed;
->>>>>>> origin/CameraAndFixes
             playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
 
 
             playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
 
 
-            StartCoroutine(reducingSpeed());*/
+            StartCoroutine(reducingSpeed());
             
             //Add a certain value to the dragon wrath
         }

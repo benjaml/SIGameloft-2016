@@ -21,5 +21,7 @@ public class LDOrientation : MonoBehaviour
                 transform.up = hit.normal;
             }
         }
+        if (Application.isPlaying)
+            Destroy(this);
     }
 }

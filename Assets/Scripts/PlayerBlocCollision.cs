@@ -20,10 +20,6 @@ public class PlayerBlocCollision : MonoBehaviour {
         if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacleAir")
         {
             StartCoroutine(fxBlocCollision());
-            SoundManagerEvent.emit(SoundManagerType.CharacterHurt);
-            SoundManagerEvent.emit(SoundManagerType.Suffering);
-
-
         }
     }
 
