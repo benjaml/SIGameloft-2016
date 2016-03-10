@@ -15,6 +15,7 @@ public class PlayerFx : MonoBehaviour {
     public PlaygroundParticlesC fxLeftTilt_2;
 
     private bool isGrounded;
+    private bool diving;
 
     void Start()
     {         fxDiveFoam.enabled = false;
@@ -28,20 +29,19 @@ public class PlayerFx : MonoBehaviour {
     {
         isGrounded = GetComponent<PlayerMovement>().isGrounded;
 
-        if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
-        {
-            fxDiveFoam.enabled = true;
-            fxDiveFoam.emit = true;
-        }
 
-        if (Input.GetAxisRaw("R_YAxis_0") < 0.1 && isGrounded)
+        if (Input.GetAxisRaw("R_YAxis_0") < 0.3)
         {
-            StartCoroutine(fxDive());
+            fxDiveFoam.enabled = false;
+            fxDiveFoam.emit = false;
+            diving = false;
         }
-        if (Input.GetAxisRaw("R_YAxis_0") > 0 && isGrounded)
+        if (Input.GetAxisRaw("R_YAxis_0") > 0.3 && isGrounded && !diving)
         {
             fxDiveFoam.enabled = true;
             fxDiveFoam.emit = true;
+            SoundManagerEvent.emit(SoundManagerType.Diving);
+            diving = true;
         }
 
         //Left tilt
@@ -51,6 +51,8 @@ public class PlayerFx : MonoBehaviour {
             fxRightTilt_1.emit = true;
             fxRightTilt_2.enabled = true;
             fxRightTilt_2.emit = true;
+            SoundManagerEvent.emit(SoundManagerType.Straff);
+
         }
 
         //Right tilt
@@ -60,13 +62,14 @@ public class PlayerFx : MonoBehaviour {
             fxLeftTilt_1.emit = true;
             fxLeftTilt_2.enabled = true;
             fxLeftTilt_2.emit = true;
+            SoundManagerEvent.emit(SoundManagerType.Straff);
 
-           
+
         }
 
         if ((Input.GetAxisRaw("Horizontal") == 0  && isGrounded)|| !isGrounded)
         {
-
+            SoundManagerEvent.emit(SoundManagerType.Stream);
             StartCoroutine(fxTiltRight());
             StartCoroutine(fxTiltLeft());
         }

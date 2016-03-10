@@ -141,6 +141,8 @@ public class PlayerMovement : MonoBehaviour
             dashing = true;
             rightDash = true;
             animator.SetTrigger("barellRollRight");
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            Invoke("ResetLocalScale", 0.6f);
             animatorShadow.SetTrigger("barellRollRight");
             rDashed = true;
         }
@@ -246,6 +248,11 @@ public class PlayerMovement : MonoBehaviour
         //moveDirection += tmpGrav*Time.deltaTime*gravityDirection;
         targetPosition = (transform.position + (moveDirection * Time.deltaTime));
         ApplyMovement();
+    }
+
+    void ResetLocalScale()
+    {
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     void ApplyMovement()
@@ -528,6 +535,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.transform.tag == "floor")
             isGrounded = true;
+        SoundManagerEvent.emit(SoundManagerType.Stream);
     }
     void OnCollisionExit(Collision col)
     {
