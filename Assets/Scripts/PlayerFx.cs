@@ -51,7 +51,7 @@ public class PlayerFx : MonoBehaviour {
             fxRightTilt_2.enabled = true;
             fxRightTilt_2.emit = true;
 
-
+            Debug.Log("patate");
 
         }
 
@@ -71,7 +71,7 @@ public class PlayerFx : MonoBehaviour {
            
         }
 
-        if (Input.GetAxisRaw("Horizontal") == 0  && isGrounded)
+        if ((Input.GetAxisRaw("Horizontal") == 0  && isGrounded) || !isGrounded)
         {
             SoundManagerEvent.emit(SoundManagerType.Stream);
             StartCoroutine(fxTiltRight());

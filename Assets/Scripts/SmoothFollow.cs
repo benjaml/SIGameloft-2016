@@ -68,6 +68,9 @@ namespace UnityStandardAssets.Utility
         private float interiorAngle = 90.0f;
         private float downAngle = 180.0f;
 
+        private float previousSpeed = 0.0f;
+        private float thresholdDelta = 2.0f;
+
         [Header("Fresque Camera")]
         public float fresqueDistance;
         public float fresqueHeight;
@@ -84,6 +87,7 @@ namespace UnityStandardAssets.Utility
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
             mainCam = Camera.main;
             player = target.gameObject.GetComponent<PlayerMovement>();
+            previousSpeed = player.getBaseSpeed();
         }
 
         // Update is called once per frame
@@ -132,7 +136,7 @@ namespace UnityStandardAssets.Utility
             if (_zAngle == 0)
                 _zAngle = 360;
 
-            if (Input.GetAxisRaw("R_YAxis_0") > 0.3f && (_zAngle >= realTopAngle && _zAngle <= downAngle))
+            if ((Input.GetAxisRaw("R_YAxis_0") > 0.3f || Input.GetKey(KeyCode.Z)) && (_zAngle >= realTopAngle && _zAngle <= downAngle))
             {
                 float _angleToDiveCamera = Mathf.Abs(interiorAngle - _zAngle);
 
@@ -154,10 +158,11 @@ namespace UnityStandardAssets.Utility
 
             if (_zAngle <= topAngle && _zAngle >= downAngle)
             {
-                percentAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
-                percentAccHeight = exteriorHeight * (1 + (accelerationHeight / 100));
-
                 float _angleToChangeCamera = Mathf.Abs(_zAngle - exteriorAngle);
+                float extPerAccDist = exteriorDistance * (1 + (accelerationDistance / 100));
+                float extPerAccH = exteriorHeight * (1 + (accelerationHeight / 100));
+                float intPerAccDist = interiorDistance * (1 + (accelerationDistance / 100));
+                float intPerAccH = interiorHeightForCalc * (1 + (accelerationHeight / 100));
 
                 if (interiorDistance > exteriorDistance)
                     distance = exteriorDistance + ((_angleToChangeCamera * (interiorDistance - exteriorDistance)) / 90);
@@ -173,6 +178,16 @@ namespace UnityStandardAssets.Utility
                     forwardValue = exteriorForward + ((_angleToChangeCamera * (interiorForward - exteriorForward)) / 90);
                 else
                     forwardValue = exteriorForward - ((_angleToChangeCamera * (exteriorForward - interiorForward)) / 90);
+
+                if (intPerAccDist > extPerAccDist)
+                    percentAccDist = extPerAccDist + ((_angleToChangeCamera * (intPerAccDist - extPerAccDist)) / 90);
+                else
+                    percentAccDist = extPerAccDist - ((_angleToChangeCamera * (extPerAccDist - intPerAccDist)) / 90);
+
+                if (intPerAccH > extPerAccH)
+                    percentAccHeight = extPerAccH + ((_angleToChangeCamera * (intPerAccH - extPerAccH)) / 90);
+                else
+                    percentAccHeight = extPerAccH - ((_angleToChangeCamera * (extPerAccH - intPerAccH)) / 90);
             }
             else
             {
@@ -184,6 +199,23 @@ namespace UnityStandardAssets.Utility
             }
 
             float speed = player.getSpeed();
+
+            float deltaSpeed;
+
+            if (previousSpeed < speed)
+            {
+                deltaSpeed = player.getAcceleration() * Time.deltaTime * thresholdDelta;
+
+                if (previousSpeed + deltaSpeed < speed)
+                    speed = previousSpeed + deltaSpeed;
+            }
+            else if(previousSpeed > speed)
+            {
+                deltaSpeed = player.getDeceleration() * Time.deltaTime * thresholdDelta;
+
+                if (previousSpeed - deltaSpeed > speed)
+                    speed = previousSpeed - deltaSpeed;
+            }
 
             if (speed < player.getBaseSpeed())
                 speed = player.getBaseSpeed();
@@ -209,6 +241,8 @@ namespace UnityStandardAssets.Utility
                 mainCam.fieldOfView = accelerationFOV + ((speedToAngle * (baseFOV - accelerationFOV)) / 90);
             else
                 mainCam.fieldOfView = accelerationFOV - ((speedToAngle * (accelerationFOV - baseFOV)) / 90);
+
+            previousSpeed = speed;
         }
         
         public void fresqueMode()

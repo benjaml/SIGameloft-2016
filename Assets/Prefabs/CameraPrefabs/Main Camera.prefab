@@ -97,14 +97,14 @@ MonoBehaviour:
   smoothTime: 0.3
   rightnessFactor: 8
   interiorHeight: 2
-  interiorHeightDive: 5
+  interiorHeightDive: 8
   interiorDistance: 5
   interiorForward: 15
   exteriorHeight: 15
   exteriorDistance: 10
   exteriorForward: -5
-  accelerationHeight: -75
-  accelerationHeightDive: -20
+  accelerationHeight: -10
+  accelerationHeightDive: -70
   accelerationDistance: -50
   baseFOV: 60
   accelerationFOV: 80
