@@ -121,6 +121,10 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Alpha
+        second: 1
+      data:
+        first:
           name: _Metallic
         second: 0
       data:
@@ -133,16 +137,12 @@ Material:
         second: 0.05
       data:
         first:
-          name: _Alpha
-        second: 1
-      data:
-        first:
           name: _LightAffected
         second: 0
       data:
         first:
           name: _CloudsMouvSlider
-        second: 3.5808446
+        second: 0.49059716
       data:
         first:
           name: _Parallax
@@ -173,6 +173,14 @@ Material:
         second: 0
       data:
         first:
+          name: _Transmission
+        second: 1
+      data:
+        first:
+          name: _ShadowOpacity
+        second: 0.38
+      data:
+        first:
           name: _LightTransitionSlider
         second: 1
       data:
@@ -183,14 +191,6 @@ Material:
         first:
           name: _BoolAfternoon
         second: 0
-      data:
-        first:
-          name: _Transmission
-        second: 1
-      data:
-        first:
-          name: _ShadowOpacity
-        second: 0.38
       data:
         first:
           name: _ShadowSaturation

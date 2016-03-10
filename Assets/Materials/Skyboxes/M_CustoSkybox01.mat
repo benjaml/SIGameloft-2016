@@ -146,16 +146,16 @@ Material:
         second: 0
       data:
         first:
-          name: _Madness
-        second: 0
-      data:
-        first:
           name: _Glossiness
         second: 0.5
       data:
         first:
+          name: _Madness
+        second: 0
+      data:
+        first:
           name: _TimeSlider
-        second: 358.08453
+        second: 49.05972
       data:
         first:
           name: _Parallax
