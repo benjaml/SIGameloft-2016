@@ -26,6 +26,7 @@ public class ChangeLevelDesign : EditorWindow
 
     public void ChangeLevelDesignBlock()
     {
+        /*
         m_Identifier.Add("Arbre01");
         m_Identifier.Add("Arbre02");
         m_Identifier.Add("Bamboo");
@@ -48,6 +49,9 @@ public class ChangeLevelDesign : EditorWindow
         m_Identifier.Add("Roots01");
         m_Identifier.Add("Tube");
         m_Identifier.Add("Stick01");
+        */
+
+        m_Identifier.Add("collectible");
 
         foreach (string _id in m_Identifier)
         {

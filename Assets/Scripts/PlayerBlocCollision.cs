@@ -17,7 +17,9 @@ public class PlayerBlocCollision : MonoBehaviour {
 	
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" || col.gameObject.tag == "obstacleAir")
+
+        if (col.gameObject.tag == "obstacle" || col.gameObject.tag == "obstacleFloor" ||
+            col.gameObject.tag == "obstacleAir")
         {
             StartCoroutine(fxBlocCollision());
             gameObject.GetComponent<PlayerMovement>().hasHitObstacle();
@@ -29,10 +31,16 @@ public class PlayerBlocCollision : MonoBehaviour {
         fxBlocCollision_1.enabled = true;
         fxBlocCollision_2.enabled = true;
         fxBlocCollision_3.enabled = true;
-        yield return new WaitForSeconds(0.4f);
+        fxBlocCollision_1.emit = true;
+        fxBlocCollision_2.emit = true;
+        fxBlocCollision_3.emit = true;
+        yield return new WaitForSeconds(1);
         fxBlocCollision_1.emit = false;
         fxBlocCollision_2.emit = false;
         fxBlocCollision_3.emit = false;
+        fxBlocCollision_1.enabled = false;
+        fxBlocCollision_2.enabled = false;
+        fxBlocCollision_3.enabled = false;
         yield return null;
     }
 }

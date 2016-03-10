@@ -13,11 +13,7 @@ public class CollectibleFx : MonoBehaviour {
         fxLotus_2.enabled = false;
      
     }
-
-    void Update ()
-    {
-        Debug.Log(fxLotus_1.emit);
-    }
+    
 
     void OnTriggerEnter(Collider col)
     {

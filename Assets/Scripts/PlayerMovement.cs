@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public Animator animatorShadow;
     public bool isFresco = false;
-    
+
     void Start()
     {
         timeStartDash = -dashCooldown;
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                     heightModificator -= 0.0f;
                     animator.gameObject.SetActive(true);
 
-                    if(heightModificator >= -1.2f)
+                    if (heightModificator >= -1.2f)
                         animatorShadow.gameObject.SetActive(false);
                 }
 
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("jump");
             animatorShadow.SetTrigger("jump");
         }
-        if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
+        if (jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
         {
             jumped = false;
         }
@@ -171,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
         else if (!jumping && !jumped && (startHeightmax + heightMaxDuration < Time.time))
             heightModificator *= 0.98f;
         distanceFromCenter = baseDistanceFromCenter + heightModificator;
+        
 
         isGrounded = distanceFromCenter < groundDetection ? true : false;
         /*if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.3f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.3f)
@@ -211,6 +212,8 @@ public class PlayerMovement : MonoBehaviour
 
                 // permet de voir les points de gravité
                 Debug.DrawLine(hit.point, hit.normal, Color.green);
+                DebugPoint(gravityCenter, Color.red);
+                DebugPoint(secondGravityCenter, Color.red);
                 // Idem que au dessus, avec le (*=) pour combiner les 2 quaternions
                 targetRotation *= Quaternion.FromToRotation(transform.forward, (secondGravityCenter - gravityCenter).normalized);
             }
@@ -348,8 +351,8 @@ public class PlayerMovement : MonoBehaviour
                     speedForward = baseSpeed;
             }
 
-            if(speedForward >= MaxSpeed && !attainedMaxSpeed && isGrounded && !dashing && !hitObstacle)
-            { 
+            if (speedForward >= MaxSpeed && !attainedMaxSpeed && isGrounded && !dashing && !hitObstacle)
+            {
                 attainedMaxSpeed = true;
                 animator.SetBool("maxSpeed", true);
                 animatorShadow.SetBool("maxSpeed", true);

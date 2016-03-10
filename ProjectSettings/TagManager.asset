@@ -35,6 +35,7 @@ TagManager:
   - Stick01
   - Tube
   - Vertebre
+  - loading
   layers:
   - Default
   - TransparentFX
