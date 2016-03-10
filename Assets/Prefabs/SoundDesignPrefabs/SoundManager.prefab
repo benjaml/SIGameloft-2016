@@ -1082,11 +1082,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Music: []
   Sound:
-  - {fileID: 8300000, guid: 417ee6c159cd8ff48b43f94b36ad30eb, type: 3}
-  - {fileID: 8300000, guid: 17290a3a30b0d4e4daf5b0255ede28bf, type: 3}
-  - {fileID: 8300000, guid: 69635a45c7524d34cb395125966b1968, type: 3}
-  - {fileID: 8300000, guid: 9387acecfad5a134eaa2beaa2f36d458, type: 3}
-  - {fileID: 8300000, guid: 6463534396c39414d9f3c65776080369, type: 3}
+  - {fileID: 8300000, guid: 94c2e3cd13118b143abcbce7f2684d0d, type: 3}
+  - {fileID: 8300000, guid: 734db1bd5c2c8254b8303a8e8ed49484, type: 3}
+  - {fileID: 8300000, guid: 8761fb2520e9caa4784faffde8274287, type: 3}
+  - {fileID: 8300000, guid: e555a49f2d0bb7a40ac623a177401792, type: 3}
+  - {fileID: 8300000, guid: 8d7a7bb666a9b854cae0a5b22e618a4a, type: 3}
   - {fileID: 8300000, guid: b47da6b101696984888599a29d5ddff0, type: 3}
   - {fileID: 8300000, guid: 46a04bbfbe4387343be9561875ec8d16, type: 3}
   - {fileID: 8300000, guid: b06e53b9836bd504f8f5d581bd8ee15d, type: 3}

@@ -135,6 +135,10 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("R_YAxis_0") < -0.3 || Input.GetButtonDown("A_0") || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumped && !isFresco)
         {
             launchJumping();
+<<<<<<< HEAD
+=======
+            SoundManagerEvent.emit(SoundManagerType.Jump);
+>>>>>>> origin/Sounds_and_fx
             animator.SetTrigger("jump");
         }
 
@@ -511,7 +515,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.transform.tag == "floor")
         {
-            SoundManagerEvent.emit(SoundManagerType.Jump);
+
             isGrounded = false;
         }
     }
