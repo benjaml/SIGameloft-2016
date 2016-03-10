@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class BlocSpeedModifier : MonoBehaviour {
 
     public float reduceSpeed = 0.6f;
-    public float accelerationTime;
-    public float lowSpeedTime = 5f;
+    private float accelerationTime = 5f;
+    private float lowSpeedTime = 1f;
     public float percentOfFlowerLost = 30;
 
     private float flowersLost;

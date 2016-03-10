@@ -37,7 +37,9 @@ public enum SoundManagerType
     HomeRun,
     MenuMove,
     Victory,
-    WoodShock
+    WoodShock,
+    Jump,
+    Anrgy
 }
 
 public class SoundManagerEvent : MonoBehaviour

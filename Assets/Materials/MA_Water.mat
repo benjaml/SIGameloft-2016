@@ -113,6 +113,13 @@ Material:
           m_Texture: {fileID: 2800000, guid: 71a5c330c5c57b546bbcaa87fa688b15, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Plancton
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -318,6 +325,10 @@ Material:
         first:
           name: _GlobalOffset
         second: 0
+      data:
+        first:
+          name: _Night
+        second: 0.263735
     m_Colors:
       data:
         first:
@@ -367,3 +378,7 @@ Material:
         first:
           name: _Color_Outside
         second: {r: 0, g: 0.47819456, b: 0.60294116, a: 1}
+      data:
+        first:
+          name: _PlanctonColor
+        second: {r: 0.4705882, g: 0.9342799, b: 1, a: 1}

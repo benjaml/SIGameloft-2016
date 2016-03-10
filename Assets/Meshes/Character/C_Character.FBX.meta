@@ -12,7 +12,7 @@ ModelImporter:
     4300000: M_corps001
     4300002: M_corps002
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
