@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private bool leftDash = false;
     private bool lDashed = false;
     private bool rDashed = false;
+    private bool springed = false;
     private float _xStick = 0.0f;
     private float initJumpSpeed, initHeightJump, initSpeedFall, accelerateJump, initBaseSpeed;
 
@@ -118,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("jump");
         }
 
-        if(jumped && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
+        if(jumped && !springed && (Input.GetAxisRaw("R_YAxis_0") > -0.3 || Input.GetButtonUp("A_0") || Input.GetKeyUp(KeyCode.Space)))
         {
             jumped = false;
         }
@@ -164,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumping)
                 startHeightmax = Time.time;
             jumping = false;
+            springed = false;
             accelerateJump = 0.0f;
         }
 
@@ -456,6 +458,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Spring(float _jumpSpeedMod, float _heightJumpMod, float _speedFallMod)
     {
+        springed = true;
+        jumped = true;
         jumping = true;
         heightJump = _heightJumpMod;
         jumpSpeed = _jumpSpeedMod;
