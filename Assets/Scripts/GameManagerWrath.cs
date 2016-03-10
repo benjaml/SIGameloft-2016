@@ -65,6 +65,10 @@ public class GameManagerWrath : MonoBehaviour
         }
         if (wrath > maxWrath)
             wrath = maxWrath;
+
+        if (wrath == maxWrath)
+            GameManager.instance.lose();
+
         float newPosition = Mathf.SmoothDamp(dragon.GetFloat("_Madness"), wrath, ref wrathVelocity, smoothWrath)/500f;
         dragon.SetFloat("_Madness", wrath/500f);
     }

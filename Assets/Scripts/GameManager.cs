@@ -1,14 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager instance = null;
     public bool startUiOpened;
     public bool deathUiOpened;
     public GameObject startUi;
     public GameObject deathUi;
-	
-    void Start ()
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+                Destroy(gameObject);
+        }
+    }
+
+        void Start ()
     {
         startUiOpened = false;
         deathUiOpened = false;
@@ -25,6 +40,21 @@ public class GameManager : MonoBehaviour {
         {
             StartCoroutine(openDeathUI());
         }
+    }
+
+    void loadLevel(int _numScene)
+    {
+        SceneManager.LoadScene(_numScene);
+    }
+
+    public void win()
+    {
+        //load win scene
+    }
+
+    public void lose()
+    {
+        //load lose scene
     }
 	
     IEnumerator openStartUI ()
