@@ -112,7 +112,7 @@ public class SoundManager : MonoBehaviour {
             case SoundManagerType.Suffering:
                 m_DragonSufferingIndex++;
 
-                if (m_DragonSufferingIndex > 8)
+                if (m_DragonSufferingIndex > 6)
                 {
                        m_DragonSufferingIndex = 5;
                 }
@@ -120,7 +120,7 @@ public class SoundManager : MonoBehaviour {
                 if (!Source[5].isPlaying)
                 {
                     Source[5].Stop();
-                    Source[5].clip = Sound[m_DragonSufferingIndex -1]; //Mettre les sons du dragon entre 5 et 8
+                    Source[5].clip = Sound[m_DragonSufferingIndex -1]; //Mettre les sons du dragon entre 5 et 6 //Pas de sons à 7 et 8
                     Source[5].Play();
                 }
                 break;

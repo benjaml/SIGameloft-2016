@@ -6,15 +6,15 @@ public class GameManagerWrath : MonoBehaviour
 
 
     public static GameManagerWrath instance = null;
-    public GameObject player;
-    private Material[] dragonsMat;
+    public GameObject player;                       //Le gameObject du joueur 
+    private Material[] dragonsMat;                  // Material/shader du dragon
     public float maxWrath = 500;
     [Range(0, 500)]
     public float wrath;
     private float wrathLast = -1;
     private float wrathVelocity = 0.0f;
     public float smoothWrath = 0.3f;
-    public float wrathAugementationByTick = 5f;
+    public float wrathAugementationByTick = 5f;     //
     public float timeBetweenTick = 0.3f;
 
     public int numberOfCollectibles;

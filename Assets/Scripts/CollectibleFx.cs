@@ -23,8 +23,6 @@ public class CollectibleFx : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-            SoundManagerEvent.emit(SoundManagerType.Flower);
-            SoundManagerEvent.emit(SoundManagerType.Talk);
             StartCoroutine(fxLotusEmission());
         }
     }

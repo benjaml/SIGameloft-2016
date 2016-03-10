@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_CustoSkybox01
-  m_Shader: {fileID: 4800000, guid: 7ccd2b487cd7ec6418348d4f2db061ca, type: 3}
+  m_Name: M_SpeedEffect
+  m_Shader: {fileID: 4800000, guid: a787c62c0c4724b47b28e4d00b17f2fa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -80,51 +80,30 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SkyGradient
+          name: _node_7528
         second:
-          m_Texture: {fileID: 2800000, guid: 9c64a96045b80bd4984362e0c2a66572, type: 3}
-          m_Scale: {x: 0.0009, y: 0.5}
-          m_Offset: {x: 0.09, y: 0.5}
-      data:
-        first:
-          name: _OrageGradient
-        second:
-          m_Texture: {fileID: 2800000, guid: 49f42b07bb70b424c93ffde5db196917, type: 3}
-          m_Scale: {x: 1, y: 0.5}
-          m_Offset: {x: 0, y: 0.5}
-      data:
-        first:
-          name: _SkyMap
-        second:
-          m_Texture: {fileID: 8900000, guid: 6730496b98efe4a41b1e1cc57bc62d5c, type: 2}
+          m_Texture: {fileID: 2800000, guid: dd0a425ad60b4e34aaed7a6b41cf35e7, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_26
-        second:
-          m_Texture: {fileID: 2800000, guid: 647a3cf5c8a058a4aa84d579d888e37d, type: 3}
-          m_Scale: {x: 1, y: 0.2}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Stars
-        second:
-          m_Texture: {fileID: 8900000, guid: 3cd885d01b22bf74ab6ecaa93a8a11bc, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_8526
+          name: _node_2799
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_792
+          name: _node_5040
         second:
-          m_Texture: {fileID: 8900000, guid: efd85d3575e9ff945b9a0832fd700e0d, type: 2}
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_3112
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -178,24 +157,28 @@ Material:
         second: 0
       data:
         first:
-          name: _Madness
+          name: _Opacity
+        second: 0.4
+      data:
+        first:
+          name: _Stripes
+        second: 1
+      data:
+        first:
+          name: _Fade
+        second: 3.1
+      data:
+        first:
+          name: _node_8126
+        second: 4.8
+      data:
+        first:
+          name: _node_5246
+        second: 5.4
+      data:
+        first:
+          name: _node_2903
         second: 0
-      data:
-        first:
-          name: _TimeSlider
-        second: 338.81018
-      data:
-        first:
-          name: _Saturation
-        second: 0
-      data:
-        first:
-          name: _node_55
-        second: 42
-      data:
-        first:
-          name: _StarsOpacity
-        second: -0.5
     m_Colors:
       data:
         first:
@@ -205,7 +188,3 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _node_25
-        second: {r: 0.5588235, g: 0.2285169, b: 0.049307972, a: 1}

@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &111606
 GameObject:
   m_ObjectHideFlags: 1
@@ -463,7 +463,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 344d4b0036e1d401e8c6c53be26368f0, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &152164
 GameObject:
   m_ObjectHideFlags: 1
@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 344d4b0036e1d401e8c6c53be26368f0, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &154520
 GameObject:
   m_ObjectHideFlags: 1
@@ -916,7 +916,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.05}
+  m_LocalPosition: {x: -0.04, y: 0.67, z: 1.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 497624}
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 499978}
   sourceTransforms:
   - transform: {fileID: 499978}
-    instanceID: -1440
+    instanceID: -1764
     available: 1
     position: {x: 8.069333, y: 6.0942016, z: -16.798576}
     localPosition: {x: 0, y: 0, z: 0}
@@ -3138,7 +3138,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 414512}
   sourceTransforms:
   - transform: {fileID: 414512}
-    instanceID: -1420
+    instanceID: -1794
     available: 1
     position: {x: 6.8543553, y: 7.108939, z: -18.184708}
     localPosition: {x: 0, y: 0, z: 0}
@@ -3874,7 +3874,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 428790}
   sourceTransforms:
   - transform: {fileID: 428790}
-    instanceID: -1432
+    instanceID: -1756
     available: 1
     position: {x: 6.9614177, y: 7.148298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
@@ -4610,7 +4610,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 408280}
   sourceTransforms:
   - transform: {fileID: 408280}
-    instanceID: -1430
+    instanceID: -1754
     available: 1
     position: {x: 6.9614177, y: 7.148298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
@@ -5366,7 +5366,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 483996}
   sourceTransforms:
   - transform: {fileID: 483996}
-    instanceID: -1416
+    instanceID: -1750
     available: 1
     position: {x: 5.2028346, y: 5.913332, z: -17.664875}
     localPosition: {x: 0, y: 0, z: 0}
@@ -6102,7 +6102,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 439188}
   sourceTransforms:
   - transform: {fileID: 439188}
-    instanceID: -1422
+    instanceID: -1796
     available: 1
     position: {x: 6.8543553, y: 7.108939, z: -18.184708}
     localPosition: {x: 0, y: 0, z: 0}
@@ -6869,7 +6869,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 474240}
   sourceTransforms:
   - transform: {fileID: 474240}
-    instanceID: -1396
+    instanceID: -1738
     available: 1
     position: {x: 6.081302, y: 6.209787, z: -15.439018}
     localPosition: {x: 0, y: 0, z: 0}
@@ -7669,7 +7669,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 451678}
   sourceTransforms:
   - transform: {fileID: 451678}
-    instanceID: -1434
+    instanceID: -1758
     available: 1
     position: {x: 6.9614177, y: 7.148298, z: -18.547184}
     localPosition: {x: 0, y: 0, z: 0}
@@ -8454,7 +8454,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 407338}
   sourceTransforms:
   - transform: {fileID: 407338}
-    instanceID: -1438
+    instanceID: -1762
     available: 1
     position: {x: 8.069333, y: 6.0942016, z: -16.798576}
     localPosition: {x: 0, y: 0, z: 0}
@@ -8676,7 +8676,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   sizeMin: 1
   sizeMax: 2
-  scale: 1
+  scale: 1.29
   initialRotationMin: 0
   initialRotationMax: 0
   rotationSpeedMin: 0
@@ -9195,11 +9195,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 497624}
   sourceTransforms:
   - transform: {fileID: 497624}
-    instanceID: -1444
+    instanceID: -1788
     available: 1
-    position: {x: 6.4458294, y: 6.9587545, z: -16.801579}
+    position: {x: 6.445201, y: 7.6335874, z: -16.801872}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 6.4458294, y: 6.9587545, z: -16.801579}
+    previousPosition: {x: 6.445201, y: 7.6335874, z: -16.801872}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -9212,15 +9212,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 6.4458294
+      e03: 6.445201
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.9587545
+      e13: 7.6335874
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -16.801579
+      e23: -16.801872
       e30: 0
       e31: 0
       e32: 0
@@ -9400,7 +9400,7 @@ MonoBehaviour:
   distanceFromCenter: 10
   turnSpeedMax: 40
   airTurnSpeedMax: 25
-  jumpSpeed: 30
+  jumpSpeed: 10
   accelerationJump: 2
   heightJump: 4.5
   speedFall: 15
@@ -9425,7 +9425,9 @@ MonoBehaviour:
   secondGravityCenter: {x: 0, y: 0, z: 0}
   gravityDirection: {x: 0, y: 0, z: 0}
   isGrounded: 0
+  isDiving: 0
   animator: {fileID: 9528772}
+  isFresco: 0
 --- !u!114 &11470902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9474,7 +9476,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   sizeMin: 0.1
   sizeMax: 0.2
-  scale: 1
+  scale: 1.53
   initialRotationMin: -21.492538
   initialRotationMax: 32.238808
   rotationSpeedMin: 0
@@ -9988,11 +9990,11 @@ MonoBehaviour:
   sourceTransform: {fileID: 434298}
   sourceTransforms:
   - transform: {fileID: 434298}
-    instanceID: -1446
+    instanceID: -1790
     available: 1
-    position: {x: 6.4458294, y: 6.9587545, z: -16.801579}
+    position: {x: 6.445201, y: 7.6335874, z: -16.801872}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 6.4458294, y: 6.9587545, z: -16.801579}
+    previousPosition: {x: 6.445201, y: 7.6335874, z: -16.801872}
     forward: {x: 0.28174216, y: 0.10357569, z: -0.9538833}
     up: {x: -0.08741864, y: 0.9927926, z: 0.08198033}
     right: {x: -0.9554995, y: -0.060289867, z: -0.28876597}
@@ -10005,15 +10007,15 @@ MonoBehaviour:
       e00: -0.95549953
       e01: -0.08741864
       e02: 0.28174216
-      e03: 6.4458294
+      e03: 6.445201
       e10: -0.060289867
       e11: 0.9927926
       e12: 0.10357569
-      e13: 6.9587545
+      e13: 7.6335874
       e20: -0.28876597
       e21: 0.08198033
       e22: -0.9538833
-      e23: -16.801579
+      e23: -16.801872
       e30: 0
       e31: 0
       e32: 0
@@ -11746,7 +11748,7 @@ MonoBehaviour:
   sourceTransform: {fileID: 423804}
   sourceTransforms:
   - transform: {fileID: 423804}
-    instanceID: -1414
+    instanceID: -1748
     available: 1
     position: {x: 5.2028346, y: 5.913332, z: -17.664875}
     localPosition: {x: 0, y: 0, z: 0}
