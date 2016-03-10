@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
         }
 
-        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
+        if ((Input.GetAxisRaw("TriggersL_0") > 0.3 || Input.GetAxisRaw("R_XAxis_0") < -0.3 || Input.GetKeyDown(KeyCode.E)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !lDashed)
         {
             timeStartDash = Time.time;
             dashing = true;
@@ -132,10 +132,10 @@ public class PlayerMovement : MonoBehaviour
             lDashed = true;
         }
 
-        if (Input.GetAxisRaw("TriggersL_0") < 0.3)
+        if (Input.GetAxisRaw("TriggersL_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") > -0.3)
             lDashed = false;
 
-        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
+        if ((Input.GetAxisRaw("TriggersR_0") > 0.3 || Input.GetAxisRaw("R_XAxis_0") > 0.3 || Input.GetKeyDown(KeyCode.R)) && (timeStartDash + dashCooldown < Time.time) && isGrounded && !rDashed)
         {
             timeStartDash = Time.time;
             dashing = true;
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
             rDashed = true;
         }
 
-        if (Input.GetAxisRaw("TriggersR_0") < 0.3)
+        if (Input.GetAxisRaw("TriggersR_0") < 0.3 || Input.GetAxisRaw("R_XAxis_0") < 0.3)
             rDashed = false;
 
         if (jumping)
