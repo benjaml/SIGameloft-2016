@@ -26,7 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475076}
-  - 114: {fileID: 11429582}
+  - 114: {fileID: 11425984}
   m_Layer: 0
   m_Name: SkyController
   m_TagString: Untagged
@@ -414,7 +414,7 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11429582
+--- !u!114 &11425984
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 113814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672a957aa176000428129859c3e554b4, type: 3}
+  m_Script: {fileID: 11500000, guid: d318a16e28d6f68428713a2872ef38a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skyboxMat: {fileID: 2100000, guid: 42b1ae2924b7bb049b1792a934b93bed, type: 2}
@@ -450,15 +450,15 @@ MonoBehaviour:
   - {r: 0.34509805, g: 0.1764706, b: 0.41960788, a: 1}
   - {r: 0.08627451, g: 0.14509805, b: 0.24705884, a: 1}
   - {r: 0.5647059, g: 0.39607847, b: 0.6117647, a: 1}
-  daySpeed: 1
+  daySpeed: 0.23
   sunIntensity:
   - 0.7
   - 1
   - 0.7
   - 0.4
   - 0.7
-  transitionSpeed: 1.5
-  actualTime: 0
+  transitionSpeed: 1
+  actualTime: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

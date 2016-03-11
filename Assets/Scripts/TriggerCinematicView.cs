@@ -6,6 +6,8 @@ public class TriggerCinematicView : MonoBehaviour
     public bool isFresco = true;
     public bool isGameCam = false;
     public float frescoBaseSpeed = 5.0f;
+    public SkyController02 sky;
+    private int countDaytime = 1;
 
     void OnTriggerEnter(Collider col)
     {
@@ -16,6 +18,8 @@ public class TriggerCinematicView : MonoBehaviour
                 Camera.main.GetComponent<SmoothFollow>().fresqueMode();
                 col.transform.parent.GetComponent<PlayerMovement>().frescoMode(frescoBaseSpeed);
                 GameManagerWrath.instance.freezeWrath();
+                sky.startDayCycle(countDaytime);
+                countDaytime++;
             }
             if (isGameCam)
             {

@@ -26,6 +26,6 @@ public class GameManager : MonoBehaviour
     }
     public void lose()
     {
-        //load lose scene
+        loadLevel(1);
     }
 }

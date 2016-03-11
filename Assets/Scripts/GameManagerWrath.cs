@@ -87,6 +87,10 @@ public class GameManagerWrath : MonoBehaviour
             wrathLast = wrath;
             //Debug.Log(wrath);
         }
+
+        if (wrath == maxWrath)
+            GameManager.instance.lose();
+
         if (wrath > maxWrath)
             wrath = maxWrath;
 
