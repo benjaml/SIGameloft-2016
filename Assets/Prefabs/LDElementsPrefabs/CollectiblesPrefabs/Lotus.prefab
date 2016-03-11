@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2357134}
   - 65: {fileID: 6557188}
   - 114: {fileID: 11478490}
-  - 114: {fileID: 11473106}
   m_Layer: 0
   m_Name: Lotus
   m_TagString: collectible
@@ -75,21 +74,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: -0}
---- !u!114 &11473106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35dd15de5664e9546a98e10c3aab1733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fxLotus_1: {fileID: 11440686, guid: 3ac519e74cb25134ebc33cb4d5428557, type: 2}
-  fxLotus_2: {fileID: 11466426, guid: 3ac519e74cb25134ebc33cb4d5428557, type: 2}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: -0}
 --- !u!114 &11478490
 MonoBehaviour:
   m_ObjectHideFlags: 1

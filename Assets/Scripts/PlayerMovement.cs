@@ -534,6 +534,7 @@ public class PlayerMovement : MonoBehaviour
         isFresco = false;
         baseSpeed = initBaseSpeed;
     }
+
     void DebugPoint(Vector3 position, Color color)
     {
         Debug.DrawLine(position, position + Vector3.up * 5, color);

@@ -24,6 +24,7 @@ public class PlayerBellCollision : MonoBehaviour
     public PlaygroundParticlesC fxGong_flowers;
     public PlaygroundParticlesC fxGong_2;
 
+    public GameObject ManagerWrath;
     public float baseValueGong;
     public float valueFlowerMultiplicator = 0.01f;
     public int numberFlower;
@@ -35,7 +36,7 @@ public class PlayerBellCollision : MonoBehaviour
         fxBell_flowers.enabled = false;
         fxBell_2.enabled = false;
 
-        gameManagerWrath = GameManagerWrath.instance;
+       
 
     }
 
@@ -52,7 +53,7 @@ public class PlayerBellCollision : MonoBehaviour
             wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
 
             //Start the function to reduce the wrath gauge of the dragon
-            wrathManagmementFunction.wrathManaging();
+            wrathManagmementFunction.wrath = 0;
 
 
             //Clear the list with fx

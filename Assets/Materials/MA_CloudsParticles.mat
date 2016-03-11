@@ -150,15 +150,15 @@ Material:
         second: 0
       data:
         first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
           name: _Alpha
         second: 0.8
       data:
         first:
           name: _LightAffected
-        second: 1
-      data:
-        first:
-          name: _InvFade
         second: 1
       data:
         first:
@@ -175,13 +175,13 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _TintColor
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+      data:
+        first:
           name: _ShadowColor
-        second: {r: 0.92549026, g: 0.5529412, b: 0.2901961, a: 1}
+        second: {r: 0.7186971, g: 0.46303114, b: 0.4745117, a: 1}
       data:
         first:
           name: _SunColor
-        second: {r: 1, g: 0.9568628, b: 0.6784314, a: 1}
-      data:
-        first:
-          name: _TintColor
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+        second: {r: 1, g: 0.7545651, b: 0.5255843, a: 1}

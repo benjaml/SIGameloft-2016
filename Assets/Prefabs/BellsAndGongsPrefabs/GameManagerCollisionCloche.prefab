@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 441072}
   - 114: {fileID: 11432638}
   - 114: {fileID: 11403920}
+  - 114: {fileID: 11437716}
+  - 114: {fileID: 11496026}
   m_Layer: 0
   m_Name: GameManagerCollisionCloche
   m_TagString: Untagged
@@ -58,9 +60,34 @@ MonoBehaviour:
   maxWrath: 500
   wrath: 0
   smoothWrath: 0.3
-  wrathAugementationByTick: 5
-  timeBetweenTick: 0.3
+  wrathAugementationByTick: 0.5
+  timeBetweenTick: 0.25
   numberOfCollectibles: 0
+--- !u!114 &11437716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9539cefaaced74f49896fb33d6025746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  End: {fileID: 0}
+  End_2: {fileID: 0}
+--- !u!114 &11496026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d55a280b41c5354eb91d396f16a5724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuInGame: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

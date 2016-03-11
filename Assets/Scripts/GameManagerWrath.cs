@@ -131,6 +131,10 @@ public class GameManagerWrath : MonoBehaviour
     {
         freeze = false;
     }
+    public void resetWrath()
+    {
+        wrath = 0.0f;
+    }
 
     IEnumerator wrathAugmentation()
     {

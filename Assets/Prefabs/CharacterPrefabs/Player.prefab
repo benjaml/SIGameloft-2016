@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432212}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_End_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490038}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402024}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467484}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_InterWave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467144}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 468572}
   - 114: {fileID: 11441914}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - 114: {fileID: 11428004}
   - 114: {fileID: 11440154}
   - 114: {fileID: 11468910}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444160}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_End_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456710}
   - 95: {fileID: 9537504}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character_Animation_All (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401814}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_InterWave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482974}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490078}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 405158}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RigthWing_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479286}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464144}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432290}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Wave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452806}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484552}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400224}
   - 137: {fileID: 13726550}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SK_Manta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438006}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452642}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474060}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RigthWing_DefaultEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425442}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440146}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - 4: {fileID: 464236}
   - 33: {fileID: 3329074}
   - 23: {fileID: 2370080}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409634}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Primary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - 4: {fileID: 437582}
   - 33: {fileID: 3307294}
   - 23: {fileID: 2394172}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_EndRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428684}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_DefaultEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 450006}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409520}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Wave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 424668}
   - 95: {fileID: 9571762}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TargetCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456390}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_InterWave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491920}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 459676}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Primary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404992}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485166}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - 4: {fileID: 456492}
   - 33: {fileID: 3399364}
   - 23: {fileID: 2390230}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 413390}
   - 96: {fileID: 9650824}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TrailLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421890}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497486}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470666}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - 4: {fileID: 429578}
   - 33: {fileID: 3397704}
   - 23: {fileID: 2398486}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417700}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_Wave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412260}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447144}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443520}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406850}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465534}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408422}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +880,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452076}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439508}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461276}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416496}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +940,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414088}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471076}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490060}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_InterWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403002}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441678}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_Wave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457756}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ GameObject:
   - 4: {fileID: 466118}
   - 33: {fileID: 3320170}
   - 23: {fileID: 2365962}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_EndRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417824}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443968}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1077,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444306}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460532}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426538}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456202}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1139,7 @@ GameObject:
   - 4: {fileID: 449960}
   - 33: {fileID: 3380908}
   - 23: {fileID: 2318326}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_EndRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417342}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_DefaultWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1170,7 +1170,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436786}
   - 137: {fileID: 13715570}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SK_Manta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1203,7 +1203,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458524}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_HitEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1218,7 +1218,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466170}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444872}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419172}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 483280}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1293,7 +1293,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455312}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1308,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479348}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_HitEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1323,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478448}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_DefaultEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1338,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424018}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1353,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 405712}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1386,7 +1386,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477854}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1416,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432522}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RigthWing_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,7 +1431,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453982}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1446,7 +1446,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406736}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,7 +1461,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455466}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1478,7 @@ GameObject:
   - 4: {fileID: 402104}
   - 33: {fileID: 3358534}
   - 23: {fileID: 2395936}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1493,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497748}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445314}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,7 +1523,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444522}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485982}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1553,7 +1553,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497416}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_InterWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1568,7 +1568,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491142}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1583,7 +1583,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 492602}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402798}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,7 +1631,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413562}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1646,7 +1646,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462296}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1661,7 +1661,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442796}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Tail_Primary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410798}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,7 +1691,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420060}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,7 +1706,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 449008}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,7 +1721,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422644}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1736,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456970}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1752,7 +1752,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 495872}
   - 137: {fileID: 13725916}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SK_Manta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1767,7 +1767,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441868}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1802,7 @@ GameObject:
   - 4: {fileID: 477266}
   - 33: {fileID: 3351910}
   - 23: {fileID: 2355192}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1817,7 +1817,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477318}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,7 +1832,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439046}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1847,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 483634}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1862,7 +1862,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410894}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1895,7 +1895,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410800}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +1910,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453536}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1925,7 +1925,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468710}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1940,7 +1940,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489796}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1957,7 +1957,7 @@ GameObject:
   - 4: {fileID: 412504}
   - 33: {fileID: 3329850}
   - 23: {fileID: 2389648}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_EndRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1972,7 +1972,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 434612}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_HitEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1987,7 +1987,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408182}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_End_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 459898}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2032,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420626}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2048,7 +2048,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 449020}
   - 96: {fileID: 9665030}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TrailRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2063,7 +2063,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498416}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,7 +2078,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484136}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2093,7 +2093,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482848}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RigthWing_DefaultEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2108,7 +2108,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477922}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2123,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455562}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_DefaultWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,7 +2139,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410092}
   - 65: {fileID: 6585432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Physics
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438578}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2171,7 +2171,7 @@ GameObject:
   - 4: {fileID: 498378}
   - 33: {fileID: 3315616}
   - 23: {fileID: 2362106}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2186,7 +2186,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 450982}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_TailHit_Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,7 +2201,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486838}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2218,7 @@ GameObject:
   - 4: {fileID: 465480}
   - 33: {fileID: 3326602}
   - 23: {fileID: 2392864}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2233,7 +2233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463450}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_LeftWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,7 +2248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443150}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_DefaultWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2263,7 +2263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419474}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2279,7 +2279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454768}
   - 95: {fileID: 9548482}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character_Animation_All (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2294,7 +2294,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443138}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2309,7 +2309,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407740}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2324,7 +2324,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,7 +2339,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412318}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2354,7 +2354,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426504}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2371,7 +2371,7 @@ GameObject:
   - 4: {fileID: 488408}
   - 33: {fileID: 3331860}
   - 23: {fileID: 2398978}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_LeftWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,7 +2386,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 449778}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2401,7 +2401,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428050}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_RightWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2416,7 +2416,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466408}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing_End_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2431,7 +2431,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473978}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_LeftWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2446,7 +2446,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443044}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2461,7 +2461,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484752}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2476,7 +2476,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479952}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_TailHit_Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2491,7 +2491,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425954}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2506,7 +2506,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423292}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Circle028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2521,7 +2521,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424828}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_RightWing_DefaultWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2536,7 +2536,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414166}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail_InterWave_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2551,7 +2551,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413836}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2583,7 +2583,7 @@ GameObject:
   - 4: {fileID: 477952}
   - 33: {fileID: 3364078}
   - 23: {fileID: 2341208}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,7 +2598,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482674}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2615,7 +2615,7 @@ GameObject:
   - 4: {fileID: 453054}
   - 33: {fileID: 3305070}
   - 23: {fileID: 2380476}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RigController_RightWing_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2648,7 +2648,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463236}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2663,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489496}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2678,7 +2678,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458334}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain_Tail_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2693,7 +2693,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418702}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2708,7 +2708,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496936}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_LeftWing_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2723,7 +2723,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420922}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone_Tail_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2739,7 +2739,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464032}
   - 95: {fileID: 9501210}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character_Animation_All
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2754,7 +2754,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407044}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Helper_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4207,8 +4207,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101774}
-  m_LocalRotation: {x: 0.0002144808, y: 0.9929495, z: -0.0017986365, w: 0.118524306}
-  m_LocalPosition: {x: 7.0402193, y: 11.782272, z: -16.16835}
+  m_LocalRotation: {x: -0.00780126, y: 0.97636247, z: -0.2130189, w: -0.035756618}
+  m_LocalPosition: {x: 8.294943, y: 305.13266, z: 47.79132}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424668}
@@ -6324,32 +6324,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 411198}
   sourceTransforms:
   - transform: {fileID: 411198}
-    instanceID: -1157136
+    instanceID: -1036578
     available: 1
-    position: {x: 9.16927, y: 10.777171, z: -17.099756}
+    position: {x: 10.076691, y: 303.63623, z: 46.792976}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 9.16927, y: 10.777171, z: -17.099756}
-    forward: {x: -0.9552677, y: 0.006916821, z: -0.2956624}
-    up: {x: -0.2950458, y: -0.09090158, z: 0.95114946}
-    right: {x: 0.020296961, y: -0.9958361, z: -0.08887595}
-    rotation: {x: -0.59305584, y: 0.5441654, z: 0.44015402, w: -0.398037}
-    inverseRotation: {x: 0.59305584, y: -0.5441654, z: -0.44015402, w: -0.398037}
+    previousPosition: {x: 10.076691, y: 303.63623, z: 46.792976}
+    forward: {x: -0.99971986, y: -0.019530267, z: 0.013383359}
+    up: {x: 0.006240666, y: 0.32791966, z: 0.9446851}
+    right: {x: 0.022838444, y: -0.94450384, z: 0.32770607}
+    rotation: {x: -0.41277578, y: 0.5682644, z: 0.40700898, w: -0.5839825}
+    inverseRotation: {x: 0.41277578, y: -0.5682644, z: -0.40700898, w: -0.5839825}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
+    lossyScale: {x: 1.0000002, y: 1.0000005, z: 1.0000008}
     transformMatrix:
-      e00: 0.020296931
-      e01: -0.2950458
-      e02: -0.9552677
-      e03: 9.16927
-      e10: -0.9958361
-      e11: -0.09090161
-      e12: 0.006916821
-      e13: 10.777171
-      e20: -0.08887595
-      e21: 0.95114946
-      e22: -0.2956624
-      e23: -17.099756
+      e00: 0.022838473
+      e01: 0.006240666
+      e02: -0.99971986
+      e03: 10.076691
+      e10: -0.94450384
+      e11: 0.32791966
+      e12: -0.019530267
+      e13: 303.63623
+      e20: 0.32770607
+      e21: 0.9446851
+      e22: 0.0133833885
+      e23: 46.792976
       e30: 0
       e31: 0
       e32: 0
@@ -6477,7 +6477,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19842152}
-  particleSystemId: 89
+  particleSystemId: 3
   particleSystemGameObject: {fileID: 163350}
   particleSystemTransform: {fileID: 411198}
   particleSystemRenderer: {fileID: 19970612}
@@ -7065,32 +7065,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 414512}
   sourceTransforms:
   - transform: {fileID: 414512}
-    instanceID: -1008080
+    instanceID: -1036588
     available: 1
-    position: {x: 7.6286607, y: 11.773215, z: -18.598095}
+    position: {x: 8.128695, y: 304.09134, z: 45.524597}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.6286607, y: 11.773215, z: -18.598095}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.128695, y: 304.09134, z: 45.524597}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.6286607
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.773215
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -18.598095
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.128695
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 304.09134
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 45.524597
       e30: 0
       e31: 0
       e32: 0
@@ -7218,7 +7218,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19888214}
-  particleSystemId: 2
+  particleSystemId: 6
   particleSystemGameObject: {fileID: 198070}
   particleSystemTransform: {fileID: 414512}
   particleSystemRenderer: {fileID: 19916100}
@@ -7801,32 +7801,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 475682}
   sourceTransforms:
   - transform: {fileID: 475682}
-    instanceID: -1008072
+    instanceID: -1036602
     available: 1
-    position: {x: 7.718104, y: 11.771839, z: -18.967415}
+    position: {x: 8.103425, y: 303.93307, z: 45.180058}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.718104, y: 11.771839, z: -18.967415}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.103425, y: 303.93307, z: 45.180058}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.718104
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.771839
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -18.967415
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.103425
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 303.93307
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 45.180058
       e30: 0
       e31: 0
       e32: 0
@@ -7954,7 +7954,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19807210}
-  particleSystemId: 88
+  particleSystemId: 4
   particleSystemGameObject: {fileID: 123586}
   particleSystemTransform: {fileID: 475682}
   particleSystemRenderer: {fileID: 19949294}
@@ -8537,32 +8537,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 474592}
   sourceTransforms:
   - transform: {fileID: 474592}
-    instanceID: -1008070
+    instanceID: -1036600
     available: 1
-    position: {x: 7.718104, y: 11.771839, z: -18.967415}
+    position: {x: 8.103425, y: 303.93307, z: 45.180058}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.718104, y: 11.771839, z: -18.967415}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.103425, y: 303.93307, z: 45.180058}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.718104
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.771839
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -18.967415
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.103425
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 303.93307
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 45.180058
       e30: 0
       e31: 0
       e32: 0
@@ -8690,7 +8690,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19883114}
-  particleSystemId: 37
+  particleSystemId: 1
   particleSystemGameObject: {fileID: 138374}
   particleSystemTransform: {fileID: 474592}
   particleSystemRenderer: {fileID: 19920438}
@@ -8726,9 +8726,10 @@ MonoBehaviour:
   fxBell_2: {fileID: 11414628}
   fxGong_flowers: {fileID: 11470902}
   fxGong_2: {fileID: 11465530}
-  baseValueGong: 0
-  valueFlowerMultiplicator: 0
-  nbFlowers: 0
+  ManagerWrath: {fileID: 0}
+  baseValueGong: 200
+  valueFlowerMultiplicator: 0.01
+  numberFlower: 0
 --- !u!114 &11430816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9291,32 +9292,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 439188}
   sourceTransforms:
   - transform: {fileID: 439188}
-    instanceID: -1008082
+    instanceID: -1036590
     available: 1
-    position: {x: 7.6286607, y: 11.773215, z: -18.598095}
+    position: {x: 8.128695, y: 304.09134, z: 45.524597}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.6286607, y: 11.773215, z: -18.598095}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.128695, y: 304.09134, z: 45.524597}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.6286607
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.773215
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -18.598095
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.128695
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 304.09134
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 45.524597
       e30: 0
       e31: 0
       e32: 0
@@ -9444,7 +9445,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19890550}
-  particleSystemId: 3
+  particleSystemId: 5
   particleSystemGameObject: {fileID: 159216}
   particleSystemTransform: {fileID: 439188}
   particleSystemRenderer: {fileID: 19979984}
@@ -10058,32 +10059,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 474240}
   sourceTransforms:
   - transform: {fileID: 474240}
-    instanceID: -1008052
+    instanceID: -1036552
     available: 1
-    position: {x: 6.938496, y: 11.183834, z: -15.748322}
+    position: {x: 8.341818, y: 304.7663, z: 48.430443}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 6.938496, y: 11.183834, z: -15.748322}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.341818, y: 304.7663, z: 48.430443}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 6.938496
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.183834
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -15.748322
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.341818
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 304.7663
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 48.430443
       e30: 0
       e31: 0
       e32: 0
@@ -10211,7 +10212,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19824732}
-  particleSystemId: 89
+  particleSystemId: 0
   particleSystemGameObject: {fileID: 142650}
   particleSystemTransform: {fileID: 474240}
   particleSystemRenderer: {fileID: 19913404}
@@ -10843,32 +10844,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 497624}
   sourceTransforms:
   - transform: {fileID: 497624}
-    instanceID: -1008118
+    instanceID: -1036568
     available: 1
-    position: {x: 7.2873645, y: 11.778468, z: -17.188843}
+    position: {x: 8.225119, y: 304.6953, z: 46.8393}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.2873645, y: 11.778468, z: -17.188843}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.225119, y: 304.6953, z: 46.8393}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.2873645
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.778468
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -17.188843
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.225119
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 304.6953
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 46.8393
       e30: 0
       e31: 0
       e32: 0
@@ -10996,7 +10997,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19807182}
-  particleSystemId: 0
+  particleSystemId: 2
   particleSystemGameObject: {fileID: 124410}
   particleSystemTransform: {fileID: 497624}
   particleSystemRenderer: {fileID: 19905790}
@@ -11598,32 +11599,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 453050}
   sourceTransforms:
   - transform: {fileID: 453050}
-    instanceID: -1184796
+    instanceID: -1036594
     available: 1
-    position: {x: 5.573226, y: 10.77717, z: -17.970654}
+    position: {x: 6.3866014, y: 303.63623, z: 47.063618}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 5.573226, y: 10.77717, z: -17.970654}
-    forward: {x: -0.95526767, y: 0.0069167316, z: -0.2956624}
-    up: {x: -0.2950458, y: -0.090901494, z: 0.95114946}
-    right: {x: 0.02029705, y: -0.9958361, z: -0.08887586}
-    rotation: {x: -0.59305584, y: 0.5441654, z: 0.44015396, w: -0.39803702}
-    inverseRotation: {x: 0.59305584, y: -0.5441654, z: -0.44015396, w: -0.39803702}
+    previousPosition: {x: 6.3866014, y: 303.63623, z: 47.063618}
+    forward: {x: -0.99971986, y: -0.019530356, z: 0.0133835375}
+    up: {x: 0.0062407553, y: 0.32791972, z: 0.9446851}
+    right: {x: 0.022838682, y: -0.9445038, z: 0.3277061}
+    rotation: {x: -0.41277578, y: 0.56826437, z: 0.40700895, w: -0.5839826}
+    inverseRotation: {x: 0.41277578, y: -0.56826437, z: -0.40700895, w: -0.5839826}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 1.0000004, y: 1.0000002, z: 1}
+    lossyScale: {x: 1.0000002, y: 1.0000005, z: 1.0000004}
     transformMatrix:
-      e00: 0.02029705
-      e01: -0.2950458
-      e02: -0.95526767
-      e03: 5.573226
-      e10: -0.9958361
-      e11: -0.090901494
-      e12: 0.0069167316
-      e13: 10.77717
-      e20: -0.08887586
-      e21: 0.95114946
-      e22: -0.2956624
-      e23: -17.970654
+      e00: 0.022838712
+      e01: 0.0062407553
+      e02: -0.99971986
+      e03: 6.3866014
+      e10: -0.9445038
+      e11: 0.32791972
+      e12: -0.019530356
+      e13: 303.63623
+      e20: 0.3277061
+      e21: 0.9446851
+      e22: 0.013383508
+      e23: 47.063618
       e30: 0
       e31: 0
       e32: 0
@@ -11751,7 +11752,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19866406}
-  particleSystemId: 91
+  particleSystemId: 7
   particleSystemGameObject: {fileID: 113002}
   particleSystemTransform: {fileID: 453050}
   particleSystemRenderer: {fileID: 19950546}
@@ -11787,13 +11788,15 @@ MonoBehaviour:
   distanceFromCenter: 10
   turnSpeedMax: 40
   airTurnSpeedMax: 25
-  jumpSpeed: 25
-  accelerationJump: 4
+  jumpSpeed: 10
+  accelerationJump: 2
   heightJump: 4.5
   speedFall: 10
   gravity: 500
   baseSpeed: 30
   baseAirSpeed: 30
+  slowSpeed: 10
+  slowAirSpeed: 5
   MaxSpeed: 50
   MaxAirSpeed: 50
   turnAcceleration: 60
@@ -12379,32 +12382,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 434298}
   sourceTransforms:
   - transform: {fileID: 434298}
-    instanceID: -1008120
+    instanceID: -1036570
     available: 1
-    position: {x: 7.2873645, y: 11.778468, z: -17.188843}
+    position: {x: 8.225119, y: 304.6953, z: 46.8393}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.2873645, y: 11.778468, z: -17.188843}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.225119, y: 304.6953, z: 46.8393}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.2873645
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.778468
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -17.188843
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.225119
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 304.6953
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 46.8393
       e30: 0
       e31: 0
       e32: 0
@@ -12532,7 +12535,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19894010}
-  particleSystemId: 1
+  particleSystemId: 8
   particleSystemGameObject: {fileID: 120940}
   particleSystemTransform: {fileID: 434298}
   particleSystemRenderer: {fileID: 19970686}
@@ -13115,32 +13118,32 @@ MonoBehaviour:
   sourceTransform: {fileID: 409614}
   sourceTransforms:
   - transform: {fileID: 409614}
-    instanceID: -1008074
+    instanceID: -1036604
     available: 1
-    position: {x: 7.718104, y: 11.771839, z: -18.967415}
+    position: {x: 8.103425, y: 303.93307, z: 45.180058}
     localPosition: {x: 0, y: 0, z: 0}
-    previousPosition: {x: 7.718104, y: 11.771839, z: -18.967415}
-    forward: {x: 0.23537652, y: -0.003622693, z: -0.9718975}
-    up: {x: 0.00085230195, y: 0.99999344, z: -0.0035210066}
-    right: {x: -0.97190386, y: -0.00000041219755, z: -0.23537807}
-    rotation: {x: 0.00021448465, y: 0.9929495, z: -0.001798606, w: 0.118524306}
-    inverseRotation: {x: -0.00021448465, y: -0.9929495, z: 0.001798606, w: 0.118524306}
+    previousPosition: {x: 8.103425, y: 303.93307, z: 45.180058}
+    forward: {x: -0.06649921, y: -0.41652516, z: -0.90668905}
+    up: {x: -0.030467369, y: 0.9091242, z: -0.41540936}
+    right: {x: -0.9973214, y: -0.000000030733645, z: 0.07314647}
+    rotation: {x: -0.007801252, y: 0.97636247, z: -0.21301886, w: -0.035756618}
+    inverseRotation: {x: 0.007801252, y: -0.97636247, z: 0.21301886, w: -0.035756618}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
-    lossyScale: {x: 0.9999998, y: 1, z: 0.99999994}
+    lossyScale: {x: 1.0000004, y: 1, z: 1.0000004}
     transformMatrix:
-      e00: -0.9719038
-      e01: 0.00085230195
-      e02: 0.23537652
-      e03: 7.718104
-      e10: -0.00000041219755
-      e11: 0.99999344
-      e12: -0.003622693
-      e13: 11.771839
-      e20: -0.23537807
-      e21: -0.0035210066
-      e22: -0.9718975
-      e23: -18.967415
+      e00: -0.99732137
+      e01: -0.030467369
+      e02: -0.06649921
+      e03: 8.103425
+      e10: -0.000000030733645
+      e11: 0.9091242
+      e12: -0.41652516
+      e13: 303.93307
+      e20: 0.07314647
+      e21: -0.41540936
+      e22: -0.90668905
+      e23: 45.180058
       e30: 0
       e31: 0
       e32: 0
@@ -13268,7 +13271,7 @@ MonoBehaviour:
   timeOfSnapshot: 0
   isSnapshot: 0
   shurikenParticleSystem: {fileID: 19885318}
-  particleSystemId: 89
+  particleSystemId: 9
   particleSystemGameObject: {fileID: 151728}
   particleSystemTransform: {fileID: 409614}
   particleSystemRenderer: {fileID: 19908520}

@@ -5,12 +5,14 @@ public class TriggerCinematicView : MonoBehaviour
 {
     public bool isFresco = true;
     public bool isGameCam = false;
+    public bool winning = false;
     public float frescoBaseSpeed = 5.0f;
     public SkyController02 sky;
     private int countDaytime = 1;
 
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log(col.name);
         if (col.tag == "Player")
         {
             if (isFresco)
@@ -25,7 +27,13 @@ public class TriggerCinematicView : MonoBehaviour
             {
                 Camera.main.GetComponent<SmoothFollow>().gameMode();
                 col.transform.parent.GetComponent<PlayerMovement>().gameMode();
+                GameManagerWrath.instance.resetWrath();
                 GameManagerWrath.instance.continueWrath();
+            }
+
+            if(winning)
+            {
+                GameManager.instance.win();
             }
         }
     }

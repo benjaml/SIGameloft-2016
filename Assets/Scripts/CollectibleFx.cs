@@ -11,7 +11,9 @@ public class CollectibleFx : MonoBehaviour {
     void Start () {
         fxLotus_1.enabled = false;
         fxLotus_2.enabled = false;
-     
+        fxLotus_1.emit = false;
+        fxLotus_2.emit = false;
+
     }
     
 
@@ -27,9 +29,13 @@ public class CollectibleFx : MonoBehaviour {
     {
         fxLotus_1.enabled = true;
         fxLotus_2.enabled = true;
+        fxLotus_1.emit = true;
+        fxLotus_2.emit = true;
         yield return new WaitForSeconds(0.5f);
         fxLotus_1.emit = false;
         fxLotus_2.emit = false;
+        fxLotus_1.enabled = false;
+        fxLotus_2.enabled = false;
         yield return null;
 
     }

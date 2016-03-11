@@ -92,7 +92,6 @@ public class SkyController_Intro : MonoBehaviour
         lerpTimer = 0;
         while (lerpTimer * transitionSpeed < 1)
         {
-            Debug.Log(lerpTimer);
             lerpTimer += Time.deltaTime;
             sun.color = Color.Lerp(sunColors[dayTime], sunColors[dayTime + 1], lerpTimer * transitionSpeed);
             sun.intensity = Mathf.Lerp(sunIntensity[dayTime], sunIntensity[dayTime + 1], lerpTimer * transitionSpeed);

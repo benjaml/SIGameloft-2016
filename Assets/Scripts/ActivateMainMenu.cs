@@ -8,6 +8,11 @@ public class ActivateMainMenu : MonoBehaviour {
     public CanvasGroup m_FaderIntro;
     public Canvas m_MyCanvas;
 	
+    public void Start()
+    {
+        m_PanelToActivate.interactable = false;
+    }
+
 	// Update is called once per frame
 	void Update () {
 	
@@ -35,6 +40,7 @@ public class ActivateMainMenu : MonoBehaviour {
             m_PanelToActivate.alpha += 0.05f;
             yield return new WaitForSeconds(0.05f);
         }
+        m_PanelToActivate.interactable = true;
         yield return null;
     }
 
