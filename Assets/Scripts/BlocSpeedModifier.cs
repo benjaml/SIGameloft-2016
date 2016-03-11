@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BlocSpeedModifier : MonoBehaviour
 {
 
-    public float reduceSpeed = 0.6f;
+    public float reduceSpeed = 2.0f;
     public float accelerationTime;
     public float lowSpeedTime = 5f;
     public float percentOfFlowerLost = 30;
@@ -27,40 +27,13 @@ public class BlocSpeedModifier : MonoBehaviour
             losingFlowers();
 
             playerMovementScript = col.gameObject.transform.parent.GetComponent<PlayerMovement>();
+            playerMovementScript.reduceCurrentSpeed(reduceSpeed, lowSpeedTime);
 
-            stockBaseSpeed = playerMovementScript.baseSpeed;
-            stockMaxSpeed = playerMovementScript.MaxSpeed;
-
-            playerMovementScript.baseSpeed = playerMovementScript.baseSpeed * reduceSpeed;
-
-
-            playerMovementScript.MaxSpeed = playerMovementScript.MaxSpeed * reduceSpeed;
-
-
-            StartCoroutine(reducingSpeed());
 
             //Add a certain value to the dragon wrath
         }
     }
-
-    IEnumerator reducingSpeed()
-    {
-        float _tmp = 0f;
-        while (_tmp < lowSpeedTime)
-        {
-            _tmp += 0.1f;
-            yield return new WaitForSeconds(0.1f);
-        }
-        while (playerMovementScript.MaxSpeed < stockMaxSpeed)
-        {
-            playerMovementScript.baseSpeed += accelerationTime;
-            playerMovementScript.MaxSpeed += accelerationTime;
-            yield return new WaitForSeconds(0.2f);
-        }
-        playerMovementScript.baseSpeed = stockBaseSpeed;
-        playerMovementScript.MaxSpeed = stockMaxSpeed;
-        yield return null;
-    }
+    
 
     void losingFlowers()
     {

@@ -70,7 +70,7 @@ namespace UnityStandardAssets.Utility
             //height = Mathf.Abs(target.position.y - transform.position.y)/ lerpDampening;
             mainCam = Camera.main;
             player = target.gameObject.GetComponent<PlayerMovement>();
-            previousSpeed = player.getBaseSpeed();
+            previousSpeed = player.getSlowSpeed();
         }
         // Update is called once per frame
         void Update()
@@ -177,12 +177,12 @@ namespace UnityStandardAssets.Utility
                 if (previousSpeed - deltaSpeed > speed)
                     speed = previousSpeed - deltaSpeed;
             }
-            if (speed < player.getBaseSpeed())
-                speed = player.getBaseSpeed();
+            if (speed < player.getSlowSpeed())
+                speed = player.getSlowSpeed();
             if (speed > player.getMaxSpeed())
                 speed = player.getMaxSpeed();
             speed = Mathf.Round(speed);
-            float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getBaseSpeed());
+            float speedToAngle = (((speed - player.getMaxSpeed()) / -1) * 90) / (player.getMaxSpeed() - player.getSlowSpeed());
             if (distance > percentAccDist)
                 distance = percentAccDist + ((speedToAngle * (distance - percentAccDist)) / 90);
             else

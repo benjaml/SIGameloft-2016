@@ -36,14 +36,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182214}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a095f32c8084a4b1ba25c9153255dd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   source: 1
   activeState: 0
-  emit: 0
+  emit: 1
   loop: 1
   clearParticlesOnEmissionStop: 0
   disableOnDone: 0

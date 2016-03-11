@@ -37,7 +37,7 @@ public class PlayerBlocCollision : MonoBehaviour {
         fxBlocCollision_1.emit = true;
         fxBlocCollision_2.emit = true;
         fxBlocCollision_3.emit = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
         fxBlocCollision_1.emit = false;
         fxBlocCollision_2.emit = false;
         fxBlocCollision_3.emit = false;
