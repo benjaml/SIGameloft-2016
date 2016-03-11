@@ -38,6 +38,7 @@ public class PlayerCollectible : MonoBehaviour {
       
         if (col.tag == "collectible")
         {
+            col.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             fxTrailFlower.enabled = true;
             fxTrailFlower.emit = true;
             if (!listCollectible.Contains(col.gameObject))
