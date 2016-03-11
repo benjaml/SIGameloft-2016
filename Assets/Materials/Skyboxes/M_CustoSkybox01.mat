@@ -183,7 +183,7 @@ Material:
       data:
         first:
           name: _TimeSlider
-        second: 882.2808
+        second: 250
       data:
         first:
           name: _Saturation

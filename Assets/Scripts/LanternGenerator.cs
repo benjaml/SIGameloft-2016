@@ -3,8 +3,9 @@ using System.Collections;
 
 public class LanternGenerator : MonoBehaviour {
 
-    public GameObject m_LanternPrefab;
+    public GameObject[] m_LanternPrefab;
     private GameObject m_LanternInstance;
+    private int lanternIndex = 0;
 
     public int m_LanternMaxCount;
     public int m_LanternCount;
@@ -25,7 +26,8 @@ public class LanternGenerator : MonoBehaviour {
         m_LanternCount = 0;
         while(m_LanternCount<m_LanternMaxCount)
         {
-            m_LanternInstance = Instantiate(m_LanternPrefab, transform.position+ Random.insideUnitSphere*10
+            lanternIndex = Random.Range(0, 2);
+            m_LanternInstance = Instantiate(m_LanternPrefab[lanternIndex], transform.position+ Random.insideUnitSphere*10
                 , Quaternion.identity) as GameObject;
             m_LanternCount++;
             yield return new WaitForSeconds(Random.Range(0.3f,0.6f));

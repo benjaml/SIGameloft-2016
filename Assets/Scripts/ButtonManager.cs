@@ -7,26 +7,41 @@ public class ButtonManager : MonoBehaviour {
 
     public List<Button> m_MainMenuButtonsList;
     public List<Button> m_OptionsMenuButtonsList;
+    public List<Button> m_ContinueMenuButtonsList;
+    public List<Button> m_CreditsMenuButtonsList;
     public string m_CurrentPanel = "MainPanel";
     public int m_CurrentIndex = 0;
 
+    public GameObject m_PanelMainMenu;
+    public bool m_ReadyToPlay = false;
+
     // To link to the global volume of the game.
     public float m_Volume;
+    public Text m_TextVolume;
 
     public bool m_EndInput;
 
     public AnimationManager m_AnimationScript;
 
-
     public void Update()
     {
-        // Check if the gamepad's stick is at its standby position. If True, the player can move the stick to interact with the menu.
-        if (Input.GetAxis("L_YAxis_0") < 0.3f && Input.GetAxis("L_YAxis_0") > -0.3f)
+        if (m_ReadyToPlay)
         {
-            m_EndInput = true;
-        }
+            // Check if the gamepad's stick is at its standby position. If True, the player can move the stick to interact with the menu.
+            if (Input.GetAxis("L_YAxis_0") < 0.3f && Input.GetAxis("L_YAxis_0") > -0.3f)
+            {
+                m_EndInput = true;
+            }
 
-        CheckInputPositions();
+            CheckInputPositions();
+        }
+        else if (!m_ReadyToPlay)
+        {
+            if (Input.GetButton("A_0") || Input.GetButton("B_0"))
+            {
+                Camera.main.GetComponent<ActivateMainMenu>().ActivateMenu();
+            }
+        }
     }
 
     public void CheckInputPositions()
@@ -54,9 +69,17 @@ public class ButtonManager : MonoBehaviour {
             {
                 m_CurrentIndex = m_MainMenuButtonsList.Count - 1;
             }
-            if (m_CurrentPanel == "OptionsPanel")
+            else if (m_CurrentPanel == "OptionsPanel")
             {
                 m_CurrentIndex = m_OptionsMenuButtonsList.Count - 1;
+            }
+            else if (m_CurrentPanel == "ContinuePanel")
+            {
+                m_CurrentIndex = m_ContinueMenuButtonsList.Count - 1;
+            }
+            else if (m_CurrentPanel == "CreditsPanel")
+            {
+                m_CurrentIndex = m_CreditsMenuButtonsList.Count - 1;
             }
         }
         else
@@ -84,9 +107,33 @@ public class ButtonManager : MonoBehaviour {
             }
         }
 
-        if (m_CurrentPanel == "OptionsPanel")
+        else if (m_CurrentPanel == "OptionsPanel")
         {
             if (m_CurrentIndex == m_OptionsMenuButtonsList.Count - 1)
+            {
+                m_CurrentIndex = 0;
+            }
+            else
+            {
+                m_CurrentIndex++;
+            }
+        }
+
+        else if (m_CurrentPanel == "ContinuePanel")
+        {
+            if (m_CurrentIndex == m_ContinueMenuButtonsList.Count - 1)
+            {
+                m_CurrentIndex = 0;
+            }
+            else
+            {
+                m_CurrentIndex++;
+            }
+        }
+
+        else if (m_CurrentPanel == "CreditsPanel")
+        {
+            if (m_CurrentIndex == m_CreditsMenuButtonsList.Count - 1)
             {
                 m_CurrentIndex = 0;
             }
@@ -107,9 +154,17 @@ public class ButtonManager : MonoBehaviour {
         {
             m_MainMenuButtonsList[m_CurrentIndex].Select();
         }
-        if (m_CurrentPanel == "OptionsPanel")
+        else if (m_CurrentPanel == "OptionsPanel")
         {
             m_OptionsMenuButtonsList[m_CurrentIndex].Select();
+        }
+        else if (m_CurrentPanel == "ContinuePanel")
+        {
+            m_ContinueMenuButtonsList[m_CurrentIndex].Select();
+        }
+        else if (m_CurrentPanel == "CreditsPanel")
+        {
+            m_CreditsMenuButtonsList[m_CurrentIndex].Select();
         }
     }
 
@@ -125,27 +180,34 @@ public class ButtonManager : MonoBehaviour {
             {
                 // Start
                 case 0:
-                    SceneManager.LoadScene("TO BE DEFINED");
+                    SceneManager.LoadScene("Scene_1_2_3");
                     break;
                 // Levels
                 case 1:
-                    SceneManager.LoadScene("TO BE DEFINED");
+                    m_CurrentPanel = "ContinuePanel";
+                    m_CurrentIndex = 0;
+                    m_AnimationScript.Main_To_Continue();
                     break;
                 // Options
                 case 2:
                     m_CurrentPanel = "OptionsPanel";
                     m_CurrentIndex = 0;
-                    m_MainMenuButtonsList[m_CurrentIndex].Select();
                     m_AnimationScript.Main_To_Options();
                     break;
-                // Exit
+                // Credits
                 case 3:
-                    SceneManager.LoadScene("TO BE DEFINED");
+                    m_CurrentPanel = "CreditsPanel";
+                    m_CurrentIndex = 0;
+                    m_AnimationScript.Main_To_Credits();
+                    break;
+                // Exit
+                case 4:
+                    Application.Quit();
                     break;
             }
         }
         // Actions linked to the Options panel's buttons
-        if (m_CurrentPanel == "OptionsPanel")
+        else if (m_CurrentPanel == "OptionsPanel")
         {
             switch (_buttonIndex)
             {
@@ -153,63 +215,114 @@ public class ButtonManager : MonoBehaviour {
                 case 0:
                     m_CurrentPanel = "MainPanel";
                     m_CurrentIndex = 0;
-                    m_OptionsMenuButtonsList[m_CurrentIndex].Select();
                     m_AnimationScript.Options_To_Main();
                     break;
-                // Decrease Volume
+                // Increase Volume
                 case 1:
+                    // Increase the volume;
+                    if (m_Volume != 10f)
+                    {
+                        m_Volume++;
+                        // Change the text, check if value isn't overiding the max and min values
+                        m_TextVolume.text = m_Volume.ToString();
+                    }
+                    break;
+                // Decrease Volume
+                case 2:
                     // Decrease the volume;
                     if (m_Volume != 0f)
                     {
                         m_Volume--;
-                        m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
+                        // Change the text, check if value isn't overiding the max and min values
+                        m_TextVolume.text = m_Volume.ToString();
                     }
-                    // Change the text, check if value isn't overiding the max and min values
                     break;
-                // Increase Volume
+            }
+        }
+        // Actions linked to the Continue Panel's buttons
+        else if (m_CurrentPanel == "ContinuePanel")
+        {
+            switch (_buttonIndex)
+            {
+                // back to Main
+                case 0:
+                    m_CurrentPanel = "MainPanel";
+                    m_CurrentIndex = 0;
+                    m_AnimationScript.Continue_To_Main();
+                    break;
+                // Load Level 01
+                case 1:
+                    SceneManager.LoadScene("Scene_1_2_3");
+                    break;
+                // Load Level 02
                 case 2:
-                    // Decrease the volume;
-                    if (m_Volume != 10f)
-                    {
-                        m_Volume++;
-                        m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
-                    }
-                    // Change the text, check if value isn't overiding the max and min values
+                    SceneManager.LoadScene("Scene_2_3");
+                    break;
+                // Load Level 03
+                case 3:
+                    SceneManager.LoadScene("Scene_3");
+                    break;
+            }
+        }
+        // Actions linked to the Credits Panel's buttons
+        else if (m_CurrentPanel == "CreditsPanel")
+        {
+            switch (_buttonIndex)
+            {
+                // back to Main
+                case 0:
+                    m_CurrentPanel = "MainPanel";
+                    m_CurrentIndex = 0;
+                    m_AnimationScript.Credits_To_Main();
                     break;
             }
         }
     }
 
+    public void SelectMainButtonFromOptions()
+    {
+        m_MainMenuButtonsList[2].Select();
+        m_CurrentIndex = 2;
+    }
+
+    public void SelectMainButtonFromContinue()
+    {
+        m_MainMenuButtonsList[1].Select();
+        m_CurrentIndex = 1;
+    }
+
+    public void SelectOptionsTopButton()
+    {
+        m_OptionsMenuButtonsList[0].Select();
+        m_CurrentIndex = 0;
+    }
+
+    public void SelectContinueButton()
+    {
+        m_ContinueMenuButtonsList[0].Select();
+        m_CurrentIndex = 0;
+    }
+
+    public void SelectCreditsButton()
+    {
+        m_CreditsMenuButtonsList[0].Select();
+        m_CurrentIndex = 0;
+    }
+
+    public void SelectMainButtonFromCredits()
+    {
+        m_MainMenuButtonsList[3].Select();
+        m_CurrentIndex = 3;
+    }
 
 
-
-    ////When "Play" is pressed, this fonction load the game scene (index 1).
-    //public void PlayPressed(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 1)
-    //}
-
-    ////When "Replay" is pressed, this fonction re-load the game scene (index 1).
-    //public void Replay(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 1)
-    //}
-
-    ////When "Exit" is pressed, the game is closed.
-    //public void Exit()
-    //{
-    //    Application.Quit();
-    //}
-
-    ////When "Controls" is pressed, this fonction re-load the game scene (index 1).
-    //public void Controls()
-    //{
-
-    //}
-
-    ////When "Credits" is pressed, a scheme of the controls shows up on the current scene.
-    //public void CreditsPressed(int indexOfScene)
-    //{
-    //    SceneManager.LoadScene(indexOfScene);  //Loading the scene of the game (index 2)
-    //}
+    // PENSER A METTRE LE SCRIPT ACTIVATE MAIN MENU SUR LA CAMERA DE L'ANIMATION
+    // METTRE L'EVENT ANIM SUR L'ANIMATION D'INTRODUCTION
+    public void EndOfIntroduction()
+    {
+        //m_PanelMainMenu.GetComponent<CanvasGroup>().alpha = 1;
+        m_MainMenuButtonsList[0].Select();
+        m_ReadyToPlay = true;
+        m_CurrentIndex = 0;
+    }
 }

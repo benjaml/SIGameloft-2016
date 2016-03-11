@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 467942}
   - 114: {fileID: 11433654}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LanternGenerator
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 340, y: 70, z: 0}
+  m_LocalPosition: {x: -159.5, y: 594.4, z: -100.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,7 +39,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc9f04ca2615314f818a8a11cb69b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LanternPrefab: {fileID: 176540, guid: d18e8eb3fb1639a4abf9be487f3feed8, type: 2}
+  m_LanternPrefab:
+  - {fileID: 176540, guid: d18e8eb3fb1639a4abf9be487f3feed8, type: 2}
+  - {fileID: 168032, guid: 818188607cf131f4e84ccfc4067f33ca, type: 2}
   m_LanternMaxCount: 50
   m_LanternCount: 0
 --- !u!1001 &100100000
@@ -48,7 +50,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188632}

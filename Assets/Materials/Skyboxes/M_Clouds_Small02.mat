@@ -174,11 +174,11 @@ Material:
       data:
         first:
           name: _LightAffected
-        second: 0
+        second: 1
       data:
         first:
           name: _CloudsMouvSlider
-        second: 8.822815
+        second: 8.0808935
       data:
         first:
           name: _LightTransitionSlider
