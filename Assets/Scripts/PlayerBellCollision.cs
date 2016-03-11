@@ -24,9 +24,9 @@ public class PlayerBellCollision : MonoBehaviour
     public PlaygroundParticlesC fxGong_flowers;
     public PlaygroundParticlesC fxGong_2;
 
-    public int baseValueGong;
-    public float valueFlowerMultiplicator;
-    public int nbFlowers;
+    public float baseValueGong;
+    public float valueFlowerMultiplicator = 0.01f;
+    public int numberFlower;
 
     void Start()
     {
@@ -45,8 +45,6 @@ public class PlayerBellCollision : MonoBehaviour
         #region Collision Bell
         if (col.tag == "bell")
         {
-            SoundManagerEvent.emit(SoundManagerType.Bell);
-            Invoke("dragonSound", 0.5f);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
             nbFlower = GetComponent<PlayerCollectible>().listCollectible.Count - 1;
 
@@ -80,23 +78,23 @@ public class PlayerBellCollision : MonoBehaviour
         #region Collision Gong
         if (col.tag == "gong")
         {
-            SoundManagerEvent.emit(SoundManagerType.Gong);
             GameManagerWrath wrathManagmementFunction = gameManagerWrath.GetComponent<GameManagerWrath>();
 
             //Set the lenght of the list as the number of collectibles
             wrathManagmementFunction.numberOfCollectibles = GetComponent<PlayerCollectible>().listCollectible.Count;
             Debug.Log(wrathManagmementFunction.numberOfCollectibles);
 
-            //Start the function to reduce the wrath gauge of the dragon
-            wrathManagmementFunction.wrathManaging();
 
             //Clear the list with fx
-
+            numberFlower = GetComponent<PlayerCollectible>().listCollectible.Count - 1;
+            float _tmpValue;
+            _tmpValue = (baseValueGong * (1f + (valueFlowerMultiplicator * numberFlower)));
+            Debug.Log("t " + _tmpValue + " " + valueFlowerMultiplicator + " " + numberFlower);
             GameObject _tmpObject = transform.GetChild(0).gameObject;
 
             if (GetComponent<PlayerCollectible>().listCollectible[GetComponent<PlayerCollectible>().listCollectible.Count - 1] != GetComponent<PlayerCollectible>().listCollectible[0])
             {
-                for (int i = 1; i < GetComponent<PlayerCollectible>().listCollectible.Count - 1; i++)
+                for (int i = 1; i < (GetComponent<PlayerCollectible>().listCollectible.Count - 1); i++)
                 {
                     Destroy(GetComponent<PlayerCollectible>().listCollectible[i].gameObject);
                 }
@@ -106,6 +104,8 @@ public class PlayerBellCollision : MonoBehaviour
             GetComponent<PlayerCollectible>().listCollectible.Insert(0, _tmpObject);
             GetComponent<PlayerCollectible>().lastObject = _tmpObject;
 
+
+            wrathManagmementFunction.wrath -= _tmpValue;
             StartCoroutine(fxGongEmission());
 
         }
@@ -141,6 +141,6 @@ public class PlayerBellCollision : MonoBehaviour
 
     void dragonSound()
     {
-        SoundManagerEvent.emit(SoundManagerType.BellRung);
+
     }
 }

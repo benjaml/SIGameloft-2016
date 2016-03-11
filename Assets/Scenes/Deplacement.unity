@@ -694,15 +694,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 408610, guid: 467fb35c1c386a646a66968e91de755e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 181.58
+      value: 182.5
       objectReference: {fileID: 0}
     - target: {fileID: 408610, guid: 467fb35c1c386a646a66968e91de755e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 50.3
+      value: 47.7
       objectReference: {fileID: 0}
     - target: {fileID: 408610, guid: 467fb35c1c386a646a66968e91de755e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -136.89
+      value: -136.8
       objectReference: {fileID: 0}
     - target: {fileID: 408610, guid: 467fb35c1c386a646a66968e91de755e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1356,7 +1356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11432638, guid: a7047613201c2e64d85a22a8c55211bf, type: 2}
       propertyPath: maxWrath
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 11432638, guid: a7047613201c2e64d85a22a8c55211bf, type: 2}
       propertyPath: wrathAugementationByTick
@@ -3639,20 +3639,20 @@ Prefab:
       value: 
       objectReference: {fileID: 92634876}
     - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
-      propertyPath: accelerationFOV
-      value: 80
+      propertyPath: accelerationHeight
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
-      propertyPath: accelerationHeight
+      propertyPath: accelerationHeightDive
       value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
-      propertyPath: accelerationDistance
-      value: -50
+      propertyPath: interiorHeightDive
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11441540, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
-      propertyPath: interiorHeightDive
-      value: 25
+      propertyPath: interiorHeight
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6f51db870d4064abc726848338c2de, type: 2}
