@@ -5,10 +5,11 @@ using System.Collections.Generic;
 public class BlocSpeedModifier : MonoBehaviour
 {
 
-    public float reduceSpeed = 2.0f;
-    public float accelerationTime;
-    public float lowSpeedTime = 5f;
+    private float reduceSpeed = 1.5f;
+    private float accelerationTime = 2f;
+    private float lowSpeedTime = 1f;
     public float percentOfFlowerLost = 30;
+    private int valueLostBloc = 10;
 
     private float flowersLost;
     private float stockBaseSpeed;
@@ -49,6 +50,7 @@ public class BlocSpeedModifier : MonoBehaviour
             }
 
         }
+        GameManagerWrath.instance.wrath += valueLostBloc;
 
 
     }

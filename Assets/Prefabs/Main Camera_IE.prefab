@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453676}
+  - 33: {fileID: 3346288}
+  - 23: {fileID: 2332994}
+  m_Layer: 0
+  m_Name: SM_SpeedCone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &166556
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,11 +29,12 @@ GameObject:
   - 92: {fileID: 9298796}
   - 124: {fileID: 12406174}
   - 81: {fileID: 8159656}
-  - 114: {fileID: 11408118}
   - 114: {fileID: 11495860}
   - 114: {fileID: 11487476}
   - 114: {fileID: 11406606}
   - 114: {fileID: 11495840}
+  - 114: {fileID: 11486920}
+  - 114: {fileID: 11496054}
   m_Layer: 0
   m_Name: Main Camera_IE
   m_TagString: MainCamera
@@ -24,6 +42,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &453676
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121514}
+  m_LocalRotation: {x: 0.036057644, y: -0.99925005, z: -0.011478572, w: -0.00821361}
+  m_LocalPosition: {x: 0.04299164, y: -1.8086796, z: 46.72763}
+  m_LocalScale: {x: 25, y: 25, z: 15}
+  m_Children: []
+  m_Father: {fileID: 465444}
+  m_RootOrder: 0
 --- !u!4 &465444
 Transform:
   m_ObjectHideFlags: 1
@@ -33,7 +63,8 @@ Transform:
   m_LocalRotation: {x: 0.022855476, y: 0.9785149, z: -0.18175831, w: 0.0946054}
   m_LocalPosition: {x: 59.6, y: 27.26, z: -4.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 453676}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!20 &2076664
@@ -70,6 +101,39 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!23 &2332994
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121514}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 621665ca4a0480d48988268ad60a4afa, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3346288
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121514}
+  m_Mesh: {fileID: 4300002, guid: 9cc5d630ee1d18b4081d850e5eebcb96, type: 3}
 --- !u!81 &8159656
 AudioListener:
   m_ObjectHideFlags: 1
@@ -107,31 +171,40 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
---- !u!114 &11408118
+--- !u!114 &11486920
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166556}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f76806479d916a64aa03f8e3eba7912f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  distance: 5
-  height: 3
-  offset: {x: -2.7, y: 0.7, z: 2.6}
-  interiorHeight: 3
+  distance: 10
+  height: 5
+  smoothTime: 0.3
+  rightnessFactor: 8
+  interiorHeight: 4
+  interiorHeightDive: 10
   interiorDistance: 5
   interiorForward: 15
-  exteriorHeight: 10
-  exteriorDistance: 1
+  exteriorHeight: 15
+  exteriorDistance: 10
   exteriorForward: -5
-  accelerationHeight: -80
-  accelerationDistance: 20
+  accelerationHeight: -10
+  accelerationHeightDive: -75
+  accelerationDistance: -50
   baseFOV: 60
-  accelerationFOV: 40
+  accelerationFOV: 80
+  fresqueDistance: 15
+  fresqueHeight: 20
+  fresqueForwardPosition: 5.5
+  fresqueLookForward: 4
+  smoothTimeCinematic: 0.3
+  isFresco: 0
 --- !u!114 &11487476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +308,19 @@ MonoBehaviour:
   EffectFlags:
     components: []
   sharedInstanceID: fd03dc9a-7cd1-4412-ad99-f620350e9e10
+--- !u!114 &11496054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6513eef982fbb8f4685b222df85758ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManagerWrath: {fileID: 0}
+  windEffect: {fileID: 121514}
 --- !u!124 &12406174
 Behaviour:
   m_ObjectHideFlags: 1

@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 494172}
   - 33: {fileID: 3325426}
   - 23: {fileID: 2364324}
+  - 65: {fileID: 6534748}
   m_Layer: 0
   m_Name: Gong
-  m_TagString: Untagged
+  m_TagString: gong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182978}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 1.0076911e-15}
+  m_LocalRotation: {x: -0.08318238, y: -0.40496564, z: 0.02236564, w: 0.9102655}
+  m_LocalPosition: {x: 158.93, y: 187.92, z: -140.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182978}
   m_Mesh: {fileID: 4300000, guid: 6024f07ed6781a04da7cc8570f2a8cc2, type: 3}
+--- !u!65 &6534748
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.36, y: 13.736843, z: 2.411148}
+  m_Center: {x: -6.1, y: 5.664708, z: 0.000000007924768}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

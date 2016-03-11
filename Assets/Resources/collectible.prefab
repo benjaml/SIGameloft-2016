@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: 1
   activeState: 0
-  emit: 1
+  emit: 0
   loop: 1
   clearParticlesOnEmissionStop: 0
   disableOnDone: 0
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: 1
   activeState: 0
-  emit: 1
+  emit: 0
   loop: 1
   clearParticlesOnEmissionStop: 0
   disableOnDone: 0

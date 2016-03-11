@@ -10,9 +10,12 @@ GameObject:
   - 4: {fileID: 423966}
   - 33: {fileID: 3345304}
   - 23: {fileID: 2357134}
+  - 65: {fileID: 6557188}
+  - 114: {fileID: 11478490}
+  - 114: {fileID: 11473106}
   m_Layer: 0
   m_Name: Lotus
-  m_TagString: Untagged
+  m_TagString: collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,8 +26,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139452}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.043903675, y: 0.002397461, z: 0.15867147, w: 0.98635197}
+  m_LocalPosition: {x: 7.06, y: 155.51, z: -37.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,7 +42,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 10679d7a699eeca4d9f3e98e1c9999c2, type: 2}
+  - {fileID: 2100000, guid: dfcdf04a38e26a94d923116b2f158f15, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -62,6 +65,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139452}
   m_Mesh: {fileID: 4300000, guid: 7b686e369ff2c2e4b8a97a6f3fe2cd38, type: 3}
+--- !u!65 &6557188
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: -0}
+--- !u!114 &11473106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35dd15de5664e9546a98e10c3aab1733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxLotus_1: {fileID: 11440686, guid: 3ac519e74cb25134ebc33cb4d5428557, type: 2}
+  fxLotus_2: {fileID: 11466426, guid: 3ac519e74cb25134ebc33cb4d5428557, type: 2}
+--- !u!114 &11478490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615b675bf8dce49498646fb57188e44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCollectible: {fileID: 429212, guid: 8862a2a77244bd0438f6440e7845d587, type: 2}
+  previousTarget: {fileID: 424668, guid: d386e8ce946052742a84a36712d1c2cc, type: 2}
+  collected: 0
+  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
