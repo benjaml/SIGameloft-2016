@@ -337,8 +337,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.386196, y: 4.735626, z: 7.1976857}
-  m_Center: {x: 0.5518656, y: 1.1886024, z: 0.04244256}
+  m_Size: {x: 7, y: 4.735626, z: 5.5}
+  m_Center: {x: 0.5518656, y: 1.1886024, z: 0.3}
 --- !u!65 &6503376
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -385,8 +385,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.0090084, y: 7.112808, z: 5.2261996}
-  m_Center: {x: 7.9381266, y: 5.0939827, z: -0.6037009}
+  m_Size: {x: 6.0090084, y: 6, z: 5.2261996}
+  m_Center: {x: 7.9381266, y: 5.2, z: -0.6037009}
 --- !u!65 &6560028
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reduceSpeed: 0.6
   accelerationTime: 0
-  lowSpeedTime: 5
+  lowSpeedTime: 2
   percentOfFlowerLost: 30
 --- !u!1001 &100100000
 Prefab:

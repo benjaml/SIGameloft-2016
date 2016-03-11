@@ -668,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reduceSpeed: 0.6
   accelerationTime: 0
-  lowSpeedTime: 5
+  lowSpeedTime: 2
   percentOfFlowerLost: 30
 --- !u!1001 &100100000
 Prefab:

@@ -186,8 +186,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 23.903551, y: 28.173717, z: 27.267914}
-  m_Center: {x: -0.32349873, y: 12.1634655, z: -0.06470108}
+  m_Size: {x: 20, y: 28, z: 20}
+  m_Center: {x: 0, y: 12, z: 0}
 --- !u!114 &11448696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reduceSpeed: 0.6
   accelerationTime: 0
-  lowSpeedTime: 5
+  lowSpeedTime: 2
   percentOfFlowerLost: 30
 --- !u!1001 &100100000
 Prefab:
