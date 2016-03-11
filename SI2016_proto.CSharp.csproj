@@ -59,8 +59,8 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="XInputDotNetPure">
-      <HintPath>Assets\Plugins\x86\XInputDotNetPure.dll</HintPath>
+    <Reference Include="AmplifyColor">
+      <HintPath>Assets\AmplifyColor\Plugins\AmplifyColor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +70,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorBase.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorEffect.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxy.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxy2D.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorTriggerProxyBase.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolume.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolume2D.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\AmplifyColorVolumeBase.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VersionInfo.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VolumeEffects.cs" />
+    <Compile Include="Assets\AmplifyColor\Plugins\Runtime\VolumeEffectsFlags.cs" />
     <Compile Include="Assets\Particle Playground\Examples\Example Project\Scripts\FxCycle.cs" />
     <Compile Include="Assets\Particle Playground\Examples\Example Project\Scripts\SoundFxArray.cs" />
     <Compile Include="Assets\Particle Playground\Examples\Example Project\Scripts\TextFader.cs" />
@@ -158,15 +169,25 @@
     <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundBrushPresetC.cs" />
     <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundPresetCircleShotC.cs" />
     <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundPresetLaserC.cs" />
-    <Compile Include="Assets\Scripts\ActivateMainMenu.cs" />
-    <Compile Include="Assets\Scripts\AnimationManager.cs" />
-    <Compile Include="Assets\Scripts\ButtonManager.cs" />
+    <Compile Include="Assets\Scripts\LanternFly.cs" />
+    <Compile Include="Assets\Scripts\LanternGenerator.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />
     <Compile Include="Assets\SkyController.cs" />
+    <Compile Include="Assets\SkyController_Intro.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AmplifyColor\Readme.txt" />
+    <None Include="Assets\AmplifyColor\Resources\Base.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Blend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\BlendCache.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Common.cginc" />
+    <None Include="Assets\AmplifyColor\Resources\DepthMask.shader" />
+    <None Include="Assets\AmplifyColor\Resources\DepthMaskBlend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Mask.shader" />
+    <None Include="Assets\AmplifyColor\Resources\MaskBlend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\ProcessOnly.shader" />
     <None Include="Assets\Particle Playground\Examples\Example Project\-Readme.txt" />
     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />
     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture.shader" />
@@ -369,6 +390,9 @@
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
     <None Include="Assets\ShaderForge\Readme.txt" />
+    <None Include="Assets\Shaders\SH_Clouds_PS.shader" />
+    <None Include="Assets\Shaders\SH_GameOver.shader" />
+    <None Include="Assets\Shaders\SH_Lampions.shader" />
     <None Include="Assets\Shaders\SH_Water.shader" />
     <None Include="Assets\Shaders\S_Water.shader" />
     <None Include="Assets\Shaders\shd_CloudsAnimation.shader" />
@@ -454,6 +478,7 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Vegetation\Materials\Shader\shd_vegetation.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

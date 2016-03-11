@@ -35,6 +35,13 @@ public class ButtonManager : MonoBehaviour {
 
             CheckInputPositions();
         }
+        else if (!m_ReadyToPlay)
+        {
+            if (Input.GetButton("A_0") || Input.GetButton("B_0"))
+            {
+                Camera.main.GetComponent<ActivateMainMenu>().ActivateMenu();
+            }
+        }
     }
 
     public void CheckInputPositions()
@@ -216,10 +223,9 @@ public class ButtonManager : MonoBehaviour {
                     if (m_Volume != 10f)
                     {
                         m_Volume++;
+                        // Change the text, check if value isn't overiding the max and min values
                         m_TextVolume.text = m_Volume.ToString();
-                        //m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
                     }
-                    // Change the text, check if value isn't overiding the max and min values
                     break;
                 // Decrease Volume
                 case 2:
@@ -227,10 +233,9 @@ public class ButtonManager : MonoBehaviour {
                     if (m_Volume != 0f)
                     {
                         m_Volume--;
+                        // Change the text, check if value isn't overiding the max and min values
                         m_TextVolume.text = m_Volume.ToString();
-                        //m_OptionsMenuButtonsList[m_CurrentIndex].transform.parent.FindChild("TextVolume").GetComponent<Text>().text = m_Volume.ToString();
                     }
-                    // Change the text, check if value isn't overiding the max and min values
                     break;
             }
         }
@@ -316,8 +321,8 @@ public class ButtonManager : MonoBehaviour {
     public void EndOfIntroduction()
     {
         //m_PanelMainMenu.GetComponent<CanvasGroup>().alpha = 1;
-        //m_MainMenuButtonsList[0].Select();
+        m_MainMenuButtonsList[0].Select();
         m_ReadyToPlay = true;
-        //m_CurrentIndex = 0;
+        m_CurrentIndex = 0;
     }
 }

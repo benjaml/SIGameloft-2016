@@ -59,8 +59,8 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="XInputDotNetPure">
-      <HintPath>Assets\Plugins\x86\XInputDotNetPure.dll</HintPath>
+    <Reference Include="AmplifyColor">
+      <HintPath>Assets\AmplifyColor\Plugins\AmplifyColor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +104,16 @@
     <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AmplifyColor\Readme.txt" />
+    <None Include="Assets\AmplifyColor\Resources\Base.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Blend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\BlendCache.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Common.cginc" />
+    <None Include="Assets\AmplifyColor\Resources\DepthMask.shader" />
+    <None Include="Assets\AmplifyColor\Resources\DepthMaskBlend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\Mask.shader" />
+    <None Include="Assets\AmplifyColor\Resources\MaskBlend.shader" />
+    <None Include="Assets\AmplifyColor\Resources\ProcessOnly.shader" />
     <None Include="Assets\Particle Playground\Examples\Example Project\-Readme.txt" />
     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />
     <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture.shader" />
@@ -306,6 +316,9 @@
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
     <None Include="Assets\ShaderForge\Readme.txt" />
+    <None Include="Assets\Shaders\SH_Clouds_PS.shader" />
+    <None Include="Assets\Shaders\SH_GameOver.shader" />
+    <None Include="Assets\Shaders\SH_Lampions.shader" />
     <None Include="Assets\Shaders\SH_Water.shader" />
     <None Include="Assets\Shaders\S_Water.shader" />
     <None Include="Assets\Shaders\shd_CloudsAnimation.shader" />
@@ -391,6 +404,7 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Vegetation\Materials\Shader\shd_vegetation.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
