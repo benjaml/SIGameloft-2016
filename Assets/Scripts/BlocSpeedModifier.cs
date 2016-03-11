@@ -23,6 +23,7 @@ public class BlocSpeedModifier : MonoBehaviour {
     void OnTriggerEnter (Collider col)
     {
         if (col.tag == "Player")
+
         {
             SoundManagerEvent.emit(SoundManagerType.Impact);
             SoundManagerEvent.emit(SoundManagerType.CharacterHurt);

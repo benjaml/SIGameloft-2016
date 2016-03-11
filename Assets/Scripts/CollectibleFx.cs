@@ -14,11 +14,6 @@ public class CollectibleFx : MonoBehaviour {
      
     }
 
-    void Update ()
-    {
-        Debug.Log(fxLotus_1.emit);
-    }
-
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
