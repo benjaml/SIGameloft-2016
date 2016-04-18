@@ -183,7 +183,7 @@ Material:
       data:
         first:
           name: _TimeSlider
-        second: 335.36465
+        second: 50
       data:
         first:
           name: _Saturation
@@ -195,7 +195,7 @@ Material:
       data:
         first:
           name: _StarsOpacity
-        second: 0
+        second: 0.5
     m_Colors:
       data:
         first:

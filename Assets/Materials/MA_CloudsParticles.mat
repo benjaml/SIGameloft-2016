@@ -80,13 +80,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Diffuse
-        second:
-          m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _CloudTexture
         second:
           m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
@@ -97,6 +90,13 @@ Material:
           name: _ShadowMask
         second:
           m_Texture: {fileID: 2800000, guid: 4bd329ec9cc58354db18fd7d81f3e18f, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Diffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: 8012e8e952b19034590f94caad94ace5, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -150,15 +150,15 @@ Material:
         second: 0
       data:
         first:
-          name: _InvFade
-        second: 1
-      data:
-        first:
           name: _Alpha
         second: 0.8
       data:
         first:
           name: _LightAffected
+        second: 1
+      data:
+        first:
+          name: _InvFade
         second: 1
       data:
         first:
@@ -175,13 +175,13 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _TintColor
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-      data:
-        first:
           name: _ShadowColor
-        second: {r: 0.7186971, g: 0.46303114, b: 0.4745117, a: 1}
+        second: {r: 0.08627451, g: 0.14509805, b: 0.24705884, a: 1}
       data:
         first:
           name: _SunColor
-        second: {r: 1, g: 0.7545651, b: 0.5255843, a: 1}
+        second: {r: 0.43529415, g: 0.7372549, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
