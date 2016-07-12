@@ -169,16 +169,16 @@ Material:
         second: 0.4
       data:
         first:
-          name: _CloudMouvementSpeed
-        second: 0.05
-      data:
-        first:
           name: _LightAffected
         second: 1
       data:
         first:
+          name: _CloudMouvementSpeed
+        second: 0.05
+      data:
+        first:
           name: _CloudsMouvSlider
-        second: 12.401699
+        second: 4.1043906
       data:
         first:
           name: _LightTransitionSlider
@@ -230,12 +230,12 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _Diffuse
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
           name: _ShadowColor
         second: {r: 0.32156864, g: 0.58431375, b: 0.86274517, a: 1}
+      data:
+        first:
+          name: _Diffuse
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _SunColor

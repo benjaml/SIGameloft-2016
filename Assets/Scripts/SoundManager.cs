@@ -233,7 +233,6 @@ public class SoundManager : MonoBehaviour
                         m_VoiceFlowerIndex = 1;
                     }
                 }
-                Debug.Log(m_VoiceFlowerIndex);
 
                 if (!Source[4].isPlaying)
                 {

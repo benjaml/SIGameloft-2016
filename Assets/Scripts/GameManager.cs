@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void lose()
     {
-        loadLevel(1);
+		//loadLevel(1);
     }
 
     IEnumerator EndPanel ()
