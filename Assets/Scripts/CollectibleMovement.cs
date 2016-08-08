@@ -16,7 +16,7 @@ public class CollectibleMovement : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform.parent.gameObject;
+		player = PlayerManager.instance.getPlayer ();
         targetCollectible = player.GetComponent<PlayerCollectible>().targetCollectible.transform;
 
     }

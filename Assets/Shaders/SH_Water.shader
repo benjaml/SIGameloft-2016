@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 // Shader created with Shader Forge v1.26 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
@@ -82,7 +84,7 @@ Shader "Custom/shd_WaterOp2" {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
-                o.tangentDir = normalize( mul( _Object2World, float4( v.tangent.xyz, 0.0 ) ).xyz );
+                o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 float node_3471 = 0.0;
                 float4 node_196 = _Time + _TimeEditor;
@@ -96,7 +98,7 @@ Shader "Custom/shd_WaterOp2" {
                 float4 _OffsetTex_var = tex2Dlod(_OffsetTex,float4(TRANSFORM_TEX(node_7014, _OffsetTex),0.0,0));
                 float3 node_3529 = ((node_902.b*lerp(0.05,0.2,_Madness))+(_OffsetTex_var.rgb*lerp(_GlobalOffset,_GlobalOffsetMad,_Madness)));
                 v.vertex.xyz += lerp(float3(node_3471,node_3471,node_3471),((node_3529*1.0+-0.5)*v.normal),_Madness);
-                o.posWorld = mul(_Object2World, v.vertex);
+                o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
@@ -255,7 +257,7 @@ Shader "Custom/shd_WaterOp2" {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
-                o.tangentDir = normalize( mul( _Object2World, float4( v.tangent.xyz, 0.0 ) ).xyz );
+                o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 float node_3471 = 0.0;
                 float4 node_196 = _Time + _TimeEditor;
@@ -269,7 +271,7 @@ Shader "Custom/shd_WaterOp2" {
                 float4 _OffsetTex_var = tex2Dlod(_OffsetTex,float4(TRANSFORM_TEX(node_7014, _OffsetTex),0.0,0));
                 float3 node_3529 = ((node_902.b*lerp(0.05,0.2,_Madness))+(_OffsetTex_var.rgb*lerp(_GlobalOffset,_GlobalOffsetMad,_Madness)));
                 v.vertex.xyz += lerp(float3(node_3471,node_3471,node_3471),((node_3529*1.0+-0.5)*v.normal),_Madness);
-                o.posWorld = mul(_Object2World, v.vertex);
+                o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);

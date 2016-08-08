@@ -36,6 +36,8 @@ TagManager:
   - Tube
   - Vertebre
   - loading
+  - Cosmetic
+  - Shadow
   layers:
   - Default
   - TransparentFX
@@ -49,7 +51,7 @@ TagManager:
   - Dragon
   - Obstacle
   - PlayerDetector
-  - 
+  - Shadow
   - 
   - 
   - 

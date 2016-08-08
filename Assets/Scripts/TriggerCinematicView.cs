@@ -12,7 +12,6 @@ public class TriggerCinematicView : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.name);
         if (col.tag == "Player")
         {
             if (isFresco)

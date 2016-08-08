@@ -9,9 +9,11 @@ public class MenuManager : MonoBehaviour {
     void Start()
     {
         opened = false;
-        menuInGame.alpha = 0;
-        menuInGame.interactable = false;
-
+		if (menuInGame != null) 
+		{
+			menuInGame.alpha = 0;
+			menuInGame.interactable = false;
+		}
     }
 
 	void Update () {
